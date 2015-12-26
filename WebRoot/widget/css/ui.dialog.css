@@ -1,0 +1,38 @@
+﻿.dialog{position:fixed;_position:absolute;z-index:10000;visibility:visible;}
+.dialog  .dialog-shd{display:none}
+.dialog  .dialog-content{position:relative;z-index:200;background:#fff;}
+.dialog  .dialog-close{position:absolute;background:url(../theme/dialog.png) -9px -159px no-repeat;width:20px;height:20px;top:6px;right:8px;z-index:1;}
+.dialog  .hd{background-color:#4c9430;height:32px;line-height:32px;padding-left:10px;font-size:12px;color:#fff}
+.dialog  .hd h3{font-weight:600;font-size:14px;}
+.dialog  .bd{position:relative;padding:20px 15px;font-size:12px;overflow:visible;margin:0 20px;color:#394754}
+.dialog  .ft{text-align:center;padding:10px 0 20px;padding-top:0;}
+.dialog  .bn-flat{margin:0 .5em;}
+.dialog  .delete-info{line-height:25px;font-size:14px;color:#999;text-align:center }
+.dialog  .tips-info{line-height:25px;font-size:14px;text-align:center}
+.dialog  .btn-confim,.dialog .btn-cancel,.dialog .btn-tips{padding:6px 15px 6px;color:#333030;cursor:pointer;line-height:14px;font-size:14px;outline:none}
+.dialog  .btn-confim{background:#fff;border:solid 1px #cccccc;margin-right:10px;color:#4a9431;}
+.dialog  .btn-cancel,.dialog  .btn-tips{background-color:#fff;border:solid 1px #a0a3a5}
+
+.mask{display:none;position:fixed;left:0;top:0;width:100%;height:100%;z-index:1500;background-color:#fff;opacity: .5;filter:alpha(opacity=50);}
+
+.updialog{display:none;position:fixed;z-index:100001;visibility:visible;background-color:#ffffff;box-shadow: 0 0 80px 0 rgba(0,0,0,.4);}
+.updialog .hd{background-color: #4c9430;
+height: 32px;
+line-height: 32px;
+padding-left: 10px;
+font-size: 12px;
+color: #fff;
+position:relative;
+text-align:center;
+color:#fff;
+}
+.updialog .close{position:absolute;background:url(../theme/dialog.png) -9px -159px no-repeat;width:20px;height:20px;top:6px;right:8px;z-index:1;}
+.updialog .hd h3{font-size:14px;}
+.updialog .bd{border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
+.updialog .d-content{padding:15px 25px 25px;font-size:12px;min-height: 250px}
+.updialog .d-content .title{padding:0 0 15px;;}
+.updialog .d-content .title h3{font-size:16px;text-align:center;}
+.updialog .d-content .btn-box{text-align:center}
+.updialog .d-confirm{width:80px;height:36px;border:solid 1px #85c900;background-color:#85c900;}
+.updialog .d-address{width:170px;height:36px;border:solid 1px #85c900;background-color:#85c900;}
+.updialog .d-cancel{width:80px;height:36px;border:solid 1px #e3e3e3;background-color:#ffffff;color:#333;}

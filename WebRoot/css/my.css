@@ -1,0 +1,62 @@
+.login{min-height:400px;}
+.grid-16-10{width:980px;margin:auto;}
+.login-box{width: 350px;
+background:#FFFEFD;float: right;box-shadow:1px 2px 2px #51725C;;margin-top: 20px;}
+.login-wrap{ background:#89C975 ;width:100%;}
+.module-static .bd{padding: 13px;height:341px;}
+.module-static .bd .title{font-size: 14px;font-weight: bold;color: #BDBDBD;}
+.field label{float:left;width:95px;height:35px;border:solid 1px #EAEAEA;border-right:none;background-color:#f3f3f3;position:relative; font-size: 14px; line-height: 35px;text-align: center;}
+.field{margin-bottom:10px;}
+.field #J_StandardCode_m{ margin-top: 2px;}
+.field span{ line-height: 33px;height: 36px;}
+.field .login-text{height:35px;line-height:24px;padding:5px 4px 6px;border:solid 1px #EAEAEA;;outline:none;width:143px; color:#757575}
+.field label i{font-size: 16px;color: #B4B4B4;position: absolute;top: 68%;left: 13%;margin-left: -8px;margin-top: -12px;}
+.msg{visibility:hidden;min-height:30px;}
+
+.field .checkcode{width:82px;}
+.submit .btn-normal{background-color:#FE731B;padding: 18px 0px;;width: 100%;font-size: 16px;color: #FFF;border: medium none;outline: medium none;line-height: 2px;font-weight: bold;transition:width 2s;
+-moz-transition:background-color 1s; /* Firefox 4 */
+-webkit-transition:background-color 1s; /* Safari and Chrome */
+-o-transition:background-color 1s; /* Opera */}
+.submit .btn-normal:hover{ background-color:#FEA31B; }
+.pan-box .ft{padding-top:10px;}
+.cor-red{color:#FE731B;font-size:14px;}
+
+.top-text{font-size:26px;font-family:"宋体";font-weight:600;margin:35px 0 0 30px; color: #6AA277}
+.login-bg{padding-top:69px;}
+.login-bg #img-ad  .cloud-02{ position:absolute;left: 158px;top: 138px;animation-duration: 10s;animation-timing-function: linear;animation-fill-mode: both; animation-name: cloud01; animation-iteration-count: infinite;animation-direction: alternate;}
+.login-bg #img-ad  .cloud-03{ position:absolute;left: 300px;top: 338px;animation-duration: 10s;animation-timing-function: linear;animation-fill-mode: both; animation-name: cloud02; animation-iteration-count: infinite;animation-direction: alternate;}
+.login-bg #img-ad  .cloud-01{ position:absolute;left: 89px;top: 157px;animation-duration: 10s;animation-timing-function: linear;animation-fill-mode: both; animation-name: cloud03; animation-iteration-count: infinite;animation-direction: alternate;}
+@keyframes cloud01 {
+  0% {
+    left:118px;
+
+  }
+  100% {
+    left:300px;
+
+  }
+}
+@keyframes cloud02 {
+ 0% {
+    left: 550px;
+    top: 30px;
+}
+100% {
+    left: 200px;
+    bottom: 20px;
+}
+}
+@keyframes cloud03 {
+  0% {
+    left:350px;
+
+  }
+  100% {
+    left:300px;
+
+  }
+}
+.login-msg .error{color: #eb3a3a;}
+
+.login-msg.show{visibility: visible;}

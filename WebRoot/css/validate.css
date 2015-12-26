@@ -1,0 +1,87 @@
+.form_control {
+  	width: 119px;
+    position: relative;   
+    padding: 5px 5px;
+    border: 1px solid #ECECEC;
+    margin-left: 10px;
+  }
+  
+
+.form_control input[type="text"],
+.form_control input[type="password"] {
+    border: none;
+    width: 119px;
+  }
+
+.form_control.active {
+    border: 1px #89C975 solid;
+    background-color: #fff;
+  }
+
+  .form_control.error {
+    border: 1px solid #F8C944;
+
+  }
+
+  .form_control.error input[type="text"],
+  .form_control.error input[type="password"] {
+    color: #f00;
+  }
+
+  .form_control input[type="text"]:focus,
+  .form_control input[type="password"]:focus {
+    border: none;
+    outline: none;
+  }
+
+  .form_control .valid_message {
+    color: #4c9430;
+    position: absolute;
+    left: 153px;
+    top: 5px;
+    font-size: 14px;
+   width: 125px;
+  }
+  
+  .form_control .unit_message {
+    color: #9F9F9F;
+    position: absolute;
+    left:70px;
+    top: 5px;
+    font-size: 14px;
+    width: 60px;
+  }
+  
+  .form_control .priceunit_message {
+    color: #9F9F9F;
+    position: absolute;
+    left:70px;
+    top: 5px;
+    font-size: 14px;
+    width: 60px;
+  }
+
+  .form_control.error .valid_message {
+    color: #FF0000;
+  }
+  
+  .J_SelCommDone .valid_message{
+  	color: #4c9430;
+    position: absolute;
+    left: 185px;
+    top: 5px;
+    width: 200px;
+  }
+
+  .form_control.success .valid_message {
+    background: url(/images/icon/sucess.png) no-repeat;
+    left: auto;
+    right: 5px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .none {
+    display: none;
+  }

@@ -1,0 +1,13 @@
+PHF_VER			101		long	-	-
+PHF_REQSYS      102		string	-	-
+PHF_REQNODE		103		string	-	-
+PHF_TXCODE      104		string	-	-
+PHF_REQNO       105		long	-	-
+PHF_ENCODE      106		string	-	-
+PHF_DYNAUTH     107		string	-	-
+PHF_MAC			108		long	-	-
+PBF_DATA		109		carray	-	-
+PHF_RSPSYS		110		string	-	-
+PHF_RSPNODE		111		string	-	-
+PHF_RSPNO		112		long	-	-
+PHF_RSPSTAT		113		long	-	-

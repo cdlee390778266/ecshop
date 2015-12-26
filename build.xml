@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="eshop" default="all" basedir=".">
+	<property name="projectname" value="eshop" />
+	<property name="build" value="build" />
+	<property name="dist" value="dist" />
+	<property name="src" value="src" />
+	<property name="webroot" value="WebRoot/" />
+	<property name="buildclasses" value="${build}/classes" />
+	<property name="buildlib" value="${build}/lib" />
+	<property name="includelib" value="WebRoot/WEB-INF/lib" />
+	<property name="excludelib" value="lib" />
+	<property name="doc" value="doc" />
+	<property name="productmode" value="false" />
+	<property name="deploypath" value="/home/webinstall/usrwebdm/" />
+	<property name="prodconf" value="product" />
+	<property name="devconf" value="dev" />
+
+	<target name="clean">
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+
+	<target name="config">
+		<condition property="runmode">
+			<equals arg1="${productmode}" arg2="true" />
+		</condition>
+		<antcall target="isTrue">
+		</antcall>
+		<antcall target="isFalse">
+		</antcall>
+	</target>
+
+	<target name="isTrue" if="runmode">
+		<echo>开始复制生产配置文件</echo>
+		<copy todir="${buildclasses}/">
+			<fileset dir="${prodconf}/">
+				<include name="conf/config.properties" />
+				<include name="logback.xml" />
+			</fileset>
+		</copy>
+	</target>
+	
+	
+	<target name="isFalse" unless="runmode">
+		<echo>开始复制开发配置文件</echo>
+		<copy todir="${buildclasses}/">
+			<fileset dir="${devconf}/">
+				<include name="conf/config.properties" />
+				<include name="logback.xml" />
+			</fileset>
+		</copy>
+	</target>
+
+	<path id="compilelib">
+		<pathelement location="${buildclasses}" />
+		<fileset dir="${includelib}">
+			<include name="*.jar" />
+			<include name="*.zip" />
+		</fileset>
+		<fileset dir="${excludelib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<target name="all" depends="war">
+	</target>
+
+	<target name="compile" depends="clean">
+		<mkdir dir="${buildclasses}" />
+		<javac srcdir="src" destdir="${buildclasses}" includeAntRuntime="false" encoding="UTF-8">
+			<classpath refid="compilelib" />
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile, config">	
+		<copy todir="${buildclasses}/">
+			<fileset dir="${src}/">
+					<include name="conf/txconfig.properties" />
+					<include name="conf/*.xml" />
+			</fileset>
+		</copy>
+		<mkdir dir="${buildlib}" />
+		<jar destfile="${buildlib}/cnacex.${projectname}.jar" basedir="${buildclasses}">
+		</jar>
+	</target>
+
+	<target name="war" depends="jar">
+		<war destfile="${dist}/${projectname}.war" webxml="WebRoot/WEB-INF/web.xml">
+			<fileset dir="${webroot}/">
+				<include name="css/**" />
+				<include name="error/**" />
+				<include name="fonts/**" />
+				<include name="images/**" />
+				<include name="js/**" />
+				<include name="jsp/**" />
+				<include name="widget/**" />
+				<include name="WEB-INF/weblogic.xml" />
+				<include name="WEB-INF/spring-servlet.xml" />
+			</fileset>
+			<lib dir="${buildlib}" />
+			<lib dir="${includelib}" />
+		</war>
+		<delete dir="build" />
+	</target>
+
+	<target name="deploy" depends="war">
+		<copy file="${dist}/${projectname}.war" todir="${deploypath}/" />
+	</target>
+
+	<target name="doc">
+		<delete dir="${doc}" />
+		<mkdir dir="${doc}" />
+		<javadoc destdir="${doc}" encoding="UTF-8" docencoding="UTF-8" charset="UTF-8" bottom="Copyright &amp;copy; 2015  中国农业交易平台  上海乾隆高科技有限公司. All Rights Reserved." use="国农控股" author="kereny" version="1.0">
+			<packageset dir="${src}">
+				<include name="**" />
+			</packageset>
+		</javadoc>
+
+		<zip destfile="${dist}/${projectname}_help.zip">
+			<zipfileset dir="${doc}" />
+		</zip>
+		<delete dir="${doc}" />
+	</target>
+</project>
