@@ -528,8 +528,11 @@ $(function() {
 								for ( var i = 0; i < node.length; i++) {
 									
 									if(node[i].consType == "81"){									
-										$('#unitPrice').attr('data-limit', node[i].consVal);										
-										continue;								
+										$('#unitPrice').attr('data-limit', node[i].consVal);																							
+									}
+									
+									if(node[i].valFmt == "nodisplay"){
+										continue;
 									}
 									
 																	
