@@ -8,17 +8,23 @@ img{ border:none;}
 /*部分开始-----------------------------------------------------*/
 /*banner*/
 .none{ display:none;}
-.banner{ min-width:980px;height:456px; background:#FFFFFD; position:relative; margin:0 auto; overflow:hidden; z-index:1;}
-.banner_show{ width:100%; text-align:center; height:300px; overflow:hidden; position:relative;}
-.bannger_inbox{ position:absolute; width:100%; left:50%; top:0;height:300px;}
+.banner{ width:1440px;height:400px; background:#FFFFFD; position:relative; margin:0 auto; overflow:hidden; z-index:1;}
+.banner_show{   
+	width: 1541px;
+    text-align: center;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+.bannger_inbox{ position:absolute; width:100%; left:50%; top:4px;height:400px;}
 
 
 /*翻页*/
 .banner_pre_next{position:relative;z-index:105;top:50px;width:980px;left:50%; height:37px;margin-left:-500px;*left:240px;}
 .banner_pre_next .banner_btn_left:hover,.banner_pre_next .banner_btn_right:hover{ opacity: 0.5}
 .banner_pre_next a{ width:37px; height:37px; background:url(/images/banner/btn.png) no-repeat; text-indent:-999em;}
-.banner_pre_next .banner_btn_left{position:absolute;left:-67px;top:87px; background-position:0px 0px;filter:alpha(opacity=20); opacity:0.2}
-.banner_pre_next .banner_btn_right{position:absolute;right:-67px;top:87px; background-position:-37px 0px;filter:alpha(opacity=20); opacity:0.2}
+.banner_pre_next .banner_btn_left{position:absolute;left:-84px;top:129px; background-position:0px 0px;filter:alpha(opacity=20); opacity:0.2}
+.banner_pre_next .banner_btn_right{position:absolute;right:-9px;top:129px; background-position:-37px 0px;filter:alpha(opacity=20); opacity:0.2}
 
 
 /*圆点*/
@@ -27,7 +33,7 @@ img{ border:none;}
 .yq_banner_list a.hover{background:url(/images/banner/abg.png) no-repeat left; }
 
 /*文字*/
-.banner_mag{width:345px;height:520px;position:absolute; overflow:hidden;left:50%;top:0px;margin-left:-500px;text-align:left;z-index:99;font-family:"Microsoft YaHei";}
+.banner_mag{width:345px;height:520px;position:absolute; overflow:hidden;top:0px;margin-left:-500px;text-align:left;z-index:99;font-family:"Microsoft YaHei";}
 .banner_magbox{height:185px;background:url(/images/banner/ico3.png) repeat;text-align:left;padding:80px 30px 35px;}
 .banner_magbox .focus-img{ text-align:right; margin-bottom:40px;}
 .banner_magbox h4{font-size:18px; font-weight:normal;color:#fff; margin-bottom:10px; }

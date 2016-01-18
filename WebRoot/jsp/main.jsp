@@ -81,7 +81,7 @@
             <a href="javascript:;" class="banner_btn_right">下一个</a>
         </div>
     </div>
-    <!--蓝色文字部分-->
+    <!--蓝色文字部分
       <div class="focus-news">
             <div class="index-news-title">
                           <h2></h2>
@@ -110,6 +110,7 @@
                             </ul>
                     </div>
     </div>
+    -->
   </div>
 
 		<!-- wrapper -->
