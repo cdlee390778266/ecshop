@@ -401,16 +401,18 @@ $(function() {
 				event.preventDefault();
 				return;
 			}
-			
-			if(checkLastPD() == false){
-				event.preventDefault();
-				return;
-			}
+			if(listedType == 'M'){
+				if(checkLastPD() == false){
+					event.preventDefault();
+					return;
+				}
 
-			if(checkDeliDate() == false){
-				event.preventDefault();
-				return;
+				if(checkDeliDate() == false){
+					event.preventDefault();
+					return;
+				}
 			}
+			
 			
 			var $storage = $('#storage');
 			var $context = $storage.parent().parent();

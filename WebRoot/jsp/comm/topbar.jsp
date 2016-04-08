@@ -66,7 +66,7 @@
 							<a href="javascript:;" class="user-act n">买卖菜单<span class="fa fa-angle-down"></span></a><i>|</i>
 							<div class="dbox">
 								<dl>
-									<dd><a href="/sell/apply.htm?active=enter">卖方挂牌</a></dd>
+									<dd><a href="/sell/apply.htm?active=enter&type=0">卖方挂牌</a></dd>
 								</dl>
 							</div>
 						</li>

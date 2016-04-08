@@ -124,13 +124,14 @@
 															<td class="ctr">交收类型：</td>
 															<td>${rspBody.listedTypeName}</td>
 														</tr>
-														<tr>
-															<td class="ctr">最后付款日：</td>
-															<td>合同签下后${fn:substringAfter(rspBody.lastPD,"cycle:")}天</td>
-															<td class="ctr">最后交收日：</td>
-															<td>全款支付后${fn:substringAfter(rspBody.deliDate,"cycle:")}天</td>
-														</tr>
-														
+														<c:if test="${rspBody.listedType == 'M'}">
+															<tr>
+																<td class="ctr">最后付款日：</td>
+																<td>合同签下后${fn:substringAfter(rspBody.lastPD,"cycle:")}天</td>
+																<td class="ctr">最后交收日：</td>
+																<td>全款支付后${fn:substringAfter(rspBody.deliDate,"cycle:")}天</td>
+															</tr>
+														</c:if>
 														<tr>
 															<td class="ctr">挂牌日期：</td>
 															<td>${rspBody.dol}</td>

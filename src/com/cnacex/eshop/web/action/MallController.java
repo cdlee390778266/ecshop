@@ -1178,6 +1178,10 @@ public class MallController extends TradeController{
 		}else {
 			model.addAttribute("enableBuy", "true");
 		}
+		
+		if(rspBody.getListedType().equals("W")){
+			rspBody.setListedTypeName("注册仓单");
+		}
 		model.addAttribute("active", "prepare");
 		
 		model.addAttribute("nodepath", nodes);

@@ -22,6 +22,10 @@
     <link type="text/css" rel="stylesheet" href="/css/validate.css" >
     <link type="text/css" rel="stylesheet" href="/css/localcity.css" >
     <link type="text/css" rel="stylesheet" href="/css/combo.select.css" >
+    
+    <script type="text/javascript">
+    	var listedType = '${rspBody.listedType}';
+    </script>
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/widget/js/ui.dialog.js"></script>
     <script type="text/javascript" src="/widget/js/ui.datepicker.js"></script>
@@ -107,9 +111,15 @@
 										</tr>
 										<tr>
 											<td class="ctr">挂牌方式：</td>
-											<td colspan="3">																																				
-												  <span class="ml20"><input type="radio" name="DlistedType" value="M" checked disabled="disabled" />保证金</span>	
-												  <input type="hidden" name="listedType" value="M" />		
+											<td colspan="3">
+												<c:if test="${rspBody.listedType=='M'}">
+													<span class="ml20"><input type="radio" name="DlistedType" value="M" checked disabled="disabled" />保证金</span>	
+												  	<input type="hidden" name="listedType" value="M" />		
+												</c:if>
+												<c:if test="${rspBody.listedType=='W'}">
+													<span class="ml20"><input type="radio" name="DlistedType" value="W" checked disabled="disabled" />注册仓单</span>	
+												  	<input type="hidden" name="listedType" value="W" />		
+												</c:if>																																				 
 											</td>
 										</tr>
 										
@@ -381,6 +391,7 @@
 											
 											</td>
 										</tr>
+										<c:if test="${rspBody.listedType=='M'}">
                                         <tr>
                                         	
 											<td class="ctr">起订数量<span class="forceinput">(必填)</span>：</td>
@@ -399,6 +410,7 @@
 											</td>
 									
 										</tr>
+										</c:if>
                                         <tr>
 											<td class="ctr">挂牌有效期<span class="forceinput">(必填)</span>：</td>
 											<td>
@@ -425,6 +437,7 @@
 											</td>
 											
 										</tr>
+										<c:if test="${rspBody.listedType=='M'}">
 										<tr>
 									 		<td class="ctr">最后付款日<span class="forceinput">(必填)</span>：</td>
 											<td>合同签定后 <input type="text" name="lastPD" id="lastPD" maxlength="4" value="${fn:substringAfter(rspBody.lastPD,'cycle:')}" style="width:40px; height:24px; padding: 5px 5px; border: 1px solid #ECECEC;"  autocomplete="off" />天
@@ -436,7 +449,7 @@
 												<span class="valid_message"></span>
 											</td>
 										</tr>
-												
+										</c:if>		
 									 	                                                             
 			                           <tr>
 											<td class="ctr">交收仓库<span class="forceinput">(必填)</span>：</td>

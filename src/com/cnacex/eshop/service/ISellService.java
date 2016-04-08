@@ -2,18 +2,25 @@ package com.cnacex.eshop.service;
 
 
 import com.cnacex.eshop.msg.CommRspMsg;
+import com.cnacex.eshop.msg.body.trade.sell.ApplyCdListedReq;
+import com.cnacex.eshop.msg.body.trade.sell.ApplyCdReq;
 import com.cnacex.eshop.msg.body.trade.sell.ApplyReq;
 import com.cnacex.eshop.msg.body.trade.sell.AuditReq;
 import com.cnacex.eshop.msg.body.trade.sell.BondPayReq;
 import com.cnacex.eshop.msg.body.trade.sell.CancelReq;
 import com.cnacex.eshop.msg.body.trade.sell.SellBillReq;
 import com.cnacex.eshop.msg.body.trade.sell.StoreReq;
+import com.cnacex.eshop.msg.body.trade.sell.WRDetailReq;
+import com.cnacex.eshop.msg.xml.trade.sell.ApplyCdListedRspMsg;
+import com.cnacex.eshop.msg.xml.trade.sell.ApplyCdRspMsg;
 import com.cnacex.eshop.msg.xml.trade.sell.ApplyRspMsg;
+import com.cnacex.eshop.msg.xml.trade.sell.AuditCdRspMsg;
 import com.cnacex.eshop.msg.xml.trade.sell.AuditRspMsg;
 import com.cnacex.eshop.msg.xml.trade.sell.BondPayRspMsg;
 import com.cnacex.eshop.msg.xml.trade.sell.SellBillRspMsg;
 import com.cnacex.eshop.msg.xml.trade.sell.SellOrderDetailRspMsg;
 import com.cnacex.eshop.msg.xml.trade.sell.StoreRspMsg;
+import com.cnacex.eshop.msg.xml.trade.sell.WRDetailRspMsg;
 /**
  * @author kereny
  * 
@@ -137,5 +144,77 @@ public interface ISellService {
 	     *
 		 */
 	public abstract StoreRspMsg findStoreList( StoreReq storeReq);
+	
+	
+	/**
+	 * 注册仓单查询
+	 * @author 文闻
+	 * @param applyCdReq
+	 * @date 2016-3-25
+	 * @return ApplyCdRspMsg
+	 */
+	public abstract ApplyCdRspMsg findApplyCdReq( ApplyCdReq applyCdReq);
+	
+	/**
+	 * 注册仓单申请挂牌
+	 * @author 文闻
+	 * @param apply
+	 * @date 2016-3-30
+	 * @return ApplyCdListedRspMsg
+	 */
+	public abstract ApplyCdListedRspMsg applyCdListedReq( ApplyCdListedReq apply);
+	
+	/**
+	 * 仓单详情查询
+	 * @author 文闻
+	 * @param apply
+	 * @date 2016-3-30
+	 * @return WRDetailRspMsg
+	 */
+	public abstract WRDetailRspMsg getWRDetail( WRDetailReq apply);
+	
+	/**
+     *  注册仓单审核处理
+	 * @author 文闻
+	 * @date 2015-4-1
+	 * @param auditReq
+	 * @return
+	 * AuditCdRspMsg
+     *
+	 */
+	public abstract AuditCdRspMsg auditCdSell(AuditReq auditReq);
+	
+	/**
+     *  待审核仓单撤销以及删除
+	 * @author 文闻
+	 * @date 2016-4-7 
+	 * @param applyReq
+	 * @return
+	 * CommRspMsg
+     *
+	 */
+	public abstract CommRspMsg applyCancelCd(CancelReq cancelReq);
+	
+	/**
+     *  仓单下架处理
+	 * @author 文闻
+	 * @date 2016-4-8
+	 * @param applyReq
+	 * @return
+	 * ApplyRspMsg
+     *
+	 */
+	public abstract ApplyRspMsg cancelCdSell(CancelReq cancelReq);
+	
+	/**
+     *  仓单挂牌修改处理
+	 * @author 文闻
+	 * @date 2016-4-8 
+	 * @param applyReq
+	 * @return
+	 * ApplyCdListedRspMsg
+     *
+	 */
+	public abstract ApplyCdListedRspMsg editCdSell(ApplyReq applyReq);
 
 }

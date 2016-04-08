@@ -20,6 +20,8 @@ public class ApplyRsp {
 	
 	private String statusDesc;
 	
+	private String listedType;
+	
 	@XStreamImplicit
 	private List<CostPay> costPays;
 	
@@ -56,7 +58,11 @@ public class ApplyRsp {
 		this.statusDesc = statusDesc;
 	}
 
+	public String getListedType() {
+		return listedType;
+	}
 
-
-
+	public void setListedType(String listedType) {
+		this.listedType = listedType;
+	}
 }
