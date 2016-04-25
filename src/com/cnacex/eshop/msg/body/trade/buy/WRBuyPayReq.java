@@ -18,7 +18,7 @@ public class WRBuyPayReq {
 	/**
 	 * 资金密码(支付密码)
 	 */
-	@XStreamAlias("fundPwd")
+	@XStreamAlias("fundpwd")
 	private String fundPwd;
 	
 	/**
