@@ -368,7 +368,6 @@ public class LoginController extends TradeController{
 		
 		if(loginRsp.isSellEnable()&&loginRsp.isBuyEnable()){
 			MenuNode menu = new MenuNode();
-			
 
 			menu.setHasSubMenu(true);
 			menu.setMenuName("交收管理");
@@ -381,11 +380,18 @@ public class LoginController extends TradeController{
 			submenu.setMenuName("销售交收");
 			submenu.setMenuURL("/delivery/selllist.htm");
 			subMenus.add(submenu);
-			submenu = new MenuNode();
 			
+			submenu = new MenuNode();
 			submenu.setHasSubMenu(false);
 			submenu.setMenuName("采购交收");
 			submenu.setMenuURL("/delivery/buylist.htm");
+			subMenus.add(submenu);
+			menu.setSubMenus(subMenus);
+			
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("发票确认");
+			submenu.setMenuURL("/delivery/invlist.htm");
 			subMenus.add(submenu);
 			menu.setSubMenus(subMenus);
 			

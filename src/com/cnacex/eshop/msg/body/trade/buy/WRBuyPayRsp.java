@@ -16,7 +16,7 @@ public class WRBuyPayRsp {
 	/**
 	 * 摘牌编号
 	 */
-	@XStreamAlias("dsNo")
+	@XStreamAlias("dsno")
 	private String dsNo;
 	
 	/**

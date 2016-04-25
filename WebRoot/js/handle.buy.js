@@ -13,7 +13,7 @@ $(function() {
 		            { "data": "vol"},
 		            { "data": "up"},
 		            { "data": "dod" },
-		            { "data": "doe" },		            	          
+		            { "data": "doe" },
 		            { "data": "listedTypeName", "type":"cn-string" },	
 		            { "data": "statusDesc", "type":"cn-string" },
 		            { "data": null,"orderable": false }
@@ -37,24 +37,29 @@ $(function() {
 		                
 		                if(row.effRec == 1){
 		                	if(row.status == 1){//待支付
-		                		html += '<input type="button" value="支付" class="J_GotoPay cbtn" data-key="'+row.delistNo+ '" />';
+		                		html += '<input type="button" value="支付" class="J_GotoPay cbtn" data-key="' + row.delistNo + '" data-type="' + row.listedType + '" />';
 		                		
 		                		if(currentpid === '0000'){
-		                			html += '<input type="button" value="撤消" class="J_Cancel cbtn"  data-key="'+row.delistNo+ '" />';
+		                			html += '<input type="button" value="撤消" class="J_Cancel cbtn"  data-key="' + row.delistNo + '" data-type="' + row.listedType + '" />';
 		                		}		                	
-		                	}else if(row.status == -1 || row.status == -2 || row.status == -4){//审核未通过		        
-		                		html += '<input type="button" value="修改" class="J_Modify cbtn" data-key="'+row.delistNo+ '" />';
-		                		
-		                		if(row.status == -2 || row.status == -4){
-		                			html += '<input type="button" value="删除" class="J_Del cbtn"  data-key="'+row.delistNo+ '" />';
-		                		}		                	
+		                	}else if(row.status == -1 || row.status == -2 || row.status == -4){//审核未通过
+		                		//仓单无修改无删除
+		                		if(row.listedType == 'M'){
+		                			html += '<input type="button" value="修改" class="J_Modify cbtn" data-key="' + row.delistNo + '" data-type="' + row.listedType + '" />';
+			                		
+			                		if(row.status == -2 || row.status == -4){
+			                			html += '<input type="button" value="删除" class="J_Del cbtn"  data-key="' + row.delistNo + '" data-type="' + row.listedType + '" />';
+			                		}
+		                		}
 		                	}else if(row.status != -3){//待审核
-		                		html += '<input type="button" value="审核" class="J_Audit cbtn" data-key="'+row.delistNo+ '" />';
+		                		html += '<input type="button" value="审核" class="J_Audit cbtn" data-key="' + row.delistNo + '" data-type="' + row.listedType + '" />';
 		                		
-		                		html += '<input type="button" value="修改" class="J_Modify cbtn" data-key="'+row.delistNo+ '" />';
+		                		//仓单无修改
+		                		if(row.listedType == 'M'){
+		                			html += '<input type="button" value="修改" class="J_Modify cbtn" data-key="' + row.delistNo + '" data-type="' + row.listedType + '" />';
+		                		}
 		                		
-		                		html += '<input type="button" value="撤消" class="J_Cancel cbtn"  data-key="'+row.delistNo+ '" />';
-		                		
+		                		html += '<input type="button" value="撤消" class="J_Cancel cbtn"  data-key="' + row.delistNo + '" data-type="' + row.listedType + '" />';
 		                	}
 		                }
 		                return html;
@@ -138,22 +143,31 @@ $(function() {
 	//支付响应
 	$('#dataset').on('click', '.J_GotoPay', function(e) {
 		var key = $(this).attr('data-key');
+		var type = $(this).attr('data-type');
 		
-		window.location.href = ("/buy/handle/P/"+key+".htm");  
+		if(type == "M"){   //保证金
+			window.location.href = ("/buy/handle/P/" + key + ".htm");
+		}else if(type == "W"){   //仓单
+			window.location.href = ("/buy/handle/wr/P/" + key + ".htm");
+		}
 	});
 	
 	//审核响应
 	$('#dataset').on('click', '.J_Audit', function(e) {
 		var key = $(this).attr('data-key');
+		var type = $(this).attr('data-type');
 		
-		window.location.href = ("/buy/handle/A/"+key+".htm");  
+		if(type == "M"){   //保证金
+			window.location.href = ("/buy/handle/P/" + key + ".htm");
+		}else if(type == "W"){   //仓单
+			window.location.href = ("/buy/handle/wr/P/" + key + ".htm");
+		}
 	});
 	
 	//修改响应
 	$('#dataset').on('click', '.J_Modify', function(e) {
 		var key = $(this).attr('data-key');
-		
-		window.location.href = ("/buy/edit/"+key+".htm");  
+		window.location.href = ("/buy/edit/" + key + ".htm");  
 	});
 	
 	var marketurl = "/mall/findallmarket.htm";
@@ -200,12 +214,19 @@ $(function() {
 	
 	
 	// 确认回调函数
-	function gotoCancel(orderno) {
-		var formParam = "delistNo=" + orderno;
+	function gotoCancel(order) {
+		var formParam = "delistNo=" + order.orderno;
+		var url = "";
+		
+		if(order.type == "M"){
+			url = "/buy/applycancel.htm";
+		}else if(order.type == "W"){
+			url = "/buy/wr/applycancel.htm";
+		}
 
 		$.ajax({
 			type : 'post',
-			url : '/buy/applycancel.htm',
+			url : url,
 			data : formParam,
 			cache : false,
 			dataType : 'json',
@@ -227,8 +248,8 @@ $(function() {
 
 	// 确认弹出层
 	$('#dataset').on('click', '.J_Cancel',  function(e) {
-
 		var borderno = $(this).data("key");
+		var type = $(this).data("type");
 		// 初始化确认提示框
 
 		var dl = UI.Dialog({
@@ -237,7 +258,7 @@ $(function() {
 			title : '交易确认', // 提示框标题的文字信息
 			content : '您确定要撤消' + borderno + '的订单吗？', // 提示框的内容文字信息
 			href : gotoCancel,
-			param: borderno
+			param: {"orderno": borderno, "type": type}
 		}).show();
 		e.stopPropagation();
 	});

@@ -17,6 +17,7 @@ import com.cnacex.eshop.msg.body.trade.buy.WRApplyReq;
 import com.cnacex.eshop.msg.body.trade.buy.WRAuditReq;
 import com.cnacex.eshop.msg.body.trade.buy.WRBuyOrderDetailReq;
 import com.cnacex.eshop.msg.body.trade.buy.WRBuyPayReq;
+import com.cnacex.eshop.msg.body.trade.buy.WRCancelReq;
 import com.cnacex.eshop.msg.xml.trade.buy.ApplyCancelReqMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.ApplyReqMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.ApplyRspMsg;
@@ -37,6 +38,7 @@ import com.cnacex.eshop.msg.xml.trade.buy.WRBuyOrderDetailReqMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.WRBuyOrderDetailRspMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.WRBuyPayReqMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.WRBuyPayRspMsg;
+import com.cnacex.eshop.msg.xml.trade.buy.WRCancelReqMsg;
 import com.cnacex.eshop.service.IBuyService;
 import com.cnacex.eshop.util.MsgBuilder;
 
@@ -153,6 +155,19 @@ public class BuyServiceImp implements IBuyService {
 	public WRBuyOrderDetailRspMsg findWRBuyOrderDetail(WRBuyOrderDetailReq wrApplyReq) {
 		AbstractReqMsg<?> reqMsg = MsgBuilder.buildReqMsg(WRBuyOrderDetailReqMsg.class, wrApplyReq);
 		WRBuyOrderDetailRspMsg rspMsg = baseDAO.handle(reqMsg, WRBuyOrderDetailRspMsg.class);
+		return rspMsg;
+	}
+	
+	/**
+	 * 仓单摘牌撤销
+	 * 
+	 * @param cancelRsp
+	 * @return WRCancelRspMsg
+	 */
+	@Override
+	public CommRspMsg wrCancel(WRCancelReq cancelRsp) {
+		AbstractReqMsg<?> reqMsg = MsgBuilder.buildReqMsg(WRCancelReqMsg.class, cancelRsp);
+		CommRspMsg rspMsg = baseDAO.handle(reqMsg, CommRspMsg.class);
 		return rspMsg;
 	}
 }

@@ -31,7 +31,7 @@ $(function() {
 		});
 	}
 
-	function obtainkey(key, haveleaf, selflag, prevkey)  { // 通过回调函数传递的code 去查询数据，渲染模板		
+	function obtainkey(key, haveleaf, selflag, prevkey)  { // 通过回调函数传递的code 去查询数据，渲染模板
 		if(selflag == false)
 		{
 			$('#code').val(prevkey);
@@ -130,6 +130,8 @@ $(function() {
 				var strikeNo = $("#AppealStkNo").html();
 				var status = $('input:radio[name="appealType"]:checked').val();
 				var reason = '';
+				var listedType = $("#listedType").val();
+				
 				if(status=='1'){
 					reason = $("#appealDesc").val();
 					
@@ -147,8 +149,7 @@ $(function() {
 			    	}
 				}	
 		    	
-				var formParam = "strikeNo=" + strikeNo + "&status=" + status
-						+ "&reason=" + reason;
+				var formParam = "strikeNo=" + strikeNo + "&status=" + status + "&reason=" + reason;
 				
 				UP.Dialog('J_Appeal').close();
 				
@@ -267,12 +268,13 @@ $(function() {
 		$('#appealDesc').val('');
 		$("#AppealStkNo").html($(this).data('role'));
 		$("#AppealStkDoe").html($(this).data('doe'));
+		$('#listedType').val($(this).data('type'));
 		
-		if($(this).attr('data-status')==200){
+		if($(this).attr('data-status') == 200){
 			$('#delayMsg').html("卖方未按期交货");
-		}else if($(this).attr('data-status')==300){
+		}else if($(this).attr('data-status') == 300){
 			$('#delayMsg').html("买方未收到货物或验货不匹配");
-		}else if($(this).attr('data-status')==400){
+		}else if($(this).attr('data-status') == 400){
 			$('#delayMsg').html("买方逾期未收到卖方发票");
 		}
 		
@@ -335,7 +337,7 @@ $(function() {
   	        $(select).find("option[value!='']").remove(); 
   	        column.data().unique().sort().each( function ( d, j ) {
   	            if(d != undefined && d != null && d != '')
-  	                select.append( '<option value="'+d+'">'+d+'</option>' )
+  	                select.append( '<option value="' + d + '">' + d + '</option>' )
   	            });
   	        });
 		datatable.columns.adjust();
@@ -385,11 +387,11 @@ $(function() {
 	                  	var htm = '';
 	      				if (row.status > 0) {
 	      					if (row.status == 100 && row.enableP == 1) {   //支付前提：状态为100（买方已付订金，待付全款），并且有支付权限（enableP == 1）
-	      						htm = '<input type="button" value="继续支付"  class="J_GotoPay cbtn" data-key="'+row.strikeNo+ '" />';
+	      						htm = '<input type="button" value="继续支付"  class="J_GotoPay cbtn" data-key="'+ row.strikeNo + '" data-type="' + row.listedType + '" />';
 	      					} else if (row.status == 300 && row.enableT == 1) {   //确认收货前提：状态为300（卖方确认已发货），并且有交易权限（enableT == 1）
-	      						htm = '<input type="button" value="确认收货"  class="J_RecvProd cbtn" data-key="'+row.strikeNo+ '" />';
+	      						htm = '<input type="button" value="确认收货"  class="J_RecvProd cbtn" data-key="' + row.strikeNo + '" data-type="' + row.listedType + '" />';
 	      					} else if (row.status == 400 && row.enableP == 1) {   //确认发票前提：状态为400（买方确认已收货），并且有支付权限（enableP == 1）
-	      						htm = '<input type="button" value="确认收发票" class="J_RecvInv cbtn" data-key="'+row.strikeNo+ '" />';
+	      						htm = '<input type="button" value="确认收发票" class="J_RecvInv cbtn" data-key="' + row.strikeNo + '" data-type="' + row.listedType + '" />';
 	      					} else {
 	      						htm = "";
 	      					}
@@ -401,11 +403,11 @@ $(function() {
 	      					 * 3. 状态为400（买方确认已收货），并且有支付权限（enableP == 1）
 	      					 */
 	      					if(row.status == 200 && row.enableT == 1 || row.status == 300 && row.enableT == 1  ||  row.status == 400 &&  row.enableP == 1) {					
-	      						htm += '<input type="button" value="交易投诉" data-href="J_Appeal"  class="J_AppealLink cbtn" data-role="'+row.strikeNo+ '" data-doe="'+row.doe+ '"  data-status="'+row.status+ '" />';			
+	      						htm += '<input type="button" value="交易投诉" data-href="J_Appeal"  class="J_AppealLink cbtn" data-role="'+row.strikeNo+ '" data-doe="'+row.doe+ '"  data-status="'+row.status+ '" data-type="' + row.listedType + '" />';			
 	      					} 												
 	      				}																
 	      				if (row.lastCompNo != undefined && row.lastCompNo != null && row.lastCompNo != "" && row.lastCompNo != 0 ) {
-	      					htm += '<input type="button" value="投诉查看" data-href="J_AppealShow" class="J_AppealShowLink cbtn" data-key="'+row.lastCompNo+ '" />';			
+	      					htm += '<input type="button" value="投诉查看" data-href="J_AppealShow" class="J_AppealShowLink cbtn" data-key="'+row.lastCompNo+ '" data-type="' + row.listedType + '" />';			
 	      				}
 	      				
 	      				return htm;

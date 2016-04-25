@@ -24,7 +24,7 @@ public class WRBuyPayReq {
 	/**
 	 * 摘牌/成交编号
 	 */
-	@XStreamAlias("dsNo")
+	@XStreamAlias("dsno")
 	private String dsNo;
 
 	public String getMid() {

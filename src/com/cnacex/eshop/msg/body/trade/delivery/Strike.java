@@ -7,76 +7,147 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 public class Strike {
 	
+	/**
+	 * 成交编号
+	 */
 	@XStreamAlias("strikeno")
 	private String strikeNo;
 	
+	/**
+	 * 买方会员编号
+	 */
 	@XStreamAlias("bmid")
 	private String bmID;
 	
+	/**
+	 * 买方会员名称
+	 */
 	@XStreamAlias("bmemname")
 	private String bmemName;
 	
+	/**
+	 * 卖方会员编号
+	 */
 	@XStreamAlias("smid")
 	private String smID;
 	
+	/**
+	 * 卖方会员名称
+	 */
 	@XStreamAlias("smemname")
 	private String smemName;
 	
+	/**
+	 * 合同号
+	 */
 	@XStreamAlias("contno")
 	private String contNo;
 	
+	/**
+	 * 挂牌方式
+	 */
 	@XStreamAlias("listedtype")
 	private String listedType;
 	
 	private String listedTypeName;
 	
+	/**
+	 * 仓单号
+	 */
 	@XStreamAlias("wrno")
 	private String wrNo;
 	
+	/**
+	 * 商品代码
+	 */
 	@XStreamAlias("commcode")
 	private String commCode;
 	
+	/**
+	 * 商品名称
+	 */
 	private String commName;
 	
+	/**
+	 * 
+	 */
 	private String clsName;
 	
+	/**
+	 * 
+	 */
 	private String clsCode;
 	
+	/**
+	 * 摘要信息1
+	 */
 	@XStreamAlias("summary1")
 	private String summary1;
 	
+	/**
+	 * 摘要信息2
+	 */
 	@XStreamAlias("summary2")
 	private String summary2;
 	
+	/**
+	 * 摘要信息3
+	 */
 	@XStreamAlias("summary3")
 	private String summary3;
 	
+	/**
+	 * 摘要信息4
+	 */
 	@XStreamAlias("summary4")
 	private String summary4;
 	
+	/**
+	 * 交收仓库
+	 */
 	@XStreamAlias("storage")
 	private String storage;
 
+	/**
+	 * 单价
+	 */
 	@XStreamAlias("up")
 	private double up;
 	
+	/**
+	 * 成交数量
+	 */
 	@XStreamAlias("vol")
 	private int vol;
 	
+	/**
+	 * 单位
+	 */
 	private String uom;
 	
+	/**
+	 * 最后付款日
+	 */
 	@XStreamAlias("lastpd")
 	private String lastpd;
 	
 	private String contractName;
 	
+	/**
+	 * 
+	 */
 	@XStreamAlias("conttime")
 	private String contTime;
 	
-	
+	/**
+	 * 约定交收日期
+	 */
 	@XStreamAlias("delidate")
 	private String delidate;
 	
+	/**
+	 * 
+	 */
 	@XStreamAlias("strikedate")
 	private String strikeDate;
 	

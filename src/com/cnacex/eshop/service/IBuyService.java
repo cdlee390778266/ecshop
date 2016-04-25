@@ -11,6 +11,7 @@ import com.cnacex.eshop.msg.body.trade.buy.WRApplyReq;
 import com.cnacex.eshop.msg.body.trade.buy.WRAuditReq;
 import com.cnacex.eshop.msg.body.trade.buy.WRBuyOrderDetailReq;
 import com.cnacex.eshop.msg.body.trade.buy.WRBuyPayReq;
+import com.cnacex.eshop.msg.body.trade.buy.WRCancelReq;
 import com.cnacex.eshop.msg.xml.trade.buy.ApplyRspMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.AuditRspMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.BuyBillRspMsg;
@@ -139,4 +140,12 @@ public interface IBuyService {
 	 * @return WRBuyOrderDetailRspMsg
 	 */
 	public abstract WRBuyOrderDetailRspMsg findWRBuyOrderDetail(WRBuyOrderDetailReq wrApplyReq);
+	
+	/**
+	 * 仓单摘牌撤销
+	 * 
+	 * @param cancelRsp
+	 * @return WRCancelRspMsg
+	 */
+	public abstract CommRspMsg wrCancel(WRCancelReq cancelRsp);
 }

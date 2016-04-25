@@ -50,6 +50,7 @@ import com.cnacex.eshop.msg.body.trade.buy.WRBuyOrderDetailReq;
 import com.cnacex.eshop.msg.body.trade.buy.WRBuyOrderDetailRsp;
 import com.cnacex.eshop.msg.body.trade.buy.WRBuyPayReq;
 import com.cnacex.eshop.msg.body.trade.buy.WRBuyPayRsp;
+import com.cnacex.eshop.msg.body.trade.buy.WRCancelReq;
 import com.cnacex.eshop.msg.body.trade.delivery.OrderDetailReq;
 import com.cnacex.eshop.msg.xml.fee.FeeRspMsg;
 import com.cnacex.eshop.msg.xml.fund.BalAmtRspMsg;
@@ -876,6 +877,79 @@ public class BuyController extends TradeController {
 
 		return js;
 
+	}
+	
+	/**
+	 * 仓单摘牌撤销
+	 * 
+	 * @param delistNo
+	 * @return JSonComm
+	 *
+	 */
+	@RequestMapping(value = "/wr/applycancel.htm")
+	public @ResponseBody JSonComm wrApplyCancel(@RequestParam(value = "delistNo", required = true) String delistNo) {
+
+		LoginRsp loginRsp = (LoginRsp) request.getSession().getAttribute("userinfo");
+
+		WRBuyOrderDetailReq detaillReq = new WRBuyOrderDetailReq();
+		detaillReq.setDelistNo(delistNo);
+		detaillReq.setMid(loginRsp.getmID());
+		WRBuyOrderDetailRspMsg rspMsg = buyService.findWRBuyOrderDetail(detaillReq);
+
+		JSonComm js = new JSonComm();
+		if (rspMsg.getHead() == null) {
+			js.setSuccflag(-1);
+			js.setMsg(rspMsg.getFault().getRspMsg());
+			return js;
+		}
+
+		if (rspMsg.getHead().getSuccFlag() != 1) {
+			js.setSuccflag(-1);
+			js.setMsg(rspMsg.getHead().getRspMsg());
+			return js;
+		}
+
+		if (rspMsg.getBody().getEffRec() != '1') {
+			js.setSuccflag(-1);
+			js.setMsg("订单为无效订单,请确认");
+			return js;
+		}
+
+		if (loginRsp.getOperID().equalsIgnoreCase("0000")) {
+			if ((rspMsg.getBody().getStatus() != 0 && rspMsg.getBody().getStatus() != 1)) {
+				js.setSuccflag(-1);
+				js.setMsg("订单状态为" + StatusUtil.getSellStatus(rspMsg.getBody().getStatus()) + ",无法撤消");
+				return js;
+			}
+		} else {
+			if ((rspMsg.getBody().getStatus() != 0)) {
+				js.setSuccflag(-1);
+				js.setMsg("订单状态为" + StatusUtil.getSellStatus(rspMsg.getBody().getStatus()) + ",无法撤消");
+				return js;
+			}
+		}
+		
+		WRCancelReq cancelReq = new WRCancelReq();
+		cancelReq.setDsNO(delistNo);
+		cancelReq.setMid(loginRsp.getmID());
+
+		CommRspMsg rsRspMsg = buyService.wrCancel(cancelReq);
+		if (rsRspMsg.getHead() == null) {
+			js.setSuccflag(-1);
+			js.setMsg(rsRspMsg.getFault().getRspMsg());
+			return js;
+		}
+
+		if (rsRspMsg.getHead().getSuccFlag() != 1) {
+			js.setSuccflag(-1);
+			js.setMsg(rsRspMsg.getHead().getRspMsg());
+			return js;
+		}
+
+		js.setSuccflag(0);
+		js.setMsg("订单已撤消");
+
+		return js;
 	}
 
 	/**

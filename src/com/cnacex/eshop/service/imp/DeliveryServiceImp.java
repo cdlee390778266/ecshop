@@ -13,6 +13,7 @@ import com.cnacex.eshop.msg.body.trade.delivery.AppealReq;
 import com.cnacex.eshop.msg.body.trade.delivery.BillReq;
 import com.cnacex.eshop.msg.body.trade.delivery.ConfirmReq;
 import com.cnacex.eshop.msg.body.trade.delivery.OrderDetailReq;
+import com.cnacex.eshop.msg.body.trade.delivery.WRAppealReq;
 import com.cnacex.eshop.msg.xml.trade.delivery.AppealBillReqMsg;
 import com.cnacex.eshop.msg.xml.trade.delivery.AppealBillRspMsg;
 import com.cnacex.eshop.msg.xml.trade.delivery.AppealReqMsg;
@@ -25,6 +26,7 @@ import com.cnacex.eshop.msg.xml.trade.delivery.OrderDetailReqMsg;
 import com.cnacex.eshop.msg.xml.trade.delivery.OrderDetailRspMsg;
 import com.cnacex.eshop.msg.xml.trade.delivery.SellBillReqMsg;
 import com.cnacex.eshop.msg.xml.trade.delivery.SellConfirmReqMsg;
+import com.cnacex.eshop.msg.xml.trade.delivery.WRAppealReqMsg;
 import com.cnacex.eshop.service.IDeliveryService;
 import com.cnacex.eshop.util.MsgBuilder;
 
@@ -105,4 +107,10 @@ public class DeliveryServiceImp implements IDeliveryService {
 		return rspMsg;
 	}
 
+	@Override
+	public CommRspMsg wrDeliveryAppeal(WRAppealReq appealReq) {
+		AbstractReqMsg<?> reqMsg =  MsgBuilder.buildReqMsg(WRAppealReqMsg.class, appealReq);
+		CommRspMsg rspMsg = baseDAO.handle(reqMsg,  CommRspMsg.class);
+		return rspMsg;
+	}
 }
