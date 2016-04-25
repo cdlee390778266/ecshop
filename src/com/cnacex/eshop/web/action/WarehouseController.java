@@ -14,25 +14,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cnacex.comm.util.Config;
 import com.cnacex.eshop.modul.JSonComm;
 import com.cnacex.eshop.msg.body.comm.OperRight;
+import com.cnacex.eshop.msg.body.mall.MdseElement;
 import com.cnacex.eshop.msg.body.member.LoginRsp;
 import com.cnacex.eshop.msg.body.trade.sell.ApplyCdReq;
 import com.cnacex.eshop.msg.body.trade.sell.Receipts;
+import com.cnacex.eshop.msg.body.warehouse.BindingMemberReq;
 import com.cnacex.eshop.msg.body.warehouse.CancelReceipts;
 import com.cnacex.eshop.msg.body.warehouse.CancelWarehouseReq;
 import com.cnacex.eshop.msg.body.warehouse.IssueWarehouseListReq;
 import com.cnacex.eshop.msg.body.warehouse.ROutWarehouseReq;
 import com.cnacex.eshop.msg.body.warehouse.RegWarehouseCancelReq;
 import com.cnacex.eshop.msg.body.warehouse.RegWarehouseListReq;
+import com.cnacex.eshop.msg.body.warehouse.TrigBindingMemberReq;
 import com.cnacex.eshop.msg.body.warehouse.WarehouseReceipts;
 import com.cnacex.eshop.msg.xml.trade.sell.ApplyCdRspMsg;
+import com.cnacex.eshop.msg.xml.warehouse.BindingMemberRspMsg;
 import com.cnacex.eshop.msg.xml.warehouse.CancelWarehouseRspMsg;
 import com.cnacex.eshop.msg.xml.warehouse.IssueWarehouseListRspMsg;
 import com.cnacex.eshop.msg.xml.warehouse.ROutWarehouseRspMsg;
 import com.cnacex.eshop.msg.xml.warehouse.RegWarehouseCancelRspMsg;
 import com.cnacex.eshop.msg.xml.warehouse.RegWarehouseListRspMsg;
+import com.cnacex.eshop.msg.xml.warehouse.TrigBindingMemberRspMsg;
 import com.cnacex.eshop.service.ISellService;
 import com.cnacex.eshop.service.IWarehouseService;
 
@@ -42,7 +46,6 @@ import com.cnacex.eshop.service.IWarehouseService;
  * @author文闻
  * 
  */
-
 @Controller
 @RequestMapping(value = "/warehouse")
 public class WarehouseController extends TradeController {
@@ -54,10 +57,6 @@ public class WarehouseController extends TradeController {
 	
 	@Autowired
 	private ISellService sellService;
-
-	private static final String IMAGEPATH = Config.getValue("ImagePath");
-
-	private static final String RESOURCEIP = Config.getValue("ResoureIP");
 
 	/**
 	 * 转跳到签发仓单的查询页面
@@ -131,6 +130,8 @@ public class WarehouseController extends TradeController {
 		if(rspMsg.getBody().getRseceipts() != null && !"".equals(rspMsg.getBody().getRseceipts())){
 			List<WarehouseReceipts> r =rspMsg.getBody().getRseceipts();
 			for (WarehouseReceipts receipts : r) {
+				MdseElement mdseElement = mallService.findLocalMdseEntity(receipts.getCommcode());
+				receipts.setUnit(mdseElement.getUom());
 				receipts.setMemname(rspMsg.getBody().getMemname());
 				receipts.setProvid(rspMsg.getBody().getProvid());
 			}
@@ -409,7 +410,7 @@ public class WarehouseController extends TradeController {
 			return js;
 		}
 		
-		if(rspMsg.getHead().getSuccFlag() != 1){			
+		if(rspMsg.getHead().getSuccFlag() != 1){
 			js.setSuccflag(-2);
 			js.setMsg(rspMsg.getHead().getRspMsg());
 			js.setData("");
@@ -419,4 +420,81 @@ public class WarehouseController extends TradeController {
 		return js;
 	}
 
+	/**
+	 * 转跳到会员绑定页面
+	 * 
+	 * @param request
+	 * @param model
+	 * @return String
+	 *
+	 */
+	@RequestMapping(value = "/membinding.htm")
+	public String memBinding(HttpServletRequest request, ModelMap model) {
+		LoginRsp loginRsp = (LoginRsp) request.getSession().getAttribute("userinfo");
+		
+		BindingMemberReq applyReq = new BindingMemberReq();
+		applyReq.setMid(loginRsp.getmID());
+		BindingMemberRspMsg rspMsg = warehouseService.findRelations(applyReq);
+		if (rspMsg.getHead() == null) {
+			model.addAttribute("message", rspMsg.getFault().getRspMsg());
+			return "comm/fail";
+		}
+	
+		if (rspMsg.getHead().getSuccFlag() != 1) {
+			model.addAttribute("message", rspMsg.getHead().getRspMsg());
+			return "comm/fail";
+		}
+
+		model.addAttribute("rspBody", rspMsg.getBody());
+		logger.debug("转跳会员绑定页面 ");
+		getUrlMatch(loginRsp.getTradeMenus(), model);
+		return "warehouse/membinding";
+	}
+	
+	/**
+	 * 转跳到会员绑定页面
+	 * 
+	 * @param request
+	 * @param model
+	 * @return String
+	 *
+	 */
+	@RequestMapping(value = "/trigmembinding.htm")
+	public String trigMemBinding(
+			@ModelAttribute TrigBindingMemberReq trigBindingMemberReq, 
+			HttpServletRequest request, 
+			ModelMap model) {
+		
+		LoginRsp loginRsp = (LoginRsp) request.getSession().getAttribute("userinfo");
+		
+		trigBindingMemberReq.setMid(loginRsp.getmID());
+		TrigBindingMemberRspMsg rspMsg = warehouseService.trigBindingMember(trigBindingMemberReq);
+		if (rspMsg.getHead() == null) {
+			model.addAttribute("message", rspMsg.getFault().getRspMsg());
+			return "comm/fail";
+		}
+	
+		if (rspMsg.getHead().getSuccFlag() != 1) {
+			model.addAttribute("message", rspMsg.getHead().getRspMsg());
+			return "comm/fail";
+		}
+		
+		BindingMemberReq applyReq = new BindingMemberReq();
+		applyReq.setMid(loginRsp.getmID());
+		BindingMemberRspMsg bindingMemberRspMsg = warehouseService.findRelations(applyReq);
+		if (bindingMemberRspMsg.getHead() == null) {
+			model.addAttribute("message", bindingMemberRspMsg.getFault().getRspMsg());
+			return "comm/fail";
+		}
+	
+		if (bindingMemberRspMsg.getHead().getSuccFlag() != 1) {
+			model.addAttribute("message", bindingMemberRspMsg.getHead().getRspMsg());
+			return "comm/fail";
+		}
+		
+		model.addAttribute("rspBody", bindingMemberRspMsg.getBody());
+		logger.debug("转跳会员绑定页面 ");
+		getUrlMatch(loginRsp.getTradeMenus(), model);
+		return "warehouse/membinding";
+	}
 }

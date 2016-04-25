@@ -1,13 +1,14 @@
 package com.cnacex.eshop.msg.body.trade.buy;
 
-import java.util.List;
-
-import com.cnacex.eshop.msg.body.comm.CostPay;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
-public class ApplyRsp {
-	
+/**
+ * 仓单摘牌审核响应
+ * @author frog
+ *
+ */
+public class WRAuditRsp {
+
 	/**
 	 * 摘牌编号
 	 */
@@ -18,16 +19,10 @@ public class ApplyRsp {
 	 * 摘牌状态
 	 */
 	@XStreamAlias("status")
-	private int	status;
+	private int status;
 	
 	private String statusDesc;
-	
-	/**
-	 * 费用
-	 */
-	@XStreamImplicit
-	private List<CostPay> costPays;
-	
+
 	public String getDelistNo() {
 		return delistNo;
 	}
@@ -44,14 +39,6 @@ public class ApplyRsp {
 		this.status = status;
 	}
 
-	public List<CostPay> getCostPays() {
-		return costPays;
-	}
-
-	public void setCostPays(List<CostPay> costPays) {
-		this.costPays = costPays;
-	}
-
 	public String getStatusDesc() {
 		return statusDesc;
 	}
@@ -59,9 +46,4 @@ public class ApplyRsp {
 	public void setStatusDesc(String statusDesc) {
 		this.statusDesc = statusDesc;
 	}
-	
-	
-	
-
-
 }

@@ -16,7 +16,6 @@ import org.springframework.ui.ModelMap;
 
 import com.cnacex.comm.ftp.UPFileClient;
 import com.cnacex.comm.util.Config;
-import com.cnacex.comm.util.StringUtil;
 import com.cnacex.eshop.modul.MenuNode;
 import com.cnacex.eshop.msg.body.comm.CommProp;
 import com.cnacex.eshop.msg.body.comm.CostPay;
@@ -233,7 +232,7 @@ public class TradeController {
 				}
 			}
 		}
-		Collections.sort(rsProps, new PropSortByView()); 	
+		Collections.sort(rsProps, new PropSortByView());
 		return rsProps;
 	}
 	

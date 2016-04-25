@@ -5,11 +5,15 @@ import org.springframework.stereotype.Service;
 
 import com.cnacex.eshop.dao.BaseDAO;
 import com.cnacex.eshop.msg.AbstractReqMsg;
+import com.cnacex.eshop.msg.body.warehouse.BindingMemberReq;
 import com.cnacex.eshop.msg.body.warehouse.CancelWarehouseReq;
 import com.cnacex.eshop.msg.body.warehouse.IssueWarehouseListReq;
 import com.cnacex.eshop.msg.body.warehouse.ROutWarehouseReq;
 import com.cnacex.eshop.msg.body.warehouse.RegWarehouseCancelReq;
 import com.cnacex.eshop.msg.body.warehouse.RegWarehouseListReq;
+import com.cnacex.eshop.msg.body.warehouse.TrigBindingMemberReq;
+import com.cnacex.eshop.msg.xml.warehouse.BindingMemberReqMsg;
+import com.cnacex.eshop.msg.xml.warehouse.BindingMemberRspMsg;
 import com.cnacex.eshop.msg.xml.warehouse.CancelWarehouseReqMsg;
 import com.cnacex.eshop.msg.xml.warehouse.CancelWarehouseRspMsg;
 import com.cnacex.eshop.msg.xml.warehouse.IssueWarehouseListReqMsg;
@@ -20,6 +24,8 @@ import com.cnacex.eshop.msg.xml.warehouse.RegWarehouseCancelReqMsg;
 import com.cnacex.eshop.msg.xml.warehouse.RegWarehouseCancelRspMsg;
 import com.cnacex.eshop.msg.xml.warehouse.RegWarehouseListReqMsg;
 import com.cnacex.eshop.msg.xml.warehouse.RegWarehouseListRspMsg;
+import com.cnacex.eshop.msg.xml.warehouse.TrigBindingMemberReqMsg;
+import com.cnacex.eshop.msg.xml.warehouse.TrigBindingMemberRspMsg;
 import com.cnacex.eshop.service.IWarehouseService;
 import com.cnacex.eshop.util.MsgBuilder;
 
@@ -109,7 +115,26 @@ public class WarehouseServiceImp implements IWarehouseService {
 		return rspMsg;
 	}
 	
+	/**
+	 * 关联会员关联关系查询
+	 * @param applyReq
+	 * @return BindingMemberRspMsg
+	 */
+	@Override
+	public BindingMemberRspMsg findRelations(BindingMemberReq applyReq) {
+		AbstractReqMsg<?> reqMsg = MsgBuilder.buildReqMsg(BindingMemberReqMsg.class, applyReq); 
+		BindingMemberRspMsg rspMsg = baseDAO.handle(reqMsg,  BindingMemberRspMsg.class);
+		return rspMsg;
+	}
 	
-
-
+	/**
+	 * 仓单关联会员
+	 * @param applyReq
+	 * @return TrigBindingMemberRspMsg
+	 */
+	public TrigBindingMemberRspMsg trigBindingMember( TrigBindingMemberReq applyReq) {
+		AbstractReqMsg<?> reqMsg = MsgBuilder.buildReqMsg(TrigBindingMemberReqMsg.class, applyReq); 
+		TrigBindingMemberRspMsg rspMsg = baseDAO.handle(reqMsg,  TrigBindingMemberRspMsg.class);
+		return rspMsg;
+	}
 }

@@ -6,8 +6,13 @@ import com.cnacex.eshop.msg.body.comm.CostPay;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
-public class ApplyRsp {
-	
+/**
+ * 仓单摘牌申请响应结果
+ * @author frog
+ *
+ */
+public class WRApplyRsp {
+
 	/**
 	 * 摘牌编号
 	 */
@@ -15,11 +20,14 @@ public class ApplyRsp {
 	private String delistNo;
 	
 	/**
-	 * 摘牌状态
+	 * 摘牌审核编号
 	 */
-	@XStreamAlias("status")
-	private int	status;
+	@XStreamAlias("auditno")
+	private String auditNo;
 	
+	/**
+	 * 摘牌状态（报文未返回，页面需要）
+	 */
 	private String statusDesc;
 	
 	/**
@@ -27,7 +35,7 @@ public class ApplyRsp {
 	 */
 	@XStreamImplicit
 	private List<CostPay> costPays;
-	
+
 	public String getDelistNo() {
 		return delistNo;
 	}
@@ -36,12 +44,12 @@ public class ApplyRsp {
 		this.delistNo = delistNo;
 	}
 
-	public int getStatus() {
-		return status;
+	public String getAuditNo() {
+		return auditNo;
 	}
 
-	public void setStatus(int status) {
-		this.status = status;
+	public void setAuditNo(String auditNo) {
+		this.auditNo = auditNo;
 	}
 
 	public List<CostPay> getCostPays() {
@@ -59,9 +67,4 @@ public class ApplyRsp {
 	public void setStatusDesc(String statusDesc) {
 		this.statusDesc = statusDesc;
 	}
-	
-	
-	
-
-
 }

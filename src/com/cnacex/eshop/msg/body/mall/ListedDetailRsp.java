@@ -6,102 +6,192 @@ import com.cnacex.eshop.msg.body.comm.Prop;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
+/**
+ * 挂牌销售商品详细信息
+ */
 public class ListedDetailRsp {
 	
+	/**
+	 * 挂牌编号
+	 */
 	@XStreamAlias("listedno")
 	private String listedNo;
 	
+	/**
+	 * 挂牌卖方
+	 */
 	@XStreamAlias("mid")
 	private String mID;
 	
+	/**
+	 * 挂牌卖方名称
+	 */
 	@XStreamAlias("memname")
 	private String memName;
 	
+	/**
+	 * 挂牌方式
+	 */
 	@XStreamAlias("listedtype")
 	private String listedType;
 	
-	
+	/**
+	 * 挂牌方式名称
+	 */
 	private String listedTypeName;
 	
-	
+	/**
+	 * 仓单编号
+	 */
 	@XStreamAlias("wrno")
 	private String wrNo;
 	
+	/**
+	 * 商品代码
+	 */
 	@XStreamAlias("commcode")
 	private String commCode;
 	
-	
+	/**
+	 * 商品名称
+	 */
 	private String commName;
 	
-	
+	/**
+	 * 单位
+	 */
 	private String uom;
 	
-	
+	/**
+	 * 品类代码
+	 */
 	@XStreamAlias("classcode")
 	private String classCode;
 	
+	/**
+	 * 品类名称
+	 */
 	private String className;
 	
+	/**
+	 * 市场代码
+	 */
 	@XStreamAlias("markcode")
 	private String markCode;
 	
+	/**
+	 * 市场名称
+	 */
 	private String markName;
 	
+	/**
+	 * 单价
+	 */
 	@XStreamAlias("up")
 	private String up;
 	
+	/**
+	 * 一口价标识
+	 */
 	@XStreamAlias("fpflg")
 	private String fpFlg;
 	
+	/**
+	 * 商品总量
+	 */
 	@XStreamAlias("qty")
 	private int qty;
 	
+	/**
+	 * 整单标识
+	 */
 	@XStreamAlias("wholeflg")
 	private String wholeFlg;
 	
+	/**
+	 * 起订量
+	 */
 	@XStreamAlias("moq")
 	private int moq;
 	
+	/**
+	 * 递增量
+	 */
 	@XStreamAlias("ic")
 	private int ic;
 	
+	/**
+	 * 剩余数量
+	 */
 	@XStreamAlias("rem")
 	private int rem;
 	
+	/**
+	 * 挂牌日期
+	 */
 	@XStreamAlias("dol")
 	private String dol;
 	
+	/**
+	 * 挂牌有效期
+	 */
 	@XStreamAlias("doe")
 	private String doe;
 	
+	/**
+	 * 发运方式
+	 */
 	@XStreamAlias("tos")
 	private String tos;
 	
+	/**
+	 * 交收日期
+	 */
 	@XStreamAlias("delidate")
 	private String deliDate;
 	
+	/**
+	 * 交货仓库
+	 */
 	@XStreamAlias("storage")
 	private String storage;
 	
+	/**
+	 * 最后付款日
+	 */
 	@XStreamAlias("lastpd")
 	private String lastPD;
 	
+	/**
+	 * 平台监管发票
+	 */
 	@XStreamAlias("invoice")
 	private String invoice;
 
+	/**
+	 * 指定摘牌方
+	 */
 	@XStreamAlias("delist")
 	private String delist;
 	
-	
+	/**
+	 * 
+	 */
 	@XStreamImplicit
 	private List<DelistMem> delistMems;
 	
 	@XStreamAlias("delistmem")
 	public static class DelistMem{
 		
+		/**
+		 * 摘牌方会员编号
+		 */
 		@XStreamAlias("delistmid")
 		private String delistMID;
 		
+		/**
+		 * 摘牌方会员名称
+		 */
 		@XStreamAlias("delistmemname")
 		private String delistMemName;
 
@@ -122,37 +212,69 @@ public class ListedDetailRsp {
 		}
 	}
 	
+	/**
+	 * 商品标题
+	 */
 	@XStreamAlias("title")
 	private String title;
 	
+	/**
+	 * 标题配图
+	 */
 	@XStreamAlias("titlepic")
 	private String titlePic;
 	
+	/**
+	 * 商品描述
+	 */
 	@XStreamAlias("detail")
 	private String detail;
 	
+	/**
+	 * 内容图片1
+	 */
 	@XStreamAlias("ctxpic1")
 	private String ctxPic1;
 	
+	/**
+	 * 内容图片2
+	 */
 	@XStreamAlias("ctxpic2")
 	private String ctxPic2;
 	
+	/**
+	 * 内容图片3
+	 */
 	@XStreamAlias("ctxpic3")
 	private String ctxPic3;
 	
+	/**
+	 * 扩展图片标志
+	 */
 	@XStreamAlias("ctxpicex")
 	private String ctxPicEx;
 	
+	/**
+	 * 挂牌状态
+	 */
 	@XStreamAlias("status")
 	private int status;
 	
+	/**
+	 * 记录生效标志
+	 */
 	@XStreamAlias("effrec")
 	private String effRec;
 	
+	/**
+	 * 属性
+	 */
 	@XStreamImplicit
 	private List<Prop> props;
 	
-	
+	/**
+	 * 卖家联系方式—非循环域
+	 */
 	@XStreamImplicit
 	private List<LinkInfo> linkinfos;
 	
@@ -223,27 +345,51 @@ public class ListedDetailRsp {
 			this.pc = pc;
 		}
 
+		/**
+		 * 企业名称
+		 */
 		@XStreamAlias("ename")
 		private String ename;
 		
+		/**
+		 * 法定代表人
+		 */
 		@XStreamAlias("legpre")
 		private String legPer;
 		
+		/**
+		 * 联系电话
+		 */
 		@XStreamAlias("linktel")
 		private String linkTel;
 		
+		/**
+		 * 传真号码
+		 */
 		@XStreamAlias("fax")
 		private String fax;
 		
+		/**
+		 * 企业网址
+		 */
 		@XStreamAlias("url")
 		private String url;
 		
+		/**
+		 * E-mail
+		 */
 		@XStreamAlias("email")
 		private String email;
 		
+		/**
+		 * 注册住所
+		 */
 		@XStreamAlias("regaddr")
 		private String regAddr;
 		
+		/**
+		 * 邮政编码
+		 */
 		@XStreamAlias("pc")
 		private String pc;
 		

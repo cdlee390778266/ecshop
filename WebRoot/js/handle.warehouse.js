@@ -54,9 +54,10 @@ $(function() {
 		            { "data": "memname", "type":"cn-string" },
 		            { "data": "receiptno", "type":"cn-string" },
 		            { "data": "storename", "type":"cn-string" },		        
-		            { "data": "storeno", "type":"cn-string"},
+		            { "data": "storeno", "type":"cn-string" },
 		            { "data": "qty"},
-		            { "data": "rem"},	                    
+		            { "data": "rem"},
+		            { "data": "unit", "visible":false },
 		            { "data": null,"orderable": false}
 		        ];
 	
@@ -164,6 +165,9 @@ $(function() {
 			$("#remtmp").html(d.rem);
 			$("#storenametmp").html(d.storename);
 			$("#storenotmp").html(d.storeno);
+			$("#qtyunit").html(d.unit);
+			$("#remunit").html(d.unit);
+			$("#cinpunit").html(d.unit);
 		}
 		UP.Dialog('J_cdList');
 	});

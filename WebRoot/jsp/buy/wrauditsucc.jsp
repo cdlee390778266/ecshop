@@ -1,8 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn" %> 
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix='fmt' %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +53,7 @@
 					</div>
 				</div>
 				<div class="crumb">
-					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/buy/list.htm">会员中心</a><span class="fa  fa-angle-right"></span><a href="/buy/list.htm">购买订单</a>
+					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/buy/list.htm">会员中心</a><span class="fa  fa-angle-right"></span><a href="javascript: void(0)">买方摘牌</a>
 				</div>
 			</div>
 			
@@ -69,7 +67,7 @@
 						
 							<div class="row" style="overflow:hidden;zoom:1;height:90px;margin-bottom:10px">
 								<ul class="step-list">
-									<li class="active">
+									<li>
 										<div class="linebox">
 											<label for="">
 												<p>订单生成</p>
@@ -78,7 +76,7 @@
 											</label>
 										</div>
 									</li>
-									<li class="mid">
+									<li class="active">
 										<div class="linebox">
 											<label for="">
 												<p>审核确认</p>
@@ -107,10 +105,10 @@
 									</li>
 								</ul>
 							</div>
-								
+														
 							<div class="sline"></div>
-																			
-							<div class="row">
+							
+							<div class="row bsrow">
 								<div class="hd">
 									<h3>处理信息</h3>
 								</div>	
@@ -118,33 +116,11 @@
 									<div class="title">摘牌单号：${rspBody.delistNo}</div>
 									<div class="title">摘牌状态：${rspBody.statusDesc}</div>
 									<div class="box">
-									
-											<table class="ui-table table-primary">
-														<caption>本次摘牌费用说明</caption>
-														<thead>
-																<tr>
-																	<td>费用名称</td>
-																	<td>交易类型</td>
-																	<td>费用金额</td>
-																	<td>当前状态</td>
-																</tr>
-															</thead>
-															<tbody>
-																<c:forEach items="${rspBody.costPays}" var="cost" >
-																<tr>
-																	<td>${cost.costName}</td>
-																	<td>${cost.trTypeName}</td>
-																	<td><fmt:formatNumber value="${cost.costAmt}" type="currency" pattern="￥0.00元" /></td>
-																	<td>${cost.flagDesc}</td>
-																</tr>
-																</c:forEach>
-														</tbody>
-											</table>
-										
-										<c:if test="${enableAudit=='1'}">
+	
+										<c:if test="${enablePay=='1'}">			
 											<div class="pa-action clearfix mt10 ml60">
 												<div class="pa-btn-buy fn-fl">
-														<a href="/buy/handle/A/${rspBody.delistNo}.htm"  class="btn-normal btn-buy">继续审核</a>
+														<a href="/buy/handle/wr/P/${rspBody.delistNo}.htm"  class="btn-normal btn-buy">继续支付</a>
 												</div>
 											</div>
 										</c:if>										

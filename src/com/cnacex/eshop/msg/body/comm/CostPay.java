@@ -9,22 +9,32 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 @XStreamAlias("costpay")
 public class CostPay {
 	
+	/**
+	 * 费用标识
+	 */
 	@XStreamAlias("flag")
 	private int flag;
 	
 	private String flagDesc;
 	
-	
+	/**
+	 * 交易类型
+	 */
 	@XStreamAlias("trtype")
 	private String trType;
 	
 	
 	private String trTypeName;
 	
-	
+	/**
+	 * 费用代码
+	 */
 	@XStreamAlias("costcode")
 	private String costCode;
 	
+	/**
+	 * 费用金额
+	 */
 	@XStreamAlias("costamt")
 	private double costAmt;
 	

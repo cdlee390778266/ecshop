@@ -57,7 +57,6 @@ public class BaseDAO {
 
 		wtcclient.setService(TxConfig.getSvcName(reqMsgCls.getTxCode()));
 		StringBuffer strbuf = new StringBuffer("");
-	//	strbuf.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 		strbuf.append(XmlUtil.toXml(reqMsgCls));
 		fldMsg.setMac(FMLConfManager.getCRC32(strbuf.toString()));
 		fldMsg.setData(strbuf.toString());

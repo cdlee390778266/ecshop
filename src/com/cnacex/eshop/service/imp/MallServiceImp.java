@@ -21,7 +21,6 @@ import com.cnacex.eshop.msg.body.mall.MdseElement;
 import com.cnacex.eshop.msg.body.mall.MdseStaticReq;
 import com.cnacex.eshop.msg.body.mall.MdseStaticRsp;
 import com.cnacex.eshop.msg.body.mall.MoreQueryReq;
-import com.cnacex.eshop.msg.body.mall.MoreQueryReq.ReqComm;
 import com.cnacex.eshop.msg.body.mall.SingleQueryReq;
 import com.cnacex.eshop.msg.xml.mall.ListedDetailReqMsg;
 import com.cnacex.eshop.msg.xml.mall.ListedDetailRspMsg;
@@ -32,7 +31,6 @@ import com.cnacex.eshop.msg.xml.mall.QueryCommRspMsg;
 import com.cnacex.eshop.msg.xml.mall.SingleQueryReqMsg;
 import com.cnacex.eshop.service.IMallService;
 import com.cnacex.eshop.util.MsgBuilder;
-import com.cnacex.eshop.util.SysStatusUtil;
 
 @Service("mallService")
 public class MallServiceImp implements IMallService {
@@ -492,11 +490,8 @@ public class MallServiceImp implements IMallService {
 
 		@Override
 		public ListedDetailRspMsg findDetailByID(ListedDetailReq listedDetailReq) {
-			AbstractReqMsg<?> reqMsg = MsgBuilder.buildReqMsg(
-					ListedDetailReqMsg.class, listedDetailReq);
-
+			AbstractReqMsg<?> reqMsg = MsgBuilder.buildReqMsg(ListedDetailReqMsg.class, listedDetailReq);
 			ListedDetailRspMsg rspMsg = baseDAO.handle(reqMsg, ListedDetailRspMsg.class);
-
 			return rspMsg;
 		}
 

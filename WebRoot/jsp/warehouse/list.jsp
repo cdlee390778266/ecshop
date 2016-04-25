@@ -129,11 +129,12 @@
 								            	<th>商品种类名称</th>
 								            	<th>供货商名称</th>
 								            	<th>仓单编号</th>
-								                <th>仓库名称</th>								                
+								                <th>仓库名称</th>
 								                <th>仓库编号</th>
 								                <th>货物数量</th>
 								                <th>剩余数量</th>
-								                <th>操作</th>								                
+								                <th>货物单位</th>
+								                <th>操作</th>
 								            </tr>
 								        </thead>
 								  </table>
@@ -180,17 +181,17 @@
 						</tr>
 						<tr>
 							<td class="ctr">总量：</td>											
-							<td><span id="qtytmp" style="margin-left: 10px"></span><span style="margin-left: 2px;">顿</span></td>
+							<td><span id="qtytmp" style="margin-left: 10px"></span><span id="qtyunit" style="margin-left: 2px;"></span></td>
 						</tr> 
 						<tr>
 							<td class="ctr">剩余量：</td>											
-							<td><span id="remtmp" style="margin-left: 10px"></span><span style="margin-left: 2px;">顿</span></td>
+							<td><span id="remtmp" style="margin-left: 10px"></span><span id="remunit" style="margin-left: 2px;"></span></td>
 							
 						</tr>
 						<tr>
 							<td class="ctr">注册数量：</td>											
 							<td><input type="text" class="cinp" style="width: 50px;" name="resnum" id="resnum" />
-								<span style="margin-left: 2px;">顿</span><span id="msg" style="margin-left: 5px; color: red"></span></td>
+								<span id="cinpunit" style="margin-left: 2px;"></span><span id="msg" style="margin-left: 5px; color: red"></span></td>
 							
 						</tr>  
 					</tbody>

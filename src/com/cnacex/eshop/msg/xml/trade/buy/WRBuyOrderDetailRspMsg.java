@@ -1,22 +1,24 @@
-package com.cnacex.eshop.msg.xml.mall;
+package com.cnacex.eshop.msg.xml.trade.buy;
 
 import com.cnacex.eshop.msg.AbstractRspMsg;
 import com.cnacex.eshop.msg.Fault;
 import com.cnacex.eshop.msg.Head;
-import com.cnacex.eshop.msg.body.mall.ListedDetailRsp;
+import com.cnacex.eshop.msg.body.trade.buy.WRBuyOrderDetailRsp;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
- * 挂牌销售商品详细信息报文
- * @author kereny
+ * 摘牌单详细信息查询响应报文
+ * @author frog
+ *
  */
-public class ListedDetailRspMsg extends AbstractRspMsg<ListedDetailRsp> {
-	
+@XStreamAlias("cnacex:root")
+public class WRBuyOrderDetailRspMsg extends AbstractRspMsg<WRBuyOrderDetailRsp> {
+
 	@XStreamAlias("head")
 	protected Head head;
-
+	
 	@XStreamAlias("body")
-	protected ListedDetailRsp body;
+	protected WRBuyOrderDetailRsp body;
 	
 	@XStreamAlias("fault")
 	protected Fault fault;
@@ -29,11 +31,11 @@ public class ListedDetailRspMsg extends AbstractRspMsg<ListedDetailRsp> {
 		this.head = head;
 	}
 
-	public ListedDetailRsp getBody() {
+	public WRBuyOrderDetailRsp getBody() {
 		return body;
 	}
 
-	public void setBody(ListedDetailRsp body) {
+	public void setBody(WRBuyOrderDetailRsp body) {
 		this.body = body;
 	}
 
@@ -44,7 +46,4 @@ public class ListedDetailRspMsg extends AbstractRspMsg<ListedDetailRsp> {
 	public void setFault(Fault fault) {
 		this.fault = fault;
 	}
-	
-	
-
 }

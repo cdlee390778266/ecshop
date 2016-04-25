@@ -278,59 +278,77 @@ public class LoginController extends TradeController{
 			menu.setMenuURL("/warehouse/list.htm");
 			
 			List<MenuNode> subMenus = new ArrayList<MenuNode>();
-			MenuNode submenu = new MenuNode();
 			
+			MenuNode submenu = new MenuNode();
 			submenu.setHasSubMenu(false);
 			submenu.setMenuName("签发仓单注册");
 			submenu.setMenuURL("/warehouse/list.htm");
 			subMenus.add(submenu);
-			submenu = new MenuNode();
 			
+			submenu = new MenuNode();
 			submenu.setHasSubMenu(false);
 			submenu.setMenuName("签发仓单转出");
 			submenu.setMenuURL("/warehouse/rolloutlist.htm");
 			subMenus.add(submenu);
+			
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("会员绑定");
+			submenu.setMenuURL("/warehouse/membinding.htm");
+			subMenus.add(submenu);
+			
 			menu.setSubMenus(subMenus);
 			
 			tradeMenu.add(menu);
 		}else if(loginRsp.isSellEnable()){
 			MenuNode menu = new MenuNode();
-
 			menu.setHasSubMenu(true);
 			menu.setMenuName("我的仓单");
 			menu.setMenuURL("/warehouse/list.htm");
 			
 			List<MenuNode> subMenus = new ArrayList<MenuNode>();
-			MenuNode submenu = new MenuNode();
 			
+			MenuNode submenu = new MenuNode();
 			submenu.setHasSubMenu(false);
 			submenu.setMenuName("签发仓单注册");
 			submenu.setMenuURL("/warehouse/list.htm");
 			subMenus.add(submenu);
-			submenu = new MenuNode();
 			
+			submenu = new MenuNode();
 			submenu.setHasSubMenu(false);
 			submenu.setMenuName("签发仓单转出");
 			submenu.setMenuURL("/warehouse/rolloutlist.htm");
 			subMenus.add(submenu);
+			
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("会员绑定");
+			submenu.setMenuURL("/warehouse/membinding.htm");
+			subMenus.add(submenu);
+			
 			menu.setSubMenus(subMenus);
 			
 			tradeMenu.add(menu);
 		}else if(loginRsp.isBuyEnable()){
 			MenuNode menu = new MenuNode();
-
 			menu.setHasSubMenu(true);
 			menu.setMenuName("我的仓单");
 			menu.setMenuURL("/warehouse/list.htm");
 			
 			List<MenuNode> subMenus = new ArrayList<MenuNode>();
-			MenuNode submenu = new MenuNode();
-			submenu = new MenuNode();
 			
+			MenuNode submenu = new MenuNode();
 			submenu.setHasSubMenu(false);
 			submenu.setMenuName("签发仓单转出");
 			submenu.setMenuURL("/warehouse/rolloutlist.htm");
 			subMenus.add(submenu);
+			
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("会员绑定");
+			submenu.setMenuURL("/warehouse/membinding.htm");
+			subMenus.add(submenu);
+			
 			menu.setSubMenus(subMenus);
 			
 			tradeMenu.add(menu);

@@ -7,8 +7,8 @@ import com.cnacex.eshop.msg.body.mall.ListedDetailReq;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
+ * 挂牌销售商品详细信息查询请求报文
  * @author kereny
- *
  */
 @XStreamAlias("cnacex:root")
 public class ListedDetailReqMsg extends AbstractReqMsg<ListedDetailReq> {

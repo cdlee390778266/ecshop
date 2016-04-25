@@ -1,23 +1,20 @@
-package com.cnacex.eshop.msg.xml.trade.buy;
+package com.cnacex.eshop.msg.xml.warehouse;
 
 import com.cnacex.eshop.msg.AbstractReqMsg;
 import com.cnacex.eshop.msg.Head;
-import com.cnacex.eshop.msg.body.trade.buy.ApplyReq;
+import com.cnacex.eshop.msg.body.warehouse.TrigBindingMemberReq;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("cnacex:root")
-public class ApplyReqMsg extends AbstractReqMsg<ApplyReq> {
+public class TrigBindingMemberReqMsg extends AbstractReqMsg<TrigBindingMemberReq> {
 
-	/**
-	 * 商品摘牌申请
-	 */
-	public static final String TX_CODE = "05101021";
-
+public static final String TX_CODE = "60005009";
+	
 	@XStreamAlias("head")
 	protected Head head;
 
 	@XStreamAlias("body")
-	protected ApplyReq body;
+	protected TrigBindingMemberReq body;
 
 	public Head getHead() {
 		return head;
@@ -27,17 +24,15 @@ public class ApplyReqMsg extends AbstractReqMsg<ApplyReq> {
 		this.head = head;
 	}
 
-	public ApplyReq getBody() {
+	public TrigBindingMemberReq getBody() {
 		return body;
 	}
 
-	public void setBody(ApplyReq body) {
+	public void setBody(TrigBindingMemberReq body) {
 		this.body = body;
 	}
 
-	public  String getTxCode() {
+	public String getTxCode() {
 		return TX_CODE;
 	}
-	
-
 }

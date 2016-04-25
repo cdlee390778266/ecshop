@@ -653,7 +653,7 @@ $(function() {
 	});
 	
 	var btnfn = function(){
-		if($('#sCCode').val()==''||$('#commcode').val() == ''){
+		if($('#sCCode').val()==''||$('#commCode').val() == ''){
 		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
 			event.stopPropagation();
 			return false;

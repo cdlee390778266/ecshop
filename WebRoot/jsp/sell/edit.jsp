@@ -82,7 +82,7 @@
 					</div>
 					<div class="user-navs members">
 						<ul>
-							<li class="current"><a href="/sell/apply.htm?active=enter" class="mlnks">卖方挂牌</a></li>							
+							<li class="current"><a href="/sell/apply.htm?active=enter&type=0" class="mlnks">卖方挂牌</a></li>							
 						</ul>
 					</div>
 				</div>
@@ -107,6 +107,9 @@
 											<td colspan="3">																																				
 												 ${rspBody.listedNo}
 												 <input type="hidden" name="listedNo" value="${rspBody.listedNo}" />
+												 <c:if test="${rspBody.wrNo != '' }">
+												 	<input type="hidden" name="wrNO" value="${rspBody.wrNo}" />
+												 </c:if>
 											</td>
 										</tr>
 										<tr>

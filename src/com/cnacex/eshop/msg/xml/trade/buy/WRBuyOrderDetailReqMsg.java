@@ -2,22 +2,27 @@ package com.cnacex.eshop.msg.xml.trade.buy;
 
 import com.cnacex.eshop.msg.AbstractReqMsg;
 import com.cnacex.eshop.msg.Head;
-import com.cnacex.eshop.msg.body.trade.buy.ApplyReq;
+import com.cnacex.eshop.msg.body.trade.buy.WRBuyOrderDetailReq;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+/**
+ * 摘牌单详细信息查询请求报文
+ * @author frog
+ *
+ */
 @XStreamAlias("cnacex:root")
-public class ApplyReqMsg extends AbstractReqMsg<ApplyReq> {
+public class WRBuyOrderDetailReqMsg extends AbstractReqMsg<WRBuyOrderDetailReq> {
 
 	/**
-	 * 商品摘牌申请
+	 * 摘牌单详细信息查询
 	 */
-	public static final String TX_CODE = "05101021";
+	public static final String TX_CODE = "60006003";
 
 	@XStreamAlias("head")
 	protected Head head;
 
 	@XStreamAlias("body")
-	protected ApplyReq body;
+	protected WRBuyOrderDetailReq body;
 
 	public Head getHead() {
 		return head;
@@ -27,17 +32,15 @@ public class ApplyReqMsg extends AbstractReqMsg<ApplyReq> {
 		this.head = head;
 	}
 
-	public ApplyReq getBody() {
+	public WRBuyOrderDetailReq getBody() {
 		return body;
 	}
 
-	public void setBody(ApplyReq body) {
+	public void setBody(WRBuyOrderDetailReq body) {
 		this.body = body;
 	}
 
-	public  String getTxCode() {
+	public String getTxCode() {
 		return TX_CODE;
 	}
-	
-
 }

@@ -64,6 +64,9 @@ public class WarehouseReceipts {
 	//供货商名称
 	private String memname;
 	
+	//货物单位
+	private String unit;
+	
 	public String getStoreno() {
 		return storeno;
 	}
@@ -181,12 +184,20 @@ public class WarehouseReceipts {
 		this.rem = rem;
 	}
 
+	public String getUnit() {
+		return unit;
+	}
+
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+
 	@Override
 	public String toString() {
 		return "WarehouseReceipts [storeno=" + storeno + ", storename=" + storename
 				+ ", receiptno=" + receiptno + ", provmemid=" + provmemid
-				+ ", commcode=" + commcode +", classcode=" + classcode 
-				+ ", markcode=" + markcode+ ", mdsename=" + mdsename+ ", qty=" + qty 
-				+ ", price=" + price+"]";
+				+ ", commcode=" + commcode + ", classcode=" + classcode 
+				+ ", markcode=" + markcode + ", mdsename=" + mdsename + ", qty=" + qty 
+				+ ", price=" + price + ", unit=" + unit + "]";
 	}
 }	
