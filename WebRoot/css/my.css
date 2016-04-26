@@ -60,3 +60,39 @@ background:#FFFEFD;float: right;box-shadow:1px 2px 2px #51725C;;margin-top: 20px
 .login-msg .error{color: #eb3a3a;}
 
 .login-msg.show{visibility: visible;}
+
+.gn-cd-bangding{
+	text-align:center;
+	padding:20px;
+	margin-top: 40px;
+}
+.gn-cd-bangding span{
+	 display:inline-block;
+	  margin-right:10px;
+}
+.gn-cd-yibang{ 
+    width: 66px;
+    height: 22px;
+    background-color: #FE731B;
+    border-radius: 3px;
+    color: white;
+}
+.gn-cd-zh{
+	
+  background: #89C975;
+padding: 0px 19px;
+margin-left: 5px;
+color: white;
+border-radius: 3px;
+
+}
+.gn-cd-bangding-input{ text-align:center;}
+.gn-cd-bangding-input .field{ width: 358px; margin:0  auto; margin-bottom: 15px;}
+.gn-cd-bangding-input .field label{ width:100px;}
+.gn-cd-bangding-input .field input{
+	border: 1px solid #d8d8d8;
+    width: 255px;
+    height: 35px !important;
+    text-indent: 10px;
+}
+.gn-cd-bangding-input .submit{ width: 356px; margin:0 auto;}
