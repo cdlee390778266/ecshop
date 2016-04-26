@@ -82,6 +82,7 @@ public class WarehouseController extends TradeController {
 			}
 		}
 
+		getUrlMatch(loginRsp.getTradeMenus(), model);
 		logger.debug("转跳签发仓单注册页面 ");
 		return "warehouse/list";
 	}
@@ -327,6 +328,7 @@ public class WarehouseController extends TradeController {
 			}
 		}
 
+		getUrlMatch(loginRsp.getTradeMenus(), model);
 		logger.debug("转跳签发仓单注册页面 ");
 		return "warehouse/rolloutlist";
 	}
