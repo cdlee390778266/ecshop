@@ -79,8 +79,8 @@ $(function() {
 	}
 
 	// 确认回调函数
-	function invTips(strikeNo) {
-		var formParam = "strikeNo=" + strikeNo + "&type=I";
+	function invTips(strike) {
+		var formParam = "strikeNo=" + strike.strikeNo + "&type=I&listedType=" + strike.type;
 
 		$.ajax({
 			type : 'post',
@@ -245,8 +245,9 @@ $(function() {
 
 	// 确认发票弹出层
 	$('#dataset').on('click', '.J_RecvInv', function(e) {
-
 		var strikeNo = $(this).data("key");
+		var type = $(this).data("type");
+		
 		// 初始化删除提示框
 		var idl = UI.Dialog({
 			type : 'delete', // 提示框类型，这里是delete 代表删除提示框
@@ -254,7 +255,7 @@ $(function() {
 			title : '交易确认', // 提示框标题的文字信息
 			content : '您确定收到单号为' + strikeNo + '的发票?', // 提示框的内容文字信息
 			href : invTips,
-			param :strikeNo
+			param :{"strikeNo": strikeNo, "type": type}
 
 		});
 		idl.show();

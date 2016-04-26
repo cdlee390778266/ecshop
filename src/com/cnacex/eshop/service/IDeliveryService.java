@@ -24,7 +24,7 @@ public interface IDeliveryService {
 	 * @return ConfirmRspMsg
 	 *
 	 */
-	public abstract ConfirmRspMsg confirmDelivery(ConfirmReq confirmReq, String bsType);
+	public abstract ConfirmRspMsg confirmDelivery(ConfirmReq confirmReq, String bsType, String listedType);
 
 	/**
 	 * 查询交收清单

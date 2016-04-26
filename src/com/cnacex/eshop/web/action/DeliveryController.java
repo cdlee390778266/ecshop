@@ -64,8 +64,10 @@ public class DeliveryController extends TradeController {
 	 *
 	 */
 	@RequestMapping(value = "/confirm.htm")
-	public @ResponseBody JSonComm confirm(@RequestParam(value = "type", required = true) String type,
-			@RequestParam(value = "strikeNo", required = false) String strikeNo) {
+	public @ResponseBody JSonComm confirm(
+			@RequestParam(value = "type", required = true) String type,
+			@RequestParam(value = "strikeNo", required = false) String strikeNo,
+			@RequestParam(value = "listedType", required = false) String listedType) {
 
 		logger.debug("交收确认处理 {}{}", type, strikeNo);
 
@@ -75,8 +77,7 @@ public class DeliveryController extends TradeController {
 		confirmReq.setmID(loginRsp.getmID());
 		confirmReq.setOperID(loginRsp.getOperID());
 		confirmReq.setStrikeNo(strikeNo);
-
-		ConfirmRspMsg rspMsg = deliveryService.confirmDelivery(confirmReq, type);
+		ConfirmRspMsg rspMsg = deliveryService.confirmDelivery(confirmReq, type, listedType);
 
 		JSonComm js = new JSonComm();
 		if (rspMsg.getHead() == null) {

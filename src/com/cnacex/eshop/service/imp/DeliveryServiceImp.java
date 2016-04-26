@@ -27,6 +27,7 @@ import com.cnacex.eshop.msg.xml.trade.delivery.OrderDetailRspMsg;
 import com.cnacex.eshop.msg.xml.trade.delivery.SellBillReqMsg;
 import com.cnacex.eshop.msg.xml.trade.delivery.SellConfirmReqMsg;
 import com.cnacex.eshop.msg.xml.trade.delivery.WRAppealReqMsg;
+import com.cnacex.eshop.msg.xml.trade.delivery.WRInvConfirmReqMsg;
 import com.cnacex.eshop.service.IDeliveryService;
 import com.cnacex.eshop.util.MsgBuilder;
 
@@ -42,18 +43,22 @@ public class DeliveryServiceImp implements IDeliveryService {
 	private BaseDAO baseDAO;
 
 	@Override
-	public ConfirmRspMsg confirmDelivery(ConfirmReq confirmReq, String bsType) {
-		
+	public ConfirmRspMsg confirmDelivery(ConfirmReq confirmReq, String bsType, String listedType) {
 		AbstractReqMsg<?> reqMsg =  null;
-		if("B".equalsIgnoreCase(bsType)){
-			reqMsg = MsgBuilder.buildReqMsg(BuyConfirmReqMsg.class, confirmReq); 
-		}else if("S".equalsIgnoreCase(bsType)){
-			reqMsg = MsgBuilder.buildReqMsg(SellConfirmReqMsg.class, confirmReq); 
-		}else if("I".equalsIgnoreCase(bsType)){
-			reqMsg = MsgBuilder.buildReqMsg(InvConfirmReqMsg.class, confirmReq); 
-		}else {
-			logger.error("未知确认类型  {} 确认数据{}", bsType, confirmReq.toString());
-			return null;
+		
+		if("W".equalsIgnoreCase(listedType)) {
+			reqMsg = MsgBuilder.buildReqMsg(WRInvConfirmReqMsg.class, confirmReq); 
+		} else {
+			if("B".equalsIgnoreCase(bsType)){
+				reqMsg = MsgBuilder.buildReqMsg(BuyConfirmReqMsg.class, confirmReq); 
+			}else if("S".equalsIgnoreCase(bsType)){
+				reqMsg = MsgBuilder.buildReqMsg(SellConfirmReqMsg.class, confirmReq); 
+			}else if("I".equalsIgnoreCase(bsType)){
+				reqMsg = MsgBuilder.buildReqMsg(InvConfirmReqMsg.class, confirmReq); 
+			}else {
+				logger.error("未知确认类型  {} 确认数据{}", bsType, confirmReq.toString());
+				return null;
+			}
 		}
 		
 		ConfirmRspMsg rspMsg = baseDAO.handle(reqMsg,  ConfirmRspMsg.class);
