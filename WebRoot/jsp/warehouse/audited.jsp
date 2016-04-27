@@ -34,7 +34,7 @@
     
     <jsp:include page="../comm/datatables.jsp" flush="true" />
     
-    <script type="text/javascript" src="/js/handle.warehouse.js?v=${sessionScope.buildno}"></script>
+    <script type="text/javascript" src="/js/handle.warehouse.audited.js?v=${sessionScope.buildno}"></script>
     <title>仓单管理</title>
     
 </head>
@@ -79,7 +79,7 @@
 						<div class="page-module data-query">
 							<div class="row">
 							    <div class="hd">
-							   		<h3>签发仓单注册</h3>
+							   		<h3>注册仓单撤销</h3>
 							    </div>
 							    <div class="bd mt10 warehouse">
 							      
@@ -102,22 +102,22 @@
 												<input type="text" name="econtTime" id="econtTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date" />
 											</td>
 											<td class="ctr">仓库编号：</td>
-											<td colspan="3"><input type="text" class="cinp" name="storeno" maxlength="12" id="storeno" /></td>
+											<td><input type="text" class="cinp" name="storeno" maxlength="12" id="storeno" /></td>
 										</tr>																	
 									</tbody>
 								</table>
 									
 									
 									
-							    </div>							
+							    </div>
 							</div>
 							<div class="tabbar-wrap">
 								 <div class="mod-tabbar">
 									<div class="header-exg tab-sty">
 										<ul id="J_TabBar" class="pa-tabbar pdeta">
-											<li class="item tab-cell selected"><a href="#">可注册仓单</a></li>
+											<li class="item tab-cell"><a href="/warehouse/list.htm">可注册仓单</a></li>
 											<li class="item tab-cell"><a href="/warehouse/cancel.htm">待审核仓单</a></li>
-											<li class="item tab-cell"><a href="/warehouse/audited.htm">已审核仓单</a></li>
+											<li class="item tab-cell selected"><a href="#">已审核仓单</a></li>
 										</ul>
 									</div>
 								</div>
@@ -128,85 +128,20 @@
 								        <thead>
 								            <tr>
 								            	<th>商品种类名称</th>
-								            	<th>供货商名称</th>
-								            	<th>签发仓单编号</th>
-								                <th>仓库名称</th>
+								            	<th>会员名称</th>
+								            	<th>注册仓单编号</th>
+								                <th>仓库名称</th>								                
 								                <th>仓库编号</th>
 								                <th>货物数量</th>
-								                <th>剩余数量</th>
-								                <th>货物单位</th>
-								                <th>操作</th>
+								                <th>操作</th>								                
 								            </tr>
 								        </thead>
 								  </table>
-								
-								
 							</div>
-							 
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="updialog w850" id="J_cdList" style="height: 400px;width: 600px;">
-		<div class="hd">
-			<span class="close ic"></span>
-			<h3>签发仓单注册</h3>
-		</div>
-		<div class="bd">
-			<div style="margin-top: 5px;">
-				<table class="ui-table">
-					<tbody>
-						<tr>
-							<td class="ctr">仓单编号：</td>											
-							<td><span id="receiptnotmp" style="margin-left: 10px"></span></td>
-						</tr> 
-						
-						 <tr>
-							<td class="ctr">商品种类名称：</td>											
-							<td><span id="mdsenametmp" style="margin-left: 10px"></span></td>
-						</tr>
-						<tr>
-							<td class="ctr" width="130">仓库编号： </td>
-							<td><span id="storenotmp" style="margin-left: 10px"></span></td>
-						</tr>
-						
-						<tr>
-							<td class="ctr" width="130">仓库名称： </td>
-							<td><span id="storenametmp" style="margin-left: 10px"></span></td>
-						</tr>																								
-						<tr>
-							<td class="ctr">供应商名称：</td>											
-							<td><span id="memnametmp" style="margin-left: 10px"></span></td>
-						</tr>
-						<tr>
-							<td class="ctr">总量：</td>											
-							<td><span id="qtytmp" style="margin-left: 10px"></span><span id="qtyunit" style="margin-left: 2px;"></span></td>
-						</tr> 
-						<tr>
-							<td class="ctr">剩余量：</td>											
-							<td><span id="remtmp" style="margin-left: 10px"></span><span id="remunit" style="margin-left: 2px;"></span></td>
-							
-						</tr>
-						<tr>
-							<td class="ctr">注册数量：</td>											
-							<td><input type="text" class="cinp" style="width: 50px;" name="resnum" id="resnum" />
-								<span id="cinpunit" style="margin-left: 2px;"></span><span id="msg" style="margin-left: 5px; color: red"></span></td>
-							
-						</tr>  
-					</tbody>
-				</table>
-			</div>
-			
-			<div>
-				<div style="float: right;margin-top: 10px;">
-
-					<button class="cbtn" id="confirmbtn1">提&nbsp;&nbsp;交</button>
-					<button class="cbtn" id="cancelbtn1">取&nbsp;&nbsp;消</button>
-				</div>
-			</div>
-			
 		</div>
 	</div>
 	

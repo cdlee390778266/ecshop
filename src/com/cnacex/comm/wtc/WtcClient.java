@@ -84,6 +84,7 @@ public class WtcClient {
 		tuxConn = WtcConnect.getConnection();
 			
 		tuxReply = tuxConn.tpcall(this.service, sndFmlBuffer, 0);
+		logger.debug("调用完毕");
 			
 		rcvFmlBuffer = (TypedFML32) tuxReply.getReplyBuffer();
 			

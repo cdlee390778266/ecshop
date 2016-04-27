@@ -100,6 +100,7 @@ public class BaseDAO {
 		
 		if(fldRcvMsg == null || fldRcvMsg.getData() == null)
 		{
+			logger.debug(fldRcvMsg.toString());
 			T msg = null;
 			if(StringUtil.nullOrBlank(fault.getRspCode()))
 			{

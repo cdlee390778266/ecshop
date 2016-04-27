@@ -268,6 +268,86 @@ public class WarehouseController extends TradeController {
 		return js;
 	}
 	
+	/**
+	 * 转跳到签发仓单撤销的查询页面
+	 * 
+	 * @author 文闻
+	 * @date 2016-4-5
+	 * @param request
+	 * @param model
+	 * @return String
+	 *
+	 */
+	@RequestMapping(value = "/audited.htm")
+	public String audited(HttpServletRequest request, ModelMap model) {
+		LoginRsp loginRsp = (LoginRsp) request.getSession().getAttribute("userinfo");
+
+		// 判断登陆用户是否有T权限
+		model.addAttribute("enablePay", 0);
+		List<OperRight> or = loginRsp.getOperRights();
+		for (OperRight operRight : or) {
+			if(operRight.getRightType().equalsIgnoreCase("T")){
+				model.addAttribute("enablePay", 1);
+			}
+		}
+
+		logger.debug("转跳已审核签发仓单页面 ");
+		return "warehouse/audited";
+	}
+	
+	/**
+	 * 待审核注册仓单查询
+	 * @author 文闻
+	 * @data 2016-4-6
+	 * @param code
+	 * @param status
+	 * @param pageNum
+	 * @param pageSize
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/findaudited.htm")
+	public @ResponseBody JSonComm  findAudited(
+			@ModelAttribute ApplyCdReq apply,
+			@RequestParam(value = "contTime", required = false) String contTime,
+			@RequestParam(value = "econtTime", required = false) String econtTime,
+			ModelMap model,HttpServletRequest request) {
+		LoginRsp loginRsp = (LoginRsp)request.getSession().getAttribute("userinfo");
+		//获取用户账号
+		String mid = loginRsp.getmID();
+		apply.setMid(mid);
+		apply.setStatus(0l);
+		apply.setEdate(econtTime);
+		apply.setSdate(contTime);
+		ApplyCdRspMsg rspMsg = sellService.findApplyCdReq(apply);
+		JSonComm js = new JSonComm();
+		if(rspMsg.getHead() == null){
+			
+			js.setSuccflag(-1);
+			js.setMsg(rspMsg.getFault().getRspMsg());
+			js.setData("");
+			return js;
+		}
+		
+		if(rspMsg.getHead().getSuccFlag() != 1){			
+			js.setSuccflag(-2);
+			js.setMsg(rspMsg.getHead().getRspMsg());
+			js.setData("");
+			return js;
+		}
+		if(rspMsg.getBody().getrseceipts() != null && !"".equals(rspMsg.getBody().getrseceipts())){
+			List<Receipts> r =rspMsg.getBody().getrseceipts();
+			for (Receipts receipts : r) {
+				receipts.setMemname(rspMsg.getBody().getMemname());
+				receipts.setProvid(rspMsg.getBody().getProvid());
+			}
+			js.setData(r);
+		}else{
+			js.setData("");
+		}	
+		
+		return js;
+	}
 	
 	/**
 	 * 注册仓单撤销

@@ -119,6 +119,7 @@
 										<ul id="J_TabBar" class="pa-tabbar pdeta">
 											<li class="item tab-cell"><a href="/warehouse/list.htm">可注册仓单</a></li>
 											<li class="item tab-cell selected"><a href="#">待审核仓单</a></li>
+											<li class="item tab-cell"><a href="/warehouse/audited.htm">已审核仓单</a></li>
 										</ul>
 									</div>
 								</div>
