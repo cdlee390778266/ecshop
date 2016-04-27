@@ -2,26 +2,22 @@ package com.cnacex.eshop.dao;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 import org.springframework.util.StopWatch;
 
-import weblogic.wtc.jatmi.Ferror;
-import weblogic.wtc.jatmi.TPException;
-import weblogic.wtc.jatmi.TPReplyException;
-
-import com.cnacex.comm.util.Config;
 import com.cnacex.comm.util.StringUtil;
 import com.cnacex.comm.util.XmlUtil;
 import com.cnacex.comm.wtc.FldMessage;
 import com.cnacex.comm.wtc.WtcClient;
 import com.cnacex.eshop.msg.AbstractReqMsg;
 import com.cnacex.eshop.msg.AbstractRspMsg;
-import com.cnacex.eshop.msg.CommRspMsg;
 import com.cnacex.eshop.msg.Fault;
-import com.cnacex.eshop.msg.Head;
 import com.cnacex.eshop.util.FMLConfManager;
 import com.cnacex.eshop.util.TxConfig;
 
-import org.springframework.stereotype.Repository;
+import weblogic.wtc.jatmi.Ferror;
+import weblogic.wtc.jatmi.TPException;
+import weblogic.wtc.jatmi.TPReplyException;
 
 /**
  * @author Administrator
@@ -69,18 +65,22 @@ public class BaseDAO {
 		} catch (TPReplyException e) {
 			fault.setRspCode("9999");
 			fault.setRspMsg("通讯错误,错误号:【"+e.gettperrno()+"】 错误信息:【"+ e.getMessage()+"】");
+			logger.error("异常[{}],异常信息[{}]", e.getClass().getName(), e.getMessage());
 			e.printStackTrace();
 		} catch (TPException e) {
 			fault.setRspCode("9999");
 			fault.setRspMsg("通讯错误,错误号:【"+e.gettperrno()+"】 错误信息:【"+ e.getMessage()+"】");
+			logger.error("异常[{}],异常信息[{}]", e.getClass().getName(), e.getMessage());
 			e.printStackTrace();
 		} catch (Ferror e) {
 			fault.setRspCode("9999");
 			fault.setRspMsg("通讯错误,错误号:【"+e.getFerror()+"】 错误信息:【"+ e.getMessage()+"】");
+			logger.error("异常[{}],异常信息[{}]", e.getClass().getName(), e.getMessage());
 			e.printStackTrace();
 		} catch (Exception e){
 			fault.setRspCode("9999");
 			fault.setRspMsg("系统错误, 错误信息:【"+ e.getMessage()+"】");
+			logger.error("异常[{}],异常信息[{}]", e.getClass().getName(), e.getMessage());
 			e.printStackTrace();
 		}
 		finally{

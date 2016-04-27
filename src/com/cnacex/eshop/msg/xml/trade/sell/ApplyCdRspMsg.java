@@ -4,7 +4,6 @@ import com.cnacex.eshop.msg.AbstractRspMsg;
 import com.cnacex.eshop.msg.Fault;
 import com.cnacex.eshop.msg.Head;
 import com.cnacex.eshop.msg.body.trade.sell.ApplyCdRsp;
-import com.cnacex.eshop.msg.body.trade.sell.ApplyRsp;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
