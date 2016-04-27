@@ -197,7 +197,7 @@ $(function() {
 				event.preventDefault();
 				return;
 			}else{
-				if($("#resnum").val() > $("#remtmp").html()){
+				if(parseFloat($("#resnum").val()) > parseFloat($("#remtmp").html())){
 					$("#msg").html('注册数量不能大于剩余量！');
 					event.preventDefault();
 					return;

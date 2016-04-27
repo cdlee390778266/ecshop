@@ -92,7 +92,7 @@
 .copyright p{padding:0;margin:0}
 
 /* user-mans */
-.page{margin-top:0px;}
+.page{margin-top:0px; min-height:600px;}
 .user-mans{width:200px;float:left;margin-right:15px;}
 .page .main-content{overflow:hidden;zoom:1;min-height:500px;margin-bottom: 15px;}
 .user-mans .ucenter{background-color: #89C975;line-height: 50px;text-align: center;color: #F2FFF1;height: 50px;font-size: 18px;font-weight: bold;}
