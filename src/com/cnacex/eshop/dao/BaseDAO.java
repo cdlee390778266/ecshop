@@ -66,22 +66,18 @@ public class BaseDAO {
 			fault.setRspCode("9999");
 			fault.setRspMsg("通讯错误,错误号:【"+e.gettperrno()+"】 错误信息:【"+ e.getMessage()+"】");
 			logger.error("异常[{}],异常信息[{}]", e.getClass().getName(), e.getMessage());
-			e.printStackTrace();
 		} catch (TPException e) {
 			fault.setRspCode("9999");
 			fault.setRspMsg("通讯错误,错误号:【"+e.gettperrno()+"】 错误信息:【"+ e.getMessage()+"】");
 			logger.error("异常[{}],异常信息[{}]", e.getClass().getName(), e.getMessage());
-			e.printStackTrace();
 		} catch (Ferror e) {
 			fault.setRspCode("9999");
 			fault.setRspMsg("通讯错误,错误号:【"+e.getFerror()+"】 错误信息:【"+ e.getMessage()+"】");
 			logger.error("异常[{}],异常信息[{}]", e.getClass().getName(), e.getMessage());
-			e.printStackTrace();
 		} catch (Exception e){
 			fault.setRspCode("9999");
 			fault.setRspMsg("系统错误, 错误信息:【"+ e.getMessage()+"】");
 			logger.error("异常[{}],异常信息[{}]", e.getClass().getName(), e.getMessage());
-			e.printStackTrace();
 		}
 		finally{
 			timer.stop();

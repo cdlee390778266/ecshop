@@ -697,17 +697,17 @@ $(function() {
 		//获取已经获取的数据
 		var d =dataList.rows('.selected').data();
 		if(d.length<1){
-			$("#wrno").val("");
-			$("#markcode").val("");
-			$("#storage").val("");
-			$("#commcode").val("");
-			$("qty").val("");
+			$("#wrno").val("");   //注册仓单编码
+			$("#markcode").val("");   //市场代码
+			$("#storage").val("");   //交收仓库
+			$("#commcode").val("");   //商品代码
+			$("qty").val("");   //货物数量
 		}else{
-			$("#wrno").val(d[0].registno);
-			$("#markcode").val(d[0].markcode);
-			$("#storage").val(d[0].storename);
-			$("#commcode").val(d[0].commcode);
-			$("#qty").val(d[0].qty);
+			$("#wrno").val(d[0].registno);   //注册仓单编码
+			$("#markcode").val(d[0].markcode);   //市场代码
+			$("#storage").val(d[0].storename);   //交收仓库
+			$("#commcode").val(d[0].commcode);   //商品代码
+			$("#qty").val(d[0].qty);   //货物数量
 		}
 		
 		UP.Dialog('J_cdList').close();

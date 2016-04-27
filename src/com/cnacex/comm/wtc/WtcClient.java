@@ -76,12 +76,10 @@ public class WtcClient {
 		}
 
 		logger.debug("调用服务名:  {}", this.service);
-		//logger.debug("发送请求报文:  {}", c.FML32toXML(sndFmlBuffer));
 
 		tuxConn = WtcConnect.getConnection();
 			
 		tuxReply = tuxConn.tpcall(this.service, sndFmlBuffer, 0);
-		logger.debug("调用完毕");
 			
 		rcvFmlBuffer = (TypedFML32) tuxReply.getReplyBuffer();
 			
