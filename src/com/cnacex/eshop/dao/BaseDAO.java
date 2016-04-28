@@ -64,19 +64,19 @@ public class BaseDAO {
 			wtcclient.tpCallFML32();
 		} catch (TPReplyException e) {
 			fault.setRspCode("9999");
-			fault.setRspMsg("通讯错误,错误号:【"+e.gettperrno()+"】 错误信息:【"+ e.getMessage()+"】");
-			logger.error("异常[{}],异常信息[{}]", e.getClass().getName(), e.getMessage());
+			fault.setRspMsg("通讯错误,错误号:【" + e.gettperrno() + "】 错误信息:【" + e.getMessage() + "】");
+			logger.error("异常[{}],异常信息[{}],错误号[{}]", e.getClass().getName(), e.getMessage(), e.gettperrno());
 		} catch (TPException e) {
 			fault.setRspCode("9999");
-			fault.setRspMsg("通讯错误,错误号:【"+e.gettperrno()+"】 错误信息:【"+ e.getMessage()+"】");
-			logger.error("异常[{}],异常信息[{}]", e.getClass().getName(), e.getMessage());
+			fault.setRspMsg("通讯错误,错误号:【" + e.gettperrno() + "】 错误信息:【" + e.getMessage() + "】");
+			logger.error("异常[{}],异常信息[{}],错误号[{}]", e.getClass().getName(), e.getMessage(), e.gettperrno());
 		} catch (Ferror e) {
 			fault.setRspCode("9999");
-			fault.setRspMsg("通讯错误,错误号:【"+e.getFerror()+"】 错误信息:【"+ e.getMessage()+"】");
-			logger.error("异常[{}],异常信息[{}]", e.getClass().getName(), e.getMessage());
+			fault.setRspMsg("通讯错误,错误号:【" + e.getFerror() + "】 错误信息:【" + e.getMessage() + "】");
+			logger.error("异常[{}],异常信息[{}],错误号[{}]", e.getClass().getName(), e.getMessage(), e.getFerror());
 		} catch (Exception e){
 			fault.setRspCode("9999");
-			fault.setRspMsg("系统错误, 错误信息:【"+ e.getMessage()+"】");
+			fault.setRspMsg("系统错误, 错误信息:【" + e.getMessage() + "】");
 			logger.error("异常[{}],异常信息[{}]", e.getClass().getName(), e.getMessage());
 		}
 		finally{

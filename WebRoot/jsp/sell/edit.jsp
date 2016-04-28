@@ -116,17 +116,13 @@
 											<td class="ctr">挂牌方式：</td>
 											<td colspan="3">
 												<c:if test="${rspBody.listedType=='M'}">
-													<span class="ml20"><input type="radio" name="DlistedType" value="M" checked disabled="disabled" />保证金</span>	
-												  	<input type="hidden" name="listedType" value="M" />		
+													<span class="ml20"><input type="radio" name="listedType" value="M" checked />保证金</span>
 												</c:if>
 												<c:if test="${rspBody.listedType=='W'}">
-													<span class="ml20"><input type="radio" name="DlistedType" value="W" checked disabled="disabled" />注册仓单</span>	
-												  	<input type="hidden" name="listedType" value="W" />		
-												</c:if>																																				 
+													<span class="ml20"><input type="radio" name="listedType" value="W" checked />注册仓单</span>
+												</c:if>
 											</td>
 										</tr>
-										
-											
 										
 										<tr>
 											<td class="ctr">挂牌商品：</td>
@@ -354,7 +350,7 @@
 											<td width="285px">
 											<div class="form_control">
 												<input type="text" name="unitPrice" class="required" id="unitPrice" value="${rspBody.up}" data-limit="${pricelimit}" data-tip="请输入商品单价" data-valid="isNonEmpty||isNoNZeroMoney" data-error="单价必填||金额格式:1.00"/>
-												<span class="priceunit_message">${rspBody.uom}/元</span>
+												<span class="priceunit_message">元/${rspBody.uom}</span>
 											</div>
 											</td>
 											
@@ -368,11 +364,10 @@
 										</tr>
 										
 										<tr>
-										
 											<td class="ctr">总量<span class="forceinput">(必填)</span>：</td>
 											<td>											
 												<div class="form_control">
-													<input type="text" name="qty" id="qty" value="${rspBody.qty}"  class="required"  data-tip="请输入商品总量" data-valid="isNonEmpty||plusInt" data-error="总量必填||总量必须为整数" />
+													<input type="text" name="qty" id="qty" value="${rspBody.qty}" class="required"  data-tip="请输入商品总量" data-valid="isNonEmpty||plusInt" data-error="总量必填||总量必须为整数" />
 													<span class="unit_message">${rspBody.uom}</span>
 												</div>	
 											</td>
@@ -382,11 +377,11 @@
 											<div class="J_WholeFlag">
 											<c:choose>
 												<c:when test="${rspBody.wholeFlg == 'W'}">
-													<span class="ml20 mr20"><input type="radio" name="wholeFlag" id="w_flag" value="W" checked  />是</span>
-													<span><input type="radio" name="wholeFlag" id="s_flag" value="S" />否</span>
+													<span class="ml20 mr20"><input type="radio" name="wholeFlag" id="w_flag" value="W" checked />是</span>
+													<span><input type="radio" name="wholeFlag" id="s_flag" value="S" disabled="disabled" />否</span>
 												</c:when>												
 												<c:otherwise>
-													<span class="ml20 mr20"><input type="radio" name="wholeFlag" id="w_flag" value="W"   />是</span>
+													<span class="ml20 mr20"><input type="radio" name="wholeFlag" id="w_flag" value="W" />是</span>
 													<span><input type="radio" name="wholeFlag" id="s_flag" value="S" checked />否</span>
 												</c:otherwise>
 											</c:choose>
@@ -396,7 +391,6 @@
 										</tr>
 										<c:if test="${rspBody.listedType=='M'}">
                                         <tr>
-                                        	
 											<td class="ctr">起订数量<span class="forceinput">(必填)</span>：</td>
 											<td width="285px">
 												<div class="form_control">
@@ -459,7 +453,6 @@
 											<td>
 												<select name="storage" id="storage" style="width:230px;margin-left:10px">
 														<c:forEach items="${storeList}" var="store" >
-														
 															<c:choose>
 															<c:when test="${store.storeName == rspBody.storage}">
 																<option value="${store.storeName}" selected>${store.storeName}</option>
@@ -468,9 +461,7 @@
 																<option value="${store.storeName}">${store.storeName}</option>
 															</c:otherwise>
 															</c:choose>
-			    											
 			    										</c:forEach>
-																											
 												</select>
 												<span class="valid_message"></span>
 											</td>
@@ -482,7 +473,7 @@
 													<span><input type="radio" name="invoice" value="N" />不需要</span>
 												</c:when>
 												<c:otherwise>
-													<span class="ml20 mr20"><input type="radio" name="invoice" value="Y"  />需要</span>
+													<span class="ml20 mr20"><input type="radio" name="invoice" value="Y" />需要</span>
 													<span><input type="radio" name="invoice" value="N" checked />不需要</span>
 												</c:otherwise>
 											</c:choose>											
@@ -512,8 +503,6 @@
 														<c:set var="delistIDs" value="${delistIDs}${dm.delistMID}${';'}" />	
 														<c:set var="delistNames" value="${delistNames}${dm.delistMemName}${';'}" />
 													</c:forEach>
-													
-													
 												</c:otherwise>
 											</c:choose>
 												

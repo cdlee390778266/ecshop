@@ -787,8 +787,7 @@ public class BuyController extends TradeController {
 		}
 
 		WRAuditRsp rspBody = audRspMsg.getBody();
-		rspBody.setDelistNo(rspMsg.getBody().getDeListNo());
-		if (checkRight(loginRsp.getOperRights(), "P", null)) {
+		if (checkRight(loginRsp.getOperRights(), "P", null) && rspBody.getStatus() == 1) {
 			model.addAttribute("enablePay", 1);
 		} else {
 			model.addAttribute("enablePay", 0);

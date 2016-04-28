@@ -141,21 +141,21 @@ $(function() {
 	$('#dataset').on('click', '.J_GotoPay', function(e) {
 		var key = $(this).attr('data-key');
 		
-		window.location.href = ("/sell/handle/P/"+key+".htm");  
+		window.location.href = ("/sell/handle/P/" + key + ".htm");  
 	});
 	
 	//审核响应
 	$('#dataset').on('click', '.J_Audit', function(e) {
 		var key = $(this).attr('data-key');
 		
-		window.location.href = ("/sell/handle/A/"+key+".htm");  
+		window.location.href = ("/sell/handle/A/" + key + ".htm");  
 	});
 	
 	//修改响应
 	$('#dataset').on('click', '.J_Modify', function(e) {
 		var key = $(this).attr('data-key');
 		
-		window.location.href = ("/sell/edit/"+key+".htm");  
+		window.location.href = ("/sell/edit/" + key + ".htm");  
 	});
 	
 

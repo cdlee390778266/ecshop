@@ -30,6 +30,7 @@
 
 		$(document).ready(function() {
 				$('.fixed-wrapper').stickUp();
+				checkFeeValid();
 		});
 		
 		//RADIO效果渲染		

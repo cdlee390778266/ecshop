@@ -117,7 +117,7 @@
 									<div class="title">摘牌状态：${rspBody.statusDesc}</div>
 									<div class="box">
 	
-										<c:if test="${enablePay=='1'}">			
+										<c:if test="${enablePay=='1'}">
 											<div class="pa-action clearfix mt10 ml60">
 												<div class="pa-btn-buy fn-fl">
 														<a href="/buy/handle/wr/P/${rspBody.delistNo}.htm"  class="btn-normal btn-buy">继续支付</a>

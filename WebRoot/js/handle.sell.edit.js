@@ -4,6 +4,24 @@ $(function() {
 		$('.fixed-wrapper').stickUp();
 	});
 	
+	function setElementReadOnly() {
+		if(listedType == 'W') {   //仓单设置以下元素只读
+			$("input[name='listedType']").attr("disabled", "disabled");   //设置挂牌方式只读
+			$("input[name='qty']").attr("readonly", "readonly");   //设置总量只读
+			$("input[name='wholeFlag']").attr("disabled", "disabled");   //设置是否整单只读
+			$("#storage").attr("disabled", "disabled");   //设置交收仓库只读
+		}
+	}
+	
+	function rmElementReadOnly() {
+		$("input[name='listedType']").removeAttr("disabled");   //设置挂牌方式可写
+		$("input[name='qty']").removeAttr("readonly");   //设置总量可写
+		$("input[name='wholeFlag']").removeAttr("disabled");   //设置是否整单可写
+		$("#storage").removeAttr("disabled");   //设置交收仓库可写
+	}
+	
+	setElementReadOnly();
+	
 	// 是否整单处理
 	$('.J_WholeFlag input').on('ifChecked', function(event) {
 		if (this.id == 's_flag') {
@@ -227,8 +245,9 @@ $(function() {
 	
 	$('#detail').text($('.proddetail').text());
 	
-	$('#storage').comboSelect();
-	
+	if(listedType == 'M'){
+		$('#storage').comboSelect();
+	}
 
 	function checkUnitPrice(){
 		
@@ -462,6 +481,7 @@ $(function() {
 			return;
 		}
 		
+		rmElementReadOnly();
 		checkSubmitFlg = true;
 	});
 
@@ -474,7 +494,7 @@ $(function() {
 
 	// 总量改变事件。
 	$('#qty').on('change', function(event) {
-		var wsFlag = $('.J_WholeFlag input[name="wholeFlag"]:checked').val();
+		var wsFlag = $('.J_WholeFlag input[name="DwholeFlag"]:checked').val();
 
 		$("#moq").parent().removeClass('error');
 		$("#incrNum").parent().removeClass('error');

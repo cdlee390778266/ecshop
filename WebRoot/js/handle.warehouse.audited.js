@@ -81,7 +81,7 @@ $(function() {
 	
 	var defaultOrder = [6, "desc"];
 	var columndefs = [                             
-	  	            {"render": function ( data, type, row,index ) {
+	  	            {"render": function ( data, type, row, index ) {
 	  	            	
 		                var html = '';
 		                if(enablePay == 1){
