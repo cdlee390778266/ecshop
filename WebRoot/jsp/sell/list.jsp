@@ -140,23 +140,21 @@
 								            <tr>
 								            	<th>品种</th>
 								            	<th>商品代码</th>
-								                <th>商品名称</th>							                
+								                <th>商品名称</th>
 								                <th>品牌</th>
 								                <th>产地</th>
 								                <th>挂牌单号</th>
 								                <th>挂牌数量</th>
-								                <th>单价</th>            							                
+								                <th>单价</th>
 								                <th>挂牌日期</th>
 								                <th>挂牌有效期</th>
 								                <th>挂牌类型</th>
-								                <th>状态</th>	
-								                <th>商品简述</th>								                							                
-								                <th>操作</th>								                
+								                <th>状态</th>
+								                <th>商品简述</th>               							                
+								                <th>操作</th>
 								            </tr>
 								        </thead>
 								    </table>
-								
-								
 							</div> 
 						</div>
 					</div>

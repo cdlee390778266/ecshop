@@ -213,6 +213,7 @@ public class WarehouseController extends TradeController {
 		}
 
 		logger.debug("转跳签发仓单注册撤销页面 ");
+		getUrlMatch(loginRsp.getTradeMenus(), model);
 		return "warehouse/cancel";
 	}
 	
@@ -292,6 +293,7 @@ public class WarehouseController extends TradeController {
 		}
 
 		logger.debug("转跳已审核签发仓单页面 ");
+		getUrlMatch(loginRsp.getTradeMenus(), model);
 		return "warehouse/audited";
 	}
 	
