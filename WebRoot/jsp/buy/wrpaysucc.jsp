@@ -17,6 +17,7 @@
     <link type="text/css" rel="stylesheet" href="/css/font.css" />
     <link type="text/css" rel="stylesheet" href="/css/common.css" />
     <link type="text/css" rel="stylesheet" href="/css/member.css" />
+    <link type="text/css" rel="stylesheet" href="/css/validate.css">
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/stickup.js"></script>
     <title> 买方摘牌</title>
@@ -115,9 +116,10 @@
 									<h3>处理信息</h3>
 								</div>	
 								<div class="bind-bd">
-									<div class="title">摘牌单号：${rspBody.dsNo}</div>
-									<div class="title">摘牌状态：${rspBody.statusDesc}</div>
-									<div class="box">
+									<div class="title none">摘牌单号：${rspBody.dsNo}</div>
+									<div class="title none">摘牌状态：${rspBody.statusDesc}</div>
+									<div class="title">摘牌状态：买方已付全款，等待卖方发货</div>
+									<div class="box none">
 										<table class="ui-table table-primary">
 											<caption>本次摘牌费用说明</caption>
 											<thead>

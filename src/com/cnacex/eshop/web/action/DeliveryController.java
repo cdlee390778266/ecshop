@@ -95,7 +95,11 @@ public class DeliveryController extends TradeController {
 		ConfirmRsp rspBody = rspMsg.getBody();
 
 		js.setSuccflag(0);
-		js.setMsg(StatusUtil.getBuyStatus(rspBody.getStatus()));
+		if("W".equalsIgnoreCase(listedType)) {
+			js.setMsg("买方确认已收发票");
+		} else {
+			js.setMsg(StatusUtil.getBuyStatus(rspBody.getStatus()));
+		}
 
 		return js;
 
