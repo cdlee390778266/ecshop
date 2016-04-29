@@ -123,7 +123,6 @@
 		});
 		
 		function checkFeeValid(){
-		
 			var top = $('input:radio[name="top"]:checked').val();
 			
 			if(top == undefined || top ==''){
@@ -132,7 +131,7 @@
 			
 			var vol = $('#vol').val();
 			
-			if( vol== undefined || vol ==''){
+			if( vol == undefined || vol == ''){
 				return;
 			}
 			
@@ -140,8 +139,8 @@
 			var up = $('#up').val();
 			
 			
-			var pog = Number(Number(up)*Number(vol)).toFixed(2);
-			var postParam = "top="+top+"&code="+ code+"&pog="+pog;
+			var pog = Number(Number(up) * Number(vol)).toFixed(2);
+			var postParam = "top=" + top + "&code=" + code + "&pog=" + pog;
 			$.ajax({
 						type : 'post',
 						url : '/buy/findfee.htm',
@@ -155,9 +154,9 @@
 							var htm = '';
 							if(costlist.length > 0){
 								for(var i = 0; i <costlist.length; i++){
-									htm += '<span class="ml10">'+costlist[i].costName+':'+Number(costlist[i].costAmt).toFixed(2)+'</span>';
+									htm += '<span class="ml10">' + costlist[i].costName + ':' + Number(costlist[i].costAmt).toFixed(2) + '</span>';
 									
-									totalAmt = (Number(totalAmt)+Number(costlist[i].costAmt)).toFixed(2);
+									totalAmt = (Number(totalAmt) + Number(costlist[i].costAmt)).toFixed(2);
 								}
 							}
 							

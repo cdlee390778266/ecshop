@@ -158,9 +158,9 @@ $(function() {
 		var type = $(this).attr('data-type');
 		
 		if(type == "M"){   //保证金
-			window.location.href = ("/buy/handle/P/" + key + ".htm");
+			window.location.href = ("/buy/handle/A/" + key + ".htm");
 		}else if(type == "W"){   //仓单
-			window.location.href = ("/buy/handle/wr/P/" + key + ".htm");
+			window.location.href = ("/buy/handle/wr/A/" + key + ".htm");
 		}
 	});
 	
