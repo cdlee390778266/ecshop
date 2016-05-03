@@ -75,15 +75,12 @@
 
 				<div class="main-content">
 					<div class="bd">
-						
 						<div class="page-module data-query">
 							<div class="row">
 							    <div class="hd">
 							   		<h3>注册仓单撤销</h3>
 							    </div>
 							    <div class="bd mt10 warehouse">
-							      
-							      	  
 									<table class="ui-table">
 									<tbody>
 										<tr>
@@ -91,9 +88,8 @@
 												<td colspan="5">
 												<input type="hidden" name="commcode" id="commcode" />
 												<div class="selcomm" data-select></div>
-																																
-											</td>		
-										</tr>																	
+											</td>
+										</tr>
 										<tr>
 											<td class="ctr">入库时间：</td>
 											<td>
@@ -106,9 +102,6 @@
 										</tr>																	
 									</tbody>
 								</table>
-									
-									
-									
 							    </div>
 							</div>
 							<div class="tabbar-wrap">
@@ -116,24 +109,23 @@
 									<div class="header-exg tab-sty">
 										<ul id="J_TabBar" class="pa-tabbar pdeta">
 											<li class="item tab-cell"><a href="/warehouse/list.htm">可注册仓单</a></li>
-											<li class="item tab-cell"><a href="/warehouse/cancel.htm">待审核仓单</a></li>
+											<li class="item tab-cell"><a href="/warehouse/list.htm?category=cancel">待审核仓单</a></li>
 											<li class="item tab-cell selected"><a href="#">已审核仓单</a></li>
 										</ul>
 									</div>
 								</div>
 							</div>
 							<div class="row">
-
 								<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
 								        <thead>
 								            <tr>
 								            	<th>商品种类名称</th>
 								            	<th>会员名称</th>
 								            	<th>注册仓单编号</th>
-								                <th>仓库名称</th>								                
+								                <th>仓库名称</th>
 								                <th>仓库编号</th>
 								                <th>货物数量</th>
-								                <th>操作</th>								                
+								                <th>操作</th>
 								            </tr>
 								        </thead>
 								  </table>

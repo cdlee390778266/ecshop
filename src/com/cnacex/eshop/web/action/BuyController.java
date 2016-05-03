@@ -624,6 +624,7 @@ public class BuyController extends TradeController {
 				return "comm/fail";
 			}
 			
+			wrApplyRspBody.setStatusDesc(StatusUtil.getBuyStatus(rspBody.getStatus()));
 			model.addAttribute("rspBody", wrApplyRspBody);
 			input = "buy/wrbuysucc";
 		}

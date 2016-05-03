@@ -75,15 +75,12 @@
 
 				<div class="main-content">
 					<div class="bd">
-						
 						<div class="page-module data-query">
 							<div class="row">
 							    <div class="hd">
 							   		<h3>注册仓单撤销</h3>
 							    </div>
 							    <div class="bd mt10 warehouse">
-							      
-							      	  
 									<table class="ui-table">
 									<tbody>
 										<tr>
@@ -91,7 +88,6 @@
 												<td colspan="5">
 												<input type="hidden" name="commcode" id="commcode" />
 												<div class="selcomm" data-select></div>
-																																
 											</td>		
 										</tr>																	
 										<tr>
@@ -108,9 +104,6 @@
 										</tr>																	
 									</tbody>
 								</table>
-									
-									
-									
 							    </div>							
 							</div>
 							<div class="tabbar-wrap">
@@ -119,13 +112,12 @@
 										<ul id="J_TabBar" class="pa-tabbar pdeta">
 											<li class="item tab-cell"><a href="/warehouse/list.htm">可注册仓单</a></li>
 											<li class="item tab-cell selected"><a href="#">待审核仓单</a></li>
-											<li class="item tab-cell"><a href="/warehouse/audited.htm">已审核仓单</a></li>
+											<li class="item tab-cell"><a href="/warehouse/list.htm?category=audited">已审核仓单</a></li>
 										</ul>
 									</div>
 								</div>
 							</div>
 							<div class="row">
-
 								<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
 								        <thead>
 								            <tr>
@@ -133,17 +125,14 @@
 								            	<th>商品种类名称</th>
 								            	<th>会员名称</th>
 								            	<th>注册仓单编号</th>
-								                <th>仓库名称</th>								                
+								                <th>仓库名称</th>
 								                <th>仓库编号</th>
 								                <th>货物数量</th>
-								                <th>操作</th>								                
+								                <th>操作</th>
 								            </tr>
 								        </thead>
 								  </table>
-								
-								
 							</div>
-							 
 						</div>
 					</div>
 				</div>
@@ -167,7 +156,6 @@
 							<td class="ctr">仓单编号：</td>											
 							<td><span id="registnotmp" style="margin-left: 10px"></span></td>
 						</tr> 
-						
 						 <tr>
 							<td class="ctr">商品种类名称：</td>											
 							<td><span id="mdsenametmp" style="margin-left: 10px"></span></td>
@@ -176,15 +164,10 @@
 							<td class="ctr" width="130">仓库编号： </td>
 							<td><span id="storenotmp" style="margin-left: 10px"></span></td>
 						</tr>
-						
 						<tr>
 							<td class="ctr" width="130">仓库名称： </td>
 							<td><span id="storenametmp" style="margin-left: 10px"></span></td>
 						</tr>
-<!-- 						<tr>
-							<td class="ctr" width="130">仓位编码： </td>
-							<td><span id="positiontmp" style="margin-left: 10px"></span></td>
-						</tr> -->																								
 						<tr>
 							<td class="ctr">货物数量：</td>											
 							<td><span id="qtytmp" style="margin-left: 10px"></span><span style="margin-left: 2px;">顿</span></td>
@@ -200,7 +183,6 @@
 					<button class="cbtn" id="cancelbtn1">取&nbsp;&nbsp;消</button>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 	

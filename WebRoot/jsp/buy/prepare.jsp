@@ -160,7 +160,7 @@
 								}
 							}
 							
-							htm += '<span class="ml10 fnt-bnd">总金额:'+Number(totalAmt).toFixed(2)+'</span>';
+							htm += '<span class="ml10 fnt-bnd">总金额:' + Number(totalAmt).toFixed(2) + '</span>';
 							
 							$('.seletop').html(htm);
 						

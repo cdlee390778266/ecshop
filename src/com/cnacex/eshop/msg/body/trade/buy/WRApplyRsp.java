@@ -26,6 +26,12 @@ public class WRApplyRsp {
 	private String auditNo;
 	
 	/**
+	 * 摘牌状态
+	 */
+	@XStreamAlias("status")
+	private int status;
+	
+	/**
 	 * 摘牌状态（报文未返回，页面需要）
 	 */
 	private String statusDesc;
@@ -58,6 +64,14 @@ public class WRApplyRsp {
 
 	public void setCostPays(List<CostPay> costPays) {
 		this.costPays = costPays;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 	public String getStatusDesc() {

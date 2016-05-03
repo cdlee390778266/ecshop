@@ -106,24 +106,20 @@
 										</tr>																	
 									</tbody>
 								</table>
-									
-									
-									
-							    </div>							
+							    </div>
 							</div>
 							<div class="tabbar-wrap">
 								 <div class="mod-tabbar">
 									<div class="header-exg tab-sty">
 										<ul id="J_TabBar" class="pa-tabbar pdeta">
 											<li class="item tab-cell selected"><a href="#">可注册仓单</a></li>
-											<li class="item tab-cell"><a href="/warehouse/cancel.htm">待审核仓单</a></li>
-											<li class="item tab-cell"><a href="/warehouse/audited.htm">已审核仓单</a></li>
+											<li class="item tab-cell"><a href="/warehouse/list.htm?category=cancel">待审核仓单</a></li>
+											<li class="item tab-cell"><a href="/warehouse/list.htm?category=audited">已审核仓单</a></li>
 										</ul>
 									</div>
 								</div>
 							</div>
 							<div class="row">
-
 								<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
 								        <thead>
 								            <tr>
@@ -139,10 +135,7 @@
 								            </tr>
 								        </thead>
 								  </table>
-								
-								
 							</div>
-							 
 						</div>
 					</div>
 				</div>

@@ -69,9 +69,18 @@ public class WarehouseController extends TradeController {
 	 *
 	 */
 	@RequestMapping(value = "/list.htm")
-	public String list(HttpServletRequest request, ModelMap model) {
+	public String list(
+			HttpServletRequest request,
+			@RequestParam(value = "category", required = false)String category,
+			ModelMap model) {
 
 		LoginRsp loginRsp = (LoginRsp) request.getSession().getAttribute("userinfo");
+		
+		if("cancel".equals(category)) {
+			return cancel(request, model);
+		} else if("audited".equals(category)) {
+			return audited(request, model);
+		}
 
 		// 判断登陆用户是否有T权限
 		model.addAttribute("enablePay", 0);
