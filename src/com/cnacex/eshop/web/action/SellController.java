@@ -187,6 +187,8 @@ public class SellController extends TradeController {
 				apply.setCtxpic3(ctxList.get(i));
 		}
 			
+		apply.setMoq(0l);
+		apply.setIncrnum(0l);
 		ApplyCdListedRspMsg rspMsg = sellService.applyCdListedReq(apply);
 		
 		if (rspMsg.getHead() == null) {
