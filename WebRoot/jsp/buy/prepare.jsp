@@ -148,7 +148,7 @@
 						cache : false,
 						dataType : 'json',
 						success : function(data) {
-						
+							var listedType = $("#listedType").val();
 							var costlist = data.data;
 							var totalAmt = 0.00;
 							var htm = '';
@@ -162,8 +162,9 @@
 							
 							htm += '<span class="ml10 fnt-bnd">总金额:' + Number(totalAmt).toFixed(2) + '</span>';
 							
-							$('.seletop').html(htm);
-						
+							if(listedType == 'M'){
+								$('.seletop').html(htm);
+							}
 						}
 					}
 				);
@@ -395,6 +396,7 @@
 							<div class="row bsrow">
 								<form name="buyform" id="buyform" method="post" action="/buy/apply.htm" >
 								<input type="hidden" name="listedNo" value="${buyBody.listedNo}" />
+								<input type="hidden" name="listedType" value="${buyBody.listedType}" />
 								<input type="hidden" name="active" value="buy" />
 								<input type="hidden" name="code" id="code" value="${buyBody.commCode}" />
 								<input type="hidden" name="wFlag" id="wFlag" value="${buyBody.wholeFlg}" data-base="${buyBody.moq}" data-rem="${buyBody.rem}" data-ic="${buyBody.ic}" />

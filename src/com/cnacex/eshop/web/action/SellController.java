@@ -200,6 +200,7 @@ public class SellController extends TradeController {
 		}
 		//获取挂牌编号
 		ApplyCdListedRsp rsp = rspMsg.getBody();
+		rsp.setStatusDesc(StatusUtil.getSellStatus(rsp.getStatus().intValue()));
 		model.addAttribute("listed", rsp);
 		//判断权限
 		if(checkRight(loginRsp.getOperRights(), "A", apply.getClasscode()))

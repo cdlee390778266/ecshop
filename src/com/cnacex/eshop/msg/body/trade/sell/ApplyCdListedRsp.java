@@ -17,6 +17,8 @@ public class ApplyCdListedRsp {
 	//挂牌状态
 	@XStreamAlias("status")
 	private Long status;
+	
+	private String statusDesc;
 
 	public String getListedno() {
 		return listedno;
@@ -33,6 +35,12 @@ public class ApplyCdListedRsp {
 	public void setStatus(Long status) {
 		this.status = status;
 	}
-	
-	
+
+	public String getStatusDesc() {
+		return statusDesc;
+	}
+
+	public void setStatusDesc(String statusDesc) {
+		this.statusDesc = statusDesc;
+	}
 }
