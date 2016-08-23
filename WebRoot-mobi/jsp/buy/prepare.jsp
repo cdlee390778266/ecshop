@@ -30,6 +30,7 @@
 
 		$(document).ready(function() {
 				$('.fixed-wrapper').stickUp();
+				checkFeeValid();
 		});
 		
 		//RADIO效果渲染		
@@ -122,7 +123,6 @@
 		});
 		
 		function checkFeeValid(){
-		
 			var top = $('input:radio[name="top"]:checked').val();
 			
 			if(top == undefined || top ==''){
@@ -131,7 +131,7 @@
 			
 			var vol = $('#vol').val();
 			
-			if( vol== undefined || vol ==''){
+			if( vol == undefined || vol == ''){
 				return;
 			}
 			
@@ -139,8 +139,8 @@
 			var up = $('#up').val();
 			
 			
-			var pog = Number(Number(up)*Number(vol)).toFixed(2);
-			var postParam = "top="+top+"&code="+ code+"&pog="+pog;
+			var pog = Number(Number(up) * Number(vol)).toFixed(2);
+			var postParam = "top=" + top + "&code=" + code + "&pog=" + pog;
 			$.ajax({
 						type : 'post',
 						url : '/buy/findfee.htm',
@@ -148,22 +148,23 @@
 						cache : false,
 						dataType : 'json',
 						success : function(data) {
-						
+							var listedType = $("#listedType").val();
 							var costlist = data.data;
 							var totalAmt = 0.00;
 							var htm = '';
 							if(costlist.length > 0){
 								for(var i = 0; i <costlist.length; i++){
-									htm += '<span class="ml10">'+costlist[i].costName+':'+Number(costlist[i].costAmt).toFixed(2)+'</span>';
+									htm += '<span class="ml10">' + costlist[i].costName + ':' + Number(costlist[i].costAmt).toFixed(2) + '</span>';
 									
-									totalAmt = (Number(totalAmt)+Number(costlist[i].costAmt)).toFixed(2);
+									totalAmt = (Number(totalAmt) + Number(costlist[i].costAmt)).toFixed(2);
 								}
 							}
 							
-							htm += '<span class="ml10 fnt-bnd">总金额:'+Number(totalAmt).toFixed(2)+'</span>';
+							htm += '<span class="ml10 fnt-bnd">总金额:' + Number(totalAmt).toFixed(2) + '</span>';
 							
-							$('.seletop').html(htm);
-						
+							if(listedType == 'M'){
+								$('.seletop').html(htm);
+							}
 						}
 					}
 				);
@@ -395,6 +396,7 @@
 							<div class="row bsrow">
 								<form name="buyform" id="buyform" method="post" action="/buy/apply.htm" >
 								<input type="hidden" name="listedNo" value="${buyBody.listedNo}" />
+								<input type="hidden" name="listedType" value="${buyBody.listedType}" />
 								<input type="hidden" name="active" value="buy" />
 								<input type="hidden" name="code" id="code" value="${buyBody.commCode}" />
 								<input type="hidden" name="wFlag" id="wFlag" value="${buyBody.wholeFlg}" data-base="${buyBody.moq}" data-rem="${buyBody.rem}" data-ic="${buyBody.ic}" />
@@ -454,8 +456,10 @@
 											<td><label for="">付款方式：</label></td>
 											<td>
 												
-													<input type="radio" name="top" id="top" value="S" name="cpay"/><span class="ml5 mr20">仅付定金</span>
-													<input type="radio" name="top" id="top" value="F" name="cpay"/><span class="ml5 mr20">付全款</span>
+													<c:if test="${buyBody.listedType != 'W'}">
+														<input type="radio" name="top" id="top" value="S" name="cpay"/><span class="ml5 mr20">仅付定金</span>
+													</c:if>
+													<input type="radio" name="top" id="top" value="F" name="cpay" readonly="readonly" checked="checked" /><span class="ml5 mr20">付全款</span>
 												
 												
 													<span class="seletop" style="color: #f00; line-height: 30px; margin-left: 10px;"></span>

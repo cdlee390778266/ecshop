@@ -1,4 +1,4 @@
-﻿.dialog{position:fixed;_position:absolute;z-index:10000;visibility:visible;}
+.dialog{position:fixed;_position:absolute;z-index:1000000;visibility:visible;}
 .dialog  .dialog-shd{display:none}
 .dialog  .dialog-content{position:relative;z-index:200;background:#fff;}
 .dialog  .dialog-close{position:absolute;background:url(../theme/dialog.png) -9px -159px no-repeat;width:20px;height:20px;top:6px;right:8px;z-index:1;}

@@ -3,30 +3,52 @@ package com.cnacex.eshop.msg.body.trade.buy;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
+ * 商品摘牌申请请求
  * @author kereny
  *
  */
 
 public class ApplyReq {
 	
+	/**
+	 * 会员编号
+	 */
 	@XStreamAlias("mid")
 	private String mID;
 	
+	/**
+	 * 摘牌交易员 摘牌交易员（操作员）编号
+	 */
 	@XStreamAlias("txoperid")
 	private String txOperID;
 	
+	/**
+	 * 所摘挂牌编号
+	 */
 	@XStreamAlias("listedno")
 	private String listedNO;
 	
+	/**
+	 * 购买数量
+	 */
 	@XStreamAlias("vol")
 	private int vol;
 	
+	/**
+	 * 付款方式
+	 */
 	@XStreamAlias("top")
 	private String	top;
 	
+	/**
+	 * 
+	 */
 	@XStreamAlias("invoice")
 	private String	invoice;
 	
+	/**
+	 * 买方备注
+	 */
 	@XStreamAlias("remark")
 	private String 	remark;
 

@@ -7,8 +7,8 @@ import com.cnacex.eshop.msg.body.mall.ListedDetailRsp;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
+ * 挂牌销售商品详细信息报文
  * @author kereny
- *
  */
 public class ListedDetailRspMsg extends AbstractRspMsg<ListedDetailRsp> {
 	

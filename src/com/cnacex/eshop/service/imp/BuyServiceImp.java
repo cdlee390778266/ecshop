@@ -13,19 +13,32 @@ import com.cnacex.eshop.msg.body.trade.buy.BuyOrderDetailReq;
 import com.cnacex.eshop.msg.body.trade.buy.BuyPayReq;
 import com.cnacex.eshop.msg.body.trade.buy.CancelReq;
 import com.cnacex.eshop.msg.body.trade.buy.EditReq;
+import com.cnacex.eshop.msg.body.trade.buy.WRApplyReq;
+import com.cnacex.eshop.msg.body.trade.buy.WRAuditReq;
+import com.cnacex.eshop.msg.body.trade.buy.WRBuyOrderDetailReq;
+import com.cnacex.eshop.msg.body.trade.buy.WRBuyPayReq;
+import com.cnacex.eshop.msg.body.trade.buy.WRCancelReq;
 import com.cnacex.eshop.msg.xml.trade.buy.ApplyCancelReqMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.ApplyReqMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.ApplyRspMsg;
+import com.cnacex.eshop.msg.xml.trade.buy.AuditReqMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.AuditRspMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.BuyBillReqMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.BuyBillRspMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.BuyOrderDetailReqMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.BuyOrderDetailRspMsg;
-import com.cnacex.eshop.msg.xml.trade.buy.AuditReqMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.BuyPayReqMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.BuyPayRspMsg;
 import com.cnacex.eshop.msg.xml.trade.buy.EditReqMsg;
-
+import com.cnacex.eshop.msg.xml.trade.buy.WRApplyReqMsg;
+import com.cnacex.eshop.msg.xml.trade.buy.WRApplyRspMsg;
+import com.cnacex.eshop.msg.xml.trade.buy.WRAuditReqMsg;
+import com.cnacex.eshop.msg.xml.trade.buy.WRAuditRspMsg;
+import com.cnacex.eshop.msg.xml.trade.buy.WRBuyOrderDetailReqMsg;
+import com.cnacex.eshop.msg.xml.trade.buy.WRBuyOrderDetailRspMsg;
+import com.cnacex.eshop.msg.xml.trade.buy.WRBuyPayReqMsg;
+import com.cnacex.eshop.msg.xml.trade.buy.WRBuyPayRspMsg;
+import com.cnacex.eshop.msg.xml.trade.buy.WRCancelReqMsg;
 import com.cnacex.eshop.service.IBuyService;
 import com.cnacex.eshop.util.MsgBuilder;
 
@@ -98,4 +111,63 @@ public class BuyServiceImp implements IBuyService {
 		return rspMsg;
 	}
 
+	@Override
+	public WRApplyRspMsg applyWRBuy(WRApplyReq wrApplyReq) {
+		AbstractReqMsg<?> reqMsg = MsgBuilder.buildReqMsg(WRApplyReqMsg.class, wrApplyReq);
+		WRApplyRspMsg rspMsg = baseDAO.handle(reqMsg, WRApplyRspMsg.class);
+		return rspMsg;
+	}
+	
+	/**
+	 * 仓单摘牌审核
+	 * 
+	 * @param wrApplyReq
+	 * @return WRAuditRspMsg
+	 */
+	@Override
+	public WRAuditRspMsg auditWRBuy(WRAuditReq wrAuditReq) {
+		AbstractReqMsg<?> reqMsg = MsgBuilder.buildReqMsg(WRAuditReqMsg.class, wrAuditReq);
+		WRAuditRspMsg rspMsg = baseDAO.handle(reqMsg, WRAuditRspMsg.class);
+		return rspMsg;
+	}
+	
+	/**
+	 * 仓单摘牌付款
+	 * 
+	 * @param wrBuyPayReq
+	 * @return BuyPayRspMsg
+	 *
+	 */
+	@Override
+	public WRBuyPayRspMsg wrPayBuy(WRBuyPayReq wrBuyPayReq) {
+		AbstractReqMsg<?> reqMsg = MsgBuilder.buildReqMsg(WRBuyPayReqMsg.class, wrBuyPayReq);
+		WRBuyPayRspMsg rspMsg = baseDAO.handle(reqMsg, WRBuyPayRspMsg.class);
+		return rspMsg;
+	}
+	
+	/**
+	 * 摘牌单详细信息查询
+	 * 
+	 * @param wrApplyReq
+	 * @return WRBuyOrderDetailRspMsg
+	 */
+	@Override
+	public WRBuyOrderDetailRspMsg findWRBuyOrderDetail(WRBuyOrderDetailReq wrApplyReq) {
+		AbstractReqMsg<?> reqMsg = MsgBuilder.buildReqMsg(WRBuyOrderDetailReqMsg.class, wrApplyReq);
+		WRBuyOrderDetailRspMsg rspMsg = baseDAO.handle(reqMsg, WRBuyOrderDetailRspMsg.class);
+		return rspMsg;
+	}
+	
+	/**
+	 * 仓单摘牌撤销
+	 * 
+	 * @param cancelRsp
+	 * @return WRCancelRspMsg
+	 */
+	@Override
+	public CommRspMsg wrCancel(WRCancelReq cancelRsp) {
+		AbstractReqMsg<?> reqMsg = MsgBuilder.buildReqMsg(WRCancelReqMsg.class, cancelRsp);
+		CommRspMsg rspMsg = baseDAO.handle(reqMsg, CommRspMsg.class);
+		return rspMsg;
+	}
 }

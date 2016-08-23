@@ -16,9 +16,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cnacex.comm.util.Config;
@@ -32,26 +31,34 @@ import com.cnacex.eshop.msg.body.mall.ListedDetailReq;
 import com.cnacex.eshop.msg.body.mall.MdseElement;
 import com.cnacex.eshop.msg.body.member.LoginRsp;
 import com.cnacex.eshop.msg.body.member.LoginRsp.MemMarket;
+import com.cnacex.eshop.msg.body.trade.sell.ApplyCdListedReq;
+import com.cnacex.eshop.msg.body.trade.sell.ApplyCdListedRsp;
+import com.cnacex.eshop.msg.body.trade.sell.ApplyCdReq;
 import com.cnacex.eshop.msg.body.trade.sell.ApplyReq;
+import com.cnacex.eshop.msg.body.trade.sell.ApplyReq.DelistMem;
 import com.cnacex.eshop.msg.body.trade.sell.ApplyRsp;
 import com.cnacex.eshop.msg.body.trade.sell.AuditReq;
 import com.cnacex.eshop.msg.body.trade.sell.AuditRsp;
 import com.cnacex.eshop.msg.body.trade.sell.BondPayReq;
 import com.cnacex.eshop.msg.body.trade.sell.BondPayRsp;
 import com.cnacex.eshop.msg.body.trade.sell.CancelReq;
+import com.cnacex.eshop.msg.body.trade.sell.Receipts;
 import com.cnacex.eshop.msg.body.trade.sell.SellBillReq;
 import com.cnacex.eshop.msg.body.trade.sell.SellBillRsp;
-import com.cnacex.eshop.msg.body.trade.sell.ApplyReq.DelistMem;
-
 import com.cnacex.eshop.msg.body.trade.sell.SellOrderDetailRsp;
 import com.cnacex.eshop.msg.body.trade.sell.StoreReq;
+import com.cnacex.eshop.msg.body.trade.sell.WRDetailReq;
 import com.cnacex.eshop.msg.xml.mall.ListedDetailRspMsg;
+import com.cnacex.eshop.msg.xml.trade.sell.ApplyCdListedRspMsg;
+import com.cnacex.eshop.msg.xml.trade.sell.ApplyCdRspMsg;
 import com.cnacex.eshop.msg.xml.trade.sell.ApplyRspMsg;
+import com.cnacex.eshop.msg.xml.trade.sell.AuditCdRspMsg;
 import com.cnacex.eshop.msg.xml.trade.sell.AuditRspMsg;
 import com.cnacex.eshop.msg.xml.trade.sell.BondPayRspMsg;
 import com.cnacex.eshop.msg.xml.trade.sell.SellBillRspMsg;
 import com.cnacex.eshop.msg.xml.trade.sell.SellOrderDetailRspMsg;
 import com.cnacex.eshop.msg.xml.trade.sell.StoreRspMsg;
+import com.cnacex.eshop.msg.xml.trade.sell.WRDetailRspMsg;
 import com.cnacex.eshop.service.ISellService;
 import com.cnacex.eshop.service.imp.MallServiceImp;
 import com.cnacex.eshop.util.ListedUtil;
@@ -76,7 +83,192 @@ public class SellController extends TradeController {
 	private static final String IMAGEPATH = Config.getValue("ImagePath");
 
 	private static final String RESOURCEIP = Config.getValue("ResoureIP");
+	
+	
+	/**
+	 * 注册仓单挂牌
+	 * @author 文闻
+	 * @data 2016-3-30
+	 * @param apply
+	 * @param unitPrice
+	 * @param titfile
+	 * @param ctxfile
+	 * @param memdelists
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/applyListed.htm")
+	public String sellApplyListed(
+			@ModelAttribute ApplyCdListedReq apply,
+			@RequestParam(value = "unitPrice", required = false) String unitPrice,
+			@RequestParam(value = "titfile", required = false) MultipartFile titfile,
+			@RequestParam(value = "ctxfile", required = false) MultipartFile[] ctxfile,
+			@RequestParam(value = "memdelists", required = false) String memdelists,
+			HttpServletRequest request, ModelMap model) {
 
+		LoginRsp loginRsp = (LoginRsp)request.getSession().getAttribute("userinfo");
+		apply.setMid(loginRsp.getmID());
+		apply.setTxoperid(loginRsp.getOperID());
+		apply.setUnitprice(Double.valueOf(unitPrice));
+		logger.debug("进入挂牌处理 参数 commCode{}", apply.getCommcode());
+		
+		//根据仓单编号查询仓单详情
+		WRDetailReq wreq = new WRDetailReq();
+		wreq.setReceiptNo(apply.getWrno());
+		WRDetailRspMsg wrRsp = sellService.getWRDetail(wreq);
+		List<Prop> p = wrRsp.getBody().getProps();
+		apply.setProps(p);
+		MdseElement mdseElement = mallService.findLocalMdseEntity(apply.getCommcode());		
+		if(mdseElement != null){
+			apply.setMarkcode(mdseElement.getMarkCode());
+			apply.setClasscode(mdseElement.getClassCode());
+		}else{
+			model.addAttribute("message", "商品无定位市场和分类,请确认");
+			return "comm/fail";
+		}
+		
+		logger.debug("进入挂牌处理 参数 {}", apply.toString());
+		//验证权限处理
+		if(!checkRight(loginRsp.getOperRights(), "T", apply.getClasscode()))
+		{
+			model.addAttribute("message", "您无此权限,请联系会员管理员");
+			return "comm/fail";
+		}
+		
+		if(!checkMarket(loginRsp.getMemMarkets(), apply.getMarkcode()))
+		{
+			model.addAttribute("message", "您无此权限,请联系会员管理员");
+			return "comm/fail";
+		}
+		
+		if(!checkTxComm(loginRsp.getTxComms(), apply.getClasscode(), "S"))
+		{
+			model.addAttribute("message", "您无此权限,请联系会员管理员");
+			return "comm/fail";
+		}
+		
+		if(apply.getDelist().equals("A")){
+			String delists[] = memdelists.split(";");
+			if(StringUtil.nullOrBlank(memdelists) || delists == null || delists.length == 0){
+				model.addAttribute("message", "指定摘牌方式未选择指定摘牌会员");
+				return "comm/fail";
+
+			}
+
+			List<com.cnacex.eshop.msg.body.trade.sell.DelistMem> mems = 
+					new ArrayList<com.cnacex.eshop.msg.body.trade.sell.DelistMem>();
+			
+			for(int k = 0; k < delists.length; k++){
+				com.cnacex.eshop.msg.body.trade.sell.DelistMem dm = 
+						new com.cnacex.eshop.msg.body.trade.sell.DelistMem();
+				
+				dm.setDelistmid(delists[k]);
+				mems.add(dm);
+			}
+			apply.setDelistMem(mems);
+		}
+		
+		String path = getFilePath(loginRsp.getmID(), apply.getCommcode());
+
+		String titlePic = titleResourceConvert(path, titfile);
+
+		apply.setTitlepic(titlePic);
+		
+		List<String> ctxList = ctxResourceConvert(path, ctxfile);
+
+		for (int i = 0; i < ctxList.size() && i < 3; i++) {
+			if (i == 0)
+				apply.setCtxpic1(ctxList.get(i));
+			if (i == 1)
+				apply.setCtxpic2(ctxList.get(i));
+
+			if (i == 2)
+				apply.setCtxpic3(ctxList.get(i));
+		}
+			
+		apply.setMoq(0l);
+		apply.setIncrnum(0l);
+		ApplyCdListedRspMsg rspMsg = sellService.applyCdListedReq(apply);
+		
+		if (rspMsg.getHead() == null) {
+			model.addAttribute("message", rspMsg.getFault().getRspMsg());
+			return "comm/fail";
+		}
+
+		if (rspMsg.getHead().getSuccFlag() != 1) {
+			model.addAttribute("message", rspMsg.getHead().getRspMsg());
+			return "comm/fail";
+		}
+		//获取挂牌编号
+		ApplyCdListedRsp rsp = rspMsg.getBody();
+		rsp.setStatusDesc(StatusUtil.getSellStatus(rsp.getStatus().intValue()));
+		model.addAttribute("listed", rsp);
+		//判断权限
+		if(checkRight(loginRsp.getOperRights(), "A", apply.getClasscode()))
+		{
+			model.addAttribute("enableAudit", 1);
+		}else{
+			model.addAttribute("enableAudit", 0);
+		}
+		model.addAttribute("listedType", apply.getListedtype());
+		return "sell/sellsucc";
+	}
+
+	/**
+	 * 注册仓单查询
+	 * @author 文闻
+	 * @data 2016-3-30
+	 * @param code
+	 * @param status
+	 * @param pageNum
+	 * @param pageSize
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/findCdList.htm")
+	public @ResponseBody JSonComm  findCdList(
+			@RequestParam(value = "code", required = false) String code,
+			ModelMap model,HttpServletRequest request) {
+		LoginRsp loginRsp = (LoginRsp)request.getSession().getAttribute("userinfo");
+		//获取用户账号
+		String mid = loginRsp.getmID();
+		ApplyCdReq req = new ApplyCdReq();
+		req.setMid(mid);
+		req.setStatus(0l);
+		if(!"".equals(code)){
+			req.setCommcode(code);
+		}
+		ApplyCdRspMsg rspMsg = sellService.findApplyCdReq(req);		
+		JSonComm js = new JSonComm();
+		if(rspMsg.getHead() == null){
+			
+			js.setSuccflag(-1);
+			js.setMsg(rspMsg.getFault().getRspMsg());
+			js.setData("");
+			return js;
+		}
+		
+		if(rspMsg.getHead().getSuccFlag() != 1){			
+			js.setSuccflag(-2);
+			js.setMsg(rspMsg.getHead().getRspMsg());
+			js.setData("");
+			return js;
+		}
+		if(rspMsg.getBody().getrseceipts() != null && !"".equals(rspMsg.getBody().getrseceipts())){
+			List<Receipts> r =rspMsg.getBody().getrseceipts();
+			for (Receipts receipts : r) {
+				receipts.setMemname(rspMsg.getBody().getMemname());
+				receipts.setProvid(rspMsg.getBody().getProvid());
+			}
+			js.setData(r);
+		}else{
+			js.setData("");
+		}	
+		
+		return js;
+	}
+	
 	/**
 	 * 卖方挂牌
 	 * 
@@ -92,6 +284,7 @@ public class SellController extends TradeController {
 	public String sellApply(
 
 			@RequestParam(value = "active", required = true) String active,
+			@RequestParam(value = "type", required = false) String type,
 			@ModelAttribute ApplyReq apply,
 			@RequestParam(value = "propdata", required = false) String[] propdata,
 			@RequestParam(value = "titfile", required = false) MultipartFile titfile,
@@ -137,7 +330,11 @@ public class SellController extends TradeController {
 			model.addAttribute("busDate", busDate);
 			model.addAttribute("active", "sell");
 			model.addAttribute("marks", rs);
-			return "sell/apply";
+			if(type.equals("1")){
+				return "sell/applycd";
+			}else{
+				return "sell/apply";
+			}
 		}
 
 		apply.setmID(loginRsp.getmID());
@@ -283,9 +480,8 @@ public class SellController extends TradeController {
 		}else{
 			model.addAttribute("enableAudit", 0);
 		}
-
+		model.addAttribute("listedType", apply.getListedType());
 		// 进入业务处理页
-
 		return "sell/sellsucc";
 	}
 	
@@ -483,21 +679,39 @@ public class SellController extends TradeController {
 				}
 		}
 		apply.setProps(props);	
+		if(String.valueOf(apply.getListedType()).equals("M")){
+			ApplyRspMsg editRspMsg = sellService.editSell(apply);
+			ApplyRsp rspBody = editRspMsg.getBody();
+			rspBody.setCostPays(supplyCostName(rspBody.getCostPays()));
+			model.addAttribute("listed", rspBody);
+			if (editRspMsg.getHead() == null) {
+				model.addAttribute("message", editRspMsg.getFault().getRspMsg());
+				return "comm/fail";
+			}
 
-		ApplyRspMsg editRspMsg = sellService.editSell(apply);
+			if (editRspMsg.getHead().getSuccFlag() != 1) {
+				model.addAttribute("message", editRspMsg.getHead().getRspMsg());
+				return "comm/fail";
+			}
+		}else{
+			ApplyCdListedRspMsg editRspMsg= sellService.editCdSell(apply);
+			ApplyCdListedRsp rspBody = editRspMsg.getBody();
+			model.addAttribute("listed", rspBody);
+			if (editRspMsg.getHead() == null) {
+				model.addAttribute("message", editRspMsg.getFault().getRspMsg());
+				return "comm/fail";
+			}
 
-		if (editRspMsg.getHead() == null) {
-			model.addAttribute("message", editRspMsg.getFault().getRspMsg());
-			return "comm/fail";
+			if (editRspMsg.getHead().getSuccFlag() != 1) {
+				model.addAttribute("message", editRspMsg.getHead().getRspMsg());
+				return "comm/fail";
+			}
 		}
+		
+		
+		
+		
 
-		if (editRspMsg.getHead().getSuccFlag() != 1) {
-			model.addAttribute("message", editRspMsg.getHead().getRspMsg());
-			return "comm/fail";
-		}
-		ApplyRsp rspBody = editRspMsg.getBody();
-		rspBody.setCostPays(supplyCostName(rspBody.getCostPays()));
-		model.addAttribute("listed", rspBody);
 		
 		if(checkRight(loginRsp.getOperRights(), "A", apply.getClassCode()))
 		{
@@ -505,14 +719,14 @@ public class SellController extends TradeController {
 		}else{
 			model.addAttribute("enableAudit", 0);
 		}
-
+		model.addAttribute("listedType", apply.getListedType());
 		// 进入业务处理页
 		return "sell/sellsucc";
 	}
 
 		/**
 	     *  挂牌审核前端接口
-		 * @author kereny
+		 * @author kereny 文闻 2016年4月1日修改
 		 * @date 2015-6-16 下午3:11:26
 		 * @param auditReq
 		 * @param request
@@ -521,8 +735,9 @@ public class SellController extends TradeController {
 		 * AuditRsp
 	     *
 		 */
-	@RequestMapping(value = "/audit.htm")
+	@RequestMapping(value = "/{type}/audit.htm")
 	public String sellAudit(@ModelAttribute AuditReq auditReq,
+			@PathVariable("type") String type,
 			HttpServletRequest request, ModelMap model) {
 
 		LoginRsp loginRsp = (LoginRsp)request.getSession().getAttribute("userinfo");
@@ -564,32 +779,57 @@ public class SellController extends TradeController {
 		}
 		
 		logger.debug("全不权限校验 ok");
-		//提交交易
-		AuditRspMsg audRspMsg = sellService.auditSell(auditReq);
 		
-		if (audRspMsg.getHead() == null) {
+		if(type.equals("M")){
+			//提交保证金审核 
+			AuditRspMsg audRspMsg = sellService.auditSell(auditReq);
 			
-			model.addAttribute("message", audRspMsg.getFault().getRspMsg());
-			return "comm/fail";
-		}
+			if (audRspMsg.getHead() == null) {
+				
+				model.addAttribute("message", audRspMsg.getFault().getRspMsg());
+				return "comm/fail";
+			}
 
-		if (audRspMsg.getHead().getSuccFlag() != 1) {
-			model.addAttribute("message", audRspMsg.getHead().getRspMsg());
-			return "comm/fail";
-		}
-		
-		AuditRsp rspBody =  audRspMsg.getBody();
-		rspBody.setStatusDesc(StatusUtil.getSellStatus(rspBody.getStatus()));
-		
-		
-		model.addAttribute("rspBody", rspBody);
-		
-		if(checkRight(loginRsp.getOperRights(), "P", null) && rspBody.getStatus() == 1)
-		{
-			model.addAttribute("enablePay", 1);
+			if (audRspMsg.getHead().getSuccFlag() != 1) {
+				model.addAttribute("message", audRspMsg.getHead().getRspMsg());
+				return "comm/fail";
+			}
+			
+			AuditRsp rspBody =  audRspMsg.getBody();
+			rspBody.setStatusDesc(StatusUtil.getSellStatus(rspBody.getStatus()));
+			
+			
+			model.addAttribute("rspBody", rspBody);
+			
+			if(checkRight(loginRsp.getOperRights(), "P", null) && rspBody.getStatus() == 1)
+			{
+				model.addAttribute("enablePay", 1);
+			}else{
+				model.addAttribute("enablePay", 0);
+			}
 		}else{
+			//提交注册仓单审核
+			AuditCdRspMsg audCdRspMsp = sellService.auditCdSell(auditReq);
+			if (audCdRspMsp.getHead() == null) {
+				
+				model.addAttribute("message", audCdRspMsp.getFault().getRspMsg());
+				return "comm/fail";
+			}
+
+			if (audCdRspMsp.getHead().getSuccFlag() != 1) {
+				model.addAttribute("message", audCdRspMsp.getHead().getRspMsg());
+				return "comm/fail";
+			}
+			
+			AuditRsp rspBody =  audCdRspMsp.getBody();
+			rspBody.setStatusDesc(StatusUtil.getSellStatus(rspBody.getStatus()));
+			
+			model.addAttribute("rspBody", rspBody);
+			
 			model.addAttribute("enablePay", 0);
 		}
+		
+		
 		
 		return "sell/auditsucc";
 
@@ -607,8 +847,9 @@ public class SellController extends TradeController {
 		 * BondPayRsp
 	     *
 		 */
-	@RequestMapping(value = "/pay.htm")
+	@RequestMapping(value = "/{type}/pay.htm")
 	public String sellPayBond(@ModelAttribute BondPayReq payReq,
+			@PathVariable("type") String type,
 			HttpServletRequest request, ModelMap model) {
 
 		// 商品分类
@@ -1022,7 +1263,6 @@ public class SellController extends TradeController {
 		}
 
 		model.addAttribute("rspBody", rspBody);
-		
 		return "sell/detail";
 	}
 	
@@ -1081,8 +1321,14 @@ public class SellController extends TradeController {
 			cancelReq.setmID(loginRsp.getmID());
 			cancelReq.setTxOperID(loginRsp.getOperID());
 			cancelReq.setListedNo(listedNo);
-			
-			ApplyRspMsg cancelRspMsg = sellService.cancelSell(cancelReq);
+			ApplyRspMsg cancelRspMsg = new ApplyRspMsg();
+			if(rspMsg.getBody().getListedType().equals("M")){
+				
+				cancelRspMsg = sellService.cancelSell(cancelReq);
+			}else{
+				cancelRspMsg = sellService.cancelCdSell(cancelReq);
+
+			}
 			
 			if (cancelRspMsg.getHead() == null) {
 				js.setSuccflag(-1);
@@ -1099,11 +1345,14 @@ public class SellController extends TradeController {
 			ApplyRsp rspBody = cancelRspMsg.getBody();
 			
 			rspBody.setStatusDesc(StatusUtil.getSellStatus(rspBody.getStatus()));
-			
-			rspBody.setCostPays(supplyCostName(rspBody.getCostPays()));
-			
+			rspBody.setListedType(rspMsg.getBody().getListedType());
+			if(rspMsg.getBody().getListedType().equals("M")){
+				
+				rspBody.setCostPays(supplyCostName(rspBody.getCostPays()));
+			}
 			js.setSuccflag(0);
 			js.setData(rspBody);
+			
 			
 			return js;
 		}
@@ -1111,7 +1360,7 @@ public class SellController extends TradeController {
 		
 		
 			/**
-		     *  删除处理
+		     *  删除处理 文闻（2016年4月8日修改 添加仓单删除功能）
 			 * @author kereny
 			 * @date 2015-12-10 上午10:21:59
 			 * @param listedNo
@@ -1172,8 +1421,13 @@ public class SellController extends TradeController {
 			cancelReq.setTxOperID(loginRsp.getOperID());
 			cancelReq.setListedNo(listedNo);
 			cancelReq.setFlag("1");
-			
-			CommRspMsg rsRspMsg = sellService.applyCancel(cancelReq);
+
+			CommRspMsg rsRspMsg = new CommRspMsg();
+			if(rspMsg.getBody().getListedType().equals("M")){
+				rsRspMsg = sellService.applyCancel(cancelReq);
+			}else{
+				rsRspMsg = sellService.applyCancelCd(cancelReq);
+			}
 			if (rsRspMsg.getHead() == null) {
 				js.setSuccflag(-1);
 				js.setMsg(rsRspMsg.getFault().getRspMsg());
@@ -1196,7 +1450,7 @@ public class SellController extends TradeController {
 
 			/**
 		     *  未上架撤消处理
-			 * @author kereny
+			 * @author kereny 文闻（2016年4月8日修改 添加仓单撤销功能）
 			 * @date 2015-12-10 上午10:21:59
 			 * @param listedNo
 			 * @return
@@ -1255,8 +1509,13 @@ public class SellController extends TradeController {
 			cancelReq.setmID(loginRsp.getmID());
 			cancelReq.setTxOperID(loginRsp.getOperID());
 			cancelReq.setListedNo(listedNo);
+			CommRspMsg rsRspMsg = new CommRspMsg();
+			if(rspMsg.getBody().getListedType().equals("M")){
+				rsRspMsg = sellService.applyCancel(cancelReq);
+			}else{
+				rsRspMsg = sellService.applyCancelCd(cancelReq);
+			}
 			
-			CommRspMsg rsRspMsg = sellService.applyCancel(cancelReq);
 			if (rsRspMsg.getHead() == null) {
 				js.setSuccflag(-1);
 				js.setMsg(rsRspMsg.getFault().getRspMsg());

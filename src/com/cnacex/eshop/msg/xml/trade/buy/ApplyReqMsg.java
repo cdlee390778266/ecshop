@@ -8,6 +8,9 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 @XStreamAlias("cnacex:root")
 public class ApplyReqMsg extends AbstractReqMsg<ApplyReq> {
 
+	/**
+	 * 商品摘牌申请
+	 */
 	public static final String TX_CODE = "05101021";
 
 	@XStreamAlias("head")

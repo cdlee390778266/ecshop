@@ -84,6 +84,7 @@
 																																
 												</td>
 											</tr>
+											
 											<tr>
 												<td class="ctr">挂牌日期：</td>
 												<td><input type="text" name="dol" id="dol" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date ml10" />至
@@ -212,7 +213,8 @@
 	
 	<script type="text/x-handlebars-template" id="backTemplate">
 		<div class="title ml20">单号：{{listedNo}}</div>							
-		<div class="title ml20">处理状态：{{statusDesc}}</div>										
+		<div class="title ml20">处理状态：{{statusDesc}}</div>
+												
 		<div class="box">	
 			<table class="ui-table table-primary">
 			<caption>本次下架费用说明</caption>
@@ -237,7 +239,10 @@
 			</table>										
 		</div>
 	</script>
-	
+	<script type="text/x-handlebars-template" id="backTemplatecd">
+		<div class="title ml20">单号：{{listedNo}}</div>							
+		<div class="title ml20">处理状态：{{statusDesc}}</div>
+	</script>
 	
 	<!-- footer -->
 	<jsp:include page="../comm/footer.jsp" flush="true" />

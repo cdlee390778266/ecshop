@@ -89,10 +89,12 @@
 								<h3 class="cor-green">挂牌处理</h3>
 							</div>
 							<div class="bd">
+								<c:if test="${listedType=='M'}">
 								<div class="bind-item">
 									<div class="title ml20">挂牌单号：${listed.listedNo}</div>
 									
 									<div class="box">
+										
 										<table class="ui-table table-primary">
 											<caption>本次挂牌费用说明</caption>
 											<thead>
@@ -128,6 +130,26 @@
 										
 										</div>
 									</div>
+									</c:if>
+									<c:if test="${listedType=='W'}">
+								<div class="bind-item">
+									<div class="title ml20">挂牌单号：${listed.listedno}</div>
+									<div class="title ml20">挂牌状态：${listed.statusDesc}</div>
+									<div class="box">
+										<c:if test="${enableAudit=='1'}">
+										
+										<div class="pa-action clearfix mt10 ml60">
+											<div class="pa-btn-sell fn-fl">
+												<a href="/sell/handle/A/${listed.listedno}.htm" class="btn-normal btn-sell">继续审核</a>
+											</div>
+										</div>
+											
+											
+										</c:if>
+										
+										</div>
+									</div>
+									</c:if>
 								</div>
 							</div>
 						</div>	

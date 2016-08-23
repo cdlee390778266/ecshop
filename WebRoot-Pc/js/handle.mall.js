@@ -172,9 +172,15 @@ $(function() {
 			cache : false,
 			dataType : 'json',
 			success : function(data) {
-				
+				console.log(data.data);
 				if(data.succflag == 0){
-					var source = Handlebars.compile($("#backTemplate").html()); 
+					var source='';
+					if(data.data.listedType == 'M'){
+						
+						source = Handlebars.compile($("#backTemplate").html()); 
+					}else{
+						source = Handlebars.compile($("#backTemplatecd").html());
+					}
 					Handlebars.registerHelper("money", function(value) {
 						return value.formatMoney();
 					});
@@ -250,5 +256,4 @@ $(function() {
 	var marketurl = "/mall/findallmarket.htm";
 	
 	loadMarket(marketurl);
-	
 });

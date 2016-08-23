@@ -1,7 +1,6 @@
 package com.cnacex.eshop.web.action;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,13 +12,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.cnacex.comm.util.DivisionUtil;
 import com.cnacex.eshop.modul.JSonComm;
 import com.cnacex.eshop.modul.NodeDiv;
 import com.cnacex.eshop.msg.body.member.DivisMemberReq;
-import com.cnacex.eshop.msg.body.member.DivisMemberRsp;
-import com.cnacex.eshop.msg.body.member.LoginRsp;
 import com.cnacex.eshop.msg.body.member.DivisMemberRsp.MemList;
+import com.cnacex.eshop.msg.body.member.LoginRsp;
 import com.cnacex.eshop.msg.xml.member.DivisMemberRspMsg;
 import com.cnacex.eshop.service.IMemberService;
 

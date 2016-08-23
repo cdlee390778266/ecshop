@@ -269,6 +269,90 @@ public class LoginController extends TradeController{
 			menu.setMenuURL("/buy/list.htm");
 			tradeMenu.add(menu);
 		}
+		//我的仓单 先包含签发仓单的注册，以及签发仓单的转出
+		if(loginRsp.isSellEnable()&&loginRsp.isBuyEnable()){
+			MenuNode menu = new MenuNode();
+			
+			menu.setHasSubMenu(true);
+			menu.setMenuName("我的仓单");
+			menu.setMenuURL("/warehouse/list.htm");
+			
+			List<MenuNode> subMenus = new ArrayList<MenuNode>();
+			
+			MenuNode submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("签发仓单注册");
+			submenu.setMenuURL("/warehouse/list.htm");
+			subMenus.add(submenu);
+			
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("签发仓单转出");
+			submenu.setMenuURL("/warehouse/rolloutlist.htm");
+			subMenus.add(submenu);
+			
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("会员绑定");
+			submenu.setMenuURL("/warehouse/membinding.htm");
+			subMenus.add(submenu);
+			
+			menu.setSubMenus(subMenus);
+			
+			tradeMenu.add(menu);
+		}else if(loginRsp.isSellEnable()){
+			MenuNode menu = new MenuNode();
+			menu.setHasSubMenu(true);
+			menu.setMenuName("我的仓单");
+			menu.setMenuURL("/warehouse/list.htm");
+			
+			List<MenuNode> subMenus = new ArrayList<MenuNode>();
+			
+			MenuNode submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("签发仓单注册");
+			submenu.setMenuURL("/warehouse/list.htm");
+			subMenus.add(submenu);
+			
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("签发仓单转出");
+			submenu.setMenuURL("/warehouse/rolloutlist.htm");
+			subMenus.add(submenu);
+			
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("会员绑定");
+			submenu.setMenuURL("/warehouse/membinding.htm");
+			subMenus.add(submenu);
+			
+			menu.setSubMenus(subMenus);
+			
+			tradeMenu.add(menu);
+		}else if(loginRsp.isBuyEnable()){
+			MenuNode menu = new MenuNode();
+			menu.setHasSubMenu(true);
+			menu.setMenuName("我的仓单");
+			menu.setMenuURL("/warehouse/list.htm");
+			
+			List<MenuNode> subMenus = new ArrayList<MenuNode>();
+			
+			MenuNode submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("签发仓单转出");
+			submenu.setMenuURL("/warehouse/rolloutlist.htm");
+			subMenus.add(submenu);
+			
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("会员绑定");
+			submenu.setMenuURL("/warehouse/membinding.htm");
+			subMenus.add(submenu);
+			
+			menu.setSubMenus(subMenus);
+			
+			tradeMenu.add(menu);
+		}
 		
 		if(loginRsp.isSellEnable()||loginRsp.isBuyEnable()){
 			
@@ -284,7 +368,6 @@ public class LoginController extends TradeController{
 		
 		if(loginRsp.isSellEnable()&&loginRsp.isBuyEnable()){
 			MenuNode menu = new MenuNode();
-			
 
 			menu.setHasSubMenu(true);
 			menu.setMenuName("交收管理");
@@ -297,11 +380,18 @@ public class LoginController extends TradeController{
 			submenu.setMenuName("销售交收");
 			submenu.setMenuURL("/delivery/selllist.htm");
 			subMenus.add(submenu);
-			submenu = new MenuNode();
 			
+			submenu = new MenuNode();
 			submenu.setHasSubMenu(false);
 			submenu.setMenuName("采购交收");
 			submenu.setMenuURL("/delivery/buylist.htm");
+			subMenus.add(submenu);
+			menu.setSubMenus(subMenus);
+			
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("发票确认");
+			submenu.setMenuURL("/delivery/invlist.htm");
 			subMenus.add(submenu);
 			menu.setSubMenus(subMenus);
 			

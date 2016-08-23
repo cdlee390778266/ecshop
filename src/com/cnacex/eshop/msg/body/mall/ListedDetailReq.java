@@ -5,8 +5,8 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 
 /**
+ * 挂牌销售商品详细信息查询请求
  * @author kereny
- *
  */
 public class ListedDetailReq {
 

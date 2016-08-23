@@ -8,14 +8,23 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 public class ApplyRsp {
 	
+	/**
+	 * 摘牌编号
+	 */
 	@XStreamAlias("delistno")
 	private String delistNo;
 	
+	/**
+	 * 摘牌状态
+	 */
 	@XStreamAlias("status")
 	private int	status;
 	
 	private String statusDesc;
 	
+	/**
+	 * 费用
+	 */
 	@XStreamImplicit
 	private List<CostPay> costPays;
 	

@@ -10,13 +10,13 @@
 	  d_shadow="dialog-shd",
       i='<div id="{ID}" class="'+ d_main +'" style="display:none;">'+		
         '<span class="'+ d_shadow+'"></span>'+
-        '<div class="'+ d_content +'" style="z-index: 2001;" >{BN_CLOSE}'+ 
+        '<div class="'+ d_content +'" style="z-index: 100003;" >{BN_CLOSE}'+ 
             '{TITLE}'+			
             '<div class="bd">'+
                 '{BODY}'+
            '</div>'+				
         '</div>'+
-        '<div class="mask" style="z-index: 2000;display: block;" ></div>'+
+        '<div class="mask" style="z-index: 100002;display: block;" ></div>'+
     '</div>',
 	html_close = '<a href="javascript: void(0)" class="' + d_close_s + " " + d_close + '"></a>',
 	d_title = '<div class="hd"><h3>{TITLE}</h3></div>',

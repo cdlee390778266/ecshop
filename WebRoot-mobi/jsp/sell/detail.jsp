@@ -90,7 +90,7 @@
 								<div class="bd">
 		
 								 				 
-									<form action="/sell/${link}.htm" method="post" id="sellform" >
+									<form action="/sell/${rspBody.listedType}/${link}.htm" method="post" id="sellform" >
 										
 									<input type="hidden" name="listedNo" value="${rspBody.listedNo}" />
 									
@@ -184,17 +184,17 @@
 											<td class="ctr">挂牌有效期：</td>											
 											<td>${rspBody.doe}</td>
 										</tr> 
-										
-										 <tr>
-											<td class="ctr">最后付款日：</td>											
-											<td>合同签下后${fn:substringAfter(rspBody.lastPD,"cycle:")}天</td>
-										</tr> 
-										
-										<tr>
-											<td class="ctr">最后交收日：</td>											
-											<td>全款支付后${fn:substringAfter(rspBody.deliDate,"cycle:")}天</td>
-										</tr> 
-										
+										<c:if test="${rspBody.listedType=='M'}">
+											 <tr>
+												<td class="ctr">最后付款日：</td>											
+												<td>合同签下后${fn:substringAfter(rspBody.lastPD,"cycle:")}天</td>
+											</tr> 
+											
+											<tr>
+												<td class="ctr">最后交收日：</td>											
+												<td>全款支付后${fn:substringAfter(rspBody.deliDate,"cycle:")}天</td>
+											</tr> 
+										</c:if>
 										
 										<tr>
                                             <td class="ctr">交收仓库：</td>
@@ -267,7 +267,8 @@
 	                                       		 </c:if> 
                                        		 </div>  
                                             </td>
-                                        </tr> 
+                                        </tr>
+                                        <c:if test="${rspBody.listedType=='M'}"> 
                                          <tr>
 												<td class="ctr">费用明细：</td>
 												<td>
@@ -296,7 +297,7 @@
 													</div>												
 											</td>																																		
 										</tr>  
-                                
+                                		</c:if>
 
                                         <c:if test="${operType=='A'}"> 	  	                                      	                                        
 	                                        <tr>
@@ -324,28 +325,28 @@
 											</tr>
                                      	 </c:if>  
                                      	 
-                                     	 
-                                     	 <c:if test="${operType=='P'}"> 
- 	  	                                      	                                        	                                        
-	                                         <tr>
-	                                            <td class="ctr">资金密码：</td>
-	                                            <td>
-	                                            	<div class="form_control">
-	                                            	<input type="password" name="fundPwd" id="fundPwd" class="required"  data-tip="请输入资金密码" data-valid="isNonEmpty||between:6-16" data-error="资金密码必填||密码长度错误" />
-	                                            	</div>
-	                                            </td>                          
-	                                        </tr>
-	                                        
-	                                        <tr>
-											<td class="ctr"></td>
-											<td>
-												<div class="pa-btn-sell fn-fl">									
-													<button class="btn-normal btn-sell"">支付资金</button>
-												</div>
-												</td>
-											</tr>
-                                     	 </c:if>  
-                                     	 							
+                                     	 <c:if test="${rspBody.listedType=='M'}">
+	                                     	 <c:if test="${operType=='P'}"> 
+	 	  	                                      	                                        	                                        
+		                                         <tr>
+		                                            <td class="ctr">资金密码：</td>
+		                                            <td>
+		                                            	<div class="form_control">
+		                                            	<input type="password" name="fundPwd" id="fundPwd" class="required"  data-tip="请输入资金密码" data-valid="isNonEmpty||between:6-16" data-error="资金密码必填||密码长度错误" />
+		                                            	</div>
+		                                            </td>                          
+		                                        </tr>
+		                                        
+		                                        <tr>
+												<td class="ctr"></td>
+												<td>
+													<div class="pa-btn-sell fn-fl">									
+														<button class="btn-normal btn-sell"">支付资金</button>
+													</div>
+													</td>
+												</tr>
+	                                     	 </c:if>  
+                                     	 </c:if>							
 
 									</tbody>
 								</table>

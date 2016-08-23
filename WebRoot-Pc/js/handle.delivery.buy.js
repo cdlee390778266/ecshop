@@ -384,16 +384,22 @@ $(function() {
 	                  {"render": function ( data, type, row ) {
 	                  	var htm = '';
 	      				if (row.status > 0) {
-	      					if (row.status == 100 && row.enableP == 1) {					
+	      					if (row.status == 100 && row.enableP == 1) {   //支付前提：状态为100（买方已付订金，待付全款），并且有支付权限（enableP == 1）
 	      						htm = '<input type="button" value="继续支付"  class="J_GotoPay cbtn" data-key="'+row.strikeNo+ '" />';
-	      					} else if (row.status == 300 && row.enableT == 1) {				
+	      					} else if (row.status == 300 && row.enableT == 1) {   //确认收货前提：状态为300（卖方确认已发货），并且有交易权限（enableT == 1）
 	      						htm = '<input type="button" value="确认收货"  class="J_RecvProd cbtn" data-key="'+row.strikeNo+ '" />';
-	      					} else if (row.status == 400 && row.enableP == 1) {
+	      					} else if (row.status == 400 && row.enableP == 1) {   //确认发票前提：状态为400（买方确认已收货），并且有支付权限（enableP == 1）
 	      						htm = '<input type="button" value="确认收发票" class="J_RecvInv cbtn" data-key="'+row.strikeNo+ '" />';
 	      					} else {
 	      						htm = "";
 	      					}
 	      					
+	      					/*
+	      					 * 交易投诉前提：
+	      					 * 1. 状态为200（买方已付全款，等待卖方发货），并且有交易权限（enableT == 1）
+	      					 * 2. 状态为300（卖方确认已发货），并且有交易权限（enableT == 1）
+	      					 * 3. 状态为400（买方确认已收货），并且有支付权限（enableP == 1）
+	      					 */
 	      					if(row.status == 200 && row.enableT == 1 || row.status == 300 && row.enableT == 1  ||  row.status == 400 &&  row.enableP == 1) {					
 	      						htm += '<input type="button" value="交易投诉" data-href="J_Appeal"  class="J_AppealLink cbtn" data-role="'+row.strikeNo+ '" data-doe="'+row.doe+ '"  data-status="'+row.status+ '" />';			
 	      					} 												
@@ -455,5 +461,4 @@ $(function() {
 	$('#lastPD, #elastPD').on("blur", function(event){   
 		$('.datepicker-container').hide();
 	});
-
 });

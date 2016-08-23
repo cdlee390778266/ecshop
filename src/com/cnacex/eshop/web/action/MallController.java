@@ -15,21 +15,20 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cnacex.comm.util.StringUtil;
 import com.cnacex.eshop.modul.JSonComm;
 import com.cnacex.eshop.modul.Node;
 import com.cnacex.eshop.msg.body.comm.CommProp;
-import com.cnacex.eshop.msg.body.comm.Prop;
 import com.cnacex.eshop.msg.body.mall.Listed;
 import com.cnacex.eshop.msg.body.mall.ListedDetailReq;
 import com.cnacex.eshop.msg.body.mall.ListedDetailRsp;
 import com.cnacex.eshop.msg.body.mall.MdseElement;
 import com.cnacex.eshop.msg.body.mall.MoreQueryReq;
-import com.cnacex.eshop.msg.body.mall.SingleQueryReq;
 import com.cnacex.eshop.msg.body.mall.MoreQueryReq.ReqComm;
+import com.cnacex.eshop.msg.body.mall.SingleQueryReq;
 import com.cnacex.eshop.msg.body.member.LoginRsp;
 import com.cnacex.eshop.msg.body.member.LoginRsp.MemMarket;
 import com.cnacex.eshop.msg.body.member.LoginRsp.TxComm;
@@ -1154,6 +1153,7 @@ public class MallController extends TradeController{
 			}
 		}
 		
+		//当该商品指定摘牌方并且当前登录会员不是该商品挂牌方时需要判断是否有权限查看
 		if("A".equalsIgnoreCase(rspBody.getDelist()) && !rspBody.getmID().equalsIgnoreCase(loginRsp.getmID())){
 			if(!checkIsDelistMem(rspBody.getDelistMems(), loginRsp.getmID())){
 				model.addAttribute("message", "该商品无法浏览,指定会员可查看");
@@ -1161,12 +1161,20 @@ public class MallController extends TradeController{
 			}
 		}
 		
-		rspBody.setMarkName(mallService.findLocalMdseEntity(rspBody.getMarkCode()).getMdseName());
-		List<MdseElement> nodes = mallService.findNodeTreePath(rspBody.getCommCode());
+		rspBody.setMarkName(mallService.findLocalMdseEntity(rspBody.getMarkCode()).getMdseName());   //设置市场名称
+		List<MdseElement> nodes = mallService.findNodeTreePath(rspBody.getCommCode());   //获取商品类别树路径
 
-		rspBody.setProps(supplyIdxName(rspBody.getCommCode(), rspBody.getProps()));		
-		rspBody.setListedTypeName(ListedUtil.getListedName(rspBody.getListedType()));
+		rspBody.setProps(supplyIdxName(rspBody.getCommCode(), rspBody.getProps()));   //设置属性
+		rspBody.setListedTypeName(ListedUtil.getListedName(rspBody.getListedType()));   //设置挂牌方式名称
 		
+		/*
+		 * 该商品满足以下任意条件时不允许摘牌：
+		 * 1. 挂牌方为当前登录会员
+		 * 2. 记录生效标志不等于1，记录未生效
+		 * 3. 会员等级为信息会员(MemLevel=888)
+		 * 4. 当前登录会员没有该商品类别的交易(T)权限
+		 * 5. 当前登录会员没有该商品所属市场的交易权限
+		 */
 		if(rspMsg.getBody().getmID().equalsIgnoreCase(loginRsp.getmID()) ||
 				!checkRight(loginRsp.getOperRights(), "T", rspMsg.getBody().getClassCode()) ||
 				!checkMarket(loginRsp.getMemMarkets(), rspMsg.getBody().getMarkCode()) ||
@@ -1177,6 +1185,10 @@ public class MallController extends TradeController{
 			model.addAttribute("enableBuy", "false");
 		}else {
 			model.addAttribute("enableBuy", "true");
+		}
+		
+		if(rspBody.getListedType().equals("W")){
+			rspBody.setListedTypeName("注册仓单");
 		}
 		model.addAttribute("active", "prepare");
 		

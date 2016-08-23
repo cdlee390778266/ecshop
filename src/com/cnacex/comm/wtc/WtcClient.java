@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 import com.cnacex.comm.util.StringUtil;
 
 import weblogic.wtc.gwt.TuxedoConnection;
-import weblogic.wtc.gwt.XmlFmlCnv;
 import weblogic.wtc.jatmi.Ferror;
 import weblogic.wtc.jatmi.Reply;
 import weblogic.wtc.jatmi.TPException;
@@ -72,14 +71,11 @@ public class WtcClient {
 		TuxedoConnection tuxConn = null;
 		Reply tuxReply;
 
-		XmlFmlCnv c = new XmlFmlCnv();
-
 		if (fml32SetValue() == false) {
 			return false;
 		}
 
 		logger.debug("调用服务名:  {}", this.service);
-		//logger.debug("发送请求报文:  {}", c.FML32toXML(sndFmlBuffer));
 
 		tuxConn = WtcConnect.getConnection();
 			
@@ -367,7 +363,7 @@ public class WtcClient {
 		try {
 			fml32.Fget(filId, 0);
 		} catch (Ferror e) {
-			if (e.getFerror() == e.FNOTPRES) {
+			if (e.getFerror() == Ferror.FNOTPRES) {
 				return false;
 			}
 			return true;

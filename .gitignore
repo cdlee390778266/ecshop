@@ -1,0 +1,5 @@
+.settings/
+.classpath
+.mymetadata
+.project
+WebRoot/WEB-INF/classes/

@@ -141,7 +141,7 @@
 														</tbody>
 											</table>
 										
-										<c:if test="${enableAudit=='1'}">			
+										<c:if test="${enableAudit=='1'}">
 											<div class="pa-action clearfix mt10 ml60">
 												<div class="pa-btn-buy fn-fl">
 														<a href="/buy/handle/A/${rspBody.delistNo}.htm"  class="btn-normal btn-buy">继续审核</a>

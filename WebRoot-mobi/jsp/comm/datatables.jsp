@@ -6,7 +6,7 @@
     
     
     <script type="text/javascript" src="/js/cnacexutil.js"></script>
-    <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="/js/dataTables.buttons.js"></script>
     <script type="text/javascript" src="/js/dataTables.colVis.js"></script>   
     <script type="text/javascript" src="/js/buttons.flash.min.js"></script>
