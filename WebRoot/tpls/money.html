@@ -1,0 +1,74 @@
+﻿   <div class="main  " ng-controller="money"  >
+   <div ui-view="top"></div>
+     <div class="container-fluid bordert">
+      <div class="row safe-type txtcenter bgwhite  borderb">
+        <div class="col-xs-6"><a href=""  ng-click="change(0);" class="active" id="btnb" >{{moneydata[0].type}}</a>
+        </div>
+        <div class="col-xs-6"><a href="" ng-click="change(1);" id="btns">{{moneydata[1].type}}</a></div>
+      </div>
+    </div>
+    <div class="container-fluid marb15" ng-show="flag">
+      <div class="row lh26">
+        <div class="col-xs-12 mart10">
+          {{moneydata[0].data[0].title}} <span class="fcgreen">{{moneydata[0].data[0].detail}}</span> {{moneydata[0].data[0].unit}}
+        </div>
+         <div class="col-xs-12 marb10">
+          {{moneydata[0].data[1].title}} <span class="fcgreen">{{moneydata[0].data[1].detail}}</span> {{moneydata[0].data[1].unit}}
+        </div>
+         <div class="col-xs-6 ">
+          <button class="btn btn-success btn-block">{{moneydata[0].data[2].platform[0]}}</button>
+        </div>
+        <div class="col-xs-6">
+          <button class="btn btn-default btn-block">{{moneydata[0].data[2].platform[1]}}</button>
+        </div>
+         <div class="col-xs-12 mart15">
+          {{moneydata[0].data[3].title}} <span class="fcyellow">{{moneydata[0].data[3].detail}} {{moneydata[0].data[3].unit}}</span>
+        </div>
+         <div class="col-xs-12">
+           <table class="table table-bordered">
+             <tr ng-repeat="data in moneydata[0].data[4].table" ng-class-odd="'fcgreen'">
+               <td>{{data.tdData1}}</td>
+               <td>{{data.tdData2}}</td>
+               <td>{{data.tdData3}}</td>
+             </tr>
+           </table>
+
+         </div>
+      </div>
+ </div>
+
+ <div class="container-fluid marb15" ng-hide="flag">
+   <div class="row lh26">
+        <div class="col-xs-12 mart10">
+          {{moneydata[1].data[0].title}} <span class="fcgreen">{{moneydata[1].data[0].detail}}</span> {{moneydata[1].data[0].unit}}
+        </div>
+         <div class="col-xs-12 marb10">
+          {{moneydata[1].data[1].title}} <span class="fcgreen">{{moneydata[1].data[1].detail}}</span> {{moneydata[1].data[1].unit}}
+        </div>
+         <div class="col-xs-6 ">
+          <button class="btn btn-success btn-block">{{moneydata[1].data[2].platform[0]}}</button>
+        </div>
+        <div class="col-xs-6">
+          <button class="btn btn-default btn-block">{{moneydata[1].data[2].platform[1]}}</button>
+        </div>
+         <div class="col-xs-12 mart15">
+          {{moneydata[1].data[3].title}} <span class="fcyellow">{{moneydata[1].data[3].detail}} {{moneydata[1].data[3].unit}}</span>
+        </div>
+         <div class="col-xs-12">
+           <table class="table table-bordered">
+             <tr ng-repeat="data in moneydata[1].data[4].table" ng-class-odd="'fcgreen'">
+               <td>{{data.tdData1}}</td>
+               <td>{{data.tdData2}}</td>
+               <td>{{data.tdData3}}</td>
+             </tr>
+           </table>
+
+         </div>
+      </div>
+</div>
+<div ui-view="footer"></div>
+</div>
+<div ui-view="fixed"></div>
+<div ui-view="slide"></div>
+
+

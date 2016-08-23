@@ -460,7 +460,7 @@ table.dataTable td {
   clear: both;
   height: 0;
 }
-
+.sorting select{border:1px solid #ddd !important;}
 @media screen and (max-width: 767px) {
   .dataTables_wrapper .dataTables_info,
   .dataTables_wrapper .dataTables_paginate {

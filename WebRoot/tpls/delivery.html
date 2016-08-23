@@ -1,0 +1,13 @@
+﻿   <div class="main"  >
+     <div ui-view="top"></div>
+     <div class="container fluid dataTable" ng-controller="delivery">
+         <div class="row bordert lh40 bgwhite txtcenter marb15">
+             <div class="col-xs-4 datatable-active">{{typeData[0]}}</div>
+              <div class="col-xs-4 borderlr">{{typeData[1]}}</div>
+               <div class="col-xs-4">{{typeData[2]}}</div>
+         </div>
+     </div>
+     <div ui-view="dataTable"></div>
+     <div ui-view="footer"></div>
+   </div>
+<div ui-view="slide"></div>

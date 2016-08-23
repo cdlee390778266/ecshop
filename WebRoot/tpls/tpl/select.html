@@ -1,0 +1,73 @@
+﻿<div class="container-fluid select">
+    <div class="row borderb select-bar">
+        <div class="col-xs-4 stype" ng-repeat="data in selectData" repeat-done="sbind()">
+            <h2>{{data.name}}<span class="glyphicon glyphicon-chevron-down"></span></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="select-mark"></div>
+    </div>
+    
+    <div class="row selectUl">
+        <ul ng-repeat="data in selectData">
+            <li ng-repeat="liData in data.data" repeat-done="libind()" >{{liData}}<span class="glyphicon glyphicon-ok"></span></li>
+        </ul>   
+    </div>  
+</div>
+
+<div class="container-fluid">
+    <div class="form-group  has-feedback gn-sSearch">
+      <input type="text" class="form-control" aria-describedby="inputSuccessStatus" ng-model="search" placeholder="关键字搜索" ng-keyup= "change(this);"  />
+  </div>
+  <div class="row marb60" id="product">
+    <div class="product" ng-repeat="product in products | filter: search | orderBy:'name' " repeat-done="productSbind()">
+        <div class="product-bar">
+            <span class="product-name">{{product.name}}</span>
+            <span class="product-price"><i>{{product.pCompany}}</i> <strong>{{product.price}}</strong></span>
+            <span class="glyphicon glyphicon-menu-down"></span>
+        </div>
+        <div class="product-data">
+            <ul>
+                <li class="col-xs-12 col-sm-6">{{product.id}}</li>
+                <li class="col-xs-12 col-sm-6">{{product.brand}}</li>
+                <li class="col-xs-12 col-sm-6">{{product.numstxt}} <span class="red">{{product.nums}}</span> {{product.numsCompany}}</li>
+                <li class="col-xs-12 col-sm-6">{{product.place}}</li>
+                <li class="col-xs-12 col-sm-6">{{product.cName}}</li>
+                <li class="col-xs-12 col-sm-6">{{product.cAddress}}</li>
+                <li class="col-xs-12 col-sm-6">{{product.typeTxt}} <span class="red radius">{{product.type}}</span></li>
+            </ul>
+            <div class="product-describe">{{product.describe}}</div>
+            <div class="seller row">
+                <div class="col-xs-12 col-sm-6 seller-id">{{product.productId}}</div>
+                <div class="col-xs-12 col-sm-6 seller-date">{{product.date}}</div>
+                <div class="col-xs-12 col-sm-6 seller-name"><span>{{product.sellerTxt}}</span>{{product.seller}}</div>
+                <div class="col-xs-12 col-sm-6 ">
+                    <a ui-sref="{{product.url}}"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 无商品时显示 -->
+    <div class="noProduct mart10 marb60">
+    <div class="noProductBox fc999">
+        <div class="no-img"><img src="images/no-product.png" alt="" /></div>
+        <div class="no-txt mart15">
+            <p >Hi,</p>
+            <p>您搜索的商品暂时不存在！</p>
+            <p>共找到 <span class="fcgreen">0</span> 个商品</p>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row rel">
+   <div class="loadMore" ng-click="load();">加载更多</div>
+   
+   <div class="loader"><div class="loader-icon"> <div></div><div></div></div>加载中</div>
+
+</div>
+
+
+
+
+
+</div>

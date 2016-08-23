@@ -1,0 +1,56 @@
+﻿   <div class="main examine examinego" ng-controller="examinego"  >
+     <div ui-view="top"></div>
+    <div class="header">
+     <div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left" ></a></div>
+     <div class="logo ">
+       {{eTopData[0]}} <span class="fcyellow">{{eTopData[1]}}</span>
+     </div>
+   </div>
+   <div class="container-fluid">
+
+     <!-- 本次摘牌费用说明  -->
+     <div ui-view="zpData"></div>
+
+     <div class="row">
+       <div class="col-xs-12   padtb15 padlr20 ">
+         {{describe}}
+       </div>
+     </div>
+     <!-- 本次摘牌费用说明  -->
+     <div ui-view="zpDescribe"></div>
+
+
+     <div class="row">
+       <div class="col-xs-12   padtb15 padlr15 ">
+         {{confirm}}
+       </div>
+     </div>
+     <form action="" class="row ">
+       <div class="form-bgwhite bordertb">
+         <div class="form-group ">
+           <div class="radio">
+             <input type="radio" name="radio" id="radio1" />
+             <label for="radio1">{{pass[0]}}</label>
+           </div>
+           <div class="radio">
+            <input type="radio" name="radio" id="radio2" />
+            <label for="radio2">{{pass[1]}}</label>
+          </div>
+        </div>
+        <div>
+          <h3>{{opinion}}</h3>
+          <textarea class="form-control" rows="3" ></textarea>
+        </div>
+      </div>
+      <div class="row examine-go txtcenter">
+       <div class="col-xs-12">
+         <a ui-sref="{{go[1]}}">{{go[0]}}</a>
+       </div>
+     </div>
+   </form>
+ </div>
+ <div ui-view="footer"></div>
+</div>
+<div ui-view="fixed"></div>
+ <div ui-view="slide"></div>
+

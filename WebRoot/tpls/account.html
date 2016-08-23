@@ -1,0 +1,32 @@
+﻿   <div class="main safe examine addoperation" ng-controller="account"  >
+    <div id="header">
+     <div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left" ></a></div>
+     <div class="logo">
+       {{addtitle}}
+     </div>
+   </div>
+
+   <div class="container-fluid marb15">
+       <div class="row">
+        <div class="col-xs-12 file bgwhite bordertb padtb15">
+          <img src="{{userdata.imgsrc}}" alt="" class="img-rounded" />
+          <div class="account-mes fc666">
+            <p>{{userdata.name}}</p>
+            <p>{{userdata.devel}}</p>
+          </div>
+        </div>
+
+      <div class="input-group form-group-lg" ng-repeat="data in odata">
+        <span class="input-group-addon"><span class="{{data.iconClass}}"></span> {{data.txt}}</span>
+       <a ui-sref="{{data.ui_sref}}" class="form-control txtright "><span class=" glyphicon glyphicon-menu-right account-a"></span></a>
+      </div>
+
+    </div>
+  
+
+</div>
+<div ui-view="footer"></div>
+</div>
+<div ui-view="fixed"></div>
+
+

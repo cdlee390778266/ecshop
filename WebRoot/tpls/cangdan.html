@@ -1,0 +1,42 @@
+﻿   <div class="main " ng-controller="cangdan"  >
+   <div ui-view="top"></div>
+     <div class="container-fluid bordert">
+      <div class="row safe-type txtcenter bgwhite  borderb marb15">
+        <div class="col-xs-4"><a href=""  ng-click="change(1);" class="active" id="btnb" >{{safedata[0].type}}</a>
+        </div>
+        <div class="col-xs-4"><a href="" ng-click="change(2);" id="btns">{{safedata[1].type}}</a></div>
+         <div class="col-xs-4"><a href="" ng-click="change(3);" id="btnc">{{safedata[2].type}}</a></div>
+      </div>
+    </div>
+    <div class="container-fluid marb15" ng-show="flag1">
+     <div ui-view="dataTable"></div>
+ </div>
+
+ <div class="container-fluid marb15" ng-show="flag2">
+  <div ui-view="dataTable"></div>
+</div>
+
+
+<div class="container-fluid marb15" ng-show="flag3">
+   <form class="form-horizontal">
+       <div class="row">
+        <div class="input-group    form-group-lg">
+        <span class="input-group-addon">{{safedata[2].data[0].title}}</span>
+          <input class="form-control"   type="text" placeholder="{{safedata[2].data[0].placeholder}}" value="" maxlength="20" required>
+        </div>
+         <div class="input-group  form-group-lg">
+        <span class="input-group-addon">{{safedata[2].data[1].title}}</span>
+          <input class="form-control"   type="password" placeholder="{{safedata[2].data[1].placeholder}}" value="" maxlength="20" required>
+        </div>
+      </div>
+     <div class="col-xs-12 martb40">
+       <button class="btn btn-success btn-block btn-lg">{{safedata[2].button[0]}}</button>
+     </div>   
+   </form>
+</div>
+
+<div ui-view="footer"></div>
+</div>
+<div ui-view="fixed"></div>
+<div ui-view="slide"></div>
+

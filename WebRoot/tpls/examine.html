@@ -1,0 +1,34 @@
+﻿   <div class="main examine" ng-controller="examine"  >
+   <!--  <div id="header" class="borderb1">
+       <div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left" ></a></div>
+       <div class="logo ">
+           {{eTopData[0]}} [<span class="fcyellow">{{eTopData[1]}}</span>] <span class="fcyellow">{{eTopData[2]}}</span>
+       </div>
+   </div> -->
+   <div ui-view="top"></div>
+   <div class="container-fluid">
+       <div class="row">
+           <div class="col-xs-12 lh100 bgwhite mart15  txtcenter">
+               {{order[0]}}<span class="fcgreen">{{order[1]}}</span>
+           </div>
+       </div>
+      <div class="row">
+           <div class="col-xs-12 lh50   txtcenter">
+               {{describe}}
+           </div>
+       </div>
+       <!-- 本次摘牌费用说明  -->
+       <div ui-view="zpDescribe"></div>
+
+       <div class="row examine-go txtcenter">
+           <div class="col-xs-12">
+               <a ui-sref="{{go[1]}}">{{go[0]}}</a>
+           </div>
+       </div>
+   </div>
+   <div ui-view="footer"></div>
+</div>
+<div ui-view="fixed"></div>
+<div ui-view="slide"></div>
+
+

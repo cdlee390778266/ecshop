@@ -1,0 +1,30 @@
+﻿   <div class="main examine examinego" ng-controller="success"  >
+    <div ui-view="top"></div>
+    <div class="header">
+     <div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left" ></a></div>
+     <div class="logo ">
+       {{pTopData[0]}} <span class="fcyellow">{{pTopData[1]}}</span>
+     </div>
+   </div>
+   <div class="container-fluid marb60">
+   <div class="row">
+     <div class="col-xs-12 bgwhite  mart5 success">
+       <p class="txtcenter"><span class="glyphicon glyphicon-ok fcgreen"></span></p>
+       <p>{{sdata[0]}} <span class="fcgreen">{{sdata[1]}}</span></p>
+       <p class="fcyellow">{{sdata[2]}}</p>
+     </div>
+   </div>
+     <div class="row">
+       <div class="col-xs-12   padtb15 padlr20 ">
+         {{describe}}
+       </div>
+     </div>
+     <!-- 本次摘牌费用说明  -->
+     <div ui-view="zpDescribe"></div>
+    
+ </div>
+ <div ui-view="footer"></div>
+</div>
+<div ui-view="fixed"></div>
+
+ <div ui-view="slide"></div>

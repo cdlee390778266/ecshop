@@ -1,0 +1,78 @@
+﻿   <div class="main examine examinego order" ng-controller="order"  >
+   <div ui-view="top"></div>
+    <div class="header">
+     <div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left" ></a></div>
+     <div class="logo ">
+       {{oTopData[0]}} <span class="fcyellow">{{oTopData[1]}}</span>
+     </div>
+   </div>
+   <div class="container-fluid">
+     <div class="product row">
+       <div class="product-bar col-xs-12">
+         <span class="product-name">{{oData[0]}}</span>
+         <span class="fc333">{{oData[1]}}</span>
+       </div>
+       <div  class="col-xs-12 col-sm-6">
+         {{oData[2]}} <strong><span class="fcyellow">{{oData[3]}}{{oData[4]}} </span> </strong>
+       </div>
+       <div  class="col-xs-12 col-sm-6">
+         {{oData[5]}} <strong><span class="fcyellow">{{oData[6]}}/</span><span class="fcgreen">{{oData[7]}}</span> <span class="fc333">{{oData[8]}}</span></strong>
+       </div>
+     </div>
+     <!-- 本次摘牌费用说明  -->
+     <div ui-view="zpData"></div>
+
+     <div class="row">
+       <div class="col-xs-12   padtb15 padlr20 ">
+         {{moneyPwd}}
+       </div>
+     </div>
+     <form action="" class="marb60 ">
+       <div class="productData row">
+         <h2 class="col-xs-12 bgwhite marb15">{{productData[0]}}<span class="glyphicon glyphicon-menu-down"></span></h2>
+         <div class="col-xs-8 padlr5">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon padlr5">{{productData[1]}}</span>
+            <input class="form-control txtcenter"  type="text" ng-model="nums">
+            <span class="input-group-addon add rel">
+             <a href="javascript:void();" class="glyphicon glyphicon-triangle-top" ng-click="add()"></a>
+             <a href="javascript:void();" class="glyphicon glyphicon-triangle-bottom" ng-click="reduce()"></a>
+           </span>
+         </div>
+       </div>
+       <div class="col-xs-4 rel h46 " >
+            <label class="radio-inline  radio-top">
+          <input name="inlineRadioOptions" id="inlineRadio1" value="option1" type="radio" name="Radio"> {{productData[2]}}
+        </label>
+        <label class="radio-inline radio-bottom">
+          <input name="inlineRadioOptions" id="inlineRadio2" value="option1" type="radio" name="Radio">{{productData[3]}}
+        </label>
+      </div>
+      <div class="col-xs-6 ">
+        {{productData[4]}} <span class="fcyellow">{{productData[5]}}</span>{{productData[6]}}
+      </div>
+      <div class="col-xs-6 ">
+        {{productData[7]}}<span class="fcgreen">{{productData[8]}}</span>{{productData[9]}}
+      </div>
+      <div class="col-xs-12 col-sm-6 ">
+        {{productData[10]}}<big class="red">{{productData[11]}}</big>
+      </div>
+      <div class="col-xs-12">
+       {{productData[12]}} <strong class="fcgreen">{{productData[13]}}</strong> {{productData[14]}}  
+     </div>
+     <div class="col-xs-12">
+       {{productData[15]}}{{productData[16]}}
+     </div>
+     <div class="col-xs-12  txtright mart15">
+     <a ui-sref="{{go[1]}}" class="yellow-btn">{{go[0]}}</a>
+     </div>
+   </div>
+ </form>
+</div>
+<div ui-view="footer"></div>
+</div>
+<div ui-view="fixed"></div>
+<div ui-view="slide"></div>
+
+
+

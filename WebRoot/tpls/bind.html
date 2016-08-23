@@ -1,0 +1,37 @@
+﻿   <div class="main safe examine" ng-controller="bind"  >
+    <div id="header">
+     <div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left" ></a></div>
+     <div class="logo">
+       {{operationTitle}}
+     </div>
+   </div>
+   <div class="container-fluid">
+    <div class="row marb60">
+      <div class="cox-xs-12 bgwhite operBox" ng-repeat="data in odata">
+        <div class="media">
+          <div class="media-left media-middle padlr15 ">
+            <a href="#">
+            <img class="media-object" src="{{data.faceURL}}" alt="...">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{data.operationType}}</h4>
+           {{data.operationId}}
+          </div>
+           <div class="media-body">
+           <span class="glyphicon glyphicon-link"></span>
+            <span class="fc999">{{data.operationStatus}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div ui-view="footer"></div>
+</div>
+<div ui-view="fixed"></div>
+
+

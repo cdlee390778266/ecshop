@@ -1,0 +1,40 @@
+﻿   <div class="main safe examine" ng-controller="operation"  >
+    <div id="header">
+     <div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left" ></a></div>
+     <div class="logo">
+       {{operationTitle}}
+     </div>
+   </div>
+   <div class="container-fluid">
+    <div class="row marb60">
+      <div class="cox-xs-12 bgwhite operBox" ng-repeat="data in odata">
+        <div class="media">
+          <div class="media-left media-middle padlr15 ">
+            <a href="#">
+            <img class="media-object" src="{{data.faceURL}}" alt="...">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{data.operationType}} <span class="fc999">{{data.operationStatus}}</span></h4>
+           {{data.operationId}}
+          </div>
+            <div class="media-body">
+    <input class="tgl tgl-skewed" id="{{data.operationId}}" type="checkbox">
+    <label class="tgl-btn" data-tg-off="{{data.operation[1]}}" data-tg-on="{{data.operation[0]}}" for="{{data.operationId}}"></label>
+            </div>
+        </div>
+      </div>
+      <div class="col-xs-12 mart15">
+        <a ui-sref="{{button[1]}}" class="btn btn-success btn-block">{{button[0]}}</a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div ui-view="footer"></div>
+</div>
+<div ui-view="fixed"></div>
+
+

@@ -1,0 +1,125 @@
+﻿<div class="slideBar-menu" ng-controller="indexCtrlSlide" >
+ <div class="cd-navigation-wrapper">
+   <div class="slide-close">
+     <a href="" class="glyphicon glyphicon-remove"></a>
+   </div>
+   <ul class="slide-top">
+    <li><span class="glyphicon glyphicon-user slide-uface"></span></li>
+    <li >
+      <span class="glyphicon glyphicon-star star-org"></span>
+      <span class="glyphicon glyphicon-star star-org"></span>
+      <span class="glyphicon glyphicon-star star-org"></span>
+      <span class="glyphicon glyphicon-star-empty star "></span>
+      <span class="glyphicon glyphicon-star-empty star"></span>
+    </li>
+    <li class="star-font">{{devel}}</li>
+  </ul>
+  <ul class="slide-middle">
+    <li ng-repeat="x in slideBar"  ><a ui-sref="{{x.href}}">{{x.name}}</a></li>
+    <li ><a ui-sref="{{button[1]}}" class="btn btn-sm btn-warning bnt-inlineblock">{{button[0]}}</a></li>
+    <li ><a  ui-sref="{{button[3]}}" class="btn btn-sm btn-success bnt-inlineblock">{{button[2]}}</a></li>
+  </ul>
+</div>
+
+</div>
+<div class="mark" style="display:none"></div>
+
+<script>
+  var touchFlag = true;
+  $(document).ready(function($) {
+     //o打开或关闭导航菜单
+     $('#header-left').on('click', function(event) {
+      event.preventDefault();    
+      $('body').addClass('navigation-is-open').css('overflow','hidden');
+      $('.mark').show(); 
+      //禁用滚动
+      if(touchFlag){
+        addEvent(document.body,"touchmove",prevent)  
+        touchFlag =  false;
+      }
+    });
+     $('.mark,.slide-close').click(function(event){
+       event.preventDefault();
+       $('.mark').hide();
+       $('body').removeClass('navigation-is-open').css('overflow','auto');
+      //解除禁用滚动
+      if(!touchFlag){
+       removeEvent(document.body,"touchmove",prevent)
+       touchFlag = true;
+     }
+   })
+     // alert(document.getElementsByClassName('slide-middle')[0].offsetHeight)
+ //slidebar 滚动天到底时解除
+//  $('.slideBar-menu').scroll(function(){
+//   　　var scrollTop = $(this).scrollTop();
+//   　　var scrollHeight = $('.slideBar-menu').height();
+//   　　var windowHeight = $(window).height();
+// console.log(scrollTop,scrollHeight,windowHeight)
+//   　　if(scrollTop + windowHeight >= 700){
+//     　　　　addEvent(document.getElementsByClassName('slideBar-menu')[0],"touchmove",prevent)  
+//   　　}else{
+//    removeEvent(document.getElementsByClassName('slideBar-menu')[0],"touchmove",prevent)
+//  }
+// });
+
+// var slide = document.getElementsByClassName('slideBar-menu')[0];
+
+// var mc = new Hammer(slide);
+// //mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+// // listen to events...
+// mc.on("panup", function(ev) {
+//     　var scrollTop = $('.slideBar-menu').scrollTop();
+//   　　var scrollHeight = $('.slideBar-menu').height();
+//   　　var windowHeight = $(window).height();
+// console.log(scrollTop,scrollHeight,windowHeight)
+
+//   　　if(scrollTop + windowHeight >= 500){
+    
+//     　　　　addEvent(document.getElementsByClassName('slideBar-menu')[0],"touchmove",prevent)  
+//   　　}
+// });
+// mc.on("pandown", function(ev) {
+//    removeEvent(document.getElementsByClassName('slideBar-menu')[0],"touchmove",prevent)
+// })
+
+
+});
+/** 
+* @description 事件绑定，兼容各浏览器 
+* @param target 事件触发对象 
+* @param type 事件 
+* @param func 事件处理函数 
+*/ 
+function addEvent(target, type, func) { 
+    if (target.addEventListener) //非ie 和ie9 
+      target.addEventListener(type, func, false); 
+    else if (target.attachEvent) //ie6到ie8 
+      target.attachEvent("on" + type, func); 
+    else target["on" + type] = func; //ie5 
+  }; 
+
+/** 
+* @description 事件移除，兼容各浏览器 
+* @param target 事件触发对象 
+* @param type 事件 
+* @param func 事件处理函数 
+*/ 
+function removeEvent(target, type, func){ 
+  if (target.removeEventListener) {
+    if(func != 'undefined'){
+      target.removeEventListener(type, func, false);
+    } else{
+      target.removeEventListener(type);
+    }
+  }
+  else if (target.detachEvent) 
+    target.detachEvent("on" + type, func); 
+  else target["on" + type] = null; 
+};
+//阻止默认事件
+function prevent(e){
+  e.preventDefault();
+  e.stopPropagation();
+}
+
+</script>

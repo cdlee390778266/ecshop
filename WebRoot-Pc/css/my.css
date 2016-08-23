@@ -1,0 +1,273 @@
+.login {
+  min-height: 440px;
+}
+
+.grid-16-10 {
+  width: 980px;
+  margin: auto;
+}
+
+.login-box {
+  display: inline-block;
+  width: 480px;
+  background: #fcfcfc;
+  box-shadow: 0px 0px 7px 6px #ddd;
+  margin-top: 34px;
+}
+
+.login-wrap {
+  width: 100%;
+}
+
+.module-static .bd {
+  padding: 13px;
+  height: 341px;
+}
+
+.module-static .bd .title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #BDBDBD;
+}
+
+.field label {
+  float: left;
+  width: 95px;
+  height: 35px;
+  border-right: none;
+  position: relative;
+  font-size: 14px;
+  line-height: 35px;
+  text-align: center;
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+.field #J_StandardCode_m {
+  margin-top: 2px;
+}
+
+.field span {
+  line-height: 33px;
+  height: 36px;
+}
+
+.field .login-text {
+  height: 35px;
+  line-height: 24px;
+  padding: 5px 4px 6px;
+  border: solid 1px #EAEAEA;
+  ;outline: none;
+  width: 260px;
+  color: #757575
+}
+
+.field label i {
+  font-size: 16px;
+  color: #B4B4B4;
+  position: absolute;
+  top: 68%;
+  left: 13%;
+  margin-left: -8px;
+  margin-top: -12px;
+}
+
+.msg {
+  visibility: hidden;
+  min-height: 30px;
+}
+
+.field .checkcode {
+  width: 260px;
+}
+
+.submit .btn-normal {
+  background-color: #e5c04e;
+  padding: 18px 30px;
+  font-size: 16px;
+  color: #FFF;
+  border: medium none;
+  outline: medium none;
+  line-height: 2px;
+  font-weight: bold;
+  transition: width 2s;
+  -moz-transition: background-color 1s;
+ /* Firefox 4 */
+  -webkit-transition: background-color 1s;
+ /* Safari and Chrome */
+  -o-transition: background-color 1s;
+ /* Opera */
+}
+
+.submit .btn-normal:hover {
+  background-color: #FEA31B;
+}
+
+.pan-box .ft {
+  padding-top: 10px;
+}
+
+.cor-red {
+  color: #FE731B;
+  font-size: 14px;
+}
+
+.top-text {
+  font-size: 26px;
+  font-weight: bold;
+  color: #6fb33f;
+  margin-top: 42px;
+  margin-left: 10px;
+}
+
+.login-bg {
+  padding-top: 69px;
+}
+
+.login-bg #img-ad  .cloud-02 {
+  position: absolute;
+  left: 158px;
+  top: 138px;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-name: cloud01;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.login-bg #img-ad  .cloud-03 {
+  position: absolute;
+  left: 300px;
+  top: 338px;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-name: cloud02;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.login-bg #img-ad  .cloud-01 {
+  position: absolute;
+  left: 89px;
+  top: 157px;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-name: cloud03;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes cloud01 {
+  0% {
+    left: 118px;
+  }
+
+  100% {
+    left: 300px;
+  }
+}
+
+@keyframes cloud02 {
+  0% {
+    left: 550px;
+    top: 30px;
+  }
+
+  100% {
+    left: 200px;
+    bottom: 20px;
+  }
+}
+
+@keyframes cloud03 {
+  0% {
+    left: 350px;
+  }
+
+  100% {
+    left: 300px;
+  }
+}
+
+.login-msg .error {
+  color: #e97c2c;
+  background-color: #fbf4e0;
+  padding: 17px;
+  border: 1px solid #f6e3ae;
+  margin-bottom: 10px;
+}
+
+.login-msg.show {
+  visibility: visible;
+}
+
+/************************    改版样式       ******************/
+#J_StandardCode_m {
+  position: absolute;
+  top: 0px;
+  right: 45px;
+  cursor: pointer;
+}
+
+.remmber {
+  padding-left: 140px;
+}
+
+.submit {
+  padding-right: 83px;
+}
+
+.remmber-checkbox {
+  display: inline-block;
+}
+
+.remmber-checkbox label {
+  position: relative;
+  float: none;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #cccccc;
+}
+
+.remmber-checkbox input {
+  display: none;
+}
+
+.remmber-checkbox input:checked + label:after {
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  display: block;
+  content: '';
+  width: 3px;
+  height: 8px;
+  content: '';
+  border-bottom: 1px solid #6fb33f;
+  border-right: 1px solid #6fb33f;
+  transform: rotate(45deg);
+}
+
+.remmber-txt {
+  height: 16px !important;
+  line-height: 16px !important;
+  margin-left: 5px !important;
+}
+
+.header-bd {
+  display: inline-block;
+  width: 412px;
+}
+
+.logo {
+  width: 239px;
+}
+
+.logo h2 {
+  width: 100px;
+}

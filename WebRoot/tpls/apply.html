@@ -1,0 +1,21 @@
+﻿   <div class="main" ng-controller="apply"  >
+    <div ui-view="top"></div>
+
+     <div class="container-fluid bordert">
+      <div class="row safe-type txtcenter bgwhite  borderb">
+        <div class="col-xs-6"><a href=""  ng-click="change(0);" class="active" id="btnb" >{{typeData[0]}}</a>
+        </div>
+        <div class="col-xs-6"><a href="" ng-click="change(1);" id="btns">{{typeData[1]}}</a></div>
+      </div>
+    </div>
+    <div class="container-fluid marb15" ng-show="flag">
+      <div ui-view="dataTable"></div>
+ </div>
+
+ <div class="container-fluid marb15" ng-hide="flag">
+   <div ui-view="dataTable"></div>
+</div>
+<div ui-view="footer"></div>
+</div>
+<div ui-view="fixed"></div>
+<div ui-view="slide"></div>
