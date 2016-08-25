@@ -60,7 +60,6 @@ public class LoginController extends TradeController{
 	@RequestMapping(value="index.htm")
 	public String index()
     {  
-		
 		request.getSession().removeAttribute("userinfo");
 		
 		request.getSession().setAttribute("buildno", Config.getValue("buildNo"));
