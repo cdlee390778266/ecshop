@@ -11,18 +11,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="author" content="" />
     <link rel="shortcut icon" href="/images/icon/favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="/css/global.css" />
     <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css" />
      <link type="text/css" rel="stylesheet" href="/css/font-awesome-ie7.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/common.css" />
-    <link type="text/css" rel="stylesheet" href="/css/home.css" />
-    <link type="text/css" rel="stylesheet" href="/css/member.css" />
+    
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/handlebars.js"></script>
     <script type="text/javascript" src="/js/ui.pagination.js"></script>
     <script type="text/javascript" src="/js/stickup.js"></script>
     
     <jsp:include page="../comm/datatables.jsp" flush="true" />
+     <jsp:include page="../comm/mobile.jsp" flush="true" />
     
 	<script type="text/javascript" src="/js/handle.mall.sel.js?v=${sessionScope.buildno}"></script>
     
@@ -31,10 +29,6 @@
 <body>
 
 	<div class="fixed-wrapper">  
-	<!-- topbar -->
-	<jsp:include page="../comm/topbar.jsp" flush="true" />
-	
-	<!-- topbar End -->
 	
 	<!-- header -->
 	<jsp:include page="../comm/header.jsp" flush="true" />
@@ -46,21 +40,17 @@
 		<div class="grid-16-16">
 			<!-- main -->
 			<div class="crumb-nav">
-				<div class="backto">
-					<div class="backrt">
-						<a href="/home.htm">返回首页<i></i></a>
-					</div>
-				</div>
-				<div class="crumb">
+				
+			<!-- 	<div class="crumb">
 					<a href="/home.htm">交易大厅</a>
 					<c:forEach items="${nodepath}" var="node" >
 			    		<span class="fa  fa-angle-right"></span>					
 						<a href="/mall/class/${node.mdseCode}.htm">${node.mdseName}</a>
 			    	</c:forEach>
-				</div>
+				</div> -->
 			</div>
 			
-			<div class="page">
+			<div class="">
 			<!-- main End -->
 			<div class="main-content">
 					<div class="bd">					
@@ -72,7 +62,7 @@
 										<div class="tabbar-wrap">
 										 <div class="mod-tabbar">
 											<div class="header-exg tab-sty">
-												<ul id="J_TabBar" class="pa-tabbar pdeta">
+												<!-- <ul id="J_TabBar" class="pa-tabbar pdeta">
 													
 													<c:if test="${fn:length(subcls) == 1}">
 														<li class="item tab-cell selected"><a data-role='${subcls[0].mdseCode}' data-flag='${subcls[0].classFlg}' >${subcls[0].mdseName}</a></li>
@@ -92,7 +82,7 @@
 																<li class="item tab-cell morecell"><a href="javascript:void(0);">更多分类...</a></li>
 														</c:if>
 													</c:if>
-												</ul>
+												</ul> -->
 											</div>
 										</div>
 									</div>

@@ -341,7 +341,7 @@
 												<td class="ctr"></td>
 												<td>
 													<div class="pa-btn-sell fn-fl">									
-														<button class="btn-normal btn-sell"">支付资金</button>
+														<button class="btn-normal btn-sell">支付资金</button>
 													</div>
 													</td>
 												</tr>

@@ -470,6 +470,7 @@ strong{
     height : 100%;
     width : 100%;
     text-align: center;
+    font-size: 12px;
     a{
       display: inline-block;
       margin-top: 5px;
@@ -901,6 +902,10 @@ ul{
     span{
       float: right;
     }
+  }
+  .img-thumbnail{
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 .radio{
@@ -1476,3 +1481,13 @@ div.dataTables_filter input{
 }
 
 
+//add
+.fail{
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  min-height: 200px;
+}
+#header{
+  border-bottom: 1px solid #ddd;
+}

@@ -11,22 +11,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="author" content="" />
     <link rel="shortcut icon" href="/images/icon/favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="/css/global.css" />
     <link type="text/css" rel="stylesheet" href="/css/font.css" />
-    <link type="text/css" rel="stylesheet" href="/css/common.css" />
-    <link type="text/css" rel="stylesheet" href="/css/member.css" />
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/stickup.js"></script>
+
+    <jsp:include page="../comm/mobile.jsp" flush="true" />
+
     <title>支付绑定</title>
     
 </head>
 <body>
 
 	<div class="fixed-wrapper"> 
-	<!-- topbar -->
-	<jsp:include page="../comm/topbar.jsp" flush="true" />
-	
-	<!-- topbar End -->
 	
 	<!-- header -->
 	<jsp:include page="../comm/header.jsp" flush="true" />
@@ -35,96 +31,43 @@
 	</div>
 	
 	<!-- wrapper -->
-	<div class="wrapper service-full mt30">
-		<div class="grid-16-16">
-			<div class="crumb-nav">
-				<div class="backto">
-					<div class="backrt">
-						<a href="/home.htm">返回首页<i></i></a>
-					</div>
-				</div>
-				<div class="crumb">
-					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/member/home.htm">我的账户</a><span class="fa  fa-angle-right"></span>支付绑定
-				</div>
-			</div>
-			
-			<!-- main -->
-			<div class="page">
-				<div class="user-mans">
-					<div class="portrait-big">
-						<c:if test="${empty sessionScope.userinfo.operPhoto}">
-							<img  width="200" height="161" alt="" src="/images/portrait.jpg" />
-						</c:if>
-						<c:if test="${!empty sessionScope.userinfo.operPhoto}">
-							<img  width="200" height="161" alt="" src="${sessionScope.userinfo.operPhoto}"/>
-						</c:if>
-					</div>
-					<div class="ucenter">
-						<span>我的账户</span>
-					</div>
-					<div class="user-navs members">
-						<ul>
-							<li><a href="/member/home.htm">安全设置</a></li>
-							<li><a href="/member/info.htm">账户信息</a></li>
-							
-							<c:choose>
-						   		<c:when test="${sessionScope.userinfo.operType=='1'}">  
-									<li class="current"><a href="/member/pay.htm" class="mlnks">支付绑定</a></li>
-									<li><a href="/member/manager.htm">操作员设置</a></li>    
-							    </c:when>
-							    <c:otherwise> 
-							   		<li><a href="/member/right.htm">账户权限</a></li>
-							    </c:otherwise>
-							</c:choose>
+	
+			<div class="main safe examine" >
+    <div id="header">
+     <div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left"></a></div>
+     <div class="logo">
+       支付绑定
+     </div>
+   </div>
+   <div class="container-fluid">
+    <div class="row marb60">
 
-							<li><a href="logout.htm">安全退出</a></li>
-						</ul>
-					</div>
-				</div>
-				
-				
-				<div class="main-content">
-		
-					<div class="bd">
-						<div class="page-module" style="background-color:#fff">
-							<div class="row">
-								<div class="hd">
-										<h3>绑定列表</h3>
-								</div>
-							
-							
-								<div class="bd">
-									<div class="bind-item">
-									<div class="box">
-										<table class="ui-table table-primary">
-											<thead>
-												<tr>
-													<td>账户</td>
-													<td>账户类型</td>
-													<td>绑定状态</td>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach items="${accList}" var="detail">							
-													<tr>
-														<td>${detail.pbAcct}</td>
-														<td>${detail.pbATypeName}</td>
-														<td>${detail.statusDesc}</td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-							</div>
-						</div>	
-					</div>
+    <c:forEach items="${accList}" var="detail">	
+    <div class="cox-xs-12 bgwhite operBox " >
+        <div class="media">
+          <div class="media-left media-middle padlr15 ">
+            <a href="#">
+            <img class="media-object" src="/images/bind.png" alt="...">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading ">${detail.pbATypeName}</h4>
+          ${detail.pbAcct}
+          </div>
+           <div class="media-body">
+           <span class="glyphicon glyphicon-link"></span>
+            <span class="fc999">${detail.statusDesc}</span>
+          </div>
+        </div>
+      </div>
+      </c:forEach>
 
-				</div>
-			</div>
-		</div>
-	</div>
+    </div>
+  </div>
+
+
+</div>
+
 	<!-- wrapper End -->		
 
 	<!-- footer -->

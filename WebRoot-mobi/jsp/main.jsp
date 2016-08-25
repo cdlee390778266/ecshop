@@ -9,19 +9,14 @@
     <meta name="description" content="" />
     <base href=""/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="author" content="" />
     <link rel="shortcut icon" href="/images/icon/favicon.ico" />
-    
-    <link type="text/css" rel="stylesheet" href="/widget/bootstrap/css/bootstrap.css?v=${sessionScope.buildno}" />
     <link type="text/css" rel="stylesheet" href="/css/style.css?v=${sessionScope.buildno}" />
-
-
     <link type="text/css" rel="stylesheet" href="/css/selecttags.css?v=${sessionScope.buildno}" >
     <link type="text/css" rel="stylesheet" href="/widget/css/ui.dialog.css" />    
     <link type="text/css" rel="stylesheet" href="/css/lrtk.css?v=${sessionScope.buildno}" /> 
     <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/widget/bootstrap/js/bootstrap.js?v=${sessionScope.buildno}"></script>
+   
     <script type="text/javascript" src="/js/selecttags.js?v=${sessionScope.buildno}"></script>
     <script type="text/javascript" src="/js/handlebars.js?v=${sessionScope.buildno}"></script>
     <script type="text/javascript" src="/js/ui.pagination.js?v=${sessionScope.buildno}"></script>
@@ -36,16 +31,12 @@
     <script src="/js/swiper.min.js"></script>  
     
     <jsp:include page="comm/datatables.jsp" flush="true" />
-
+    <jsp:include page="comm/mobile.jsp" flush="true" />
     <title>交易大厅</title>
 </head>
 <body>
 
 	<div class="fixed-wrapper">  
-     <!-- topbar -->
-     <!-- <jsp:include page="comm/topbar.jsp" flush="true" /> -->
-
-     <!-- topbar End -->
 
      <!-- header -->
      <jsp:include page="comm/header.jsp" flush="true" />

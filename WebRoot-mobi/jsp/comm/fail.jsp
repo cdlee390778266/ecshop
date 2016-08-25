@@ -15,36 +15,33 @@
     <link type="text/css" rel="stylesheet" href="/css/common.css" />
     <link type="text/css" rel="stylesheet" href="/css/member.css" />
     <script type="text/javascript" src="/js/jquery.js"></script>
+
+    <jsp:include page="../comm/mobile.jsp" flush="true" />
     <title>处理提示</title>
     
 </head>
 <body>
 
-	<!-- topbar -->
-	<jsp:include page="../comm/topbar.jsp" flush="true" />
-	
-	<!-- topbar End -->
 	
 	<!-- header -->
 	<jsp:include page="../comm/header.jsp" flush="true" />
 	<!-- header End -->
 	
 	<!-- wrapper -->
-	<div class="wrapper service-full mt30">
-		<div class="grid-16-16">
-			<div class="crumb-nav">
-				<div class="backto">
-					<div class="backrt">
-						<a href="/home.htm">返回首页<i></i></a>
-					</div>
-				</div>
-			</div>
+	<div class="container-fluid">
+     <div class="row">
+            <div class="col-xs-12 fail">
+                <h3 style="color: #f47912;">${message}</h3>
+            </div>
+        </div>   
+    </div>
+		
 			
-			<div class="noData" style="display:block;">
-				<h3 style="color: #f47912;">${message}</h3>
-			</div>	
-		</div>
-	</div>
+			
+				
+			
+		
+	
 	<!-- wrapper End -->		
 
 	<!-- footer -->

@@ -1,0 +1,6 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+
+     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+     <link type="text/css" rel="stylesheet" href="/widget/bootstrap/css/bootstrap.css?v=${sessionScope.buildno}" />
+     <link type="text/css" rel="stylesheet" href="/css/style.css?v=${sessionScope.buildno}" />
+      <script type="text/javascript" src="/widget/bootstrap/js/bootstrap.js?v=${sessionScope.buildno}"></script>

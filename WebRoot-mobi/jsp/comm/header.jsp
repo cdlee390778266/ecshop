@@ -1,17 +1,18 @@
 ﻿<%@ page language="java" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="header" id="header">
-		<div class="header-left" id="header-left"><a href="javascript:void(0);" class="glyphicon glyphicon-user" ></a></div>
-		<div class="logo"><a ui-sref="home" ><img src="/images/logo.png"  alt="" class="img-responsive"  /></a></div>
-		<div class="header-right">
-			<a href="javascript:void(0);" class="glyphicon glyphicon-search" id="search"></a>
-			<div class="btn-group" role="group">
-				<a id="btnGroupVerticalDrop1"  class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-				<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupVerticalDrop1">
-					<li><a href="/home.htm">交易大厅</a></li>
-					<li><a ui-sref="{{topData[3]}}">全部商品</a></li>
-				</ul>
-			</div>
-		</div>
+  <div class="header-left" id="header-left"><a href="javascript:void(0);" class="glyphicon glyphicon-user" ></a></div>
+  <div class="logo"><a href="/home.htm" ><img src="/images/logo.png"  alt="" class="img-responsive"  /></a></div>
+  <div class="header-right">
+     <a href="javascript:void(0);" class="glyphicon glyphicon-search" id="search"></a>
+     <div class="btn-group" role="group">
+        <a id="btnGroupVerticalDrop1"  class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupVerticalDrop1">
+           <li><a href="/home.htm">交易大厅</a></li>
+           <li><a ui-sref="{{topData[3]}}">全部商品</a></li>
+       </ul>
+   </div>
+</div>
 </div>
 
 <div class="container-fluid top-search">
@@ -66,24 +67,50 @@
 				<ul class="slide-top">
 					<li><span class="glyphicon glyphicon-user slide-uface"></span></li>
 					<li >
-						<span class="glyphicon glyphicon-star star-org"></span>
-						<span class="glyphicon glyphicon-star star-org"></span>
-						<span class="glyphicon glyphicon-star star-org"></span>
-						<span class="glyphicon glyphicon-star-empty star "></span>
-						<span class="glyphicon glyphicon-star-empty star"></span>
+                    <c:set var="level" value="${'0'}" />
+                    <c:set var="memdesc" value="${''}" />
+                    <c:if test="${sessionScope.userinfo.memLevel == '000'}">
+                        <c:set var="level" value="${'5'}" />
+                        <c:set var="memdesc" value="${'核心会员'}" />   
+                    </c:if> 
+                    <c:if test="${sessionScope.userinfo.memLevel == '001'}">
+                        <c:set var="level" value="${'4'}" />
+                        <c:set var="memdesc" value="${'1星级会员'}" />
+                    </c:if> 
+                    <c:if test="${sessionScope.userinfo.memLevel == '002'}">
+                        <c:set var="level" value="${'3'}" />
+                        <c:set var="memdesc" value="${'2星级会员'}" />
+                    </c:if> 
+                    <c:if test="${sessionScope.userinfo.memLevel == '100'}">
+                        <c:set var="level" value="${'1'}" />
+                        <c:set var="memdesc" value="${'普通会员'}" />
+                    </c:if> 
+                    <c:if test="${sessionScope.userinfo.memLevel == '888'}">
+                        <c:set var="level" value="${'0'}" />
+                        <c:set var="memdesc" value="${'信息会员'}" />
+                    </c:if> 
+
+                    <c:forEach var="x" begin="1" end="5" step="1">  
+                        <c:if test="${level >= x}">
+                           <span class="glyphicon glyphicon-star star-org"></span>
+                        </c:if>                                                                 
+                        <c:if test="${level < x}">
+                           <span class="glyphicon glyphicon-star-empty star "></span>
+                        </c:if>                                                                       
+                    </c:forEach>    
 					</li>
-					<li class="star-font">三星级会员</li>
+					<li class="star-font">${memdesc}</li>
 				</ul>
 				<ul class="slide-middle">
-					<li><a href="">我的账户</a></li>
-					<li><a href="">我的订单</a></li>
-					<li><a href="">我的合同</a></li>
-					<li><a href="">交收管理</a></li>
-					<li><a href="">我的仓单</a></li>
-					<li><a href="">交收历史</a></li>
-					<li><a href="">我的资金</a></li>
-					<li ><a  ui-sref="{{button[3]}}" class="btn btn-sm btn-success bnt-inlineblock">我要挂牌</a></li>
-					<li ><a ui-sref="{{button[1]}}" class="btn btn-sm btn-warning bnt-inlineblock">退出</a></li>
+					<li><a href="/member/home.htm">我的账户</a></li>
+					<li><a href="/sell/list.htm">我的订单</a></li>
+					<li><a href="/contract/list.htm">我的合同</a></li>
+					<li><a href="/delivery/selllist.htm">交收管理</a></li>
+					<li><a href="/warehouse/list.htm">我的仓单</a></li>
+					<li><a href="/query/selllist.htm">交收历史</a></li>
+					<li><a href="/fund/info.htm">我的资金</a></li>
+					<li ><a  href="/sell/apply.htm?active=enter&type=0" class="btn btn-sm btn-success bnt-inlineblock">我要挂牌</a></li>
+					<li ><a href="/member/logout.htm" class="btn btn-sm btn-warning bnt-inlineblock">退出</a></li>
 				</ul>
 			</div>
 

@@ -10,13 +10,10 @@
 	<meta name="description" content="" />
 	<base href=""/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 	<meta name="author" content="" />
 	<link rel="shortcut icon" href="/images/icon/favicon.ico" />
-	<link type="text/css" rel="stylesheet" href="/widget/bootstrap/css/bootstrap.css?v=${sessionScope.buildno}" />
 	<link type="text/css" rel="stylesheet" href="/css/style.css?v=${sessionScope.buildno}" />
 	<script type="text/javascript" src="/js/jquery.js"></script>
-	<script type="text/javascript" src="/widget/bootstrap/js/bootstrap.js?v=${sessionScope.buildno}"></script>
 	<script type="text/javascript" src="/js/ui.zoom.js"></script>
 	<script type="text/javascript" src="/js/ui.tabs.js"></script>
 	<script type="text/javascript" src="/js/stickup.js"></script>
@@ -31,6 +28,7 @@
 			
 		})
 	</script> -->
+	<jsp:include page="../comm/mobile.jsp" flush="true" />
 	<title>${rspBody.commName} ${rspBody.title}</title>
 </head>
 <body>
@@ -44,14 +42,13 @@
 
 	<div class="header">
 		<div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left"></a></div>
-		<div class="logo  ng-binding">
-			商品详情 <span class="fcyellow ng-binding"></span>
+		<div class="logo  ">
+			商品详情 <span class="fcyellow "></span>
 		</div>
 	</div>
 	
 	<!-- wrapper -->
-	<div class="wrapper service-full mt30">
-		<div class="grid-16-16">
+	
 			<!-- <div class="crumb-nav">
 				<div class="backto">
 					<div class="backrt">
@@ -69,7 +66,7 @@
 		</div>
 	-->
 	<!-- main -->
-	<div class="container-fluid">
+	<div class="container-fluid main examine examinego order">
 		<!-- 摘牌信息 -->
 		<div class="row bgwhite  examine-data delist mart15">
 			<h2>摘牌信息 <span class="glyphicon glyphicon-menu-down"></span></h2>
@@ -77,7 +74,7 @@
 				<span class="fcgreen">挂牌单号： </span>${rspBody.listedNo}
 			</div>
 			<div class="col-xs-12">
-				<span class="fcgreen">挂牌商品： </span>${rspBody.commName} ${rspBody.title}
+				<span class="fcgreen">挂牌商品： </span>${rspBody.commName}
 			</div>
 			<div class="col-xs-12 ">
 				<span class="fcgreen">单价：   </span><span class="fcyello"><fmt:formatNumber value="${rspBody.up}" type="currency" pattern="￥0.00元" />/${rspBody.uom}</span>
@@ -145,36 +142,85 @@
 <div class="row bgwhite  examine-data delist mart15">
 	<h2>商品信息 <span class="glyphicon glyphicon-menu-down"></span></h2>
 	<c:forEach items="${rspBody.props}" var="prop" >
-				<div class="col-xs-12"><span class="fcgreen">${prop.propName}：</span>${prop.propVal}</div>
-			</c:forEach>
+	<div class="col-xs-12"><span class="fcgreen">${prop.propName}：</span>${prop.propVal}</div>
+</c:forEach>
 
-	<div class="col-xs-12">
+<div class="col-xs-12">
 
-		<span class="fcgreen">挂牌单号： </span>${rspBody.listedNo}
-	</div>
+	<span class="fcgreen">挂牌单号： </span>${rspBody.listedNo}
+</div>
 </div>
 
 <!-- 商品描述 -->
 <div class="row bgwhite  examine-data delist mart15">
 	<h2>商品描述 <span class="glyphicon glyphicon-menu-down"></span></h2>
 	<div class="col-xs-12">
-		<span class="fcgreen">挂牌单号： </span>${rspBody.listedNo}
+		${rspBody.detail}
 	</div>
 </div>
 
 <!-- 商品图描述 -->
-<div class="row bgwhite  examine-data delist mart15">
+<div class="row bgwhite  delist mart15">
 	<h2>商品图描述 <span class="glyphicon glyphicon-menu-down"></span></h2>
+	<div class="col-xs-6 col-sm-4 col-md-3">
+		<c:if test="${fn:length(rspBody.ctxPic1)>0}"> 
+		<img src="${rspBody.ctxPic1}" alt="" onError="this.src='/images/loadfail.jpg'" class="img-thumbnail" >
+	</c:if>
+</div>
+
+<div class="col-xs-6 col-sm-4 col-md-3">
+	<c:if test="${fn:length(rspBody.ctxPic2)>0}"> 
+	<img src="${rspBody.ctxPic2}" alt="" onError="this.src='/images/loadfail.jpg'" class="img-thumbnail" >
+</c:if>
+</div>
+
+<div class="col-xs-6 col-sm-4 col-md-3">
+	<c:if test="${fn:length(rspBody.ctxPic3)>0}"> 
+	<img src="${rspBody.ctxPic3}" alt="" onError="this.src='/images/loadfail.jpg'" class="img-thumbnail" >
+</c:if>
+</div>
+</div>
+
+
+<c:if test="${rspBody.delist=='A' && rspBody.mID == sessionScope.userinfo.mID}">
+<!-- 指定卖牌方 -->
+<div class="row bgwhite  examine-data delist mart15">
+	<h2>指定卖牌方 <span class="glyphicon glyphicon-menu-down"></span></h2>
+	<c:if test="${fn:length(rspBody.delistMems)>0}">
+	<c:forEach items="${rspBody.delistMems}" var="dm" >
 	<div class="col-xs-12">
-		<span class="fcgreen">挂牌单号： </span>${rspBody.listedNo}
+		${rspBody.detail}
+	</div>
+</c:forEach>
+</c:if>
+</div>
+</c:if>
+
+
+<!-- 立即购买 -->
+<div class="product row marb160">
+	<div class="product-bar col-xs-12">
+		<span class="product-name ">${rspBody.commName}</span>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span class="fc333 ">${rspBody.title}</span>
+	</div>
+	<div class="col-xs-12 col-sm-6 ">
+		单价： <strong><span class="fcyellow "><fmt:formatNumber value="${rspBody.up}" type="currency" pattern="￥0.00元" />/${rspBody.uom} </span> </strong>
+	</div>
+	<div class="col-xs-12 col-sm-6 ">
+		数量(剩余量/总数量)： <strong><span class="fcyellow ">${rspBody.rem}/</span><span class="fcgreen ">${rspBody.qty}${rspBody.uom}</span> <span class="fc333 ">吨</span></strong>
+	</div>
+	<div class="col-xs-6  col-xs-offset-6 martb10 txtright">
+		<a href="/buy/prepare/${rspBody.listedNo}.htm" class="yellow-btn1 ">立即购买</a>
 	</div>
 </div>
-
-
+<c:if test="${enableBuy=='true'}"> 
+</c:if>
 </div>
 
 
-<div class="" style="background-color:#fff">				
+<!-- <div class="" style="background-color:#fff">				
 	<div class="main-content">
 		<div class="bd">
 
@@ -280,10 +326,10 @@
 
 </div>
 
-<div class="col-sub mt10" id="tab1">
+<div class="col-sub mt10" id="tab1"> -->
 
 	<!-- mod:tabbar -->
-	<div class="tabbar-wrap">
+	<!-- <div class="tabbar-wrap">
 		<div class="mod-tabbar">
 			<ul class="pa-tabbar pdeta" id="J_TabBar">
 				<li class="item tab-cell selected">
@@ -300,10 +346,10 @@
 
 		</ul>
 	</div>
-</div>
+</div> -->
 <!-- end of mod:tabbar -->
 
-<div class="sub-wrap">
+<!-- <div class="sub-wrap">
 
 	<div class="tab-content">
 		<div class="attributes" id="attributes">
@@ -401,23 +447,22 @@
 
 </p>
 </div>
-
+-->
 <!-- end of mod-reviews -->	
+<!-- </div>
+</div>
+
+
+
+</div>
 </div>
 </div>
 
 
-
-</div>
-</div>
-</div>
-
-
-</div>
+</div> -->
 <!-- main End -->
 
-</div>
-</div>
+
 <!-- wrapper End -->		
 
 <!-- footer -->

@@ -13,10 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="author" content="" />
     <link rel="shortcut icon" href="/images/icon/favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="/css/global.css" />
     <link type="text/css" rel="stylesheet" href="/css/font.css" />
-    <link type="text/css" rel="stylesheet" href="/css/common.css" />
-    <link type="text/css" rel="stylesheet" href="/css/member.css" />
     <link  type="text/css"rel="stylesheet" href="/widget/css/ui.dialog.css"/>
     <link type="text/css" rel="stylesheet" href="/css/square/green.css">
     <link type="text/css" rel="stylesheet" href="/css/validate.css" >
@@ -30,6 +27,8 @@
     <script type="text/javascript" src="/js/jquery-validate.js"></script>
     <script type="text/javascript" src="/js/stickup.js"></script>
     <script type="text/javascript" src="/js/handle.m.manger.js?v=${sessionScope.buildno}"></script>
+
+    <jsp:include page="../comm/mobile.jsp" flush="true" />
     
     <title>操作员设置</title>
     <style>
@@ -44,10 +43,6 @@
 <body>
 
 	<div class="fixed-wrapper"> 
-	<!-- topbar -->
-	<jsp:include page="../comm/topbar.jsp" flush="true" />
-	
-	<!-- topbar End -->
 	
 	<!-- header -->
 	<jsp:include page="../comm/header.jsp" flush="true" />
@@ -57,48 +52,63 @@
 	<!-- wrapper -->
 	<div class="wrapper">
 		<div class="grid-16-16">
-			<div class="crumb-nav">
-				<div class="backto">
-					<div class="backrt">
-						<a href="/home.htm">返回首页<i></i></a>
-					</div>
-				</div>
-				<div class="crumb">
-					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/member/home.htm">我的账户</a><span class="fa  fa-angle-right"></span>操作员设置
-				</div>
-			</div>
+			
+<div class="main safe examine ng-scope" ng-controller="operation">
+    <div id="header">
+     <div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left"></a></div>
+     <div class="logo ">
+       操作员设置
+     </div>
+   </div>
+   <div class="container-fluid">
+    <div class="row marb60">
+      <!-- ngRepeat: data in odata --><div class="cox-xs-12 bgwhite operBox ng-scope" ng-repeat="data in odata">
+        <div class="media">
+          <div class="media-left media-middle padlr15 ">
+            <a href="#">
+            <img class="media-object" src="images/operation.png" alt="...">
+            </a>
+          </div>
+          <div class="media-body ">
+            <h4 class="media-heading ">管理员账户 <span class="fc999 ">已注销</span></h4>
+           000073892977892
+          </div>
+            <div class="media-body">
+    <input class="tgl tgl-skewed" id="000073892977892" type="checkbox">
+    <label class="tgl-btn" data-tg-off="修改" data-tg-on="启用" for="000073892977892"></label>
+            </div>
+        </div>
+      </div><!-- end ngRepeat: data in odata --><div class="cox-xs-12 bgwhite operBox ng-scope" ng-repeat="data in odata">
+        <div class="media">
+          <div class="media-left media-middle padlr15 ">
+            <a href="#">
+            <img class="media-object" src="images/operation.png" alt="...">
+            </a>
+          </div>
+          <div class="media-body ">
+            <h4 class="media-heading ">管理员账户 <span class="fc999 ">已注销</span></h4>
+           000073892977893
+          </div>
+            <div class="media-body">
+    <input class="tgl tgl-skewed" id="000073892977893" type="checkbox">
+    <label class="tgl-btn" data-tg-off="修改" data-tg-on="启用" for="000073892977893"></label>
+            </div>
+        </div>
+      </div><!-- end ngRepeat: data in odata -->
+      <div class="col-xs-12 mart15">
+        <a href="#/addoperation" ui-sref="addoperation" class="btn btn-success btn-block ">新增操作员</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
 			<!-- main -->
-			<div class="page">
-				<div class="user-mans">
-					<div class="portrait-big">
-						<c:if test="${empty sessionScope.userinfo.operPhoto}">
-							<img  width="200" height="161" alt="" src="/images/portrait.jpg" />
-						</c:if>
-						<c:if test="${!empty sessionScope.userinfo.operPhoto}">
-							<img  width="200" height="161" alt="" src="${sessionScope.userinfo.operPhoto}"/>
-						</c:if>
-					</div>
-					<div class="ucenter">
-						<span>我的账户</span>
-					</div>
-					<div class="user-navs members">
-						<ul>
-							<li><a href="/member/home.htm">安全设置</a></li>
-							<li><a href="/member/info.htm">账户信息</a></li>
-							
-							<c:choose>
-						   		<c:when test="${sessionScope.userinfo.operType=='1'}">  
-									<li><a href="/member/pay.htm">支付绑定</a></li>
-									<li  class="current"><a href="/member/manager.htm" class="mlnks">操作员设置</a></li>    
-							    </c:when>
-							    <c:otherwise> 
-							   		<li><a href="/member/right.htm">账户权限</a></li>
-							    </c:otherwise>
-							</c:choose>
-							<li><a href="logout.htm">安全退出</a></li>
-						</ul>
-					</div>
-				</div>
+			<div class="">
+				
 				
 				<div class="main-content">
 					<div class="bd">

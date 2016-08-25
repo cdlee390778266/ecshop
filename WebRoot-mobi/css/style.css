@@ -537,6 +537,7 @@ strong {
   height: 100%;
   width: 100%;
   text-align: center;
+  font-size: 12px;
 }
 #header .logo a, .header .logo a {
   display: inline-block;
@@ -963,6 +964,10 @@ strong {
 }
 .delist h2 span {
   float: right;
+}
+.delist .img-thumbnail {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .radio {
@@ -1540,4 +1545,14 @@ div.dataTables_filter input {
   to {
     transform: translateX(-100%);
   }
+}
+.fail {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  min-height: 200px;
+}
+
+#header {
+  border-bottom: 1px solid #ddd;
 }

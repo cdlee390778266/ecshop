@@ -1,0 +1,142 @@
+.selcomm {
+	font-size: 14px;
+	margin-top: 10px;
+	margin-bottom: 10px
+	margin-left: 1px;
+	overflow: hidden;
+}
+
+.selcomm .hd {
+	margin-top: 4px;
+	float: left;
+	display: inline;
+	line-height: 20px;
+	height: 20px;
+	color: #666;
+	text-decoration: none;
+}
+
+.selcomm .bd {
+	margin-bottom: 5px;
+	float: left;
+}
+
+.selcomm .pro {
+	position: relative;
+	margin: 3px 3px 0 0;
+	padding: 3px 23px 2px 3px;
+	float: left;
+	max-width: 144px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border: 1px solid #e8e8e8;
+	height: 28px;
+	line-height: 24px;
+	color: #666;
+	text-decoration: none;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.selcomm .pro .icon-btn-x {
+	position: absolute;
+	right: 9px;
+	top: 12px;
+}
+
+.selcomm .ft {
+	float: left;
+}
+
+.selcomm .rlist{
+	padding-left: 5px;
+	border-bottom: 0;
+	clear: both;
+	width:100%
+}
+
+.selcomm .rlist .commsection{
+	margin: 10px 0 10px;
+	border-right: 1px #ccc solid;
+}
+
+.selcomm .rlist .commhead{
+	width: 5%;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+	border-top: 1px #999 dashed;
+	padding-top: 10px
+}
+.selcomm .rlist .commbd{
+	width: 94%;
+	float: left;
+	line-height: 30px;
+	border-top: 1px #999 dashed;
+	position: relative;
+	background: #fff;
+}
+.selcomm .rlist .commbd ul{
+	display: inline-block;
+	width: 96%;
+	float: left;
+}
+
+.selcomm .rlist .commbd li{
+	float: left;
+	display: inline-block;
+	margin: 10px 5px 10px 5px;
+	padding: 0 10px 0 10px;
+}
+
+.selcomm .rlist .commbd .active{
+	background-color: #89C975;
+	color:#FFFFFF;
+}
+
+.selcomm .pro:hover {
+	border: solid 1px #FE731B
+}
+
+.icon-btn-x {
+	background: url(/images/icon/btn_x.png);
+	background-position: -4px -4px;
+	width: 7px;
+	height: 7px;
+}
+
+/*
+.csel {
+	height: 35px;
+	vertical-align: middle;
+	margin: 4px 4px 4px 10px;
+}
+*/
+
+.toggle-list {
+	background-color: #fff;
+	border: solid 1px #e8e8e8;
+	padding: 10px;
+	line-height: 1.6;
+	position: absolute;
+	min-width: 73px;
+	top: 29px;
+	left: -1px;
+}
+
+.toggle-list dd {
+	display: block;
+	padding: 2px 0;
+}
+
+.selcomm .icon-btn-vbarrow {
+	display: inline-block;
+	font-size: 0;
+	float: left;
+	margin: 12px 5px 0;
+	width: 5px;
+	height: 9px;
+	background: url(/images/icon/arraw_right.png) no-repeat;
+}

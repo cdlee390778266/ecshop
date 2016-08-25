@@ -519,7 +519,6 @@
                  str +=  '</div>'
                  str +=  '</div>'
                  str +=  '</div>'
-                 console.log(val)
              });
 $('.product').append(str)
 }
