@@ -82,7 +82,7 @@ $(function() {
 		                	summarystr += '<span>'+row.summary4+'</span>';		                	
 		                }
 		                
-		                var imgurl = '<img src="/images/loadfail.jpg" width="120px" height="120px" alt="">';
+		                var imgurl = '<img src="/normal/images/loadfail.jpg" width="120px" height="120px" alt="">';
 		                if(row.titlePic != null){
 		                	imgurl = '<img src="'+row.titlePic+'" width="120px" height="120px" alt="">';
 		                }
@@ -207,7 +207,7 @@ $(function() {
 			        },	
 			        serverSide: true,
 			        ordering:false,
-			        searching: false,
+			        searching: true,
 			        "processing" : true,
 			        "language": {
 			        	"processing": "",
@@ -240,24 +240,34 @@ $(function() {
 						    "targets": columnselector,
 						    "visible": false,
 						},
-			            {"render": function ( data, type, row ) {	                    	   
-			                var html = '';   
+			            {"render": function ( data, type, row ) {
+			          	             	   
+			                var html = '';
+			                var addStr = [];    
 			                
 			                var summarystr = '';	                
-			                if(row.summary1 != null){	                	
-			                	summarystr += '<span>'+row.summary1+'</span>';		                	
+			                if(row.summary1 != null){
+			                    addStr = [];	
+			                    addStr = row.summary1.split(':');                	
+			                	summarystr += '<li><span class="liTitle">'+addStr[0]+'：</span>'+ addStr[1] +'</li>';		                	
 			                }	                
-			                if(row.summary2 != null){	                	
-			                	summarystr += '<span>'+row.summary2+'</span>';		                	
+			                if(row.summary2 != null){	
+			                addStr = [];	
+			                    addStr = row.summary2.split(':');                 	
+			                	summarystr += '<li><span class="liTitle">'+addStr[0]+'：</span>'+ addStr[1] +'</li>';		                	
 			                }	                
-			                if(row.summary3 != null){	                	
-			                	summarystr += '<span>'+row.summary3+'</span>';		                	
+			                if(row.summary3 != null){
+			                addStr = [];	
+			                    addStr = row.summary3.split(':'); 	                	
+			                	summarystr += '<li><span class="liTitle">'+addStr[0]+'：</span>'+ addStr[1] +'</li>';	                	
 			                }	                
-			                if(row.summary4 != null){	                	
-			                	summarystr += '<span>'+row.summary4+'</span>';		                	
+			                if(row.summary4 != null){	
+			                addStr = [];	
+			                    addStr = row.summary4.split(':');                 	
+			                	summarystr += '<li><span class="liTitle">'+addStr[0]+'：</span>'+ addStr[1] +'</li>';		                	
 			                }
 			                
-			                var imgurl = '<img src="/images/loadfail.jpg" width="120px" height="120px" alt="">';
+			                var imgurl = '<img src="/normal/images/loadfail.jpg" width="120px" height="120px" alt="">';
 			                if(row.titlePic != null){
 			                	imgurl = '<img src="'+row.titlePic+'" width="120px" height="120px" alt="">';
 			                }
@@ -266,34 +276,83 @@ $(function() {
 			                if($('#currMID').val() !=row.mid){
 			                	buyhtml = '<a target="_blank" href="/mall/item/'+row.listedNo+'.htm" class="btn-normal btn-buy">摘牌</a>';
 			                }
+
+			               
 			                
-			                html = '<div class="sell-commodity">'
-			                	 +'	<div class="c-caption">'
-			                	 +'		<div class="cap-img"><a target="_blank" href="/mall/item/'+row.listedNo+'.htm">'+imgurl+'</a></div>'
-			                	 +'		<div class="cap-title">'+row.title+'</div>'
-			                	 +'	</div>'	                  
-			                	 +'	<div class="c-summary">'               
-			                	 +'		<div class="sum-commname"><span>'+row.commName+'</span></div>'
-			                	 +'		<div class="sum-detail">'
-			                	 +'			<span class="fixed-focus fixed-bold">单价:'+Number(row.up).formatMoney()+'元/'+row.uom+'</span>'	 
-			                	 +'			<span class="fixed-focus">数量:'+row.rem+'/'+row.qty+row.uom+'</span>'	
-			                	 +'			<span>交收仓库:'+row.storage+'</span>'	
-			                	 +'			<span>交收类型:'+row.listedTypeName+'</span>'	
-			                	 +			summarystr
-			                	 +'		</div>'
-			                	 +' </div>'
-					             +' <div class="c-supply">'
-					             +'		<div class="sup-doe fixed-focus">有效期:'+row.doe+'</div>'	
-					             +'		<div class="sup-sellinfo"><span>卖家:'+row.memName+'</span><br/><span>编号:'+row.mid+'</span></div>'	
-					             +'		<div class="sup-buy">'+buyhtml+'</div>'
-					             +' </div>'
-					             +'</div>'                 
+			               //  html = '<div class="sell-commodity">'
+			               //  	 +'	<div class="c-caption">'
+			               //  	 +'		<div class="cap-img"><a target="_blank" href="/mall/item/'+row.listedNo+'.htm">'+imgurl+'</a></div>'
+			               //  	 +'		<div class="cap-title">'+row.title+'</div>'
+			               //  	 +'	</div>'	                  
+			               //  	 +'	<div class="c-summary">'               
+			               //  	 +'		<div class="sum-commname"><span>'+row.commName+'</span></div>'
+			               //  	 +'		<div class="sum-detail">'
+			               //  	 +'			<span class="fixed-focus fixed-bold">单价:'+Number(row.up).formatMoney()+'元/'+row.uom+'</span>'	 
+			               //  	 +'			<span class="fixed-focus">数量:'+row.rem+'/'+row.qty+row.uom+'</span>'	
+			               //  	 +'			<span>交收仓库:'+row.storage+'</span>'	
+			               //  	 +'			<span>交收类型:'+row.listedTypeName+'</span>'	
+			               //  	 +			summarystr
+			               //  	 +'		</div>'
+			               //  	 +' </div>'
+					             // +' <div class="c-supply">'
+					             // +'		<div class="sup-doe fixed-focus">有效期:'+row.doe+'</div>'	
+					             // +'		<div class="sup-sellinfo"><span>卖家:'+row.memName+'</span><br/><span>编号:'+row.mid+'</span></div>'	
+					             // +'		<div class="sup-buy">'+buyhtml+'</div>'
+					             // +' </div>'
+					             // +'</div>' 
+
+
+	                        html = '<div class="panel">'
+				                 + '<div class="panel-title">'
+				                 + '<strong class="product-name">' + row.commName
+				                 + '</strong>'
+				                 + '<span class="product-price marr40">'
+				                 + ' 单价： <small>￥</small><big>' + Number(row.up).formatMoney() + '元/'+ row.uom +'</big>'
+				                 + '</span>'
+				                 + '<span>有效期：' + row.dol + '</span>'
+				                 + '</div>'
+				                 + '<ul class="panel-body mart20">'
+				                 + '<li>'
+				                 + '<span class="liTitle">仓单编号</span> ：' + row.listedNo
+				                 + '</li>'
+				                 + '<li>'
+				                 + '<span class="liTitle">数量</span> ：<span class="fcred">' + row.rem+'/'+row.qty+row.uom + '</span>吨'
+				                 + '</li>'
+				                 + summarystr
+				                 + '<li>'
+				                 + '<span class="liTitle">交收仓库</span> ：<span title="' + row.storage  +'">' + row.storage +'</span>'
+				                 + '</li>'
+				                 + '<li>'
+				                 + '<span class="liTitle">仓库地址</span> ：'+ '待开发...'
+				                 + '</li>'
+				                 + '<li>'
+				                 + '<span class="liTitle">交收类型</span> ：<span class="promise">' + row.listedTypeName + '</span>'
+				                 + '</li>'
+				                 + '</ul>'
+				                 + '<div class="describe-box">'
+				                 + '<div class="product-describe"><p >' + '待开发...' + '</p>'
+				                 + '</div>'
+				                 + '</div>'
+				                 + '<div class="product-bottom">'
+				                 + '<div class="product-bl">'
+				                 + '编号：' + row.mid
+				                 + '</div>'
+				                 + '<div class="product-br">'
+				                 + '<span>卖家</span> ' + row.memName
+				                 + '</div>'
+				                 + '</div>'
+				                 + '</div>'
+
+
+
+
+
 			                return html;
 			              },
 			              "targets": columnlength
 			            }
 			         ],	                       	                      
-			        "dom": 'rt<"bottom"ip>',
+			        "dom": 'frt<"bottom"ip>',
 			        initComplete: function () {
 			        	
 			        }

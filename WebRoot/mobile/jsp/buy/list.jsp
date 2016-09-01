@@ -11,10 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="author" content="" />
     <link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/global.css" />
     <link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/common.css" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/member.css" />
     <link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
     <link type="text/css" rel="stylesheet" href="/mobile/css/selecttags.css" >
     <link  type="text/css"rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
@@ -28,6 +25,7 @@
     <script type="text/javascript" src="/mobile/widget/js/ui.dialog.js"></script>
     
     <jsp:include page="../comm/datatables.jsp" flush="true" />
+     <jsp:include page="../comm/mobile.jsp" flush="true" />
      
     <script type="text/javascript" src="/mobile/js/handle.buy.js?v=${sessionScope.buildno}"></script>
     <title>采购清单</title>
@@ -36,36 +34,54 @@
 <body>
 
 	<div class="fixed-wrapper"> 
-	<!-- topbar -->
-	<jsp:include page="../comm/topbar.jsp" flush="true" />
-	
-	<!-- topbar End -->
 	
 	<!-- header -->
 	<jsp:include page="../comm/header.jsp" flush="true" />
 	<!-- header End -->
 	</div>
+
+
+<div class="container-fluid bordert">
+	<div class="row safe-type txtcenter bgwhite  borderb">
+        <div class="col-xs-6"><a href="/sell/list.htm"   >销售申请</a>
+        </div>
+        <div class="col-xs-6"><a href="/buy/list.htm" class="active" >购买申请</a></div>
+      </div>
+
+
+<input type="hidden" value="${sessionScope.userinfo.mID}" id="mid"  />
+								<input type="hidden" value="${sessionScope.userinfo.operID}" id="pid" />
+								
+								<table id="dataset" class="display nowrap cell-border table table-responsive" cellspacing="0" width="100%">
+								    <thead>
+								            <tr>
+								            	<th>品种</th>
+								            	<th>商品代码</th>
+								                <th>商品名称</th>							                
+								                <th>品牌</th>
+								                <th>产地</th>
+								                <th>摘牌单号</th>
+								                <th>摘牌数量</th>
+								                <th>单价</th>            							                
+								                <th>摘牌日期</th>
+								                <th>挂牌有效期</th>
+								                <th>挂牌类型</th>
+								                <th>状态</th>									                							                
+								                <th>操作</th>								                
+								            </tr>
+								        </thead>
+								    </table>		
+</div>
+
 	
 	<!-- wrapper -->
 	<div class="wrapper service-full mt30">
 		<div class="grid-16-16">
-			<div class="crumb-nav">
-				<div class="backto">
-					<div class="backrt">
-						<a href="/home.htm">返回首页<i></i></a>
-					</div>
-				</div>
-				<div class="crumb">
-					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/buy/list.htm">会员中心</a><span class="fa  fa-angle-right"></span><a href="javascript: void(0)">采购清单</a>
-				</div>
-			</div>
+			
 			
 			<!-- main -->
-			<div class="page">
-					
-				<!-- left -->
-				<jsp:include page="../comm/left.jsp" flush="true" />
-				<!-- left End -->
+			<div class="">
+			
 
 				 
 				<div class="main-content">
@@ -73,9 +89,7 @@
 						
 						<div class="page-module data-query">
 							<div class="row">
-							    <div class="hd">
-							   		<h3>我的采购订单</h3>
-							    </div>
+							 
 
 							    <div class="bd mt10 warehouse">
 								    <table class="ui-table">
@@ -126,7 +140,7 @@
 								</div>	
 								-->
 								
-								<input type="hidden" value="${sessionScope.userinfo.mID}" id="mid" />
+								<!-- <input type="hidden" value="${sessionScope.userinfo.mID}" id="mid" />
 								<input type="hidden" value="${sessionScope.userinfo.operID}" id="pid" />
 								
 								<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
@@ -147,7 +161,7 @@
 								                <th>操作</th>								                
 								            </tr>
 								        </thead>
-								    </table>		
+								    </table>		 -->
 							</div> 
 
 						</div>

@@ -1,6 +1,8 @@
 ﻿<%@ page language="java" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
- <script type="text/javascript" src="/normal/widget/layer/layer.js"></script>
+<link type="text/css" rel="stylesheet" href="/normal/css/font-awesome.min.css" />
+<link type="text/css" rel="stylesheet" href="/normal/css/font-awesome-ie7.min.css" />
+<script type="text/javascript" src="/normal/widget/layer/layer.js"></script>
 
 <div class="top-bar">
 	<div class="grid-16-16 tp-bd">
@@ -56,84 +58,84 @@
 							<img src="/normal/images/face.png" alt="" class="mart10" />
 						</div>
 						<div class="dlData fl">
-						<div class="dlTitle">
-							<h2>${sessionScope.userinfo.memName}</h2>
-							<p>
+							<div class="dlTitle">
+								<h2>${sessionScope.userinfo.memName}</h2>
+								<p>
 									<c:set var="level" value="${'0'}" />
-					<c:set var="memdesc" value="${''}" />
-					
-					<c:if test="${sessionScope.userinfo.memLevel == '000'}">
-						<c:set var="level" value="${'5'}" />
-						<c:set var="memdesc" value="${'核心会员'}" />	
-					</c:if>	
-					<c:if test="${sessionScope.userinfo.memLevel == '001'}">
-						<c:set var="level" value="${'4'}" />
-						<c:set var="memdesc" value="${'1级会员'}" />
-					</c:if>	
-					<c:if test="${sessionScope.userinfo.memLevel == '002'}">
-						<c:set var="level" value="${'3'}" />
-						<c:set var="memdesc" value="${'2级会员'}" />
-					</c:if>	
-					<c:if test="${sessionScope.userinfo.memLevel == '100'}">
+									<c:set var="memdesc" value="${''}" />
+									
+									<c:if test="${sessionScope.userinfo.memLevel == '000'}">
+									<c:set var="level" value="${'5'}" />
+									<c:set var="memdesc" value="${'核心会员'}" />	
+								</c:if>	
+								<c:if test="${sessionScope.userinfo.memLevel == '001'}">
+								<c:set var="level" value="${'4'}" />
+								<c:set var="memdesc" value="${'1级会员'}" />
+							</c:if>	
+							<c:if test="${sessionScope.userinfo.memLevel == '002'}">
+							<c:set var="level" value="${'3'}" />
+							<c:set var="memdesc" value="${'2级会员'}" />
+						</c:if>	
+						<c:if test="${sessionScope.userinfo.memLevel == '100'}">
 						<c:set var="level" value="${'1'}" />
 						<c:set var="memdesc" value="${'普通会员'}" />
 					</c:if>	
 					<c:if test="${sessionScope.userinfo.memLevel == '888'}">
-						<c:set var="level" value="${'0'}" />
-						<c:set var="memdesc" value="${'信息会员'}" />
-					</c:if>	
-					
-									
-					<c:forEach var="x" begin="1" end="5" step="1">  
-						<c:if test="${level >= x}">
-							<img src="/normal/images/star-on-big.png" width="16px"  height="16px">
-						</c:if>																	
-						<c:if test="${level < x}">
-							<img src="/normal/images/star-off-big.png" width="16px"  height="16px">
-						</c:if>																		  
-					</c:forEach> 
-
-<span style="color:#6db23d;font-size:12px" class="marl20">${memdesc}</span>
-
-
-							</p>
-							</div>
-							<dl class="mart20">
-								<c:forEach items="${sessionScope.userinfo.tradeMenus}" var="menu" >
-								<dd><a href="${menu.menuURL}">${menu.menuName}</a></dd>
-							</c:forEach>
-							<dd><a href="/member/home.htm" >我的账户</a></dd>	
-						</dl>
-					</div>
-				</div>
-
-			</li>
-					
-					<li class="uitem gn-loginout"><a href="/member/logout.htm" >退出</a></li>
-
-				</ul>
-
-
-
-
-
-				<a href="/home.htm" class="lnk-home"><span class="fa fa-home"></span>交易大厅首页</a>
+					<c:set var="level" value="${'0'}" />
+					<c:set var="memdesc" value="${'信息会员'}" />
+				</c:if>	
 				
-				<span style="font-size:14px; margin-left:30px; ">状态：</span>
 				
-				<c:choose>
-				<c:when test="${sessionScope.sysstatus == '100'}">						
-				<span style="font-size:14px;  color:#fff " class="triangle">${sessionScope.sysstatusDesc}</span>
-			</c:when>
-			<c:otherwise>
-			<c:choose>
-			<c:when test="${sessionScope.sysstatus == '50'}">						
-			<span style="font-size:14px;  color:#fff " class="triangle" >${sessionScope.sysstatusDesc}</span>
-		</c:when>
-		<c:otherwise>
-		<span style="font-size:14px;  color:#fff" class="triangle" >${sessionScope.sysstatusDesc}</span>
+				<c:forEach var="x" begin="1" end="5" step="1">  
+				<c:if test="${level >= x}">
+				<img src="/normal/images/star-on-big.png" width="16px"  height="16px">
+			</c:if>																	
+			<c:if test="${level < x}">
+			<img src="/normal/images/star-off-big.png" width="16px"  height="16px">
+		</c:if>																		  
+	</c:forEach> 
 
-	</c:otherwise>
+	<span style="color:#6db23d;font-size:12px" class="marl20">${memdesc}</span>
+
+
+</p>
+</div>
+<dl class="mart20">
+	<c:forEach items="${sessionScope.userinfo.tradeMenus}" var="menu" >
+	<dd><a href="${menu.menuURL}">${menu.menuName}</a></dd>
+</c:forEach>
+<dd><a href="/member/home.htm" >我的账户</a></dd>	
+</dl>
+</div>
+</div>
+
+</li>
+
+<li class="uitem gn-loginout"><a href="/member/logout.htm" >退出</a></li>
+
+</ul>
+
+
+
+
+
+<a href="/home.htm" class="lnk-home"><span class="fa fa-home"></span>交易大厅首页</a>
+
+<span style="font-size:14px; margin-left:30px; ">状态：</span>
+
+<c:choose>
+<c:when test="${sessionScope.sysstatus == '100'}">						
+<span style="font-size:14px;  color:#fff " class="triangle">${sessionScope.sysstatusDesc}</span>
+</c:when>
+<c:otherwise>
+<c:choose>
+<c:when test="${sessionScope.sysstatus == '50'}">						
+<span style="font-size:14px;  color:#fff " class="triangle" >${sessionScope.sysstatusDesc}</span>
+</c:when>
+<c:otherwise>
+<span style="font-size:14px;  color:#fff" class="triangle" >${sessionScope.sysstatusDesc}</span>
+
+</c:otherwise>
 </c:choose>
 </c:otherwise>
 </c:choose>

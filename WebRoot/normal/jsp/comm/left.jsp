@@ -33,7 +33,7 @@
 				<dd><a href="/member/right.htm">账户权限</a></dd>
 			</c:otherwise>
 		</c:choose>
-               <dd><a href="logout.htm">安全退出</a></dd>
+               <dd><a href="/member/logout.htm">安全退出</a></dd>
 	</dl>
 </li>
 

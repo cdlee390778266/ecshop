@@ -13,11 +13,11 @@
         /*var shtm = '<div class="hd">'+
             '<label for="">'+opts.catText+'</label>'+
          '</div>'+ */
-        var shtm = '<div class="bd">'+
+        var shtm = '<div class="bd" style="display:none;">'+
             '<div class="crumb-list">'+
             '</div>'+
         '</div>'+
-        '<div class="ft">'+
+        '<div class="ft" style="display:none;">'+
         '</div>'+
         '<div class="rlist">'+
         '</div>'+
@@ -57,7 +57,7 @@
 	                	head = "商品";
 	                }
                     
-                    var ulh = '<div class="commsection"><div class="commhead">'+head+'</div><div class="commbd"><ul><li class="active" data-level="'+level+'" data-key="" data-leaf="true" >不限</li>';
+                    var ulh = '<div class="commsection input-group"><div class="commhead group-txt">'+head+'</div><div class="commbd group-box"><span class="val"><span>不限 </span><i></i></span><ul><li class="active" data-level="'+level+'" data-key="" data-leaf="true" >不限</li>';
                     for(var i=0;i<idata.length;i++){
                         ulh += '<li data-level="'+idata[i].level+'" data-key="'+idata[i].code+'" data-leaf="'+idata[i].haveLeaf+'">'+idata[i].name+'</li>';
                         
@@ -163,14 +163,14 @@
                 	prevkey = '';
                 }           
                 pager(id, level=='3'?false:true, selflag, prevkey);
-
-                level=='3' ? $('#product-dialog').html($(this).html()) : $('#product-dialog').html('请选择挂牌商品') ;
+                level=='3' ? $('.select-txt').html($(this).html()) : $('.select-txt').html('请选择') ;
+                level=='3' ? $('.product').html($(this).html()) : $('.product').html('未选择') ;
             })
             
 
             function pager(param, haveleaf, selflag, prevkey){ 
             	if(typeof opts.callback != 'undefined'){ 
-                	 var propagation = opts.callback(param, haveleaf, selflag, prevkey);	
+                	 var propagation = opts.callback(param, haveleaf, selflag, prevkey);
                 	 return propagation;
                 }	
             }

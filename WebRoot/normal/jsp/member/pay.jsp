@@ -74,7 +74,7 @@
 													<tr>
 														<td>${detail.pbAcct}</td>
 														<td>${detail.pbATypeName}</td>
-														<td><span class="m-bind">${detail.statusDesc}</span><span class="m-unbind">${detail.statusDesc}</span></td>
+														<td><span class="m-bind">${detail.statusDesc}</span></td>
 													</tr>
 												</c:forEach>
 											</tbody>

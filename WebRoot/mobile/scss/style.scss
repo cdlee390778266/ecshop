@@ -65,7 +65,7 @@ a:focus{
   border-right: 1px solid $borderColor;
 }
 .lh26{
-  line-height: 26px;
+  line-height: 26px !important;
 }
 .lh34{
   line-height: 34px;
@@ -138,6 +138,12 @@ strong{
   margin-left: -15px !important;
   margin-right: -15px !important;
 }
+.mart30{
+  margin-top: 30px !important;
+}
+.marb30{
+  margin-bottom: 30px !important;
+}
 .martb40{
   margin-top: 40px !important;
   margin-bottom: 40 !important;
@@ -173,6 +179,13 @@ strong{
   padding-top: 15px;
   padding-bottom: 15px;
 }
+.padt10{
+  padding-top: 10px !important;
+}
+.padtb40{
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
 
 /********** color **********/
 .fcgreen{
@@ -192,6 +205,9 @@ strong{
 }
 .fc666 {
   color  : $fc666;
+}
+.fc777 {
+  color  : #777;
 }
 .fc999 {
   color  : $fc999;
@@ -581,7 +597,7 @@ strong{
  position : relative;
  color: $fc666;
  background : #fff;
- .select-bar,.selectUl{
+ .select-bar{
   position:relative;
   z-index: 89;
 }
@@ -592,17 +608,13 @@ h2{
   margin-left: 10px;
   font-size: 8px;
   transition : transform .4s;
-  transform-origin:50% 25%;
-    -webkit-transform-origin:50% 25%; /* Safari 和 Chrome */
-    -moz-transform-origin:50% 25%;    /* Firefox */
-    -o-transform-origin:50% 25%;    /* Opera */
   }
 }
 ul{
   width : 100%;
   background: #fff;
   position : absolute;
-  top : 0px;
+  top : 41px;
   left : 0;
   z-index: 8;
   display : none;
@@ -623,6 +635,13 @@ ul{
     width:100%;
     padding : 5px;
   }
+}
+
+.stype {
+  position:static;
+  ul{
+  width:100%;
+}
 }
 
 }
@@ -648,6 +667,7 @@ ul{
   }
 }
 
+
 /********** product **********/
 
 .product{
@@ -655,7 +675,7 @@ ul{
   //margin: 10px 10px 0px 10px ;
   //box-shadow : 0px 0px 2px 2px #ccc;
   margin-top: 15px;
-  padding : 5px 10px 0 10px;
+  padding : 5px 15px 0 15px;
   color : #999;
   .product-bar{
     cursor : pointer;
@@ -712,7 +732,6 @@ ul{
     font-size: 12px;
     cursor: pointer;
     transition : all .4s;
-    transform-origin : 50% 50%;
   }
 }
 .product-data{
@@ -752,7 +771,7 @@ ul{
 
   .seller{
     background : #f0f0f0;
-    margin : 0 -10px;
+    margin : 0 -15px;
     padding-top: 5px;
     padding-bottom: 10px;
     .seller-name{
@@ -766,6 +785,9 @@ ul{
     }
   }
 }
+a{
+  display:none;
+}
 
 }
 
@@ -778,6 +800,25 @@ ul{
   margin: 10px 0;
   border : 1px solid $borderColor;
 }
+
+.tabble-index{
+  tr.row{
+    padding:0;
+  }
+  td{
+    border : none !important;
+    padding:0 !important;
+  }
+  tbody tr{
+    background:none !important;
+  }
+  ul .col-xs-12 ,ul .col-sm-6{
+    padding-left: 5px;
+  }
+
+}
+
+
 
 /********** about **********/
 .aboutpage{
@@ -1490,4 +1531,87 @@ div.dataTables_filter input{
 }
 #header{
   border-bottom: 1px solid #ddd;
+}
+.mask{
+  background:rgba(0,0,0,0.5) !important;
+}
+.found-bar a{
+  display:inline-block;
+  width:49%;
+  background:#fff;
+  color:#666;
+  line-height: 40px;
+}
+.found-bar a.active{
+  background:#6db23d;
+  color:#fff;
+}
+.commhead{
+ width:18% !important;
+}
+.commbd {
+  width:82% !important;
+}
+.mtr>div{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.buy-group{
+ padding-top: 10px;
+ padding-bottom: 10px;
+ border-bottom: 1px solid #ddd;
+ padding-right: 15px;
+}
+.buy-group .input-group-addon,.buy-group .form-control{
+  background:#fff;
+  border:none;
+  color:#666;
+}
+.rel .valid_message{
+  position:absolute;
+  top:1px;
+  right:10px;
+  z-index: 8;
+  color:red;
+  background:#fff;
+  line-height: 30px;
+}
+.buy-group .success{
+  padding :0;
+}
+.rel .priceunit_message,.rel .unit_message{
+  position:absolute;
+  top:1px ;
+  right:10px;
+  z-index: 2;
+  line-height: 30px;
+}
+
+.step-title .success{
+  padding:0px 15px;
+}
+.step-title .form-control{
+  padding-top: 23px;
+  padding-bottom: 23px;
+}
+.step-title .valid_message{
+  top:1px;
+  right:10px;
+  line-height: 44px;
+}
+.buy-group .form-control{
+  box-shadow: none;
+}
+.buy-group .form-control:focus{
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+.audit{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.audit p{
+  width : 220px;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
 }

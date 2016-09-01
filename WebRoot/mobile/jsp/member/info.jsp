@@ -21,17 +21,16 @@
  	<script type="text/javascript" src="/mobile/js/icheck.js"></script>
  	<script type="text/javascript" src="/mobile/js/jquery-validate.js"></script>
  	<script type="text/javascript" src="/mobile/js/stickup.js"></script>
+
+ 	<jsp:include page="../comm/mobile.jsp" flush="true" />
+
     <title>账户信息</title>
     
 </head>
 <body>
 
 	<div class="fixed-wrapper">  
-	<!-- topbar -->
-	<jsp:include page="../comm/topbar.jsp" flush="true" />
-	
-	<!-- topbar End -->
-	
+
 	<!-- header -->
 	<jsp:include page="../comm/header.jsp" flush="true" />
 	<!-- header End -->
@@ -40,48 +39,11 @@
 	<!-- wrapper -->
 	<div class="wrapper service-full mt30">
 		<div class="grid-16-16">
-			<div class="crumb-nav">
-				<div class="backto">
-					<div class="backrt">
-						<a href="/home.htm">返回首页<i></i></a>
-					</div>
-				</div>
-				<div class="crumb">
-					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/member/home.htm">我的账户</a><span class="fa  fa-angle-right"></span>账户信息
-				</div>
-			</div>
+			
 			
 			<!-- main -->
-			<div class="page">
-				<div class="user-mans">
-					<div class="portrait-big">
-						<c:if test="${empty sessionScope.userinfo.operPhoto}">
-							<img  width="200" height="161" alt="" src="/mobile/images/portrait.jpg" />
-						</c:if>
-						<c:if test="${!empty sessionScope.userinfo.operPhoto}">
-							<img  width="200" height="161" alt="" src="${sessionScope.userinfo.operPhoto}"/>
-						</c:if>
-					</div>
-					<div class="ucenter">
-						<span>我的账户</span>
-					</div>
-					<div class="user-navs members">
-						<ul>
-							<li><a href="/member/home.htm">安全设置</a></li>
-							<li class="current"><a href="/member/info.htm" class="mlnks">账户信息</a></li>							
-							<c:choose>
-						   		<c:when test="${sessionScope.userinfo.operType=='1'}">  
-									<li><a href="/member/pay.htm">支付绑定</a></li>
-									<li><a href="/member/manager.htm">操作员设置</a></li>    
-							    </c:when>
-							    <c:otherwise> 
-							   		<li><a href="/member/right.htm">账户权限</a></li>
-							    </c:otherwise>
-							</c:choose>
-							<li><a href="logout.htm">安全退出</a></li>
-						</ul>
-					</div>
-				</div>
+			<div class="">
+				
 				
 				
 				

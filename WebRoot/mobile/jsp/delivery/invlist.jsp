@@ -12,7 +12,7 @@
     <base href=""/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="author" content="" />
-     <link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
+     <link rel="shortcut icon" href="/normal/images/icon/favicon.ico" />
     <link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
     <link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
     <link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
@@ -31,7 +31,7 @@
 	<jsp:include page="../comm/datatables.jsp" flush="true" />
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 	
-	<script type="text/javascript" src="/mobile/js/handle.delivery.buy.js?v=${sessionScope.buildno}"></script>
+	<script type="text/javascript" src="/normal/js/handle.delivery.inv.js?v=${sessionScope.buildno}"></script>
     <title>交收管理</title>
     
 </head>
@@ -43,19 +43,20 @@
 	<jsp:include page="../comm/header.jsp" flush="true" />
 	<!-- header End -->
 	</div>
-
-	<div class="container-fluid bordert">
+	
+<div class="container-fluid bordert">
 
 		<div class="row safe-type txtcenter bgwhite  borderb">
-			<div class="col-xs-4"><a href="/delivery/selllist.htm" >销售交收</a>
+			<div class="col-xs-4"><a href="/delivery/selllist.htm">销售交收</a>
 			</div>
-			<div class="col-xs-4"><a href="/delivery/buylist.htm" class="active">采购交收</a>
+			<div class="col-xs-4"><a href="/delivery/buylist.htm" >采购交收</a>
 			</div>
-			<div class="col-xs-4"><a href="/delivery/invlist.htm" >发票确认</a>
+			<div class="col-xs-4"><a href="/delivery/invlist.htm" class="active">发票确认</a>
 			</div>
 		</div>
-
-		 <table class="table table-responsive">
+      <div class="row">
+      	<div class="col-xs-12">
+      		 <table class="table table-responsive">
 										<tbody>
 											<tr>
 												<td width="80" class="ctr">商品分类：</td>
@@ -68,10 +69,6 @@
 												<td class="ctr">交收状态：</td>
 												<td>
 													<select name="status" id="status" class="csel">
-														<option value="">全部状态</option>
-														<option value="100">买方待付款</option>
-														<option value="200">卖方待发货</option>
-														<option value="300">买方待收货</option>
 														<option value="400">买方待确认发票</option>
 													</select>
 												</td>
@@ -87,7 +84,8 @@
 										</tbody>
 									</table>
 
-									 <table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
+
+								 <table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
 								        <thead>
 								            <tr>
 								            	<th>品种</th>
@@ -116,12 +114,20 @@
 								  </table>
 
 
-	</div>
-	
+      		
+      	</div>
+      </div>
+		
+
+
+
+</div>
+
+
 	<!-- wrapper -->
 	<div class="wrapper service-full mt30">
 		<div class="grid-16-16">
-		<!-- 	<div class="crumb-nav">
+			<!-- <div class="crumb-nav">
 				<div class="backto">
 					<div class="backrt">
 						<a href="/home.htm">返回首页<i></i></a>
@@ -133,17 +139,15 @@
 			</div> -->
 			
 			<!-- main -->
-			<div class="page">
-				<!-- left -->
-				
-				<!-- left End -->
+			<div class="">
 				
 				
-				<div class="main-content">
+				
+				<!-- <div class="main-content">
 					<div class="bd">
 						
 						<div class="page-module data-query">
-							<!-- <div class="row">
+							<div class="row">
 							    <div class="hd">
 							   		<h3>交收采购订单</h3>
 							    </div>
@@ -161,10 +165,6 @@
 												<td class="ctr">交收状态：</td>
 												<td>
 													<select name="status" id="status" class="csel">
-														<option value="">全部状态</option>
-														<option value="100">买方待付款</option>
-														<option value="200">卖方待发货</option>
-														<option value="300">买方待收货</option>
 														<option value="400">买方待确认发票</option>
 													</select>
 												</td>
@@ -180,31 +180,10 @@
 										</tbody>
 									</table>
 							    </div>								
-							</div> -->
-
-							<!-- 
-							<div class="row clearfix">
-								<div class="sub-search">
-										<button class="cbtn" id="J_ssearch">搜&nbsp;&nbsp;索</button>																				
-								</div>	
 							</div>
-							 -->
 
-							<div class="row">	
-								<!-- 						 
-								<div id="render"></div>
 								 
-								
-								<div id="Pagination" class="pagination"></div>
-								
-								
-								<div class="noData">
-								       <h3>暂无数据</h3>
-								</div>	
-								
-								 -->	
-								 
-								<!--  <table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
+								 <table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
 								        <thead>
 								            <tr>
 								            	<th>品种</th>
@@ -230,11 +209,11 @@
 								                <th>操作</th>								                
 								            </tr>
 								        </thead>
-								  </table> -->
+								  </table>
 							</div>
 								 
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -267,11 +246,10 @@
 								<tr>
 									<td class="tr">投诉原因：</td>
 									<td>
-									
 									<input type="radio" name="appealType" id="delayCheck" value="0" checked /><span id="delayMsg"></span>
-									
 									<input type="radio" name="appealType" id="otherCheck" value="1" />其他原因
-									<textarea name="appealDesc" id="appealDesc" cols="40" rows="5" style="display:none; margin-top: 10px"></textarea>	
+									<textarea name="appealDesc" id="appealDesc" cols="40" rows="5" style="display:none; margin-top: 10px"></textarea>
+									<input type="hidden" name="listedType" id="listedType">
 									</td>
 								</tr>								
 								<tr>
@@ -368,7 +346,7 @@
 					</tr>
 					<tr class="{{setstyle @index}}">
 						<td>
-							<div class="pic"><img src="{{titlePic}}" width="53" height="53" alt="" onError="this.src='/mobile/images/loadfail.jpg'"></div>
+							<div class="pic"><img src="{{titlePic}}" width="53" height="53" alt="" onError="this.src='/normal/images/loadfail.jpg'"></div>
 						</td>
 						<td>
 							<div class="delivtitle">{{title}}</div>

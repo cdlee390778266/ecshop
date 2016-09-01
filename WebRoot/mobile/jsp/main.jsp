@@ -12,12 +12,11 @@
     <meta name="author" content="" />
     <link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
     <link type="text/css" rel="stylesheet" href="/mobile/css/style.css?v=${sessionScope.buildno}" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/selecttags.css?v=${sessionScope.buildno}" >
     <link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />    
     <link type="text/css" rel="stylesheet" href="/mobile/css/lrtk.css?v=${sessionScope.buildno}" /> 
     <script type="text/javascript" src="/mobile/js/jquery.js"></script>
    
-    <script type="text/javascript" src="/mobile/js/selecttags.js?v=${sessionScope.buildno}"></script>
+    <script type="text/javascript" src="/mobile/js/selecttags_index.js?v=${sessionScope.buildno}"></script>
     <script type="text/javascript" src="/mobile/js/handlebars.js?v=${sessionScope.buildno}"></script>
     <script type="text/javascript" src="/mobile/js/ui.pagination.js?v=${sessionScope.buildno}"></script>
     <script type="text/javascript" src="/mobile/js/ui.focus.js?v=${sessionScope.buildno}"></script>
@@ -32,6 +31,20 @@
     
     <jsp:include page="comm/datatables.jsp" flush="true" />
     <jsp:include page="comm/mobile.jsp" flush="true" />
+
+<style>
+  .commhead,.commbd{
+    width: auto !important;
+  }
+  .rlist .commsection,.crumb-list,.ft{
+    display: none;
+  }
+  .rlist .commsection:first-child{
+    display: block;
+  }
+
+</style>
+
     <title>交易大厅</title>
 </head>
 <body>
@@ -60,99 +73,114 @@
 
 <!-- select Start -->
 <div class="container-fluid select">
-    <div class="row borderb select-bar">
+    <div class="row borderb select-bar select-index">
         <div class="col-xs-4 stype">
-            <h2>交易类型<span class="glyphicon glyphicon-chevron-down"></span></h2>
+            <h2>交易类型<span class="glyphicon glyphicon-menu-down"></span></h2>
+
+             <ul class="selectUl">
+            <li>不限<span class="glyphicon glyphicon-ok"></span></li>
+            <li>保证金<span class="glyphicon glyphicon-ok"></span></li>
+        </ul> 
+
         </div>
-        <div class="col-xs-4 stype">
-            <h2>市场<span class="glyphicon glyphicon-chevron-down"></span></h2>
+
+        <div>                  
+             <div class="filtercomm">                                     
+              <div class="selcomm" data-select>        
+              </div>                  
+          </div>  
+
+          <div class="custfilter">                  
+              <div class="filtersection">
+               <div class="filterhd">品牌:</div>
+               <div class="filterbd">
+                   <ul class="J_Brand">
+                    <li  class="active"  data-key="" >不限</li>
+                </ul>
+                <div class="more-btn">更多&#8870;</div>
+            </div>
+
         </div>
+
+        <div class="filtersection">
+           <div class="filterhd">产地:</div>
+           <div class="filterbd">
+               <ul class="J_Origin">
+                <li class="active"  data-key="" >不限</li>
+            </ul>                     
+            <div class="more-btn">更多&#8870;</div>
+        </div>
+    </div>
+
+
+    <div class="filtersection">
+       <div class="filterhd">价格:</div>
+       <div class="filterbd">
+           <input type="hidden" id="price-max" name="price-max" />
+           <input type="hidden" id="price-min" name="price-min" />
+           <ul class="J_Price">
+            <li  class="active"  data-key="" >不限</li>                       
+            <li data-max="1000"  >1000元以下</li>
+            <li data-max="2000" data-min="1000" >1000-2000元</li>
+            <li data-max="3000" data-min="2000" >2000-3000元</li>
+            <li data-max="5000" data-min="5000" >3000-5000元</li>
+            <li data-min="5000" >5000元以上</li>
+        </ul>
+        <div class="filtinterval">
+            <input type="text" class="input-text" id="p-min" name="p-min" /><em>-</em>
+            <input type="text" class="input-text" id="p-max" name="p-max" />
+            <a id="priceBtn" class="filtbtn">查询</a>
+        </div>
+    </div>
+</div>
+
+<div class="filtersection">
+   <div class="filterhd">数量:</div>
+   <div class="filterbd">
+       <input type="hidden" id="volume-max" name="volume-max" />
+       <input type="hidden" id="volume-min" name="volume-min" />
+       <ul class="J_Volume">
+        <li class="active"  data-key="" >不限</li>                        
+        <li data-max="50" >0-50</li>
+        <li data-max="100" data-min="50" >50-100</li>
+        <li data-max="200" data-min="100" >100-200</li>
+        <li data-max="500" data-min="200" >200-500</li>
+        <li data-min="500" >500以上</li>
+    </ul>
+    <div class="filtinterval">
+        <input type="text"  class="input-text" id="v-min" name="v-min"  onkeyup="this.value=this.value.replace(/\D/g,'')"  /><em>-</em>
+        <input type="text"  class="input-text" id="v-max" name="v-max"  onkeyup="this.value=this.value.replace(/\D/g,'')"  />
+        <a id="volumeBtn" class="filtbtn">查询</a>
+    </div>
+</div>
+</div>
+
+</div>                
+</div>        
+
         <div class="col-xs-4 stype">
-            <h2>挂牌方式<span class="glyphicon glyphicon-chevron-down"></span></h2>
+            <h2>挂牌方式<span class="glyphicon glyphicon-menu-down"></span></h2>
+
+             <ul class="selectUl">
+            <li>不限<span class="glyphicon glyphicon-ok"></span></li>
+            <li>农产品<span class="glyphicon glyphicon-ok"></span></li>
+        </ul>   
+
         </div>
     </div>
     <div class="row">
         <div class="select-mark"></div>
     </div>
-    
-    <div class="row selectUl">
-        <ul>
-            <li>不限<span class="glyphicon glyphicon-ok"></span></li>
-            <li>农业生产<span class="glyphicon glyphicon-ok"></span></li>
-            <li>农产品<span class="glyphicon glyphicon-ok"></span></li>
-        </ul>  
-        <ul>
-            <li>不限<span class="glyphicon glyphicon-ok"></span></li>
-        </ul>  
-        <ul>
-            <li>不限<span class="glyphicon glyphicon-ok"></span></li>
-            <li>农产品<span class="glyphicon glyphicon-ok"></span></li>
-        </ul>   
-    </div>  
 </div>
 <!-- select End -->
 
 <!-- product Start -->
 <div class="container-fluid">
     <div class="form-group  has-feedback gn-sSearch">
-      <input type="text" class="form-control" aria-describedby="inputSuccessStatus" ng-model="search" placeholder="关键字搜索" ng-keyup= "change(this);"  />
+      <input type="text" class="form-control" aria-describedby="inputSuccessStatus" placeholder="关键字搜索"  />
   </div>
   <div class="row marb60" id="product">
-    <div class="product" ng-repeat="product in products | filter: search | orderBy:'name' " repeat-done="productSbind()">
-        <div class="product-bar">
-            <span class="product-name">磷酸二铵</span>
-            <span class="product-price"><i>￥</i> <strong>888/kg</strong></span>
-            <span class="glyphicon glyphicon-menu-down"></span>
-        </div>
-        <div class="product-data">
-            <ul>
-                <li class="col-xs-12 col-sm-6">仓单编号：10001100101</li>
-                <li class="col-xs-12 col-sm-6">品牌：嫩货牌</li>
-                <li class="col-xs-12 col-sm-6">数量： <span class="red">250</span> 吨</li>
-                <li class="col-xs-12 col-sm-6">>产地：云南</li>
-                <li class="col-xs-12 col-sm-6">仓库名称：双流县锅巴</li>
-                <li class="col-xs-12 col-sm-6">仓库地址：双流县锅巴大队嘻嘻毛生产队</li>
-                <li class="col-xs-12 col-sm-6">交易类型： <span class="red radius">仓单</span></li>
-            </ul>
-            <div class="product-describe">急需100吨磷酸二铵，品牌包括：白鹇，三环，云峰 其它品牌的就不要来摘牌了，谢谢！</div>
-            <div class="seller row">
-                <div class="col-xs-12 col-sm-6 seller-id">编号：21566399333</div>
-                <div class="col-xs-12 col-sm-6 seller-date">挂牌日期：2016-12-7</div>
-                <div class="col-xs-12 col-sm-6 seller-name"><span>卖家</span>河北省农业生产资料有限公司磷复肥-公司</div>
-                <div class="col-xs-12 col-sm-6 ">
-                    <a ui-sref="{{product.url}}"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="product" ng-repeat="product in products | filter: search | orderBy:'name' " repeat-done="productSbind()">
-        <div class="product-bar">
-            <span class="product-name">磷酸二铵</span>
-            <span class="product-price"><i>￥</i> <strong>888/kg</strong></span>
-            <span class="glyphicon glyphicon-menu-down"></span>
-        </div>
-        <div class="product-data">
-            <ul>
-                <li class="col-xs-12 col-sm-6">仓单编号：10001100101</li>
-                <li class="col-xs-12 col-sm-6">品牌：嫩货牌</li>
-                <li class="col-xs-12 col-sm-6">数量： <span class="red">250</span> 吨</li>
-                <li class="col-xs-12 col-sm-6">>产地：云南</li>
-                <li class="col-xs-12 col-sm-6">仓库名称：双流县锅巴</li>
-                <li class="col-xs-12 col-sm-6">仓库地址：双流县锅巴大队嘻嘻毛生产队</li>
-                <li class="col-xs-12 col-sm-6">交易类型： <span class="red radius">仓单</span></li>
-            </ul>
-            <div class="product-describe">急需100吨磷酸二铵，品牌包括：白鹇，三环，云峰 其它品牌的就不要来摘牌了，谢谢！</div>
-            <div class="seller row">
-                <div class="col-xs-12 col-sm-6 seller-id">编号：21566399333</div>
-                <div class="col-xs-12 col-sm-6 seller-date">挂牌日期：2016-12-7</div>
-                <div class="col-xs-12 col-sm-6 seller-name"><span>卖家</span>河北省农业生产资料有限公司磷复肥-公司</div>
-                <div class="col-xs-12 col-sm-6 ">
-                    <a ui-sref="{{product.url}}"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
+  
     <!-- 无商品时显示 -->
     <div class="noProduct mart10 marb60">
         <div class="noProductBox fc999">
@@ -178,15 +206,9 @@
 <!-- product End -->
 
 <!-- wrapper -->
-<div class="wrapper service-full mt30">
+<div class="wrapper service-full marb60">
   <div class="grid-16-16">
    <!-- main -->
-
-
-   <div class="main">
-
-
-   </div>
 
    <!-- main End -->
 
@@ -194,89 +216,16 @@
      <div class="bd">
 
       <div class="page-module product-set">
-       <div class="row">
+       <div >
            <div class="bd mt10">
-            <div class="row">									 
-
-             <div class="filtercomm">																			
-              <div class="selcomm" data-select>        
-              </div>	 								
-          </div>	
-
-          <div class="custfilter">  								
-              <div class="filtersection">
-               <div class="filterhd">品牌:</div>
-               <div class="filterbd">
-                   <ul class="J_Brand">
-                    <li  class="active"  data-key="" >不限</li>
-                </ul>
-                <div class="more-btn">更多&#8870;</div>
-            </div>
-
-        </div>
-
-        <div class="filtersection">
-           <div class="filterhd">产地:</div>
-           <div class="filterbd">
-               <ul class="J_Origin">
-                <li class="active"  data-key="" >不限</li>
-            </ul>											
-            <div class="more-btn">更多&#8870;</div>
-        </div>
-    </div>
-
-
-    <div class="filtersection">
-       <div class="filterhd">价格:</div>
-       <div class="filterbd">
-           <input type="hidden" id="price-max" name="price-max" />
-           <input type="hidden" id="price-min" name="price-min" />
-           <ul class="J_Price">
-            <li  class="active"  data-key="" >不限</li>												
-            <li data-max="1000"  >1000元以下</li>
-            <li data-max="2000" data-min="1000" >1000-2000元</li>
-            <li data-max="3000" data-min="2000" >2000-3000元</li>
-            <li data-max="5000" data-min="5000" >3000-5000元</li>
-            <li data-min="5000" >5000元以上</li>
-        </ul>
-        <div class="filtinterval">
-            <input type="text" class="input-text" id="p-min" name="p-min" /><em>-</em>
-            <input type="text" class="input-text" id="p-max" name="p-max" />
-            <a id="priceBtn" class="filtbtn">查询</a>
-        </div>
-    </div>
-</div>
-
-<div class="filtersection">
-   <div class="filterhd">数量:</div>
-   <div class="filterbd">
-       <input type="hidden" id="volume-max" name="volume-max" />
-       <input type="hidden" id="volume-min" name="volume-min" />
-       <ul class="J_Volume">
-        <li class="active"  data-key="" >不限</li>												
-        <li data-max="50" >0-50</li>
-        <li data-max="100" data-min="50" >50-100</li>
-        <li data-max="200" data-min="100" >100-200</li>
-        <li data-max="500" data-min="200" >200-500</li>
-        <li data-min="500" >500以上</li>
-    </ul>
-    <div class="filtinterval">
-        <input type="text"  class="input-text" id="v-min" name="v-min"  onkeyup="this.value=this.value.replace(/\D/g,'')"  /><em>-</em>
-        <input type="text"  class="input-text" id="v-max" name="v-max"  onkeyup="this.value=this.value.replace(/\D/g,'')"  />
-        <a id="volumeBtn" class="filtbtn">查询</a>
-    </div>
-</div>
-</div>
-
-</div>  							
-</div>							
+           			
 
 <input type="hidden" value="${sessionScope.userinfo.mID}" id="currMID" />
-<div class="row">
 
-   <table id="dataset" class="cell-border hover" cellspacing="0" width="100%" style="padding: 0px">
+
+   <table id="dataset" class="cell-border hover tabble-index table" cellspacing="0" width="100%" style="padding: 0px">
     <thead>
-        <tr>
+         <tr>
          <th></th>
          <th></th>
          <th></th>
@@ -286,8 +235,7 @@
          <th></th>
      </tr>
  </thead>
-</table>								  
-</div>  				
+</table>								  				
 </div>
 </div>
 </div>
@@ -412,8 +360,8 @@
     //select
 
     $('.select-mark').click(function(){
-      $('.select ul').slideUp(100);
-      $('.stype').find('span').css({
+      $('.select .selectUl').slideUp(100);
+      $('.stype').find('h2 span').css({
         'transform' : 'rotate(0deg)',
         'color' : '#666'
     });
@@ -421,23 +369,23 @@
       removeEvent(document.getElementsByTagName('body')[0],"touchmove",prevent);
       $('body').css('overflow','auto');
   });
-    $('.stype').click(function(event){
+    $('body').on('click','.stype',function(event){
        event.stopPropagation();
        $('.stype').parents('.select').find('.select-mark').show();
-       $('.stype').find('span').css({
+       $('.stype').find('h2 span').css({
           'transform' : 'rotate(0deg)',
           'color' : '#666'
       });
-       $(this).find('span').css({
+       $(this).find('h2 span').css({
           'transform' : 'rotate(180deg)',
           'color' : '#e5c04e'
       });
-       $('.select ul').hide();
-       $('.select ul').eq($(this).index()).slideDown(100);
+       $('.select .selectUl').hide();
+       $(this).find('.selectUl').slideDown(100);
        addEvent(document.getElementsByTagName('body')[0],"touchmove",prevent)  
        $('body').css('overflow','hidden');
    })
-    $('.select li').click(function(event){
+    $('.select').on('click','li',function(event){
        event.stopPropagation();
        $(this).parent().find('li').css('color','#666');
        $(this).parent().find('li').find('span').css('display','none');
@@ -448,7 +396,7 @@
 
     //product
     $('.product-bar').off('click');
-    $('.product-bar').on('click',function(event){
+    $('body').on('click','.product-bar',function(event){
         event.stopPropagation();
         var $self = $(this).find('.glyphicon-menu-down');
         $(this).find('.glyphicon-menu-down').hasClass('slideOn') ? $(this).find('.glyphicon-menu-down').css('transform','rotate(0)') : $(this).find('.glyphicon-menu-down').css('transform','rotate(180deg)');
@@ -457,7 +405,8 @@
       });
     })
 
-    $('.product-data').on('click',function(event){
+    $('body').on('click','.product-data',function(event){
+      if($(this).find('a').eq(0).attr('href'))
         location.href = $(this).find('a').eq(0).attr('href');
     })
 
