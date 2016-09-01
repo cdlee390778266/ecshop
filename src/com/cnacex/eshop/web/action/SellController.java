@@ -330,7 +330,7 @@ public class SellController extends TradeController {
 			model.addAttribute("busDate", busDate);
 			model.addAttribute("active", "sell");
 			model.addAttribute("marks", rs);
-			if(type.equals("1")){
+			if("1".equals(type)){
 				return "sell/applycd";
 			}else{
 				return "sell/apply";
