@@ -33,8 +33,7 @@ $('#product-dialog').on('click', function(){
         content: $('.selcomm'),
         closeBtn : 1,
         scrollbar : false,
-        move: false,
-        shift :1
+        move: false
     });
 
 });

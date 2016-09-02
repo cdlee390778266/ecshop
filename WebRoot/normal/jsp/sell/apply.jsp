@@ -70,7 +70,7 @@
 </div>
 
 <!-- main -->
-<div class="page mart20">
+<div class="page mart20 sell-delist">
 
 
   <div class="main-content">

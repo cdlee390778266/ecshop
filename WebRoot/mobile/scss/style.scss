@@ -802,6 +802,7 @@ a{
 }
 
 .tabble-index{
+  margin-bottom: 20px !important;
   tr.row{
     padding:0;
   }
@@ -814,6 +815,9 @@ a{
   }
   ul .col-xs-12 ,ul .col-sm-6{
     padding-left: 5px;
+  }
+  thead{
+    display:none;
   }
 
 }

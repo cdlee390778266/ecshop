@@ -365,7 +365,10 @@
       $(this).parents('.group-box').find('.val span').html($(this).html());
       $(document).click();
     })
-
+   
+   $('body').on('click','.panel',function(){
+          location.href = $(this).find('a').eq(0).attr('href');
+   })
 
 //         var str = '';
 //         $.ajax({

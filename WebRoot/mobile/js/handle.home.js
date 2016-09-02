@@ -82,7 +82,7 @@ $(function() {
 		                	summarystr += '<span>'+row.summary4+'</span>';		                	
 		                }
 		                
-		                var imgurl = '<img src="/images/loadfail.jpg" width="120px" height="120px" alt="">';
+		                var imgurl = '<img src="/normal/images/loadfail.jpg" width="120px" height="120px" alt="">';
 		                if(row.titlePic != null){
 		                	imgurl = '<img src="'+row.titlePic+'" width="120px" height="120px" alt="">';
 		                }
@@ -137,7 +137,7 @@ $(function() {
 		                 + '<div class="col-xs-12 col-sm-6 seller-date">有效期：' + row.doe + '</div>'
 		                 + '<div class="col-xs-12 col-sm-6 seller-name"><span>卖家</span>' + row.memName + '</div>'
 		                 + '<div class="col-xs-12 col-sm-6 ">'
-                         + buyhtml
+                         + '<a href="/mall/item/'+row.listedNo+'.htm">'+imgurl+'</a>'
                          + '</div>'
                          + '</div>'
                          + '</div>'
@@ -237,7 +237,7 @@ $(function() {
 			        },	
 			        serverSide: true,
 			        ordering:false,
-			        searching: false,
+			        searching: true,
 			        "processing" : true,
 			        "language": {
 			        	"processing": "",
@@ -268,7 +268,7 @@ $(function() {
 			        "columnDefs": [	                       
 						{
 						    "targets": columnselector,
-						    "visible": false,
+						    "visible": false
 						},
 			            {"render": function ( data, type, row ) {	                    	   
 			                var html = '';   
@@ -319,8 +319,7 @@ $(function() {
 					             // +' </div>'
 					             // +'</div>' 
                         
-                      console.log(row)
-
+                  
 
                     html = '<div class="product" >'
                          + '<div class="product-bar">'
@@ -343,7 +342,7 @@ $(function() {
 		                 + '<div class="col-xs-12 col-sm-6 seller-date">有效期：' + row.doe + '</div>'
 		                 + '<div class="col-xs-12 col-sm-6 seller-name"><span>卖家</span>' + row.memName + '</div>'
 		                 + '<div class="col-xs-12 col-sm-6 ">'
-                         + buyhtml
+                         + '<a href="/mall/item/'+row.listedNo+'.htm">'+imgurl+'</a>'
                          + '</div>'
                          + '</div>'
                          + '</div>'
