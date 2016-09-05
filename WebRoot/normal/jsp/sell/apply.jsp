@@ -73,7 +73,7 @@
 <div class="page mart20 sell-delist">
 
 
-  <div class="main-content">
+  <div class="">
    <div class="bd">
     <form action="/sell/apply.htm" method="post" enctype="multipart/form-data" id="sellApply">
       <input type="hidden" name="active" value="${active}" />
@@ -81,7 +81,7 @@
       <input type="hidden" name="busDate" id="busDate" value="${busDate}" />
 
       <div class="gp-box">
-       <div class="gp-step1 mart40">
+       <div class="gp-step1 step-pad border">
          <div class="gp-step1-main txtcenter">
            <div class="select-box">
              <div class="select-title">
@@ -94,6 +94,7 @@
                    <li>卖家</li>
                    <li>买家</li>
                  </ul>
+                  <input type="hidden" name="seller" id="seller" />
                </div>
              </div>
            </div>
@@ -107,7 +108,9 @@
                  <ul style="display: none;">
                    <li>保证金</li>
                  </ul>
+                  <input type="hidden" name="seller" id="seller" />
                </div>
+                 <input type="hidden" name="listedType" value="M" />
              </div>
            </div>
            <div class="select-box" id="product-dialog">
@@ -129,7 +132,7 @@
          <div class="seledmsg" style="color: #f00;float:right"></div>
        </div>
 
-       <div class="gp-step2 mart40">
+       <div class="gp-step2 step-pad ">
          <div class="step-bar">
            您选择了：
            <span  class="seller">未选择</span>
@@ -137,8 +140,8 @@
            <span  class="product">未选择</span>
            <a class="modify toStep1 " href="javascript:void(0);" >修改</a>
          </div>
-         <div class="step-body">
-           <h2>请填写商品信息</h2>
+         <div class="step-body border">
+           <h2>填写商品信息</h2>
            <table id="J_AjaxProp" style="display:none">
              <tbody>
               <tr>                                                  
@@ -157,7 +160,7 @@
      </div>
 
 
-     <div class="gp-step3 mart40">
+     <div class="gp-step3 step-pad">
        <div class="step-bar">
          您选择了：
          <span  class="seller">未选择</span>
@@ -169,21 +172,22 @@
          您已选择了商品属性：
          <a class="modify toStep2" href="javascript:void(0);" >修改</a>
        </div>
-       <div class="step-body">
-         <table class="ui-table">
-           <tbody>
-            <tr>
-             <td class="ctr">单价<span class="forceinput">(必填)</span>：</td>
-             <td width="300px">
+       <div class="step-body border">
+        <h2>设置交易方式</h2>
+        <table class="ui-table">
+         <tbody>
+          <tr>
+           <td class="ctr">单价<span class="forceinput">(必填)</span>：</td>
+           <td width="300px">
 
 
-               <div class="form_control">
-                <input type="text" name="unitPrice" id="unitPrice" class="required"  data-tip="请输入商品单价" data-valid="isNonEmpty||isNoNZeroMoney" data-error="单价必填||金额格式:1.00"/>
-                <span class="priceunit_message"></span>
+             <div class="form_control">
+              <input type="text" name="unitPrice" id="unitPrice" class="required"  data-tip="请输入商品单价" data-valid="isNonEmpty||isNoNZeroMoney" data-error="单价必填||金额格式:1.00"/>
+              <span class="priceunit_message"></span>
 
-                <span class="valid_message"></span>
+              <span class="valid_message"></span>
 
-              </div>
+            </div>
 
 
                                             <!--  
@@ -318,7 +322,7 @@
                            </div>
                          </div>
 
-                         <div class="gp-step4 mart40">
+                         <div class="gp-step4 step-pad">
                            <div class="step-bar">
                              您选择了：
                              <span  class="seller">未选择</span>
@@ -335,219 +339,157 @@
                              <a class="modify toStep3" href="javascript:void(0);" >修改</a>
                            </div>
 
-                           <div class="step-body">
-
-                             <table class="ui-table">
-                               <tbody>
-
-
-                                 <tr>
-                                  <td class="ctr">商品标题：</td>
-                                  <td>
-                                    <div class="form_control">
-                                     <input type="text" name="title" class="required"  data-tip="请输入描述标题" data-valid="maxGBLength:128" data-error="描述标题长度不超过128"  />
-                                   </div>
-                                 </td> 
-                                 <td  class="ctr">商品描述：</td>
-                                 <td>                                           
-                                   <textarea name="detail" id="detail" cols="45" rows="6"></textarea>
-                                   <div class="detailmsg" style="color: #f00;"></div>
-                                 </td>                          
-                               </tr>                                                                                       
+                           <div class="step-body border">
+                            <h2>商品描述</h2>
+                            <table class="ui-table">
+                             <tbody>
                                <tr>
-                                 <td  class="ctr">商品描述图：</td>
-                                 <td colspan="3">
-                                  <table>
-                                    <tr>
-                                     <td>
-                                      <div class="clearfix">
-                                       <img id="titfilePre" width="120px" height="120px" style="display: none;float:left"  />
-                                       <span class="btn-upload_unselected fileinput ml10">
-                                        <span>选择标题图片</span>
-                                        <input type="file" name="titfile" id="titfile" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
-                                      </span>
-                                    </div>
-                                  </td>
-                                  <td>
-                                    <div class="clearfix">
-                                     <img id="ctxPic0Pre" width="120px" height="120px" style="display: none;float:left"  />
-                                     <span class="btn-upload_unselected fileinput ml10">
-                                       <span>选择商品描述首图</span>
-                                       <input type="file"  name="ctxfile" id="ctxPic0" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
-                                     </span>
-                                   </div>
-                                 </td>
-
-                                 <td>
-                                   <div class="clearfix">
-                                     <img id="ctxPic1Pre" width="120px" height="120px" style="display: none;float:left"  />     
-                                     <span class="btn-upload_unselected fileinput ml10">
-                                       <span>选择商品描述次图</span>
-                                       <input type="file" name="ctxfile" id="ctxPic1" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
-                                     </span>
-                                   </div>
-
-                                 </td>
-                                 <td>
-                                  <div class="clearfix">
-                                    <img id="ctxPic2Pre" width="120px" height="120px" style="display: none;float:left"  />                                                    
-                                    <span class="btn-upload_unselected fileinput ml10">
-                                     <span>选择商品描述尾图</span>
-                                     <input type="file" name="ctxfile" id="ctxPic2" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
-                                   </span>
+                                <td class="ctr">商品标题：</td>
+                                <td>
+                                  <div class="form_control up-form-control">
+                                   <input type="text" name="title" class="required"  data-tip="请输入描述标题" data-valid="maxGBLength:128" data-error="描述标题长度不超过128"  />
                                  </div>
-
+                               </td> 
+                               <tr>
+                                <td  class="ctr" style=" vertical-align: top;">商品描述：</td>
+                                <td>                                           
+                                 <textarea name="detail" id="detail" rows="6"></textarea>
+                                 <div class="detailmsg" style="color: #f00;"></div>
                                </td>
-                             </tr>
-                           </table>
-                         </td>
-                       </tr>
-                                         <!--  
-                                            <tr>
-                                            <td class="ctr"></td>
-                                            <td colspan="3">
-                                            <div class="clearfix">
-                                                   <img id="ctxPic0Pre" width="120px" height="120px" style="display: none;float:left"  />
-                                                    <span class="btn-upload_unselected fileinput ml10">
-                                                     <span>选择商品描述首图</span>
-                                                     <input type="file"  name="ctxfile" id="ctxPic0" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
-                                                </span>
-                                            </div>
-                                            </td>
-                                         </tr>
-                                         <tr>
-                                            <td class="ctr"></td>
-                                            <td colspan="3">
-                                            <div class="clearfix">
-                                                   <img id="ctxPic1Pre" width="120px" height="120px" style="display: none;float:left"  />     
-                                                <span class="btn-upload_unselected fileinput ml10">
-                                                     <span>选择商品描述次图</span>
-                                                     <input type="file" name="ctxfile" id="ctxPic1" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
-                                                </span>
-                                             </div>
-                                            </td>
-                                        </tr>                                        
-                                        <tr>
-                                            <td class="ctr"></td>
-                                            <td colspan="3">
-                                            <div class="clearfix">
-                                                  <img id="ctxPic2Pre" width="120px" height="120px" style="display: none;float:left"  />                                                    
-                                                  <span class="btn-upload_unselected fileinput ml10">
-                                                     <span>选择商品描述尾图</span>
-                                                     <input type="file" name="ctxfile" id="ctxPic2" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
-                                                </span>
-                                                </div>
-                                            </td>
-                                        </tr>                                                                                                       
-                                      -->
-                                    </tbody>
-                                  </table>
-                                  <div class="pa-btn-sell fn-fl">                                    
-                                    <button class="btn-normal btn-sell" style="margin-left: 200px;">我要挂牌</button>                                             
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-
-
-                            <div class="page-module warehouse">
-                             <div class="row">
-                              <div class="bd">
-
-
-
-
-                                <div class="pa-action clearfix mt10">
-
-                                  <div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-
-
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- wrapper End -->		
-
-              <!-- footer -->
-              <jsp:include page="../comm/footer.jsp" flush="true" />
-              <!-- footer End -->
-
-              <!-- 弹出层 -->	
-              <div class="updialog w850" id="J_MemList">
-                <div class="hd">
-                 <span class="close ic"></span>
-                 <h3>指定摘牌会员选择</h3>
-               </div>
-               <div class="bd">
-                 <div class="d-content">
-                  <div>
-                   <div class="memselect">
-
-                    <div class="unselect">
-                      <h3>会员列表</h3>
-                      <select name="seletlist" size="20" multiple id="selectlist">
-
-                      </select>				
-                    </div>
-
-                    <div class="manage mr10 ml10">				
-                      <input type="text" placeholder="请选择行政区域" name="divisID" data-key="0086"  data-idx="0" data-full="中国" id="divisID" class="inp-search"/>		
-                      <div class="localcity"></div>																
-                      <div class="selbtn">
-                       <ul>
-                        <li>
-                         <div class="pa-btn-sell btn-single-select">								
-                          <button class="btn-normal btn-sell">单个&gt;&nbsp;&nbsp;</button>												
+                             </tr>                          
+                           </tr>                                                                                       
+                         </tbody>
+                       </table>
+                     </div>
+                     <div class="step-body border">
+                      <h2>商品图片描述</h2>
+                      <table class="ui-table">
+                        <tr>
+                         <td>
+                          <div class="clearfix txtcenter">
+                           <img id="titfilePre" width="120px" height="120px" style="display: none;" class="up-img" />
+                           <span class="btn-upload_unselected fileinput">
+                            <span>选择标题图片</span>
+                            <input type="file" name="titfile" id="titfile" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
+                          </span>
                         </div>
-                      </li>									
-                      <li>
-                       <div class="pa-btn-sell btn-all-select">								
-                        <button class="btn-normal btn-sell">全部&gt;&gt;</button>												
-                      </div>
-                    </li>									
-                  </ul>
-                  <ul>
-                    <li>
+                      </td>
+                      <td>
+                        <div class="clearfix txtcenter">
+                         <img id="ctxPic0Pre" width="120px" height="120px" style="display: none;" class="up-img"  />
+                         <span class="btn-upload_unselected fileinput">
+                           <span>选择商品描述首图</span>
+                           <input type="file"  name="ctxfile" id="ctxPic0" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
+                         </span>
+                       </div>
+                     </td>
 
-                     <div class="pa-btn-sell btn-all-unselect">									
-                      <button class="btn-normal btn-sell" >&lt;&lt;全部</button>												
-                    </div>
-                  </li>
+                     <td>
+                       <div class="clearfix txtcenter">
+                         <img id="ctxPic1Pre" width="120px" height="120px" style="display: none;" class="up-img" />     
+                         <span class="btn-upload_unselected fileinput">
+                           <span>选择商品描述次图</span>
+                           <input type="file" name="ctxfile" id="ctxPic1" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
+                         </span>
+                       </div>
 
-                  <li>
-
-                   <div class="pa-btn-sell btn-single-unselect">									
-                    <button class="btn-normal btn-sell">&nbsp;&nbsp;&lt;单个</button>												
-                  </div>
-                </li>
-              </ul>
-            </div>										
-          </div>
-
-          <div class="selected">
-            <h3>已选择会员列表</h3>
-            <select name="seletedlist" size="20" multiple id="selectedlist">
-
-            </select>						
+                     </td>
+                     <td>
+                      <div class="clearfix txtcenter">
+                        <img id="ctxPic2Pre" width="120px" height="120px" style="display: none;" class="up-img"  />                                                    
+                        <span class="btn-upload_unselected fileinput">
+                         <span>选择商品描述尾图</span>
+                         <input type="file" name="ctxfile" id="ctxPic2" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
+                       </span>
+                     </div>
+                   </td>
+                 </tr>
+               </table>
+            </div>
+              <div class="pa-btn-sell fn-fr mart30">                                    
+                <button class="btn-normal btn-sell" style="margin-left: 200px;">我要挂牌</button>                                             
+              </div>
           </div>
         </div>
-        <div style="float:right">
-
-          <button class="cbtn" id="confirmbtn">确&nbsp;&nbsp;认</button>
-          <button class="cbtn" id="cancelbtn">取&nbsp;&nbsp;消</button>							
-        </div>
-      </div>
+      </form>
     </div>
   </div>
+</div>
+</div>
+</div>
+<!-- wrapper End -->		
+
+<!-- footer -->
+<jsp:include page="../comm/footer.jsp" flush="true" />
+<!-- footer End -->
+
+<!-- 弹出层 -->	
+<div class="updialog w850" id="J_MemList">
+  <div class="hd">
+   <span class="close ic"></span>
+   <h3>指定摘牌会员选择</h3>
+ </div>
+ <div class="bd">
+   <div class="d-content">
+    <div>
+     <div class="memselect">
+
+      <div class="unselect">
+        <h3>会员列表</h3>
+        <select name="seletlist" size="20" multiple id="selectlist">
+
+        </select>				
+      </div>
+
+      <div class="manage mr10 ml10">				
+        <input type="text" placeholder="请选择行政区域" name="divisID" data-key="0086"  data-idx="0" data-full="中国" id="divisID" class="inp-search"/>		
+        <div class="localcity"></div>																
+        <div class="selbtn">
+         <ul>
+          <li>
+           <div class="pa-btn-sell btn-single-select">								
+            <button class="btn-normal btn-sell">单个&gt;&nbsp;&nbsp;</button>												
+          </div>
+        </li>									
+        <li>
+         <div class="pa-btn-sell btn-all-select">								
+          <button class="btn-normal btn-sell">全部&gt;&gt;</button>												
+        </div>
+      </li>									
+    </ul>
+    <ul>
+      <li>
+
+       <div class="pa-btn-sell btn-all-unselect">									
+        <button class="btn-normal btn-sell" >&lt;&lt;全部</button>												
+      </div>
+    </li>
+
+    <li>
+
+     <div class="pa-btn-sell btn-single-unselect">									
+      <button class="btn-normal btn-sell">&nbsp;&nbsp;&lt;单个</button>												
+    </div>
+  </li>
+</ul>
+</div>										
+</div>
+
+<div class="selected">
+  <h3>已选择会员列表</h3>
+  <select name="seletedlist" size="20" multiple id="selectedlist">
+
+  </select>						
+</div>
+</div>
+<div style="float:right">
+
+  <button class="cbtn" id="confirmbtn">确&nbsp;&nbsp;认</button>
+  <button class="cbtn" id="cancelbtn">取&nbsp;&nbsp;消</button>							
+</div>
+</div>
+</div>
+</div>
 </div>
 
 </body>
