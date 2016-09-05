@@ -57,7 +57,7 @@
   <div class="grid-16-16">
    <div class="crumb-nav">
     <div class="crumb">
-     <a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/sell/apply.htm?active=enter">买卖菜单</a><span class="fa  fa-angle-right"></span><a href="/sell/apply.htm?active=enter">卖方挂牌</a>
+     <a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/sell/apply.htm?active=enter">买卖菜单</a><span class="fa  fa-angle-right"></span><a href="/sell/apply.htm?active=enter&type=0">卖方挂牌</a>
    </div>
  </div>
  <div class="curmbs mart20 gp">

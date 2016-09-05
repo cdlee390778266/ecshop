@@ -5,7 +5,7 @@
 
 			<div class="header-bd">
 			<div class="fr delisting" >
-					<a href="/sell/apply.htm?active=enter" >卖方挂牌</a>
+					<a href="/sell/apply.htm?active=enter&type=0" >卖方挂牌</a>
 				</div>
 
 				<div class="search-wrap clearfix fn-fr" id="J_SearchTab">
