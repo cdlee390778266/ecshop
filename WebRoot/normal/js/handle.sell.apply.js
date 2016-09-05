@@ -15,6 +15,7 @@ $(document).click(function(){
 $('.group-box ul li').click(function(event){
 	event.stopPropagation();
 	$(this).parents('.group-box').find('.val span').html($(this).html());
+	$(this).parents('.group-box').find('input').val($(this).html());
 	if( $(this).parents('.group-box').hasClass('sellerTxt')){
 		$('.seller').html($(this).html());
 	}else if($(this).parents('.group-box').hasClass('trade-promise')){
@@ -33,8 +34,7 @@ $('#product-dialog').on('click', function(){
         content: $('.selcomm'),
         closeBtn : 1,
         scrollbar : false,
-        move: false,
-        shift :1
+        move: false
     });
 
 });

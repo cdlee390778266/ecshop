@@ -62,7 +62,7 @@
 
 		<!-- main -->
 
-		<div class="page" style="background-color:#fff">				
+		<div class="page sell-delist" style="background-color:#fff">				
 			<div class="main-content">
 				<div class="bd">
 

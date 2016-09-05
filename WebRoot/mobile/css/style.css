@@ -862,6 +862,9 @@ strong {
   border: 1px solid #ddd;
 }
 
+.tabble-index {
+  margin-bottom: 20px !important;
+}
 .tabble-index tr.row {
   padding: 0;
 }
@@ -874,6 +877,9 @@ strong {
 }
 .tabble-index ul .col-xs-12, .tabble-index ul .col-sm-6 {
   padding-left: 5px;
+}
+.tabble-index thead {
+  display: none;
 }
 
 /********** about **********/

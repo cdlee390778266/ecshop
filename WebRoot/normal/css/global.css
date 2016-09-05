@@ -572,7 +572,6 @@ body {
   font:14px/1.5  Arial,"微软雅黑",helvetica;
   color: #333;
   background-color:#fff;
-  min-height: 100vh;
 }
 
 
@@ -733,3 +732,7 @@ body {
 .w700{width:700px;}
 .w850{width:850px;}
 .w350{width:450px;}
+
+.login-wrap{
+  min-height: 540px;
+}

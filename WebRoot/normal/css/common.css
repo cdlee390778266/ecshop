@@ -17,6 +17,9 @@
 .borderb5 {
   border-bottom: 5px solid #6fb33f !important;
 }
+.border {
+  border: 1px solid #ddd !important;
+}
 
 .fl {
   float: left !important;
@@ -1191,6 +1194,10 @@ button.file-btn .cfile {
 .dlData {
   width: 300px;
 }
+.dlData a:hover{
+  color: #6db23d;
+  text-decoration: underline;
+}
 
 .dlData h2 {
   font-size: 14px;
@@ -1234,7 +1241,7 @@ button.file-btn .cfile {
 
 /************** 导航 ************/
 .nav {
-  border-bottom: 3px solid #6db23d;
+  border-bottom: 2px solid #558a2f;
   height: 50px;
   line-height: 50px;
 }
@@ -1630,6 +1637,7 @@ button.file-btn .cfile {
   border-radius: 4px;
   display: inline-block;
   box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);
+  cursor: pointer;
 }
 
 .product .panel:nth-child(2n) {
@@ -1796,50 +1804,107 @@ button.file-btn .cfile {
   -webkit-animation: login ease 1s  forwards; /* Safari 和 Chrome */
   -o-animation: login ease 1s  forwards ;  /* Opera */
 }
- @keyframes login
-         {
-           0% {
-            top : 100px;
-            opacity: 0;
-           }
-           100% {
-            top : 0px;
-            opacity: 1;
-           }
-         }
+@keyframes login
+{
+ 0% {
+  top : 100px;
+  opacity: 0;
+}
+100% {
+  top : 0px;
+  opacity: 1;
+}
+}
 
-         @-moz-keyframes login /* Firefox */
-         {
-         0% {
-            top : 100px;
-            opacity: 0;
-           }
-           100% {
-            top : 0px;
-            opacity: 1;
-           }
-         }
+@-moz-keyframes login /* Firefox */
+{
+ 0% {
+  top : 100px;
+  opacity: 0;
+}
+100% {
+  top : 0px;
+  opacity: 1;
+}
+}
 
-         @-webkit-keyframes login /* Safari 和 Chrome */
-         {
-         0% {
-            top : 100px;
-            opacity: 0;
-           }
-           100% {
-            top : 0px;
-            opacity: 1;
-           }
-         }
+@-webkit-keyframes login /* Safari 和 Chrome */
+{
+ 0% {
+  top : 100px;
+  opacity: 0;
+}
+100% {
+  top : 0px;
+  opacity: 1;
+}
+}
 
-         @-o-keyframes login /* Opera */
-         {
-         0% {
-            top : 100px;
-            opacity: 0;
-           }
-           100% {
-            top : 0px;
-            opacity: 1;
-           }
-         }
+@-o-keyframes login /* Opera */
+{
+ 0% {
+  top : 100px;
+  opacity: 0;
+}
+100% {
+  top : 0px;
+  opacity: 1;
+}
+}
+.sell-delist .main-content{
+  border: none !important;
+}
+.gp-step4 .ui-table{
+  margin : 20px 0;
+}
+.gp-step4 .ui-table td,.gp-step4 .ui-table tr{
+  border : none !important;
+}
+.gp-step4 .form_control input[type="text"]{
+ width: 100% !important;
+}
+.gp-step4 textarea{
+  width: 100%;
+  margin-left: 10px;
+  padding: 5px;
+  border:1px solid #ddd;
+  border-radius: 4px;
+  resize:none;
+}
+.gp-step4 .btn-upload_unselected,.gp-step4 .btn-upload-selected{
+  background-color: #fff !important;
+  border:1px solid #ddd;
+  color: #ca7b3b !important;
+  border-radius: 4px;
+  padding: 13px 26px !important;
+}
+.gp-step4 .btn-upload_unselected input:not([type="radio"]):not([type="checkbox"]):not([type="button"]), select{
+  height: 46px !important
+}
+.up-form-control{
+  width: 100% !important;
+  border-radius: 4px;
+}
+.up-form-control .valid_message{
+  left: auto !important;
+  right: 5px !important;
+}
+.up-bind-item{
+  margin : 40px 26px !important;
+}
+.up-bind-item .title{
+  margin-left: 0px !important;
+}
+.btn-sell{
+  border-radius: 4px;
+}
+.step-pad{
+  padding-top: 40px;
+  padding-bottom: 66px;
+  min-height: 360px;
+}
+.up-img{
+  padding: 5px;
+  border:1px solid #ddd;
+  border-radius: 4px;
+}

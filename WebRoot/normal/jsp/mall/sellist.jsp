@@ -63,7 +63,7 @@
 							<div class="row">
 							    <div class="bd mt10">
 									<div class="row">
-<!-- 
+
 										<div class="tabbar-wrap">
 										 <div class="mod-tabbar">
 											<div class="header-exg tab-sty">
@@ -90,7 +90,7 @@
 												</ul>
 											</div>
 										</div>
-									</div> -->
+									</div>
 							
 									<div class="sub-wrap">
 										<input type="hidden" value="${sessionScope.userinfo.mID}" id="currMID" />

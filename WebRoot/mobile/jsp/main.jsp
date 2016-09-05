@@ -179,7 +179,7 @@
     <div class="form-group  has-feedback gn-sSearch">
       <input type="text" class="form-control" aria-describedby="inputSuccessStatus" placeholder="关键字搜索"  />
   </div>
-  <div class="row marb60" id="product">
+  <div class="row" id="product">
   
     <!-- 无商品时显示 -->
     <div class="noProduct mart10 marb60">
@@ -195,12 +195,12 @@
 </div>
 
 <!-- 加载更多 -->
-<div class="row rel">
+<!-- <div class="row rel">
    <div class="loadMore" ng-click="load();">加载更多</div>
 
    <div class="loader"><div class="loader-icon"> <div></div><div></div></div>加载中</div>
 
-</div>
+</div> -->
 
 </div>
 <!-- product End -->

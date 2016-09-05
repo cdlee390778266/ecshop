@@ -74,7 +74,7 @@
   }
 
   .form_control.success .valid_message {
-    background: url(/images/icon/sucess.png) no-repeat;
+    background: url(../images/icon/sucess.png) no-repeat;
     left: auto;
     right: 5px;
     top: 4px;

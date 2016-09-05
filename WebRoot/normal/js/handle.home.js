@@ -341,6 +341,7 @@ $(function() {
 				                 + '<span>卖家</span> ' + row.memName
 				                 + '</div>'
 				                 + '</div>'
+				                 + '<a  href="/mall/item/'+row.listedNo+'.htm"></a>'
 				                 + '</div>'
 
 
