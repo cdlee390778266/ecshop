@@ -47,7 +47,7 @@
         <div class="media">
           <div class="media-left media-middle padlr15 ">
             <a href="#">
-            <img class="media-object" src="/images/bind.png" alt="...">
+            <img class="media-object" src="/mobile/images/bind.png" alt="...">
             </a>
           </div>
           <div class="media-body">

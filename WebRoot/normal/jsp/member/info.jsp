@@ -79,7 +79,7 @@
 										</p>
 										<div><strong>我的头像：</strong>
 											<div class="clearfix mart20">
-												<img id="operPhotoPre" src="${user.operPhoto}" width="120px" height="120px" style="display: block;float:left" onError="this.src='/images/portrait.jpg'" />
+												<img id="operPhotoPre" src="${user.operPhoto}" width="120px" height="120px" style="display: block;float:left" onError="this.src='/normal/images/portrait.jpg'" />
 												<span class="btn-upload fileinput ml10">
 													<c:if test="${fn:length(user.operPhoto)>0 }" >
 													<span>替换头像</span>

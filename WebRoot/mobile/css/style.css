@@ -286,6 +286,10 @@ strong {
   color: #999;
 }
 
+.bgfff {
+  background: #fff !important;
+}
+
 /********** text **********/
 .txtcenter {
   text-align: center;
@@ -1697,4 +1701,38 @@ div.dataTables_filter input {
   text-align: left;
   margin-left: auto;
   margin-right: auto;
+}
+
+.stuckMenu {
+  width: 100%;
+  background: #fff;
+  position: relative;
+  z-index: 99;
+}
+
+.up-info-name {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.up-info-name.success {
+  padding: 5px !important;
+  line-height: 16px !important;
+}
+
+.up-info-name input {
+  width: 110px !important;
+}
+
+.up-info-face .form-control {
+  height: auto !important;
+}
+
+.up-frmUpload .valid_message {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  z-index: 2;
+  line-height: 47px;
+  color: #e25f59;
 }

@@ -1899,7 +1899,6 @@ button.file-btn .cfile {
   border-radius: 4px;
 }
 .step-pad{
-  padding-top: 40px;
   padding-bottom: 66px;
   min-height: 360px;
 }
@@ -1907,4 +1906,16 @@ button.file-btn .cfile {
   padding: 5px;
   border:1px solid #ddd;
   border-radius: 4px;
+}
+.login-main input{
+  border-radius: 4px;
+}
+.login-main input[type=text]:focus,.login-main input[type=password]:focus{
+border-color: #6fb33f;
+webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+#dataset{
+  margin-bottom: 15px;
 }
