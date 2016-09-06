@@ -63,7 +63,7 @@
 								<div class="bd">
 		
 								 				 
-									<form action="/sell/${link}.htm" method="post" id="sellform" >
+									<form action="/sell/${rspBody.listedType}/${link}.htm" method="post" id="sellform" >
 										
 									<input type="hidden" name="listedNo" value="${rspBody.listedNo}" />
 									

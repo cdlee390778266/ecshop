@@ -15,7 +15,7 @@ $(document).click(function(){
 $('.group-box ul li').click(function(event){
 	event.stopPropagation();
 	$(this).parents('.group-box').find('.val span').html($(this).html());
-	$(this).parents('.group-box').find('input').val($(this).html());
+	$(this).parents('.group-box').find('input').val($(this).attr("value"));
 	if( $(this).parents('.group-box').hasClass('sellerTxt')){
 		$('.seller').html($(this).html());
 	}else if($(this).parents('.group-box').hasClass('trade-promise')){

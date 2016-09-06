@@ -106,11 +106,11 @@
                <div class="group-box trade-promise">
                  <span class="val"><span >保证金</span><i></i></span>
                  <ul style="display: none;">
-                   <li>保证金</li>
+                   <li value="M">保证金</li>
+                   <li value="W">仓单</li>
                  </ul>
-                  <input type="hidden" name="seller" id="seller" />
-               </div>
                  <input type="hidden" name="listedType" value="M" />
+               </div>
              </div>
            </div>
            <div class="select-box" id="product-dialog">
