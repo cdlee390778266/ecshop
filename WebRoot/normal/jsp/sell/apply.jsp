@@ -81,7 +81,7 @@
       <input type="hidden" name="busDate" id="busDate" value="${busDate}" />
 
       <div class="gp-box">
-       <div class="gp-step1 step-pad border">
+       <div class="gp-step1 step-pad ">
          <div class="gp-step1-main txtcenter">
            <div class="select-box">
              <div class="select-title">

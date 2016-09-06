@@ -46,12 +46,11 @@
    <div class="container-fluid marb15">
        <div class="row">
         <div class="col-xs-12 file bgwhite bordertb padtb15">
-  
           <c:if test="${empty sessionScope.userinfo.operPhoto}">
 							<img  alt="" src="/mobile/images/portrait.jpg" class="img-rounded" />
 						</c:if>
 						<c:if test="${!empty sessionScope.userinfo.operPhoto}">
-							<img  alt="" src="${sessionScope.userinfo.operPhoto}" class="img-rounded" />
+							<img  alt="" src="${sessionScope.userinfo.operPhoto}" class="img-rounded" onerror="this.src='/normal/images/portrait.jpg'" />
 						</c:if>
 
           <div class="account-mes fc666">

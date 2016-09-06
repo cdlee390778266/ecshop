@@ -25,7 +25,7 @@
 <body style="background:#f5f5f5;">
 
 	<!-- header -->
-	<div class="header mt50 borderb5 padt120">
+	<div class="header mt50 borderb5 padt80">
 		<div class="grid-16-10 clearfix txtcenter">
 
 			<div class="header-bd ">

@@ -158,6 +158,8 @@ dataTablesInit = function(table, url,  ajaxfncallback, defaultOrder, btnfncallba
 	                } );
 	            } );	            
 	            this.api().columns.adjust();
+
+	             $('.dataTables_scrollBody').perfectScrollbar();
 	        },
 	        createdRow: function ( row, data, index ) {	        	       
 	        	if(typeof rowfncallback === 'function'){
