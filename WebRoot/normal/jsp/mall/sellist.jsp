@@ -42,7 +42,7 @@
 	</div>
 	
 		<!-- wrapper -->
-	<div class="wrapper service-full mt30">
+	<div class="wrapper service-full mt30 up-search">
 		<div class="grid-16-16">
 			<!-- main -->
 			<div class="crumb-nav">
@@ -57,7 +57,7 @@
 			
 			<div class="page">
 			<!-- main End -->
-			<div class="main-content">
+			<div class="main-content up-main-content">
 					<div class="bd">					
 						<div class="page-module data-query">
 							<div class="row">
@@ -65,7 +65,7 @@
 									<div class="row">
 
 										<div class="tabbar-wrap">
-										 <div class="mod-tabbar">
+										 <div class="mod-tabbar" style="display:none;">
 											<div class="header-exg tab-sty">
 												<ul id="J_TabBar" class="pa-tabbar pdeta">
 													
@@ -96,7 +96,7 @@
 										<input type="hidden" value="${sessionScope.userinfo.mID}" id="currMID" />
 										
 										
-										<div class="custfilter" style="width:99%;border: 1px solid #ddd;">  								
+										<div class="custfilter up-custfilter">  								
 											<div class="filtersection">
 												<div class="filterhd">品牌:</div>
 												<div class="filterbd">

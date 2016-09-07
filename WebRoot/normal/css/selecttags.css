@@ -104,7 +104,7 @@
 }
 
 .icon-btn-x {
-	background: url(/images/icon/btn_x.png);
+	background: url(/normal/images/icon/btn_x.png);
 	background-position: -4px -4px;
 	width: 7px;
 	height: 7px;
@@ -141,5 +141,5 @@
 	margin: 12px 5px 0;
 	width: 5px;
 	height: 9px;
-	background: url(/images/icon/arraw_right.png) no-repeat;
+	background: url(/normal/images/icon/arraw_right.png) no-repeat;
 }

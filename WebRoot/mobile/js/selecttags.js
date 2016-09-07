@@ -164,7 +164,7 @@
                 }           
                 pager(id, level=='3'?false:true, selflag, prevkey);
 
-                level=='3' ? $('#product-dialog').html($(this).html()) : $('#product-dialog').html('请选择挂牌商品') ;
+                level=='3' ? $('.selcomm_dialog').html($(this).html()) : $('.selcomm_dialog').html('选择商品') ;
             })
             
 

@@ -90,6 +90,7 @@ dataTablesInit = function(table, url,  ajaxfncallback, defaultOrder, btnfncallba
 	        "scrollX": true,
 	        "scrollY": '330px',
 	        "processing" : true,
+	        "sSearchClass" : 'dd',
 	        "language": {
 	        	"processing": "",
 	            "lengthMenu": "每页显示 _MENU_ 条",
@@ -97,7 +98,8 @@ dataTablesInit = function(table, url,  ajaxfncallback, defaultOrder, btnfncallba
 	            "info": "显示从_START_ 到 _END_ 记录,共 _TOTAL_ 条记录", 
 	            "infoEmpty": "",
 	            "infoFiltered": "(从 _MAX_ 总记录查询)",
-	            "search": "结果检索：",
+	            "search": "",
+	            "sSearchPlaceholder":"搜索关键词",
 	            'paginate': {  
 	                'first':      '第一页',  
 	                'last':       '最后一页',  
@@ -139,7 +141,7 @@ dataTablesInit = function(table, url,  ajaxfncallback, defaultOrder, btnfncallba
 	        ],	        
 	        "columns": columns,  
 	        "columnDefs": columndefs,
-	        "dom": 'CfB<"clear">rt<"bottom"ilp><"clear">',
+	        "dom": 'BCf<"clear">rt<"bottom"p><"clear">',
 	        initComplete: function () {
 	            this.api().columns(columnselector).every( function () {
 	                var column = this;                

@@ -2,7 +2,7 @@
 $(function(){
 
 $('.selcomm').hide();
-	$('#product-dialog').on('click', function(){
+	$('.selcomm_dialog').on('click', function(){
 		$('.selcomm').show();
 		layer.open({
 			type: 1,

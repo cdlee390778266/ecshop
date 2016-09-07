@@ -1736,3 +1736,104 @@ div.dataTables_filter input {
   line-height: 47px;
   color: #e25f59;
 }
+
+i.fa {
+  vertical-align: middle;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.typelist li {
+  display: inline-block;
+  position: relative;
+  margin-left: 10px;
+}
+
+.authbox .glyphicon {
+  font-size: 12px;
+  position: relative;
+  top: -2px;
+}
+
+.up-datatables #dataset_filter input[type=search] {
+  padding: 10px 6px;
+  border: 1px solid #eee;
+  width: calc(100% - 5px) !important;
+}
+.up-datatables #dataset_filter {
+  width: calc(100% - 82px) !important;
+}
+.up-datatables #dataset_filter label {
+  display: block;
+  width: 100%;
+}
+.up-datatables #dataset_filter {
+  float: left !important;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0px !important;
+}
+.up-datatables .ColVis_Button.ColVis_MasterButton {
+  border: 1px solid #eee;
+}
+.up-datatables .ColVis {
+  float: left;
+}
+.up-datatables .bottom {
+  margin-top: 10px;
+  margin-bottom: 36px;
+}
+.up-datatables .bottom a {
+  margin-bottom: 5px;
+}
+.up-datatables .dataTable th select {
+  margin-right: 10px;
+}
+.up-datatables table.dataTable thead th {
+  height: auto !important;
+}
+.up-datatables .ColVis .ColVis_Button.ColVis_MasterButton {
+  height: 38px;
+}
+.up-datatables .dt-buttons {
+  display: block;
+  float: none;
+}
+.up-datatables .dt-buttons .dt-button {
+  background: #e5c04e;
+  color: #fff;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 5px;
+}
+
+.selcomm_dialog {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  display: block;
+  background: #fff;
+  line-height: 26px;
+  border-radius: 4px;
+}
+
+.up-datatables .input-group-addon {
+  background: #fff;
+  border-color: #fff;
+}
+
+.up-datatables .up-group {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: #fff;
+}
+
+.cbtn {
+  padding: 4px 10px;
+  margin-right: 10px;
+  background: #e5c04e;
+  border-radius: 4px;
+  color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
