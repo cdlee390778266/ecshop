@@ -31,6 +31,7 @@
   <script type="text/javascript" src="/normal/js/ui.tips.js?v=${sessionScope.buildno}"></script>
   <script type="text/javascript" src="/normal/js/sha.js"></script>
   <script type="text/javascript" src="/normal/js/swiper.min.js"></script>
+  <script type="text/javascript" src="/normal/js/handle.home.js?v=${sessionScope.buildno}"></script>
   
   <jsp:include page="comm/datatables_index.jsp" flush="true" />
 
@@ -338,8 +339,6 @@
 </div>
 </div>
 </div>
-
-<script type="text/javascript" src="/normal/js/handle.home.js?v=${sessionScope.buildno}"></script>
 <!-- footer End -->
 <!-- Initialize Swiper -->
 <script>

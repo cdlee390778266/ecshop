@@ -88,13 +88,9 @@
 	<target name="war" depends="jar">
 		<war destfile="${dist}/${projectname}.war" webxml="WebRoot/WEB-INF/web.xml">
 			<fileset dir="${webroot}/">
-				<include name="css/**" />
 				<include name="error/**" />
-				<include name="fonts/**" />
-				<include name="images/**" />
-				<include name="js/**" />
-				<include name="jsp/**" />
-				<include name="widget/**" />
+				<include name="mobile/**" />
+				<include name="normal/**" />
 				<include name="WEB-INF/weblogic.xml" />
 				<include name="WEB-INF/spring-servlet.xml" />
 			</fileset>
