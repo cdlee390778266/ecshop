@@ -86,7 +86,7 @@
 
         <div>                  
              <div class="filtercomm">                                     
-              <div class="selcomm" data-select>        
+              <div class="selcomm_index" data-select>        
               </div>                  
           </div>  
 
@@ -399,7 +399,7 @@
     $('body').on('click','.product-bar',function(event){
         event.stopPropagation();
         var $self = $(this).find('.glyphicon-menu-down');
-        $(this).find('.glyphicon-menu-down').hasClass('slideOn') ? $(this).find('.glyphicon-menu-down').css('transform','rotate(0)') : $(this).find('.glyphicon-menu-down').css('transform','rotate(180deg)');
+        $(this).find('.glyphicon-menu-down').hasClass('slideOn') ? $(this).find('.glyphicon-menu-down').css({'transform':'rotate(0)','color':'#333'}) : $(this).find('.glyphicon-menu-down').css({'transform':'rotate(180deg)','color':'#6db23d'});
         $(this).find('.glyphicon-menu-down').parents('.product').find('.product-data').toggle(100,function(){
           $self.hasClass('slideOn') ? $self.removeClass('slideOn') : $self.addClass('slideOn')
       });

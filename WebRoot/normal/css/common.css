@@ -1959,8 +1959,7 @@ button.file-btn .cfile {
 }
 .up-search .custsort .sortbar li{
   margin: 0 !important;
-  line-height: 40px;
-  background: 
+  line-height: 40px; 
 }
 .up-search .custsort .sortbar ul .active{
   background-color: #fff !important;
@@ -1977,4 +1976,50 @@ border-bottom: 1px solid transparent;
     padding: 5px 10px !important;
     margin-top: 8px;
     border: 1px solid #ddd;
+}
+.up-search .custfilter .filtersection .filterbd .filtinterval{
+  margin: 0 !important;
+}
+.up-search .custfilter .filtersection .filterbd .filtinterval input{
+  padding: 2px 5px;
+  border:1px solid #ddd;
+  border-radius: 1px;
+}
+.up-search .custfilter .filtersection .filterbd .filtbtn{
+  background: #fff;
+  border-color: #ddd;
+  border-radius: 2px;
+  line-height: 17px;
+  height: 17px;
+}
+.up-tabbar{
+  border-bottom:none !important;
+  position: relative;
+}
+.up-tabbar::after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+  position: absolute;
+  top: 46px;
+  left: 0;
+  z-index: 1;
+}
+.up-tabbar ul{
+  position: relative;
+  z-index: 2;
+}
+.up-tabbar li.selected{
+  border-right: 1px solid #ddd !important;
+  border-left: 1px solid #ddd !important;
+}
+.up-tabbar ul li:first-child.selected{
+  border-left: none !important;
+}
+.dataTables_empty{
+  background: url(/normal/images/no_goods.png) 460px center no-repeat;
+  height: 300px;
+  color: transparent !important;
 }

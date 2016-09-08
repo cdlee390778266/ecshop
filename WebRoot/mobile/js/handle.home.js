@@ -358,7 +358,7 @@ $(function() {
 			              "targets": columnlength
 			            }
 			         ],	                       	                      
-			        "dom": 'frt<"bottom"p>',
+			        "dom": 'rt<"bottom"p>',
 			        initComplete: function () {
 			        	
 			        }

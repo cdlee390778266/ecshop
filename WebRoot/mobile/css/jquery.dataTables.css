@@ -401,7 +401,7 @@ table.dataTable td {
 }
 .dataTables_wrapper .dataTables_processing {
 	
-	background-image: url(/images/loading.gif);
+	background-image: url(/mobile/images/loading.gif);
     background-repeat: no-repeat;
     border: 1px solid #F3F3F3;
     background-position-x: 50%;

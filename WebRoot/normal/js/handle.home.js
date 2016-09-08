@@ -344,16 +344,12 @@ $(function() {
 				                 + '<a  href="/mall/item/'+row.listedNo+'.htm"></a>'
 				                 + '</div>'
 
-
-
-
-
 			                return html;
 			              },
 			              "targets": columnlength
 			            }
 			         ],	                       	                      
-			        "dom": 'frt<"bottom"ip>',
+			        "dom": 'rt<"bottom"ip>',
 			        initComplete: function () {
 			        	
 			        }

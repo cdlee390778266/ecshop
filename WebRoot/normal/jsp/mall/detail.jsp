@@ -194,7 +194,7 @@
 
 						<!-- mod:tabbar -->
 						<div class="tabbar-wrap">
-							<div class="mod-tabbar">
+							<div class="mod-tabbar up-tabbar">
 								<ul class="pa-tabbar pdeta" id="J_TabBar">
 									<li class="item tab-cell selected">
 										<a  href="javascript:void(0);" hidefocus="true">商品信息</a>				
@@ -235,15 +235,15 @@
 					<p style="margin-top:20px;text-align:center;">
 
 						<c:if test="${fn:length(rspBody.ctxPic1)>0}"> 
-						<img src="${rspBody.ctxPic1}" alt="" onError="this.src='/images/loadfail.jpg'" >
+						<img src="${rspBody.ctxPic1}" alt="" onError="this.src='/normal/images/loadfail.jpg'" >
 					</c:if>
 
 					<c:if test="${fn:length(rspBody.ctxPic2)>0}"> 
-					<img src="${rspBody.ctxPic2}" alt="" onError="this.src='/images/loadfail.jpg'" >
+					<img src="${rspBody.ctxPic2}" alt="" onError="this.src='/normal//images/loadfail.jpg'" >
 				</c:if>
 
 				<c:if test="${fn:length(rspBody.ctxPic3)>0}"> 
-				<img src="${rspBody.ctxPic3}" alt="" onError="this.src='/images/loadfail.jpg'" >
+				<img src="${rspBody.ctxPic3}" alt="" onError="this.src='/normal//images/loadfail.jpg'" >
 			</c:if>
 
 		</p>

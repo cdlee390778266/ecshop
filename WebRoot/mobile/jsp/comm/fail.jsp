@@ -10,12 +10,8 @@
     <base href=""/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="author" content="" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/global.css" />
     <link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/common.css" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/member.css" />
     <script type="text/javascript" src="/mobile/js/jquery.js"></script>
-
     <jsp:include page="../comm/mobile.jsp" flush="true" />
     <title>处理提示</title>
     

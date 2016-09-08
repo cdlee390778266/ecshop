@@ -99,6 +99,10 @@ a:focus {
   border-right: 1px solid #ddd;
 }
 
+.lh19 {
+  line-height: 19px !important;
+}
+
 .lh26 {
   line-height: 26px !important;
 }
@@ -108,7 +112,7 @@ a:focus {
 }
 
 .lh40 {
-  line-height: 40px;
+  line-height: 40px !important;
 }
 
 .lh100 {
@@ -301,6 +305,10 @@ strong {
 
 .txtright {
   text-align: right;
+}
+
+.block {
+  display: block !important;
 }
 
 /********** 页面过渡动画 **********/
@@ -753,10 +761,11 @@ strong {
 .product .product-bar {
   cursor: pointer;
   padding: 15px 0;
+  text-align: center !important;
 }
 .product .product-bar .product-name {
   background: #6db23d;
-  padding: 5px;
+  padding: 5px 10px 5px 5px;
   padding-right: 15px;
   font-size: 14px;
   color: #fff;
@@ -764,6 +773,7 @@ strong {
   border-bottom-left-radius: 4px;
   position: relative;
   margin-right: 20px;
+  float: left;
 }
 .product .product-bar .product-name:after {
   position: absolute;
@@ -773,7 +783,7 @@ strong {
   width: 0;
   height: 0;
   border-left: 15px solid #6db23d;
-  border-top: 15px solid transparent;
+  border-top: 14px solid transparent;
   border-right: 15px solid transparent;
   border-bottom: 15px solid transparent;
 }
@@ -788,6 +798,12 @@ strong {
   background: #fff;
   z-index: 8;
 }
+.product .product-bar .product-price {
+  display: inline-block;
+  width: 140px;
+  text-align: left;
+  float: none;
+}
 .product .product-bar .product-price i {
   font-style: normal;
   color: #e5c04e;
@@ -800,10 +816,11 @@ strong {
 }
 .product .product-bar .glyphicon-menu-down {
   float: right;
-  color: #ddd;
-  font-size: 12px;
+  color: #333333;
+  font-size: 19px;
   cursor: pointer;
   transition: all .4s;
+  font-weight: bold;
 }
 .product .product-data {
   line-height: 22px;

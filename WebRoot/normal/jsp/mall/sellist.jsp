@@ -133,7 +133,7 @@
 													<li data-min="5000" >5000元以上</li>
 												</ul>
 												<div class="filtinterval">
-													<input type="text" class="input-text" id="p-min" name="p-min" /><em>-</em>
+													<input type="text" class="input-text" id="p-min" name="p-min" /> <em>-</em> 
 													<input type="text" class="input-text" id="p-max" name="p-max" />
 													<a id="priceBtn" class="filtbtn">查询</a>
 												</div>
@@ -154,7 +154,7 @@
 													<li data-min="500" >500以上</li>
 												</ul>
 												<div class="filtinterval">
-													<input type="text"  class="input-text" id="v-min" name="v-min"  onkeyup="this.value=this.value.replace(/\D/g,'')" /><em>-</em>
+													<input type="text"  class="input-text" id="v-min" name="v-min"  onkeyup="this.value=this.value.replace(/\D/g,'')" /> <em>-</em> 
 													<input type="text"  class="input-text" id="v-max" name="v-max"  onkeyup="this.value=this.value.replace(/\D/g,'')" />
 													<a id="volumeBtn" class="filtbtn">查询</a>
 												</div>
