@@ -212,12 +212,6 @@
       <div class="page-module product-set">
        <div class="row">
          <div class="bd mt10">
-          
-
-
-
-
-
 
 
           <input type="hidden" value="${sessionScope.userinfo.mID}" id="currMID" />
@@ -235,11 +229,35 @@
                <th></th>
              </tr>
            </thead>
-         </table>								  
-       </div>  				
-     </div>
-   </div>
- </div>
+         </table>	
+
+         <div class="up-page">
+          <div class="up-pagel">
+            <div class="prev">
+              <a href="" class="disabled"> < 第一页</a>
+            </div>
+            <div class="up-page-main">
+              <a href="" >1</a>
+              <a href="" >2</a>
+              <a href="" >3</a>
+              <a href="" >4</a>
+              <span>...</span>
+            </div>
+            <div class="next">
+             <a href="">下一页 > </a>
+           </div>
+         </div>
+         <div class="up-pager">
+          <span>共 15 页</span>
+          <span>到第 <input type="text" value="1" /> 页</span>
+          <a href="">确定</a>
+        </div>
+      </div>
+
+    </div>  				
+  </div>
+</div>
+</div>
 </div>
 </div>			
 </div>	
@@ -364,17 +382,17 @@
       $(this).parents('.group-box').find('.val span').html($(this).html());
       $(document).click();
     })
-   
-   $('body').on('click','.panel',function(){
-          location.href = $(this).find('a').eq(0).attr('href');
-   })
+
+    $('body').on('click','.panel',function(){
+      location.href = $(this).find('a').eq(0).attr('href');
+    })
 
 //         var str = '';
 //         $.ajax({
 //             url : '/mall/findunlimitlist.htm',
 //             success : function(res){
 
-  
+
 //                $.each(res.data.listeds, function(index, val) {
 //                  str +=  '<div class="panel">'
 //                  str +=  '<div class="panel-title">'
