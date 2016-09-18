@@ -20,7 +20,7 @@
 
 	<title>会员登录</title>
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<!-- header -->
 	<div class="header">

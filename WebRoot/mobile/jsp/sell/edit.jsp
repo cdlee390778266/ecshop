@@ -38,7 +38,7 @@
 
 	<title>卖方挂牌</title>   
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper">  
 		<!-- header -->

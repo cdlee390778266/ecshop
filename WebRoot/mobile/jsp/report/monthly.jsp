@@ -165,7 +165,7 @@
 <title>交易商月报表</title>
 
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper">
 		<!-- topbar -->

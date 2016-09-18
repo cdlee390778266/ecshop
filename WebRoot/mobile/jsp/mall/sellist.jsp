@@ -26,7 +26,7 @@
     
     <title>交易大厅</title>
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper">  
 	

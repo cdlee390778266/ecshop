@@ -33,7 +33,7 @@
     <title>账务明细</title>
     
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper">
 

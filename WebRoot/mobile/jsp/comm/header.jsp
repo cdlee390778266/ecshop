@@ -1,5 +1,12 @@
 ﻿<%@ page language="java" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
+<link rel="stylesheet" href="/mobile/css/drawer.css" />
+<script src="/mobile/js/iscroll.js"></script>
+<script src="/mobile/js/jquery.drawer.min.js"></script>
+
+
 <div class="header" id="header">
   <div class="header-left" id="header-left"><a href="javascript:void(0);" class="glyphicon glyphicon-user" ></a></div>
   <div class="logo"><a href="/home.htm" ><img src="/mobile/images/logo.png"  alt="" class="img-responsive"  /></a></div>
@@ -58,15 +65,17 @@
 			</div>
 		</div>
 
-		<!-- 左侧导航条  -->
-		<div class="slideBar-menu"  >
-			<div class="cd-navigation-wrapper">
-				<div class="slide-close">
-					<a href="" class="glyphicon glyphicon-remove"></a>
-				</div>
-				<ul class="slide-top">
-					<li><span class="glyphicon glyphicon-user slide-uface"></span></li>
-					<li >
+		<!-- 左侧导航条 start  -->
+<div class="drawer-main drawer-default">
+  <nav class="drawer-nav" role="navigation">
+    <div class="slideBar-menu"  >
+            <div class="cd-navigation-wrapper">
+                <div class="slide-close">
+                   <img src="/mobile/images/close.png" alt="" />
+                </div>
+                <ul class="slide-top">
+                    <li><span class="glyphicon glyphicon-user slide-uface"></span></li>
+                    <li >
                     <c:set var="level" value="${'0'}" />
                     <c:set var="memdesc" value="${''}" />
                     <c:if test="${sessionScope.userinfo.memLevel == '000'}">
@@ -98,50 +107,39 @@
                            <span class="glyphicon glyphicon-star-empty star "></span>
                         </c:if>                                                                       
                     </c:forEach>    
-					</li>
-					<li class="star-font">${memdesc}</li>
-				</ul>
-				<ul class="slide-middle">
-					<li><a href="/member/home.htm">我的账户</a></li>
-					<li><a href="/sell/list.htm">我的订单</a></li>
-					<li><a href="/contract/list.htm">我的合同</a></li>
-					<li><a href="/delivery/selllist.htm">交收管理</a></li>
-					<li><a href="/warehouse/list.htm">我的仓单</a></li>
-					<li><a href="/query/selllist.htm">交收历史</a></li>
-					<li><a href="/fund/info.htm">我的资金</a></li>
-					<li><a href="/sell/apply.htm?active=enter&type=0" class="btn btn-sm btn-success bnt-inlineblock">我要挂牌</a></li>
-					<li><a href="/member/logout.htm" class="btn btn-sm btn-warning bnt-inlineblock">退出</a></li>
-				</ul>
-			</div>
+                    </li>
+                    <li class="star-font marb10">${memdesc} <br />${sessionScope.userinfo.memName}</li>
+                </ul>
+                <ul class="slide-middle">
+                    <li><a href="/member/home.htm"><img src="/mobile/images/icon1.png" alt="" />我的账户</a></li>
+                    <li><a href="/sell/list.htm" ><img src="/mobile/images/icon2.png" alt="" />我的订单</a></li>
+                    <li><a href="/contract/list.htm"><img src="/mobile/images/icon3.png" alt="" />我的合同</a></li>
+                    <li><a href="/delivery/selllist.htm" ><img src="/mobile/images/icon4.png" alt="" />交收管理</a></li>
+                    <li><a href="/warehouse/list.htm" ><img src="/mobile/images/icon5.png" alt="" />我的仓单</a></li>
+                    <li><a href="/query/selllist.htm" ><img src="/mobile/images/icon6.png" alt="" />交收历史</a></li>
+                    <li><a href="/fund/info.htm"><img src="/mobile/images/icon7.png" alt="" />我的资金</a></li>
+                    <li class="martb10 bornone menu_icon8"><a href="/sell/apply.htm?active=enter&type=0" class="btn btn-sm btn-success bnt-inlineblock">我要挂牌</a></li>
+                    <li class="martb10 bornone menu_icon9"><a href="/member/logout.htm" class="btn btn-sm btn-warning bnt-inlineblock">退出</a></li>
+                </ul>
+            </div>
+        </div>
+  </nav>
+</div>
+<!-- 左侧导航条 end  -->
 
-		</div>
-		<div class="mark" style="display:none"></div>
-		<!-- 左侧导航条  -->
+
 
 		<script>
 			var touchFlag = true;
 			$(document).ready(function($) {
      //o打开或关闭导航菜单
-     $('#header-left').on('click', function(event) {
-     	event.preventDefault();    
-     	$('body').addClass('navigation-is-open').css('overflow','hidden');
-     	$('.mark').show(); 
-      //禁用滚动
-      if(touchFlag){
-      	addEvent(document.body,"touchmove",prevent)  
-      	touchFlag =  false;
-      }
-  });
-     $('.mark,.slide-close').click(function(event){
-     	event.preventDefault();
-     	$('.mark').hide();
-     	$('body').removeClass('navigation-is-open').css('overflow','auto');
-      //解除禁用滚动
-      if(!touchFlag){
-      	removeEvent(document.body,"touchmove",prevent)
-      	touchFlag = true;
-      }
-  })
+  $('.drawer').drawer();
+    $('#header-left').click(function(){
+      $('body').drawer("open");
+    });
+    $('.slide-close').click(function(){
+        $('.drawer-toggle').click();
+    })
 
        //search
        $('#search').click(function(){
@@ -150,42 +148,6 @@
        $('#search-btn').click(function(){
        	$('#top-search').submit();
        })
-       
-     // alert(document.getElementsByClassName('slide-middle')[0].offsetHeight)
- //slidebar 滚动天到底时解除
-//  $('.slideBar-menu').scroll(function(){
-//   　　var scrollTop = $(this).scrollTop();
-//   　　var scrollHeight = $('.slideBar-menu').height();
-//   　　var windowHeight = $(window).height();
-// console.log(scrollTop,scrollHeight,windowHeight)
-//   　　if(scrollTop + windowHeight >= 700){
-//     　　　　addEvent(document.getElementsByClassName('slideBar-menu')[0],"touchmove",prevent)  
-//   　　}else{
-//    removeEvent(document.getElementsByClassName('slideBar-menu')[0],"touchmove",prevent)
-//  }
-// });
-
-// var slide = document.getElementsByClassName('slideBar-menu')[0];
-
-// var mc = new Hammer(slide);
-// //mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-// // listen to events...
-// mc.on("panup", function(ev) {
-//     　var scrollTop = $('.slideBar-menu').scrollTop();
-//   　　var scrollHeight = $('.slideBar-menu').height();
-//   　　var windowHeight = $(window).height();
-// console.log(scrollTop,scrollHeight,windowHeight)
-
-//   　　if(scrollTop + windowHeight >= 500){
-
-//     　　　　addEvent(document.getElementsByClassName('slideBar-menu')[0],"touchmove",prevent)  
-//   　　}
-// });
-// mc.on("pandown", function(ev) {
-//    removeEvent(document.getElementsByClassName('slideBar-menu')[0],"touchmove",prevent)
-// })
-
-
 });
 /** 
 * @description 事件绑定，兼容各浏览器 

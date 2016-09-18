@@ -47,7 +47,7 @@
 
     <title>交易大厅</title>
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper">  
 
@@ -175,10 +175,11 @@
 <!-- select End -->
 
 <!-- product Start -->
-<div class="container-fluid">
-    <div class="form-group  has-feedback gn-sSearch">
-      <input type="text" class="form-control" aria-describedby="inputSuccessStatus" placeholder="关键字搜索"  />
+<div class="gn-sSearch">
+      <input type="text" placeholder="关键字搜索"  />
   </div>
+
+<div class="container-fluid">
   <div class="row" id="product">
   
     <!-- 无商品时显示 -->
@@ -399,7 +400,14 @@
     $('body').on('click','.product-bar',function(event){
         event.stopPropagation();
         var $self = $(this).find('.glyphicon-menu-down');
-        $(this).find('.glyphicon-menu-down').hasClass('slideOn') ? $(this).find('.glyphicon-menu-down').css({'transform':'rotate(0)','color':'#333'}) : $(this).find('.glyphicon-menu-down').css({'transform':'rotate(180deg)','color':'#6db23d'});
+        if($(this).find('.glyphicon-menu-down').hasClass('slideOn')){
+          $(this).find('.glyphicon-menu-down').css({'transform':'rotate(0)','color':'#333'});
+          $(this).parents('.product').removeClass('active');
+        }else{
+          $(this).find('.glyphicon-menu-down').css({'transform':'rotate(180deg)','color':'#6db23d'});
+           $(this).parents('.product').addClass('active');
+        }
+        
         $(this).find('.glyphicon-menu-down').parents('.product').find('.product-data').toggle(100,function(){
           $self.hasClass('slideOn') ? $self.removeClass('slideOn') : $self.addClass('slideOn')
       });

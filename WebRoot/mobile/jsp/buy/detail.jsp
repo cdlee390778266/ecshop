@@ -12,10 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="author" content="" />
     <link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/global.css" />
     <link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/common.css" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/member.css" />
     <link type="text/css" href="/mobile/css/square/green.css" rel="stylesheet">
     <link type="text/css" href="/mobile/css/validate.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
@@ -25,6 +22,9 @@
     <script type="text/javascript" src="/mobile/js/jquery-validate.js"></script>
     <script type="text/javascript" src="/mobile/widget/js/ui.dialog.js"></script>
     <script type="text/javascript" src="/mobile/js/stickup.js"></script>
+
+    <jsp:include page="../comm/mobile.jsp" flush="true" />
+
     <script type="text/javascript">
     $(function() {
 
@@ -105,14 +105,9 @@
     </script>
     <title>摘牌处理</title>
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
-	<!-- topbar -->
-	<jsp:include page="../comm/topbar.jsp" flush="true" />
-	
-	<!-- topbar End -->
-	
 	<!-- header -->
 	<jsp:include page="../comm/header.jsp" flush="true" />
 	<!-- header End -->
@@ -132,7 +127,7 @@
 				</div>
 			</div>
 			<!-- main -->
-			<div class="page" style="background-color:#fff">
+			<div class="" style="background-color:#fff">
 				
 				<div class="main-content">
 					<div class="bd">

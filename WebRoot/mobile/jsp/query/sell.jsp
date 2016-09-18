@@ -35,7 +35,7 @@
     <title>历史交收查询</title>
     
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
 	
