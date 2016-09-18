@@ -5,3 +5,4 @@
 WebRoot/WEB-INF/classes/
 /build/
 scss/
+dist/
