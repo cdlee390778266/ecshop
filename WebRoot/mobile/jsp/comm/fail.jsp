@@ -16,7 +16,7 @@
     <title>处理提示</title>
     
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	
 	<!-- header -->

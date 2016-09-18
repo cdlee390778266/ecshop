@@ -20,7 +20,7 @@
     <title>账户权限</title>
     
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
 	<br><!-- topbar -->

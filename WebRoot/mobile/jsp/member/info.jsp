@@ -25,7 +25,7 @@
 	<title>账户信息</title>
 
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper">  
 

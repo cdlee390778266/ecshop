@@ -224,7 +224,7 @@
     </script>
     <title>用户摘牌</title>
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
 	<!-- topbar -->

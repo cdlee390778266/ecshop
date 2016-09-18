@@ -43,7 +43,7 @@
     .authbox .btn{position: relative;z-index: 2;}
   </style>
 </head>
-<body>
+<body class="drawer drawer-left">
 
   <div class="fixed-wrapper"> 
 

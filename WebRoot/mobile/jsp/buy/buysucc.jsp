@@ -13,12 +13,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="author" content="" />
     <link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/global.css" />
     <link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/common.css" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/member.css" />
     <script type="text/javascript" src="/mobile/js/jquery.js"></script>
     <script type="text/javascript" src="/mobile/js/stickup.js"></script>
+
+    <jsp:include page="../comm/mobile.jsp" flush="true" />
+
     <title> 买方摘牌</title>
     <script type="text/javascript">
     
@@ -32,35 +32,64 @@
     </script>
     
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
-	<!-- topbar -->
-	<jsp:include page="../comm/topbar.jsp" flush="true" />
-	
-	<!-- topbar End -->
-	
 	<!-- header -->
 	<jsp:include page="../comm/header.jsp" flush="true" />
 	<!-- header End -->
 	</div>
 	
+<div class="container-fluid">
+       <div class="row">
+           <div class="col-xs-12 lh100 bgwhite mart15  txtcenter ng-binding">
+               摘牌单号：<span class="fcgreen ng-binding">KLAF1253621314373</span>
+           </div>
+       </div>
+      <div class="row">
+           <div class="col-xs-12 lh50   txtcenter ng-binding">
+               本次摘牌费用说明
+           </div>
+       </div>
+       <!-- 本次摘牌费用说明  -->
+       <!-- uiView: zpDescribe --><div ui-view="zpDescribe" class="ng-scope"><!-- ngRepeat: data in orderData --><div class="row bgwhite  examine-data ng-scope" ng-repeat="data in orderData">
+ <div class="col-xs-4 borderdb  txtcenter  ng-binding">费用名称</div>
+ <div class="col-xs-8 borderdb  ng-binding">买方交易手续费</div>
+ <div class="col-xs-4 borderdb txtcenter ng-binding">交易类型</div>
+ <div class="col-xs-8 borderdb ng-binding">冻结</div>
+ <div class="col-xs-4 borderdb txtcenter ng-binding">费用金额</div>
+ <div class="col-xs-8 borderdb fcyellow ng-binding">￥12536</div>
+ <div class="col-xs-4 borderdb txtcenter ng-binding">当前状态</div>
+ <div class="col-xs-8 borderdb ng-binding">未扣除</div>
+</div><!-- end ngRepeat: data in orderData --><div class="row bgwhite  examine-data ng-scope" ng-repeat="data in orderData">
+ <div class="col-xs-4 borderdb  txtcenter  ng-binding">费用名称</div>
+ <div class="col-xs-8 borderdb  ng-binding">买方履约保证金</div>
+ <div class="col-xs-4 borderdb txtcenter ng-binding">交易类型</div>
+ <div class="col-xs-8 borderdb ng-binding">冻结</div>
+ <div class="col-xs-4 borderdb txtcenter ng-binding">费用金额</div>
+ <div class="col-xs-8 borderdb fcyellow ng-binding">￥12536</div>
+ <div class="col-xs-4 borderdb txtcenter ng-binding">当前状态</div>
+ <div class="col-xs-8 borderdb ng-binding">未扣除</div>
+</div><!-- end ngRepeat: data in orderData --></div>
+
+       <div class="row examine-go txtcenter">
+           <div class="col-xs-12">
+               <a ui-sref="examinego" class="ng-binding" href="#/examinego">继续审核</a>
+           </div>
+       </div>
+   </div>
+
+
+
+
+
 	<!-- wrapper -->
 	<div class="wrapper service-full mt30">
 		<div class="grid-16-16">
-			<div class="crumb-nav">
-				<div class="backto">
-					<div class="backrt">
-						<a href="/home.htm">返回首页<i></i></a>
-					</div>
-				</div>
-				<div class="crumb">
-					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/buy/list.htm">会员中心</a><span class="fa  fa-angle-right"></span><a href="/buy/list.htm">购买订单</a>
-				</div>
-			</div>
+			
 			
 			<!-- main -->
-			<div class="page">
+			<div class="">
 
 				<div class="main-content">
 					<div class="bd">

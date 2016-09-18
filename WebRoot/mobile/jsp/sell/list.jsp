@@ -31,7 +31,7 @@
 	<title>销售清单</title>
 
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
 		<!-- header -->

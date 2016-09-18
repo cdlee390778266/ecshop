@@ -33,7 +33,7 @@
 	<title>合同管理</title>
 
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
 		<!-- header -->

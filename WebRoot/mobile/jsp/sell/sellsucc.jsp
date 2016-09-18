@@ -31,7 +31,7 @@
     });
     </script>
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
 	<!-- header -->

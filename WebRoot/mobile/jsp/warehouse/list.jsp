@@ -38,7 +38,7 @@
     <title>仓单管理</title>
     
 </head>
-<body>
+<body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
 	<!-- topbar -->
