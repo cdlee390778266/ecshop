@@ -172,6 +172,11 @@ public interface IMallService {
 		 */
 	public abstract List<MdseElement> findLeafMdseEntity(String code);
 	
+	/**
+     *  取某一节点下面所有classflg=3的节点
+	 */
+	public abstract List<MdseElement> findClassFlg3MdseEntity(String code);
+	
 		/**
 	     *  查询挂单详情
 		 * @author kereny

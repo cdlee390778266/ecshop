@@ -230,7 +230,6 @@ public class MallServiceImp implements IMallService {
 
 	/**
 	 * 得到分类下面的所有叶子节点
-	 * 
 	 * @author kereny
 	 * @date 2015-6-12 下午4:49:09
 	 * @param list
@@ -255,6 +254,31 @@ public class MallServiceImp implements IMallService {
 			if (!StringUtil.nullOrBlank(node.getPmdseCode())
 					&& mdseCode.equalsIgnoreCase(node.getMdseCode())) {
 				leafnodes = recursionFn(list, node, leafnodes);
+			}
+		}
+		return leafnodes;
+	}
+	
+	/**
+	 * 得到分类下面的所有classFlg=3的节点
+	 */
+	private List<MdseElement> getClassFlg3Nodes(List<MdseElement> list,
+			String mdseCode) {
+
+		List<MdseElement> leafnodes = null;
+		if (list == null || StringUtil.nullOrBlank(mdseCode))
+			return leafnodes;
+
+		leafnodes = new ArrayList<MdseElement>();
+
+		for (Iterator<MdseElement> iterator = list.iterator(); iterator
+				.hasNext();) {
+			MdseElement node = (MdseElement) iterator.next();
+			// 一、根据传入的某个父节点ID,遍历该父节点的所有子节点
+
+			if (!StringUtil.nullOrBlank(node.getPmdseCode())
+					&& mdseCode.equalsIgnoreCase(node.getMdseCode())) {
+				leafnodes = recursionFnClassFlg3(list, node, leafnodes);
 			}
 		}
 		return leafnodes;
@@ -285,6 +309,23 @@ public class MallServiceImp implements IMallService {
 
 		}
 		return leaflist;
+	}
+	
+	private List<MdseElement> recursionFnClassFlg3(List<MdseElement> list, MdseElement node,
+			List<MdseElement> leafnodes) {
+		List<MdseElement> childList = getChildList(list, node);// 得到子节点列表
+		if (hasChild(list, node)) {
+			Iterator<MdseElement> it = childList.iterator();
+			while (it.hasNext()) {
+				MdseElement n = (MdseElement) it.next();
+				recursionFn(list, n, leafnodes);
+			}
+		} else {
+			if("3".equalsIgnoreCase(node.getClassFlg())){
+				leafnodes.add(node);
+			}
+		}
+		return leafnodes;
 	}
 
 	/**
@@ -508,7 +549,10 @@ public class MallServiceImp implements IMallService {
 		public MdseElement findLocalMdseEntityByName(String keyword) {
 			return mdseNameTable.get(keyword);
 		}
-		
-		
 
+
+		@Override
+		public List<MdseElement> findClassFlg3MdseEntity(String code) {
+			return getClassFlg3Nodes(mdseList, code);
+		}
 }

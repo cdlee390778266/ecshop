@@ -85,29 +85,63 @@ public class MallController extends TradeController{
 		return js; 
 	}
 	
+	/**
+	  * json 取某个用户下的可买卖商品品种
+	  * @author sunc
+	  * @date 2016-09-13 上午11:35:52
+	  * @return JSonComm
+	  **/
+	@RequestMapping(value="findbuytree.htm")
+	public @ResponseBody JSonComm findBuyTree(){
+		JSonComm jSonComm = new JSonComm();
+		List<MdseElement> marks = findBuyMarket();
+		
+		if(marks == null || marks.size()==0){
+			jSonComm.setSuccflag(-1);
+			jSonComm.setMsg("无对映数据");
+			return jSonComm;
+		}
+		List<MdseElement> flMdseElements= new ArrayList<MdseElement>();
+		for(MdseElement me:marks){
+			String markcode = me.getMdseCode();//市场代码
+			List<MdseElement> mes = findBuyClass(markcode);
+			flMdseElements.addAll(mes);//取品类
+		}
+		if(flMdseElements == null||flMdseElements.size() == 0){
+			jSonComm.setSuccflag(-1);
+			jSonComm.setMsg("无相关数据");
+		}else{
+			jSonComm.setSuccflag(0);
+			jSonComm.setMsg("success");
+			jSonComm.setData(converMdse2Node(flMdseElements,true));
+		}			
+		return jSonComm;
+	
+	}
+	
+	
+	private List<MdseElement> findBuyMarket(){
+		List<MdseElement> marks = mallService.findAllMarkets();
+		if(marks != null){
+			List<MdseElement> rsList = new ArrayList<MdseElement>();
+			LoginRsp loginRsp = (LoginRsp) request.getSession().getAttribute("userinfo");
+			//过滤处理可交易市场
+			List<MemMarket> avMarks =  loginRsp.getMemMarkets();
+			for(MdseElement me: marks)
+				for(MemMarket mm: avMarks)
+					if(me.getMdseCode().equalsIgnoreCase(mm.getMarkCode()))
+						rsList.add(me);
+			return rsList;
+		}
+		return null;
+	}
 	
 	@RequestMapping(value = "/findallmarket.htm")
 	public @ResponseBody JSonComm findAllMarket() {
 		
 		JSonComm js = new JSonComm();
-		List<MdseElement> marks = mallService.findAllMarkets();
+		List<MdseElement> rsList = findBuyMarket();
 		
-		if(marks == null){
-			js.setSuccflag(-1);
-			js.setMsg("无对映数据");
-			return js;
-		}
-		
-		LoginRsp loginRsp = (LoginRsp) request.getSession().getAttribute("userinfo");
-		List<MdseElement> rsList = new ArrayList<MdseElement>();
-		//过滤处理可交易市场
-		List<MemMarket> avMarks =  loginRsp.getMemMarkets();
-		
-		for(MdseElement me: marks)
-			for(MemMarket mm: avMarks)
-				if(me.getMdseCode().equalsIgnoreCase(mm.getMarkCode()))
-					rsList.add(me);
-
 		if(rsList == null||rsList.size() == 0){
 			js.setSuccflag(-1);
 			js.setMsg("无相关数据");
@@ -208,7 +242,23 @@ public class MallController extends TradeController{
 	JSonComm findBuyClass(HttpServletRequest request,HttpServletResponse response,
 			@RequestParam(value = "code", required = false) String code) {
 		
+		List<MdseElement>  rsList = findBuyClass(code);
+	
+		JSonComm js = new JSonComm();
+		if(rsList == null||rsList.size() == 0){
+			js.setSuccflag(-1);
+			js.setMsg("无相关数据");
+		}else{
+			js.setSuccflag(0);
+			js.setMsg("success");
+			js.setData(converMdse2Node(rsList));
+		}
 		
+		return js;
+		
+	}
+	
+	private List<MdseElement> findBuyClass(String code) {
 		LoginRsp loginRsp = (LoginRsp) request.getSession().getAttribute("userinfo");
 		List<MdseElement>  sublist =  mallService.findChildList(code);
 		List<MdseElement>  rsList = new ArrayList<MdseElement>();
@@ -233,21 +283,8 @@ public class MallController extends TradeController{
 		}else{
 			rsList = sublist;
 		}
-		
-		JSonComm js = new JSonComm();
-		if(rsList == null||rsList.size() == 0){
-			js.setSuccflag(-1);
-			js.setMsg("无相关数据");
-		}else{
-			js.setSuccflag(0);
-			js.setMsg("success");
-			js.setData(converMdse2Node(rsList));
-		}
-		
-		return js;
-		
+		return rsList;
 	}
-	
 		/**
 	     *  取商品代码列表，兄弟节点
 		 * @author kereny
@@ -518,7 +555,6 @@ public class MallController extends TradeController{
 				}
 			}
 		}else{
-			
 			rsList = sublist;
 		}
 		
@@ -565,7 +601,42 @@ public class MallController extends TradeController{
 		}
 			
 		return nodes;
+	}
+	
+	private List<Node> converMdse2Node(List<MdseElement> mes,boolean isSetChildNode){
 		
+		if(mes == null || mes.size() == 0) return null;
+
+		List<Node> nodes = new ArrayList<Node>();
+		Node node = null;
+		for(MdseElement e: mes){
+			node = new Node();
+			String code = e.getMdseCode();
+			node.setCode(code);
+			node.setName(e.getMdseName());
+			node.setHaveLeaf(e.isHaveLeaf());
+			String level = e.getClassFlg().trim();
+			node.setLevel(level);
+			//logger.debug(node.toString());
+			if(isSetChildNode && "1".equalsIgnoreCase(level)){
+				List<MdseElement> mElements = mallService.findChildList(code);
+				List<Node> childNodes = converMdse2Node(mElements, true);
+				node.setChildNodes(childNodes);
+			}else if(isSetChildNode && "2".equalsIgnoreCase(level)){
+				List<MdseElement> mElements = mallService.findClassFlg3MdseEntity(code);
+				List<Node> childNodes = converMdse2Node(mElements, true);
+				node.setChildNodes(childNodes);
+			}
+			
+			if("3".equalsIgnoreCase(e.getClassFlg()))
+			{
+				if(e.getActive() == 1)
+					nodes.add(node);
+			}else{
+				nodes.add(node);	
+			}
+		}
+		return nodes;
 	}
 	
 		/**
@@ -1214,7 +1285,7 @@ public class MallController extends TradeController{
 			@PathVariable("code") String code, Model model) {
 	
 		LoginRsp loginRsp = (LoginRsp) request.getSession().getAttribute("userinfo");
-		
+		//根据当前代码找到所对应的市场 或 品级 或 商品
 		MdseElement obj = mallService.findLocalMdseEntity(code);
 		
 		if(obj == null){
@@ -1225,12 +1296,12 @@ public class MallController extends TradeController{
 		List<MdseElement> mdses = mallService.findChildList(code);
 		
 		List<MdseElement> rsList = new ArrayList<MdseElement>();
-		
+		//查询为市场代码
 		if(obj.getClassFlg() != null && "0".equalsIgnoreCase(obj.getClassFlg()))
 		{
 			for(TxComm t :loginRsp.getTxComms())
 			{
-				if(t.getBsDirect().equalsIgnoreCase("B"))
+				if(t.getBsDirect().equalsIgnoreCase("B"))//判断是否有购买权限
 				{
 					for(MdseElement e: mdses)
 					{
@@ -1252,17 +1323,57 @@ public class MallController extends TradeController{
 			rsList.add(obj);
 		}
 		List<MdseElement> nodes = mallService.findNodeTreePath(code);
-		
+		List<List<MdseElement>> nodetree = findNodeTree(nodes,code);
+		//当前节点的路径
 		model.addAttribute("nodepath", nodes);
-		
+		//当前节点相关信息
 		model.addAttribute("curcls", obj);
-		
+		//子节点相关信息
 		model.addAttribute("subcls", rsList);	
+		
+		model.addAttribute("nodetree", nodetree);
 		
 		return "mall/sellist";
 	}
 	
 	
+	private List<List<MdseElement>> findNodeTree(List<MdseElement> nodepath,String nodecode) {
+		if(nodepath==null ||nodepath.size()==0){
+			return null;
+		}
+		List<List<MdseElement>> nodetree = new ArrayList<List<MdseElement>>();
+		List<MdseElement> nodes = null;
+		String code      = null;
+		
+		for(MdseElement mdseElement :nodepath){ 
+			String classFlg = mdseElement.getClassFlg();//当前节点的级别
+			String classCode =  mdseElement.getMdseCode();//当前节点的code
+			if("0".equalsIgnoreCase(classFlg)){
+				nodes = findBuyMarket();
+			}else if("1".equalsIgnoreCase(classFlg)){
+				nodes = findBuyClass(code);
+			}else if("2".equalsIgnoreCase(classFlg)){
+				nodes = mallService.findChildList(code);
+			}else{
+				break;
+			}
+			nodetree.add(nodes);
+			code = classCode;
+		}
+		
+		MdseElement curnode = mallService.findMdseEntity(code);
+		String curClassFlg = curnode.getClassFlg();
+		if(!"3".equalsIgnoreCase(curClassFlg)){
+			if("0".equalsIgnoreCase(curClassFlg)){
+				nodes = findBuyClass(code);
+			}else{
+				nodes = mallService.findChildList(code);
+			}
+			nodetree.add(nodes);
+		}
+		return nodetree;
+	}
+
 	/**
      *  列表
 	 * @author kereny
@@ -1322,9 +1433,11 @@ public class MallController extends TradeController{
 			rsList.add(obj);
 		}
 		List<MdseElement> nodes = mallService.findNodeTreePath(obj.getMdseCode());
+		List<List<MdseElement>> nodetree = findNodeTree(nodes,obj.getMdseCode());
 		
+		model.addAttribute("nodetree", nodetree);
 		
-		model.addAttribute("keywork", keyword);
+		model.addAttribute("keyword", keyword);
 		
 		model.addAttribute("nodepath", nodes);
 		
