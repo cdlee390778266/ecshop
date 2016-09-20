@@ -96,6 +96,7 @@
        <span class="val"><span>不限 </span><i></i></span>
        <ul>
          <li>保证金</li>
+         <li>仓单</li>
        </ul>
      </div>
    </div>
@@ -234,126 +235,6 @@
              </tr>
            </thead>
          </table> -->
-         <div class="panel">
-          	<div class="panel-title">
-          		<strong class="product-name">尿素</strong>
-          		<span class="product-price marr40"> 单价： <small>￥</small><big>1,200.00元/吨</big></span>
-          		<span>有效期：2016-09-06</span>
-          	</div>
-          	<ul class="panel-body mart20">
-          		<li><span class="liTitle">仓单编号</span> ：LS201609061441000799</li>
-          		<li><span class="liTitle">数量</span> ：<span class="fcred">100/100吨</span>吨</li>
-          		<li><span class="liTitle">品牌：</span>兰花</li>
-          		<li><span class="liTitle">产地：</span>山  西</li>
-          		<li><span class="liTitle">交收仓库</span> ：<span title="涿鹿县惠农农资有限公司库">涿鹿县惠农农资有限公司库</span></li>
-          		<li><span class="liTitle">仓库地址</span> ：待开发...</li>
-          		<li><span class="liTitle">交收类型</span> ：<span class="promise">保证金</span></li>
-          	</ul>
-          	<div class="describe-box">
-          		<div class="product-describe"><p>待开发...</p></div>
-          	</div>
-          	<div class="product-bottom">
-          		<div class="product-bl">编号：000000000023</div>
-          		<div class="product-br"><span>卖家</span> 测试会员1</div>
-          	</div>
-          	<a href="/mall/item/LS201609061441000799.htm"></a>
-          </div>
-          <div class="panel">
-          	<div class="panel-title">
-          		<strong class="product-name">尿素</strong>
-          		<span class="product-price marr40"> 单价： <small>￥</small><big>1,200.00元/吨</big></span>
-          		<span>有效期：2016-09-06</span>
-          	</div>
-          	<ul class="panel-body mart20">
-          		<li><span class="liTitle">仓单编号</span> ：LS201609061441000799</li>
-          		<li><span class="liTitle">数量</span> ：<span class="fcred">100/100吨</span>吨</li>
-          		<li><span class="liTitle">品牌：</span>兰花</li>
-          		<li><span class="liTitle">产地：</span>山  西</li>
-          		<li><span class="liTitle">交收仓库</span> ：<span title="涿鹿县惠农农资有限公司库">涿鹿县惠农农资有限公司库</span></li>
-          		<li><span class="liTitle">仓库地址</span> ：待开发...</li>
-          		<li><span class="liTitle">交收类型</span> ：<span class="promise">保证金</span></li>
-          	</ul>
-          	<div class="describe-box">
-          		<div class="product-describe"><p>待开发...</p></div>
-          	</div>
-          	<div class="product-bottom">
-          		<div class="product-bl">编号：000000000023</div>
-          		<div class="product-br"><span>卖家</span> 测试会员1</div>
-          	</div>
-          	<a href="/mall/item/LS201609061441000799.htm"></a>
-          </div>
-          <div class="panel">
-          	<div class="panel-title">
-          		<strong class="product-name">尿素</strong>
-          		<span class="product-price marr40"> 单价： <small>￥</small><big>1,200.00元/吨</big></span>
-          		<span>有效期：2016-09-06</span>
-          	</div>
-          	<ul class="panel-body mart20">
-          		<li><span class="liTitle">仓单编号</span> ：LS201609061441000799</li>
-          		<li><span class="liTitle">数量</span> ：<span class="fcred">100/100吨</span>吨</li>
-          		<li><span class="liTitle">品牌：</span>兰花</li>
-          		<li><span class="liTitle">产地：</span>山  西</li>
-          		<li><span class="liTitle">交收仓库</span> ：<span title="涿鹿县惠农农资有限公司库">涿鹿县惠农农资有限公司库</span></li>
-          		<li><span class="liTitle">仓库地址</span> ：待开发...</li>
-          		<li><span class="liTitle">交收类型</span> ：<span class="promise">保证金</span></li>
-          	</ul>
-          	<div class="describe-box">
-          		<div class="product-describe"><p>待开发...</p></div>
-          	</div>
-          	<div class="product-bottom">
-          		<div class="product-bl">编号：000000000023</div>
-          		<div class="product-br"><span>卖家</span> 测试会员1</div>
-          	</div>
-          	<a href="/mall/item/LS201609061441000799.htm"></a>
-          </div>
-          <div class="panel">
-          	<div class="panel-title">
-          		<strong class="product-name">尿素</strong>
-          		<span class="product-price marr40"> 单价： <small>￥</small><big>1,200.00元/吨</big></span>
-          		<span>有效期：2016-09-06</span>
-          	</div>
-          	<ul class="panel-body mart20">
-          		<li><span class="liTitle">仓单编号</span> ：LS201609061441000799</li>
-          		<li><span class="liTitle">数量</span> ：<span class="fcred">100/100吨</span>吨</li>
-          		<li><span class="liTitle">品牌：</span>兰花</li>
-          		<li><span class="liTitle">产地：</span>山  西</li>
-          		<li><span class="liTitle">交收仓库</span> ：<span title="涿鹿县惠农农资有限公司库">涿鹿县惠农农资有限公司库</span></li>
-          		<li><span class="liTitle">仓库地址</span> ：待开发...</li>
-          		<li><span class="liTitle">交收类型</span> ：<span class="promise">保证金</span></li>
-          	</ul>
-          	<div class="describe-box">
-          		<div class="product-describe"><p>待开发...</p></div>
-          	</div>
-          	<div class="product-bottom">
-          		<div class="product-bl">编号：000000000023</div>
-          		<div class="product-br"><span>卖家</span> 测试会员1</div>
-          	</div>
-          	<a href="/mall/item/LS201609061441000799.htm"></a>
-          </div>
-
-         <div class="up-page">
-          <div class="up-pagel">
-            <div class="prev">
-              <a href="" class="disabled"> < 第一页</a>
-            </div>
-            <div class="up-page-main">
-              <a href="" >1</a>
-              <a href="" >2</a>
-              <a href="" >3</a>
-              <a href="" >4</a>
-              <span>...</span>
-            </div>
-            <div class="next">
-             <a href="">下一页 > </a>
-           </div>
-         </div>
-         <div class="up-pager">
-          <span>共 15 页</span>
-          <span>到第 <input type="text" value="1" /> 页</span>
-          <a href="javascript:void(0);">确定</a>
-        </div>
-      </div>
-
     </div>  				
   </div>
 </div>
