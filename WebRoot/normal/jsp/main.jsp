@@ -20,6 +20,7 @@
   <link type="text/css" rel="stylesheet" href="/normal/widget/css/ui.dialog.css" />    
   <link type="text/css" rel="stylesheet" href="/normal/css/lrtk.css?v=${sessionScope.buildno}" /> 
   <script type="text/javascript" src="/normal/js/jquery.js"></script>
+  <script type="text/javascript" src="/normal/js/cnacexutil.js?v=${sessionScope.buildno}"></script>
   <script type="text/javascript" src="/normal/js/selecttags_index.js?v=${sessionScope.buildno}"></script>
   <script type="text/javascript" src="/normal/js/handlebars.js?v=${sessionScope.buildno}"></script>
   <script type="text/javascript" src="/normal/js/ui.pagination.js?v=${sessionScope.buildno}"></script>
@@ -31,9 +32,10 @@
   <script type="text/javascript" src="/normal/js/ui.tips.js?v=${sessionScope.buildno}"></script>
   <script type="text/javascript" src="/normal/js/sha.js"></script>
   <script type="text/javascript" src="/normal/js/swiper.min.js"></script>
-  <script type="text/javascript" src="/normal/js/handle.home.js?v=${sessionScope.buildno}"></script>
+  <script type="text/javascript" src="/normal/js/handle.home.beta.js?v=${sessionScope.buildno}"></script>
+  <script type="text/javascript" src="/normal/js/handle.main.table.js?v=${sessionScope.buildno}"></script>
   
-  <jsp:include page="comm/datatables_index.jsp" flush="true" />
+  <!-- <jsp:include page="comm/datatables_index.jsp" flush="true" /> -->
 
   <style>
     .selcomm .rlist .commhead{
@@ -98,11 +100,11 @@
      </div>
    </div>
    
-   
+   <!-- #TO_DEL#
    <div class="selcomm" data-select>        
-   </div>                  
+   </div> -->
    
-
+   <!-- #TO_DEL#
    <div class="custfilter">                  
     <div class="filtersection">
      <div class="filterhd">品牌:</div>
@@ -167,7 +169,7 @@
   </div>
 </div>
 </div>
-</div>                
+</div> -->
 
 
 <div class="input-group">
@@ -215,8 +217,10 @@
 
 
           <input type="hidden" value="${sessionScope.userinfo.mID}" id="currMID" />
-          <div class="row">
+          <div class="row" id="datalist">
 
+
+           <!-- #TO_DEL#
            <table id="dataset" class="cell-border hover" cellspacing="0" width="100%" style="padding: 0px">
             <thead>
               <tr>
@@ -229,7 +233,103 @@
                <th></th>
              </tr>
            </thead>
-         </table>	
+         </table> -->
+         <div class="panel">
+          	<div class="panel-title">
+          		<strong class="product-name">尿素</strong>
+          		<span class="product-price marr40"> 单价： <small>￥</small><big>1,200.00元/吨</big></span>
+          		<span>有效期：2016-09-06</span>
+          	</div>
+          	<ul class="panel-body mart20">
+          		<li><span class="liTitle">仓单编号</span> ：LS201609061441000799</li>
+          		<li><span class="liTitle">数量</span> ：<span class="fcred">100/100吨</span>吨</li>
+          		<li><span class="liTitle">品牌：</span>兰花</li>
+          		<li><span class="liTitle">产地：</span>山  西</li>
+          		<li><span class="liTitle">交收仓库</span> ：<span title="涿鹿县惠农农资有限公司库">涿鹿县惠农农资有限公司库</span></li>
+          		<li><span class="liTitle">仓库地址</span> ：待开发...</li>
+          		<li><span class="liTitle">交收类型</span> ：<span class="promise">保证金</span></li>
+          	</ul>
+          	<div class="describe-box">
+          		<div class="product-describe"><p>待开发...</p></div>
+          	</div>
+          	<div class="product-bottom">
+          		<div class="product-bl">编号：000000000023</div>
+          		<div class="product-br"><span>卖家</span> 测试会员1</div>
+          	</div>
+          	<a href="/mall/item/LS201609061441000799.htm"></a>
+          </div>
+          <div class="panel">
+          	<div class="panel-title">
+          		<strong class="product-name">尿素</strong>
+          		<span class="product-price marr40"> 单价： <small>￥</small><big>1,200.00元/吨</big></span>
+          		<span>有效期：2016-09-06</span>
+          	</div>
+          	<ul class="panel-body mart20">
+          		<li><span class="liTitle">仓单编号</span> ：LS201609061441000799</li>
+          		<li><span class="liTitle">数量</span> ：<span class="fcred">100/100吨</span>吨</li>
+          		<li><span class="liTitle">品牌：</span>兰花</li>
+          		<li><span class="liTitle">产地：</span>山  西</li>
+          		<li><span class="liTitle">交收仓库</span> ：<span title="涿鹿县惠农农资有限公司库">涿鹿县惠农农资有限公司库</span></li>
+          		<li><span class="liTitle">仓库地址</span> ：待开发...</li>
+          		<li><span class="liTitle">交收类型</span> ：<span class="promise">保证金</span></li>
+          	</ul>
+          	<div class="describe-box">
+          		<div class="product-describe"><p>待开发...</p></div>
+          	</div>
+          	<div class="product-bottom">
+          		<div class="product-bl">编号：000000000023</div>
+          		<div class="product-br"><span>卖家</span> 测试会员1</div>
+          	</div>
+          	<a href="/mall/item/LS201609061441000799.htm"></a>
+          </div>
+          <div class="panel">
+          	<div class="panel-title">
+          		<strong class="product-name">尿素</strong>
+          		<span class="product-price marr40"> 单价： <small>￥</small><big>1,200.00元/吨</big></span>
+          		<span>有效期：2016-09-06</span>
+          	</div>
+          	<ul class="panel-body mart20">
+          		<li><span class="liTitle">仓单编号</span> ：LS201609061441000799</li>
+          		<li><span class="liTitle">数量</span> ：<span class="fcred">100/100吨</span>吨</li>
+          		<li><span class="liTitle">品牌：</span>兰花</li>
+          		<li><span class="liTitle">产地：</span>山  西</li>
+          		<li><span class="liTitle">交收仓库</span> ：<span title="涿鹿县惠农农资有限公司库">涿鹿县惠农农资有限公司库</span></li>
+          		<li><span class="liTitle">仓库地址</span> ：待开发...</li>
+          		<li><span class="liTitle">交收类型</span> ：<span class="promise">保证金</span></li>
+          	</ul>
+          	<div class="describe-box">
+          		<div class="product-describe"><p>待开发...</p></div>
+          	</div>
+          	<div class="product-bottom">
+          		<div class="product-bl">编号：000000000023</div>
+          		<div class="product-br"><span>卖家</span> 测试会员1</div>
+          	</div>
+          	<a href="/mall/item/LS201609061441000799.htm"></a>
+          </div>
+          <div class="panel">
+          	<div class="panel-title">
+          		<strong class="product-name">尿素</strong>
+          		<span class="product-price marr40"> 单价： <small>￥</small><big>1,200.00元/吨</big></span>
+          		<span>有效期：2016-09-06</span>
+          	</div>
+          	<ul class="panel-body mart20">
+          		<li><span class="liTitle">仓单编号</span> ：LS201609061441000799</li>
+          		<li><span class="liTitle">数量</span> ：<span class="fcred">100/100吨</span>吨</li>
+          		<li><span class="liTitle">品牌：</span>兰花</li>
+          		<li><span class="liTitle">产地：</span>山  西</li>
+          		<li><span class="liTitle">交收仓库</span> ：<span title="涿鹿县惠农农资有限公司库">涿鹿县惠农农资有限公司库</span></li>
+          		<li><span class="liTitle">仓库地址</span> ：待开发...</li>
+          		<li><span class="liTitle">交收类型</span> ：<span class="promise">保证金</span></li>
+          	</ul>
+          	<div class="describe-box">
+          		<div class="product-describe"><p>待开发...</p></div>
+          	</div>
+          	<div class="product-bottom">
+          		<div class="product-bl">编号：000000000023</div>
+          		<div class="product-br"><span>卖家</span> 测试会员1</div>
+          	</div>
+          	<a href="/mall/item/LS201609061441000799.htm"></a>
+          </div>
 
          <div class="up-page">
           <div class="up-pagel">
@@ -250,7 +350,7 @@
          <div class="up-pager">
           <span>共 15 页</span>
           <span>到第 <input type="text" value="1" /> 页</span>
-          <a href="">确定</a>
+          <a href="javascript:void(0);">确定</a>
         </div>
       </div>
 
@@ -368,6 +468,12 @@
     spaceBetween: 30,
     effect: 'fade'
   });
+  
+  $(document).ready(function(){
+	  var tab = $("#datalist").tabulation("/mall/findtradelist.htm");
+	  console.log(tab);
+  });
+  
   $(function(){
     $('body').on('click','.group-box',function(event){
      event.stopPropagation();
@@ -386,66 +492,6 @@
     $('body').on('click','.panel',function(){
       location.href = $(this).find('a').eq(0).attr('href');
     })
-
-//         var str = '';
-//         $.ajax({
-//             url : '/mall/findunlimitlist.htm',
-//             success : function(res){
-
-
-//                $.each(res.data.listeds, function(index, val) {
-//                  str +=  '<div class="panel">'
-//                  str +=  '<div class="panel-title">'
-//                  str +=  '<strong class="product-name">' + val.commName
-//                  str +=  '</strong>'
-//                  str +=  '<span class="product-price marr40">'
-//                  str +=  ' 单价： <small>￥</small><big>' + val.up + '/Kg</big>'
-//                  str +=  '</span>'
-//                  str +=  '<span>有效期：' + val.dol + '</span>'
-//                  str +=  '</div>'
-//                  str +=  '<ul class="panel-body mart20">'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">仓单编号</span> ：' + val.listedNo
-//                  str +=  '</li>'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">品牌</span> ：' + val.summary1
-//                  str +=  '</li>'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">数量</span> ：<span class="fcred">' + val.rem + '' + val.qty + '</span>吨'
-//                  str +=  '</li>'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">产地</span> ：' + val.summary2
-//                  str +=  '</li>'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">仓库名称</span> ：<span title="' + val.storage  +'">' + val.storage +'</span>'
-//                  str +=  '</li>'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">仓库地址</span> ：'+ '待开发...'
-//                  str +=  '</li>'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">交易类型</span> ：<span class="promise">' + val.listedTypeName + '</span>'
-//                  str +=  '</li>'
-//                  str +=  '</ul>'
-//                  str +=  '<div class="describe-box">'
-//                  str +=  '<div class="product-describe"><p >' + '待开发...' + '</p>'
-//                  str +=  '</div>'
-//                  str +=  '</div>'
-//                  str +=  '<div class="product-bottom">'
-//                  str +=  '<div class="product-bl">'
-//                  str +=  '编号：' + val.mid
-//                  str +=  '</div>'
-//                  str +=  '<div class="product-br">'
-//                  str +=  '<span>卖家</span> ' + val.memName
-//                  str +=  '</div>'
-//                  str +=  '</div>'
-//                  str +=  '</div>'
-//              });
-// $('.product').append(str)
-// }
-// })
-
-
-
 })
 
 </script>
