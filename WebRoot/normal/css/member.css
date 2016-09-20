@@ -16,6 +16,58 @@
 	width: 243px;
 	height: 25px;
 }
+.c-select{
+	display:block;
+	overflow:hidden;
+}
+.c-select .rlist {
+	padding-left: 5px;
+    border-bottom: 0;
+    clear: both;
+    width: 100%;
+}
+
+.c-select .rlist .commsection {
+    margin: 10px 0 10px;
+    border-right: 1px #ccc solid;
+}
+
+.c-select .rlist .commhead {
+    width: 5%;
+    float: left;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    border-top: 1px #EEE dashed;
+    padding-top: 10px;
+}
+
+.c-select .rlist .commbd {
+    width: 94%;
+    float: left;
+    line-height: 30px;
+    border-top: 1px #EEE dashed;
+    position: relative;
+    background: #fff;
+}
+
+.c-select .rlist .commbd ul {
+    display: inline-block;
+    width: 96%;
+    float: left;
+}
+
+.c-select .rlist .commbd .active {
+    color: #6db23d;
+}
+
+.c-select .rlist .commbd li {
+    float: left;
+    display: inline-block;
+    margin: 10px 5px 10px 5px;
+    padding: 0 10px 0 10px;
+    cursor: pointer;
+}
 
 .crumb {
 	height: 36px;
@@ -1768,7 +1820,7 @@ td.highlight {
 }
 
 
-/**************  改版样式 ************/
+/**************  鏀圭増鏍峰紡 ************/
 .pa-action {
 	display: inline-block;
 }
@@ -2124,7 +2176,7 @@ td.highlight {
          	background: none !important;
          }
          .layui-layer-ico::after{
-         	content: '确定';
+         	content: '纭畾';
          	display: block;
          	position: absolute;
          	top: -5px;
@@ -2366,7 +2418,7 @@ td.highlight {
          .updialog,.dialog{
          	animation: scale .2s;
          	-moz-animation: scale .2s;	/* Firefox */
-         	-webkit-animation: scale .2s;	/* Safari 和 Chrome */
+         	-webkit-animation: scale .2s;	/* Safari 鍜� Chrome */
          	-o-animation: scale .2s;	/* Opera */
          }
          @keyframes scale
@@ -2381,7 +2433,7 @@ td.highlight {
          	100%   {transform : scale(1);}
          }
 
-         @-webkit-keyframes scale /* Safari 和 Chrome */
+         @-webkit-keyframes scale /* Safari 鍜� Chrome */
          {
          	0%   {transform : scale(0);}
          	100%   {transform : scale(1);}

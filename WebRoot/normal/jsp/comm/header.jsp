@@ -24,7 +24,7 @@
 					
 					<form action="/mall/search.htm" method="post" >
 						<div class="search-bd">
-							<input type="text" class="inp-search" id="keyword" name="keyword" placeholder="您可根据商品名、商品类进行搜索" style="height:20px"/>
+							<input type="text" class="inp-search" id="keyword" name="keyword" placeholder="您可根据商品名、商品类进行搜索" style="height:20px" value="${keyword}"/>
 							<button type="submit" class="icon-search">搜索</button>
 						</div>
 					</form>
@@ -62,310 +62,7 @@
        <div class=" grid-16-16 rel">
          <dl class="nav-dl">
              <dt>全部商品分类<span class="fa fa-angle-down"></span></dt>
-             <dd>
-                 <h2>
-                     <span class="icon1"><i></i>肥料<span></span></span>
-                     <div class="dl-left">
-                         <dl>
-                             <dt>氮肥<i></i></dt>
-                             <dd>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                             </dd>
-                         </dl>
-                         <dl>
-                             <dt>氮肥<i></i></dt>
-                             <dd>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                             </dd>
-                         </dl>
-                         <dl>
-                             <dt>氮肥<i></i></dt>
-                             <dd>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                             </dd>
-                         </dl>
-                     </div>
-
-                 </h2>
-                  <h2>
-                     <span class="icon2"><i></i>农膜<span></span></span>
-                     <div class="dl-left">
-                         <dl>
-                             <dt>氮肥<i></i></dt>
-                             <dd>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                             </dd>
-                         </dl>
-                         <dl>
-                             <dt>氮肥<i></i></dt>
-                             <dd>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                             </dd>
-                         </dl>
-                         <dl>
-                             <dt>氮肥<i></i></dt>
-                             <dd>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                             </dd>
-                         </dl>
-                     </div>
-
-                 </h2>
-                  <h2>
-                     <span class="icon3"><i></i>农机具<span></span></span>
-                     <div class="dl-left">
-                         <dl>
-                             <dt>氮肥<i></i></dt>
-                             <dd>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                             </dd>
-                         </dl>
-                         <dl>
-                             <dt>氮肥<i></i></dt>
-                             <dd>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                             </dd>
-                         </dl>
-                         <dl>
-                             <dt>氮肥<i></i></dt>
-                             <dd>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                             </dd>
-                         </dl>
-                     </div>
-
-                 </h2>
-                  <h2>
-                     <span class="icon4"><i></i>农药<span></span></span>
-                     <div class="dl-left">
-                         <dl>
-                             <dt>氮肥<i></i></dt>
-                             <dd>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                             </dd>
-                         </dl>
-                         <dl>
-                             <dt>氮肥<i></i></dt>
-                             <dd>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                             </dd>
-                         </dl>
-                         <dl>
-                             <dt>氮肥<i></i></dt>
-                             <dd>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                                 <a href="">尿素</a>
-                             </dd>
-                         </dl>
-                     </div>
-
-                 </h2>
-
-
-               
+             <dd id="nav-buy-tree">
              </dd>
          </dl>
          <ul class="nav-ul">
@@ -378,3 +75,77 @@
      </div>
  </div>
  <!-- nav -->
+ <script type="text/javascript">
+ 
+ 	function fillData(data,level,id){
+ 		if(data==null ||data.length<=0){
+ 			return ;
+ 		}
+ 		var subdata = null;//遍历的子体
+ 		var name = null;//分类名称
+ 		var code = null;//分类代码
+ 		var html = null;
+ 		
+ 		var leafFlag = false;
+ 		var leafId = id+"-leaf"
+ 		
+ 		
+ 		for(var i=0;i<data.length;i++){
+ 			subdata =  data[i];
+ 			name    =  subdata.name;
+ 			code    =  subdata.code;
+ 			subid   =  id+"-"+subdata.code;
+ 			if(level==1){
+ 				html = "<h2>"+
+		         		 "<span><i></i>"+name+"<span></span></span>"+
+         		  		 "<div class='dl-left' id='"+subid+"'></div>"+
+         		       "</h2>";
+ 			}else if(level==2){
+ 				if(subdata.level==2){
+ 					html ="<dl>"+
+                            "<dt>"+name+"<i></i></dt>"+
+                            "<dd id='"+subid+"'></dd>"+
+                          "</dl>";
+ 				}else{//当2级节点为叶子节点
+ 					if(!leafFlag){
+ 						leafFlag = true;
+ 						html ="<dl>"+
+ 	                    		"<dt><i></i></dt>"+
+ 	                   			"<dd id='"+leafId+"'>"+
+ 	                   				"<a href=''>"+name+"</a>"+
+ 	                   			"</dd>"+
+ 	                   		"</dl>";
+ 					}else{
+ 						html="<a href='/mall/class/"+code+".htm'>"+name+"</a>";
+ 						$("#"+leafId).append(leafHtml);
+ 						return;
+ 					}
+ 				}
+ 			}else{
+ 				html ="<a href='/mall/class/"+code+".htm'>"+name+"</a>";
+ 			}
+            $("#"+id).append(html);
+            if(subdata.childNodes!=null){
+                fillData(subdata.childNodes,level+1,subid)
+            }
+ 		}
+ 	}
+ 	
+ 	$(document).ready(function(){
+ 		var  marketurl = '/mall/findbuytree.htm';
+ 		$.ajax({
+ 				type : 'GET',
+ 				url : marketurl,
+ 				cache : false,
+ 				dataType : 'json',
+ 				success : function(res) {
+ 					if (res.succflag == 0) {
+ 						var classcodes = res.data;
+ 						if(classcodes!=null){
+ 							fillData(classcodes,1,"nav-buy-tree");
+ 						}
+ 					}
+ 				}
+ 		});	
+ 	})
+ </script>
