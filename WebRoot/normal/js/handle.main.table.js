@@ -119,48 +119,28 @@
 
 								html = '<div class="panel">'
 										+ '<div class="panel-title">'
-										+ '<strong class="product-name">'
-										+ row.commName
-										+ '</strong>'
-										+ '<span class="product-price marr40">'
-										+ ' 单价： <small>￥</small><big>'
-										+ Number(row.up).formatMoney()
-										+ '元/'
-										+ row.uom
-										+ '</big>'
-										+ '</span>'
-										+ '<span>有效期：'
-										+ row.dol
-										+ '</span>'
+										+ '<strong class="product-name">' + row.commName + '</strong>'
+										+ '<span class="product-price marr40">' + ' 单价： <small>￥</small>' 
+										+ '<big>' + Number(row.up).formatMoney() + '元/' + row.uom + '</big>' + '</span>'
+										+ '<span>有效期：' + row.dol + '</span>'
 										+ '</div>'
 										+ '<ul class="panel-body mart20">'
 										+ '<li>'
-										+ '<span class="liTitle">仓单编号</span> ：'
-										+ row.listedNo
+										+ '<span class="liTitle">仓单编号</span> ：' + row.listedNo
 										+ '</li>'
 										+ '<li>'
-										+ '<span class="liTitle">数量</span> ：<span class="fcred">'
-										+ row.rem
-										+ '/'
-										+ row.qty
-										+ row.uom
+										+ '<span class="liTitle">数量</span> ：<span class="fcred">' + row.rem + '/' + row.qty + row.uom
 										+ '</span>吨'
-										+ '</li>'
-										+ summarystr
+										+ '</li>' + summarystr
 										+ '<li>'
-										+ '<span class="liTitle">交收仓库</span> ：<span title="'
-										+ row.storage
-										+ '">'
-										+ row.storage
-										+ '</span>'
+										+ '<span class="liTitle">交收仓库</span> ：<span title="' + row.storage + '">' + row.storage + '</span>'
 										+ '</li>'
 										+ '<li>'
 										+ '<span class="liTitle">仓库地址</span> ：'
 										+ '待开发...'
 										+ '</li>'
 										+ '<li>'
-										+ '<span class="liTitle">交收类型</span> ：<span class="promise">'
-										+ row.listedTypeName
+										+ '<span class="liTitle">交收类型</span> ：<span class="promise">' + row.listedTypeName
 										+ '</span>'
 										+ '</li>'
 										+ '</ul>'
@@ -171,18 +151,14 @@
 										+ '</div>'
 										+ '</div>'
 										+ '<div class="product-bottom">'
-										+ '<div class="product-bl">'
-										+ '编号：'
-										+ row.mid
+										+ '<div class="product-bl">' 
+										+ '编号：' + row.mid
 										+ '</div>'
 										+ '<div class="product-br">'
-										+ '<span>卖家</span> '
-										+ row.memName
+										+ '<span>卖家</span> ' + row.memName
 										+ '</div>'
 										+ '</div>'
-										+ '<a  href="/mall/item/'
-										+ row.listedNo
-										+ '.htm"></a>'
+										+ '<a  href="/mall/item/' + row.listedNo + '.htm"></a>'
 										+ '</div>';
 								parent.append(html);
 							}
@@ -207,7 +183,7 @@
 					/**
 					 * 输入页码后点击确定
 					 */
-					$(this).on('click', '.up-pager a', function(){
+					$(this).on('click', '.up-pager a', function() {
 						var page = parseInt($('.up-pager input').val());
 						var options = {
 								start : initData.length * (page - 1),
@@ -220,7 +196,7 @@
 					/**
 					 * 点击下一页
 					 */
-					$(this).on('click', '.next a', function(){
+					$(this).on('click', '.next a', function() {
 						if ($(this).hasClass('disabled'))
 							return;
 						var page = parseInt($('.up-page-main a.active').data('page'));
@@ -228,14 +204,14 @@
 								start : initData.length * page,
 								length : 4
 							};
-							var initOpts = $.extend({}, initData, options);
-							init(initOpts, page);
+						var initOpts = $.extend({}, initData, options);
+						init(initOpts, page);
 					});
 					
 					/**
 					 * 点击上一页
 					 */
-					$(this).on('click', '.prev a', function(){
+					$(this).on('click', '.prev a', function() {
 						if ($(this).hasClass('disabled'))
 							return;
 						var activePage = parseInt($('.up-page-main a.active').data('page'));
@@ -245,8 +221,8 @@
 								start : initData.length * (prevPage - 1),
 								length : 4
 							};
-							var initOpts = $.extend({}, initData, options);
-							init(initOpts, prevPage);
+						var initOpts = $.extend({}, initData, options);
+						init(initOpts, prevPage);
 					});
 
 					init(initData, 1);
