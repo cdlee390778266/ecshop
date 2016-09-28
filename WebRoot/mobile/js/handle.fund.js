@@ -49,7 +49,7 @@ $(function() {
 		
 		
 		if($('#beginDate').val()==''&&$('#endDate').val() == ''){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '请必须输入账务开始日期或结束日期'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '请必须输入账务开始日期或结束日期'}).show();						
 			event.stopPropagation();
 			return false;
 		}
@@ -63,7 +63,7 @@ $(function() {
 		}
 		
 		if($('#beginDate').val() > $('#endDate').val()){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '账务开始日期大于结束日期'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '账务开始日期大于结束日期'}).show();						
 			event.stopPropagation();
 			return false;
 		}

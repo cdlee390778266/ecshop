@@ -33,28 +33,28 @@
 	<!-- wrapper -->
 	
 			<div class="main safe examine" >
-    <div id="header">
-     <div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left"></a></div>
+    <div class="header borhb">
+     <div class="header-left"><a href="javascript:history.back(-1);"><img src="/mobile/images/back.png" alt=""></a></div>
      <div class="logo">
        支付绑定
      </div>
    </div>
-   <div class="container-fluid">
+   <div class="container-fluid bgfff minh400">
     <div class="row marb60">
 
     <c:forEach items="${accList}" var="detail">	
-    <div class="cox-xs-12 bgwhite operBox " >
-        <div class="media">
-          <div class="media-left media-middle padlr15 ">
+    <div class="cox-xs-12" >
+        <div class="media operBox">
+          <div class="media-left media-middle padl5 ">
             <a href="#">
             <img class="media-object" src="/mobile/images/bind.png" alt="...">
             </a>
           </div>
           <div class="media-body">
-            <h4 class="media-heading ">${detail.pbATypeName}</h4>
-          ${detail.pbAcct}
+            <p class="mart5">${detail.pbATypeName}</p>
+          <p class="marb5">${detail.pbAcct}</p>
           </div>
-           <div class="media-body">
+           <div class="media-body lh50">
            <span class="glyphicon glyphicon-link"></span>
             <span class="fc999">${detail.statusDesc}</span>
           </div>

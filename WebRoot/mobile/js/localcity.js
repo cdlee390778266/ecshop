@@ -9,11 +9,11 @@
 		};
         var opts = $.extend({}, $.fn.localCity.defaults, options);
 
-        var tabs = '<div class="tabs">'+
-        			'<ul class="">'+
-        			'<li><a href="javascript:void(0);">省份</a></li>'+
-        			'<li><a href="javascript:void(0);">城市</a></li>'+
-        		    '<li><a href="javascript:void(0);">区县</a></li>'+
+        var tabs = '<div class="tabs container-fluid">'+
+        			'<ul class="row txtright">'+
+        			'<li class="col-xs-4"><a href="javascript:void(0);">省份</a></li>'+
+        			'<li class="col-xs-4"><a href="javascript:void(0);">城市</a></li>'+
+        		    '<li class="col-xs-4"><a href="javascript:void(0);">区县</a></li>'+
         			'</ul>'+
         			'<span class="close-x"></span>'
         		   '</div>';
@@ -56,7 +56,7 @@
             }
             
             that.delegate('.close-x','click',function(e){
-            	$(that).removeClass('cityactive');
+            	$(that).find('.con').removeClass('cityactive');
 			});
             
             function loadCity(key){          	
@@ -107,7 +107,7 @@
             	if(that.find('.list').eq(index).find('li').length > 0){
             		that.find('.list').hide();
             		that.find('.list').eq(index).show();
-            		
+            		that.find('.con').addClass('cityactive');
             		$(tabs).find('a').removeClass('current');           	
                 	$(acttab).find('a').addClass('current');           		
             	}
@@ -154,7 +154,7 @@
                 	seldist = text;
                 	seldistkey = key;
                 	 pager(key, text, index);
-                	$(that).removeClass('cityactive');
+                	$(that).find('.con').removeClass('cityactive');
                 }
             });
             

@@ -357,7 +357,7 @@ $(function() {
 		{
 			UI.Dialog({
 				type : 'tips',
-				width : 320,
+				width : '80%',
 				title : '提交提示',
 				content : "正在处理,不能重复提交！"
 			}).show();

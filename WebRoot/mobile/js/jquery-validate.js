@@ -42,19 +42,19 @@
         	var len = value.length;
         	var charCode = -1;
         	for(var i = 0; i < len; i++){
-        	　　charCode = value.charCodeAt(i);
-        	　　if (charCode >= 0 && charCode <= 128) {
-        	　　		rlen += 1;
-        	　　}else{
-        			rlen += 3;
-        	　　}
-        	}
+               　　charCode = value.charCodeAt(i);
+               　　if (charCode >= 0 && charCode <= 128) {
+                   　　		rlen += 1;
+               　　}else{
+                 rlen += 3;
+             　　}
+         }
 
-            if (rlen > length) {
-                return errorMsg;
-            }
-        },       
-        isMobile: function(value, errorMsg) {
+         if (rlen > length) {
+            return errorMsg;
+        }
+    },       
+    isMobile: function(value, errorMsg) {
             //是否为手机号码
             if (!/(^1[3|5|8][0-9]{9}$)/.test(value)) {
                 return errorMsg;
@@ -169,48 +169,48 @@
         },
         
         isRegexpNum:function(value, length, errorMsg){
-        	 var len = parseFloat(length.split('-')[0]);
-             var dec = parseFloat(length.split('-')[1]);   
-             
-             var int = len-dec-1;                
-             eval("var re = /^\\d{0," + int + "}\\.\?\\d{0,"+dec+"}$/g;"); 
-             
-             if(!value.match(re)){
-            	 return errorMsg;
-             }        
-        },
-        
-        isRegexpInt:function(value, length, errorMsg){   
-        	
-        	eval("var re = /^\\d{0," + length + "}$/g;"); 
-        	
-            if(!value.match(re)){
+          var len = parseFloat(length.split('-')[0]);
+          var dec = parseFloat(length.split('-')[1]);   
+          
+          var int = len-dec-1;                
+          eval("var re = /^\\d{0," + int + "}\\.\?\\d{0,"+dec+"}$/g;"); 
+          
+          if(!value.match(re)){
               return errorMsg;
-            }
-       }
-    };
+          }        
+      },
+      
+      isRegexpInt:function(value, length, errorMsg){   
+       
+       eval("var re = /^\\d{0," + length + "}$/g;"); 
+       
+       if(!value.match(re)){
+          return errorMsg;
+      }
+  }
+};
 
-    /*************************Validator类*****************************/
+/*************************Validator类*****************************/
 
-    var setting = {
-        type: null,
-        onBlur: null,
-        onFocus: null,
-        onChange: null,
-        successTip: true
-    };
+var setting = {
+    type: null,
+    onBlur: null,
+    onFocus: null,
+    onChange: null,
+    successTip: true
+};
 
-    var Validator = function() {
-        this.cache = [];
-    };
+var Validator = function() {
+    this.cache = [];
+};
 
-    Validator.prototype.add = function(dom, rules) {
-        var self = this;
-        for (var i = 0, rule; rule = rules[i++];) {
-            (function(rule) {
-                var strategyAry = rule.strategy.split(':');
-                var errorMsg = rule.errorMsg
-                self.cache.push(function() {
+Validator.prototype.add = function(dom, rules) {
+    var self = this;
+    for (var i = 0, rule; rule = rules[i++];) {
+        (function(rule) {
+            var strategyAry = rule.strategy.split(':');
+            var errorMsg = rule.errorMsg
+            self.cache.push(function() {
                     var strategy = strategyAry.shift(); // 前删匹配方式并赋值
                     strategyAry.unshift(dom.value); // 前插value值
                     strategyAry.push(errorMsg); // 后插出错提示
@@ -223,26 +223,26 @@
                         el: dom
                     };
                 });
-            }(rule));
+        }(rule));
+    }
+};
+
+Validator.prototype.start = function() {
+    var result;
+    for (var i = 0, validatorFunc; validatorFunc = this.cache[i++];) {
+        var result = validatorFunc();
+        if (setting.successTip) {
+            new Validator().showMsg($(result.el), '', 1);
         }
+        if (result.errorMsg) {
+            return result;
+        }
+
     };
+    return true;
+};
 
-    Validator.prototype.start = function() {
-        var result;
-        for (var i = 0, validatorFunc; validatorFunc = this.cache[i++];) {
-            var result = validatorFunc();
-            if (setting.successTip) {
-                new Validator().showMsg($(result.el), '', 1);
-            }
-            if (result.errorMsg) {
-                return result;
-            }
-
-        };
-        return true;
-    };
-
-    Validator.prototype.showMsg = function(target, msg, status, callback) {
+Validator.prototype.showMsg = function(target, msg, status, callback) {
         //status
         // 0 : tip
         // 1 : success
@@ -252,7 +252,11 @@
         var $msg = $context.find('.valid_message');
         var _other = target.attr('data-type') || '';
         $msg.remove();
-        $context.removeClass('success tip error').addClass(_current+' '+_other).append('<span class="valid_message">' + msg + '</span>');
+        // $context.removeClass('success tip error').addClass(_current+' '+_other).append('<span class="valid_message">' + msg + '</span>');
+        if(msg.length>0){
+            layer.msg(msg);
+        }
+        
     };
 
     var plugin = {
@@ -313,59 +317,59 @@
             }, '.required');
 
 
-        },
-        submitValidate: function(options) {
-            var $form = options || this;
-            var $body = $('body');
-            var $required = $form.find('.required');
-            var validator = new Validator();
-            var $target;
+},
+submitValidate: function(options) {
+    var $form = options || this;
+    var $body = $('body');
+    var $required = $form.find('.required');
+    var validator = new Validator();
+    var $target;
 
-            $.each($required, function(index, el) {
-                var $el = $(el);
-                var dataValid = $el.attr('data-valid');
-                var validLen = dataValid.split('||');
-                var errCollection = $el.attr('data-error');
-                var errMsgAry = errCollection.split("||");
-                var ruleAry = [];
+    $.each($required, function(index, el) {
+        var $el = $(el);
+        var dataValid = $el.attr('data-valid');
+        var validLen = dataValid.split('||');
+        var errCollection = $el.attr('data-error');
+        var errMsgAry = errCollection.split("||");
+        var ruleAry = [];
 
-                for (var i = 0; i < validLen.length; i++) {
-                    ruleAry.push({
-                        strategy: validLen[i],
-                        errorMsg: errMsgAry[i]
-                    });
-                };
-
-                validator.add(el, ruleAry);
-
+        for (var i = 0; i < validLen.length; i++) {
+            ruleAry.push({
+                strategy: validLen[i],
+                errorMsg: errMsgAry[i]
             });
+        };
 
-            var result = validator.start();
+        validator.add(el, ruleAry);
 
-            if (result.errorMsg) {
-                $target = $(result.el);
-                $target.attr('data-status', 0)[0].focus();
-                validator.showMsg($target, result.errorMsg, 2);
-                return false;
-            }
+    });
 
+    var result = validator.start();
 
-            return true;
-        }
-    };
-
-    $.fn.validate = function() {
-        var method = arguments[0];
-        if (plugin[method]) {
-            method = plugin[method];
-            arguments = Array.prototype.slice.call(arguments, 1);
-        } else if (typeof(method) == 'object' || !method) {
-            method = plugin.init;
-        } else {
-            $.error('Method ' + method + ' does not exist on jQuery.validate Plugin');
-            return this;
-        }
-        return method.apply(this, arguments);
+    if (result.errorMsg) {
+        $target = $(result.el);
+        $target.attr('data-status', 0)[0].focus();
+        validator.showMsg($target, result.errorMsg, 2);
+        return false;
     }
+
+
+    return true;
+}
+};
+
+$.fn.validate = function() {
+    var method = arguments[0];
+    if (plugin[method]) {
+        method = plugin[method];
+        arguments = Array.prototype.slice.call(arguments, 1);
+    } else if (typeof(method) == 'object' || !method) {
+        method = plugin.init;
+    } else {
+        $.error('Method ' + method + ' does not exist on jQuery.validate Plugin');
+        return this;
+    }
+    return method.apply(this, arguments);
+}
 
 }))

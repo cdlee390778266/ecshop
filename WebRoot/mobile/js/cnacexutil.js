@@ -88,7 +88,7 @@ dataTablesInit = function(table, url,  ajaxfncallback, defaultOrder, btnfncallba
 	        },
 	        "order": defaultOrder,
 	        "scrollX": true,
-	        "scrollY": '330px',
+	        "scrollY": '200px',
 	        "processing" : true,
 	        "sSearchClass" : 'dd',
 	        "language": {

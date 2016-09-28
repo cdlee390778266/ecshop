@@ -64,7 +64,7 @@ $(function() {
 			success : function(data) {
 				var rsdl = UI.Dialog({
 					type : 'tips',
-					width : 320,
+					width : '80%',
 					title : '交易结果',
 					content : data.msg,
 				}).show();
@@ -91,7 +91,7 @@ $(function() {
 			success : function(data) {
 				var rsdl = UI.Dialog({
 					type : 'tips',
-					width : 320,
+					width : '80%',
 					title : '交易结果',
 					content : data.msg,
 				}).show();
@@ -161,7 +161,7 @@ $(function() {
 					success : function(data) {
 						var rsdl = UI.Dialog({
 							type : 'tips',
-							width : 320,
+							width : '80%',
 							title : '交易结果',
 							content : data.msg,
 						}).show();
@@ -186,7 +186,7 @@ $(function() {
 		// 初始化删除提示框
 		var bdl = UI.Dialog({
 			type : 'delete', // 提示框类型，这里是delete 代表删除提示框
-			width : 480, // 设置提示框的宽度
+			width : '80%', // 设置提示框的宽度
 			title : '交易确认', // 提示框标题的文字信息
 			content : '您确定收到单号为' + strikeNo + '的相关货物? <br>确认后资金将转给对方账户!', // 提示框的内容文字信息
 			href : buyTips,
@@ -233,7 +233,7 @@ $(function() {
 					}else{
 						var rsdl = UI.Dialog({
 							type : 'tips',
-							width : 320,
+							width : '80%',
 							title : '交易结果',
 							content : data.msg,
 						}).show();
@@ -249,7 +249,7 @@ $(function() {
 		// 初始化删除提示框
 		var idl = UI.Dialog({
 			type : 'delete', // 提示框类型，这里是delete 代表删除提示框
-			width : 480, // 设置提示框的宽度
+			width : '80%', // 设置提示框的宽度
 			title : '交易确认', // 提示框标题的文字信息
 			content : '您确定收到单号为' + strikeNo + '的发票?', // 提示框的内容文字信息
 			href : invTips,
@@ -433,14 +433,14 @@ $(function() {
 	
 	var btnfn = function(){
 		if($('#code').val()!=''&&$('#commcode').val() == ''){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
 			event.stopPropagation();
 			return false;
 		}
 		
 		if($('#lastPD').val() != "" && $('#elastPD').val() != ""){
 			if($('#lastPD').val() > $('#elastPD').val()){
-			    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '最后付款日开始日期大于结束日期'}).show();						
+			    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '最后付款日开始日期大于结束日期'}).show();						
 				event.stopPropagation();
 				return false;
 			}

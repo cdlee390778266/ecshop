@@ -2176,7 +2176,7 @@ td.highlight {
          	background: none !important;
          }
          .layui-layer-ico::after{
-         	content: '纭畾';
+         	content: '确定';
          	display: block;
          	position: absolute;
          	top: -5px;

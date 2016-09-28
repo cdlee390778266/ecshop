@@ -6,137 +6,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <base href=""/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="author" content="" />
-    <link rel="shortcut icon" href="/normal/images/icon/favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="/normal/css/global.css" />
-    <link type="text/css" rel="stylesheet" href="/normal/css/font.css" />
-    <link type="text/css" rel="stylesheet" href="/normal/css/common.css" />
-    <link type="text/css" rel="stylesheet" href="/normal/css/member.css" />
-	<link type="text/css" rel="stylesheet" href="/normal/widget/css/ui.datepicker.css" />
-	<link type="text/css" rel="stylesheet" href="/normal/css/selecttags.css" >
-	<link type="text/css" rel="stylesheet" href="/normal/widget/css/ui.dialog.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<base href=""/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="author" content="" />
+	<link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
+	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
+	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
 	<script type="text/javascript">
 		var enablePay = ${enablePay};
 	</script>
-    <script type="text/javascript" src="/normal/js/jquery.js"></script>
-    <script type="text/javascript" src="/normal/js/leftnavs.js"></script>
-	<script type="text/javascript" src="/normal/widget/js/ui.datepicker.js"></script>
-	<script type="text/javascript" src="/normal/js/handlebars.js"></script>
-    <script type="text/javascript" src="/normal/js/ui.pagination.js"></script>
-    <script type="text/javascript" src="/normal/js/selecttags.js"></script>
-    <script type="text/javascript" src="/normal/js/stickup.js"></script>
-    <script type="text/javascript" src="/normal/widget/js/ui.dialog.js"></script>
-    
-    <jsp:include page="../comm/datatables.jsp" flush="true" />
-    
-    <script type="text/javascript" src="/normal/js/handle.warehouse.audited.js?v=${sessionScope.buildno}"></script>
-    <title>仓单管理</title>
-    
+	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
+	<script type="text/javascript" src="/mobile/widget/js/ui.datepicker.js"></script>
+	<script type="text/javascript" src="/mobile/js/handlebars.js"></script>
+	<script type="text/javascript" src="/mobile/js/ui.pagination.js"></script>
+	<script type="text/javascript" src="/mobile/js/selecttags.js"></script>
+	<script type="text/javascript" src="/mobile/js/stickup.js"></script>
+	<script type="text/javascript" src="/mobile/widget/js/ui.dialog.js"></script>
+
+	<jsp:include page="../comm/datatables.jsp" flush="true" />
+	<jsp:include page="../comm/mobile.jsp" flush="true" />
+
+	<script type="text/javascript" src="/mobile/js/handle.warehouse.audited.js?v=${sessionScope.buildno}"></script>
+	<title>仓单管理</title>
+
 </head>
 <body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
-	<!-- topbar -->
-	<jsp:include page="../comm/topbar.jsp" flush="true" />
-	
-	<!-- topbar End -->
-	
-	<!-- header -->
-	<jsp:include page="../comm/header.jsp" flush="true" />
-	<!-- header End -->
-	
+		<!-- header -->
+		<jsp:include page="../comm/header.jsp" flush="true" />
+		<!-- header End -->
 	</div>
 	
-	<!-- wrapper -->
-	<div class="wrapper service-full mt30">
-		<div class="grid-16-16">
-			<div class="crumb-nav">
-				<div class="backto">
-					<div class="backrt">
-						<a href="/home.htm">返回首页<i></i></a>
+	<div class="container-fluid  up-datatables">
+		<div class="row safe-type txtcenter bgfff up-list">
+			<div class="col-xs-4"><a href="javascript:void(0);" class="active">签发仓单注册</a>
+			</div>
+			<div class="col-xs-4"><a href="/warehouse/rolloutlist.htm">签发仓单转出</a>
+			</div>
+			<div class="col-xs-4"><a href="/warehouse/membinding.htm">会员绑定</a>
+			</div>
+		</div>
+		<div class="condition">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="input-group">
+						<span class="input-group-addon">商品分类</span>
+						<input type="text" class="selcomm_dialog form-control" placeholder="请选择商品">
+						<input type="hidden" name="commcode" id="commcode" />
+						<div class="selcomm" data-select></div>
 					</div>
 				</div>
-				<div class="crumb">
-					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/warehouse/list.htm">我的仓单</a><span class="fa  fa-angle-right"></span><a href="javascript: void(0)">签发仓单注册</a>
+				<div class="col-xs-12 mart10">
+					<div class="input-group">
+						<span class="input-group-addon">入库时间</span>
+						<input type="text" name="contTime" id="contTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date form-control" />
+						<span class="input-group-addon">至</span>
+						<input type="text" name="econtTime" id="econtTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date form-control" />
+					</div>
 				</div>
-			</div>
-			
-			<!-- main -->
-			<div class="page">
-			
-				<!-- left -->
-				<jsp:include page="../comm/left.jsp" flush="true" />
-				<!-- left End -->
-
-				<div class="main-content">
-					<div class="bd">
-						<div class="page-module data-query">
-							<div class="row">
-							    <div class="hd">
-							   		<h3>注册仓单撤销</h3>
-							    </div>
-							    <div class="bd mt10 warehouse">
-									<table class="ui-table">
-									<tbody>
-										<tr>
-											<td width="80" class="ctr">商品分类：</td>
-												<td colspan="5">
-												<input type="hidden" name="commcode" id="commcode" />
-												<div class="selcomm" data-select></div>
-											</td>
-										</tr>
-										<tr>
-											<td class="ctr">入库时间：</td>
-											<td>
-												<input type="text" name="contTime" id="contTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date ml10" />
-													至
-												<input type="text" name="econtTime" id="econtTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date" />
-											</td>
-											<td class="ctr">仓库编号：</td>
-											<td><input type="text" class="cinp" name="storeno" maxlength="12" id="storeno" /></td>
-										</tr>																	
-									</tbody>
-								</table>
-							    </div>
-							</div>
-							<div class="tabbar-wrap">
-								 <div class="mod-tabbar">
-									<div class="header-exg tab-sty">
-										<ul id="J_TabBar" class="pa-tabbar pdeta">
-											<li class="item tab-cell"><a href="/warehouse/list.htm">可注册仓单</a></li>
-											<li class="item tab-cell"><a href="/warehouse/list.htm?category=cancel">待审核仓单</a></li>
-											<li class="item tab-cell selected"><a href="#">已审核仓单</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
-								        <thead>
-								            <tr>
-								            	<th>商品种类名称</th>
-								            	<th>会员名称</th>
-								            	<th>注册仓单编号</th>
-								                <th>仓库名称</th>
-								                <th>仓库编号</th>
-								                <th>货物数量</th>
-								                <th>操作</th>
-								            </tr>
-								        </thead>
-								  </table>
-							</div>
-						</div>
+				<div class="col-xs-12 mart10">
+					<div class="input-group">
+						<span class="input-group-addon">仓库编号</span>
+						<input type="text" class="cinp form-control" name="storeno" maxlength="12" id="storeno" />
+					</div>
+				</div>
+				<div class="col-xs-12 mart10">
+					<div class="input-group">
+						<span class="input-group-addon">订单状态</span>
+						<select class="form-control" id="type">
+							<option value="0" >可注册仓单</option>
+							<option value="1">待审核仓单</option>
+							<option value="2" selected>已审核仓单</option>
+						</select>
+						<ul id="J_TabBar" class="pa-tabbar pdeta hide">
+							<li class="item tab-cell selected"><a href="/warehouse/list.htm">可注册仓单</a></li>
+							<li class="item tab-cell"><a href="/warehouse/list.htm?category=cancel">待审核仓单</a></li>
+							<li class="item tab-cell"><a href="#">已审核仓单</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
+		<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>商品种类名称</th>
+					<th>会员名称</th>
+					<th>注册仓单编号</th>
+					<th>仓库名称</th>
+					<th>仓库编号</th>
+					<th>货物数量</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+		</table>
 	</div>
-	
+
 	<!-- footer -->
 	<jsp:include page="../comm/footer.jsp" flush="true" />
 	<!-- footer End -->

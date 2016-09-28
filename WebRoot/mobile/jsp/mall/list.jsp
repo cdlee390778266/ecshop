@@ -13,7 +13,6 @@
 	<link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
 	<link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
 	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
-	<link type="text/css" rel="stylesheet" href="/mobile/css/selecttags.css" >
 	<link  type="text/css"rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
 	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
 	<script type="text/javascript" src="/mobile/js/leftnavs.js"></script>
@@ -38,52 +37,49 @@
 		<!-- header -->
 		<jsp:include page="../comm/header.jsp" flush="true" />
 		<!-- header End -->
-
 	</div>
 
 	<div class="container-fluid bordert up-datatables">
-		<div class="row safe-type txtcenter bgwhite  borderb">
-			<div class="col-xs-12"><a href="" class="active">销售清单</a></div>
+		<div class="row safe-type txtcenter bgfff up-list">
+			<div class="col-xs-12"><a href="javascript:void(0);" class="active">销售清单</a></div>
 		</div>
-
-		<div class="row mart10">
-			<div class="col-xs-12">
-				<span class="selcomm_dialog">选择商品</span>
-				<input type="hidden" name="commcode" id="commcode" />
-				<div class="selcomm" data-select></div>
+		<div class="condition">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="input-group">
+						<span class="input-group-addon">商品分类</span>
+						<input type="text" class="selcomm_dialog form-control" placeholder="请选择商品">
+						<input type="hidden" name="commcode" id="commcode" />
+						<div class="selcomm" data-select></div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="input-group mart5 up-group">
+						<span class="input-group-addon">挂牌日期：</span>
+						<input type="text" name="dol" id="dol" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control" />
+						<span class="input-group-addon">至</span>
+						<input type="text" name="edol" id="edol" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control" />
+					</div>
+					<div class="input-group mart5 up-group">
+						<span class="input-group-addon">挂牌有效截止日：</span>
+						<input type="text" name="doe" id="doe" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control" />
+					</div>
+					<div class="input-group mart5 up-group">
+						<span class="input-group-addon">状态：</span>
+						<select class="csel form-control" name="status" id="status">
+							<option value="">全状态挂牌</option>	
+							<option value="0">待审核商品</option>
+							<option value="1">已审核商品</option>
+							<option value="-1">审核未通过商品</option>
+							<option value="-2">已撤消商品</option>
+							<option value="100" selected>正常交易商品</option>
+							<option value="999">下架商品</option>
+							<option value="998">售罄商品</option>		
+							<option value="997">过期商品</option>
+						</select>	
+					</div>
+				</div>
 			</div>
-			
-			<div class="col-xs-12">
-				<div class="input-group mart5 up-group">
-					<span class="input-group-addon">挂牌日期：</span>
-					<input type="text" name="dol" id="dol" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control" />
-					<span class="input-group-addon">至</span>
-					<input type="text" name="edol" id="edol" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control" />
-				</div>
-
-				<div class="input-group mart5 up-group">
-					<span class="input-group-addon">挂牌有效截止日：</span>
-					<input type="text" name="doe" id="doe" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control" />
-				</div>
-
-				<div class="input-group mart5 up-group">
-					<span class="input-group-addon">状态：</span>
-					<select class="csel form-control" name="status" id="status">
-						<option value="">全状态挂牌</option>	
-						<option value="0">待审核商品</option>
-						<option value="1">已审核商品</option>
-						<option value="-1">审核未通过商品</option>
-						<option value="-2">已撤消商品</option>
-						<option value="100" selected>正常交易商品</option>
-						<option value="999">下架商品</option>
-						<option value="998">售罄商品</option>		
-						<option value="997">过期商品</option>
-					</select>	
-				</div>
-
-			</div>
-
-
 		</div>
 
 		<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
@@ -103,13 +99,11 @@
 					<th>挂牌类型</th>
 					<th>状态</th>	
 					<th>商品简述</th>								                
-
 					<th>挂牌单号</th>								                
 					<th>操作</th>								                
 				</tr>
 			</thead>
 		</table>		
-
 	</div>
 
 

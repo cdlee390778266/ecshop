@@ -72,7 +72,7 @@ $(function() {
 	
 	var btnfn = function(){
 		if($('#code').val()!=''&&$('#commcode').val() == ''){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
 			event.stopPropagation();
 			return false;
 		}
@@ -224,7 +224,7 @@ $(function() {
 			success : function(data) {
 				var rsdl = UI.Dialog({
 					type : 'tips',
-					width : 320,
+					width : '80%',
 					title : '交易结果',
 					content : data.msg,
 				}).show();
@@ -245,7 +245,7 @@ $(function() {
 
 		var dl = UI.Dialog({
 			type : 'delete', // 提示框类型，这里是delete 代表删除提示框
-			width : 480, // 设置提示框的宽度
+			width : '40vh', // 设置提示框的宽度
 			title : '交易确认', // 提示框标题的文字信息
 			content : '您确定要撤消' + sorderno + '的订单吗？', // 提示框的内容文字信息
 			href : gotoCancel,
@@ -267,7 +267,7 @@ $(function() {
 			success : function(data) {
 				var rsdl = UI.Dialog({
 					type : 'tips',
-					width : 320,
+					width : '80%',
 					title : '交易结果',
 					content : data.msg,
 				}).show();
@@ -288,7 +288,7 @@ $(function() {
 
 		var dl = UI.Dialog({
 			type : 'delete', // 提示框类型，这里是delete 代表删除提示框
-			width : 480, // 设置提示框的宽度
+			width : '40vh', // 设置提示框的宽度
 			title : '交易确认', // 提示框标题的文字信息
 			content : '您确定要删除' + sorderno + '的订单吗？', // 提示框的内容文字信息
 			href : gotoDel,

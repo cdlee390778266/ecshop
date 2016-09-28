@@ -10,15 +10,15 @@
 	<base href=""/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="author" content="" />
-	<link rel="shortcut icon" href="/normal/images/icon/favicon.ico" />
-	<link type="text/css" rel="stylesheet" href="/normal/css/font.css" />
-	<link type="text/css" rel="stylesheet" href="/normal/css/validate.css" >
-	<link href="/normal/css/square/green.css" rel="stylesheet">
-	<script type="text/javascript" src="/normal/js/jquery.js"></script>
-	<script type="text/javascript" src="/normal/js/icheck.js"></script>
-	<script type="text/javascript" src="/normal/js/jquery-validate.js"></script>
-	<script type="text/javascript" src="/normal/js/stickup.js"></script>
-	<script type="text/javascript" src="/normal/widget/layer/layer.js"></script>
+	<link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
+	<link type="text/css" rel="stylesheet" href="/mobile/css/validate.css" >
+	<link href="/mobile/css/square/green.css" rel="stylesheet">
+	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
+	<script type="text/javascript" src="/mobile/js/icheck.js"></script>
+	<script type="text/javascript" src="/mobile/js/jquery-validate.js"></script>
+	<script type="text/javascript" src="/mobile/js/stickup.js"></script>
+	<script type="text/javascript" src="/mobile/widget/layer/layer.js"></script>
 
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 
@@ -28,97 +28,68 @@
 <body class="drawer drawer-left">
 
 	<div class="fixed-wrapper">  
-
 		<!-- header -->
 		<jsp:include page="../comm/header.jsp" flush="true" />
 		<!-- header End -->
 	</div>
 	
 	<div class="header">
-		<div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left"></a></div>
-		<div class="logo "></div>
+		<div class="header-left"><a href="javascript:history.back(-1);"><img src="/mobile/images/back.png" alt=""></a></div>
+		<div class="logo ">账户信息</div>
 	</div>
 
 	<!-- wrapper -->
-	<div class="wrapper service-full main safe examine">
+	<div class="service-full main safe examine up-info">
 		<div class="container-fluid">
 
 			<!-- main -->
-			<div class="">
-				
-				
-				
-				
-				<div class="main-content">
-					<div class="bd">
-						
-						<div class="page-module warehouse">
-							<div class="">
-								
-								<div class="bd">
-									<form id="memberform" action="/member/info.htm" method="post" enctype="multipart/form-data" class="form-horizontal">
-										<input type="hidden" name="active" value="save" />
-
-										<div class="row">
-											<div class="col-xs-12 file bgwhite bordertb padtb15">
-												<img id="operPhotoPre" src="${user.operPhoto}" width="120px" height="120px" onError="this.src='/normal/images/portrait.jpg'" class="img-rounded" />
-												<div class="account-mes fc666">
-													<span class="btn-upload fileinput ml10">
-														<c:if test="${fn:length(user.operPhoto)>0 }" >
-														<span>替换头像</span>
-													</c:if>
-													<c:if test="${fn:length(user.operPhoto)==0 || empty user.operPhoto}" >
-													<span>选择头像</span>
-												</c:if>
-												<input type="file" name="operPhoto" id="operPhoto" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif"/>
-											</span>
-										</div>
-									</div>
-
-									<div class="input-group    form-group-lg">
-										<span class="input-group-addon ">会员ID：</span>
-										<div class="form-control lh26">${user.mID}</div>
-									</div>
-									<div class="input-group form-group-lg">
-										<span class="input-group-addon ">会员名称：</span>
-										<div class="form-control lh26">${user.memName}</div>
-									</div>
-									<div class="input-group form-group-lg bgfff">
-										<span class="input-group-addon ">名称：</span>
-										<div class="form_control up-info-name">
-											<input type="text" value="${user.operName}" name="operName" id="operName" class="required"  data-tip="请输入名称" data-valid="isNonEmpty||maxGBLength:128" data-error="名称不能为空||名称长度不对" />
-										</div>
-									</div>
-									<div class="input-group form-group-lg">
-										<span class="input-group-addon ">操作员性别：</span>
-										<div class="form-control">
-											<input type="radio" name="sex" class="mr5 fn-vm" value="1" <c:if test="${user.operSex=='1'}">checked="checked"</c:if> />男
-											<input type="radio" name="sex" class="mr5 fn-vm"  value="2" <c:if test="${user.operSex=='2'}">checked="checked"</c:if> />女
-										</div>
-									</div>
-										
-								</div>
-
-								<div class="row padtb40">
-									<div class="col-xs-12">
-										<button class="btn btn-success btn-block " >保存</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-
-
+			<form id="memberform" action="/member/info.htm" method="post" enctype="multipart/form-data" class="form-horizontal">
+				<input type="hidden" name="active" value="save" />
+				<div class="row  bgfff">
+				<div class="col-xs-12 file bordertb">
+						<img id="operPhotoPre" src="${user.operPhoto}" width="120px" height="120px" onError="this.src='/normal/images/portrait.jpg'" class="img-rounded" />
+						<div class="account-mes fc999">
+							<span class="btn-upload fileinput ml10 txtright">
+								<c:if test="${fn:length(user.operPhoto)>0 }" >
+								<span>替换头像</span>
+							</c:if>
+							<c:if test="${fn:length(user.operPhoto)==0 || empty user.operPhoto}" >
+							<span>选择头像</span>
+						</c:if>
+						<input type="file" name="operPhoto" id="operPhoto" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif"/>
+					</span>
 				</div>
-
+			</div>
+			<div class="input-group    form-group-lg">
+				<span class="input-group-addon ">会员ID</span>
+				<div class="form-control lh26 txtright fc999">${user.mID}</div>
+			</div>
+			<div class="input-group form-group-lg">
+				<span class="input-group-addon ">会员名称</span>
+				<div class="form-control lh26 txtright fc999">${user.memName}</div>
+			</div>
+			<div class="input-group form-group-lg bgfff">
+				<span class="input-group-addon ">名称</span>
+				<div class="form_control up-info-name">
+					<input type="text" value="${user.operName}" name="operName" id="operName" class="required txtright"  data-tip="" data-valid="isNonEmpty||maxGBLength:128" data-error="名称不能为空||名称长度不对" />
+				</div>
+			</div>
+			<div class="input-group form-group-lg">
+				<span class="input-group-addon ">操作员性别</span>
+				<div class="form-control txtright">
+					<input type="radio" name="sex" class="marl5 fn-vm" value="1" <c:if test="${user.operSex=='1'}">checked="checked"</c:if> />男
+					<input type="radio" name="sex" class="marl5 fn-vm"  value="2" <c:if test="${user.operSex=='2'}">checked="checked"</c:if> />女
+				</div>
 			</div>
 		</div>
-
-
-	</div>
+		<div class="row padtb40">
+			<div class="col-xs-12">
+				<input type="submit" value="保存" class="up-btn-success" />
+			</div>
+		</div>
+	</form>					
 </div>
-</div>
-<!-- wrapper End -->		
+</div>	
 
 <!-- footer -->
 <jsp:include page="../comm/footer.jsp" flush="true" />
@@ -139,28 +110,13 @@
 		});
 		
 		// 输入域验证
-		$('#memberform').validate({
-			onFocus : function() {
-				this.parent().addClass('active');
-				return false;
-			},
-			onBlur : function() {
-				var $parent = this.parent();
-				var _status = parseInt(this.attr('data-status'));
-				$parent.removeClass('active');
-				if (!_status) {
-					$parent.addClass('error');
-				}
-				return false;
-			}
-		});
+	
 		
 		$('#memberform').on('submit', function(event){
-
 			var valFlag = $(this).validate('submitValidate');
-			if(varFlag == false){
+			if(valFlag == false){
 				event.preventDefault();
-				return;
+				return false;
 			}
 		});
 

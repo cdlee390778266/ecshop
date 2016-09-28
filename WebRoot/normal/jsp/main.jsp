@@ -101,76 +101,7 @@
      </div>
    </div>
    
-   <!-- #TO_DEL#
-   <div class="selcomm" data-select>        
-   </div> -->
-   
-   <!-- #TO_DEL#
-   <div class="custfilter">                  
-    <div class="filtersection">
-     <div class="filterhd">品牌:</div>
-     <div class="filterbd">
-       <ul class="J_Brand">
-        <li  class="active"  data-key="" >不限</li>
-      </ul>
-      <div class="more-btn">更多&#8870;</div>
-    </div>
 
-  </div>
-
-  <div class="filtersection">
-   <div class="filterhd">产地:</div>
-   <div class="filterbd">
-     <ul class="J_Origin">
-      <li class="active"  data-key="" >不限</li>
-    </ul>                     
-    <div class="more-btn">更多&#8870;</div>
-  </div>
-</div>
-
-
-<div class="filtersection">
- <div class="filterhd">价格:</div>
- <div class="filterbd">
-   <input type="hidden" id="price-max" name="price-max" />
-   <input type="hidden" id="price-min" name="price-min" />
-   <ul class="J_Price">
-    <li  class="active"  data-key="" >不限</li>                       
-    <li data-max="1000"  >1000元以下</li>
-    <li data-max="2000" data-min="1000" >1000-2000元</li>
-    <li data-max="3000" data-min="2000" >2000-3000元</li>
-    <li data-max="5000" data-min="5000" >3000-5000元</li>
-    <li data-min="5000" >5000元以上</li>
-  </ul>
-  <div class="filtinterval">
-    <input type="text" class="input-text" id="p-min" name="p-min" /><em>-</em>
-    <input type="text" class="input-text" id="p-max" name="p-max" />
-    <a id="priceBtn" class="filtbtn">查询</a>
-  </div>
-</div>
-</div>
-
-<div class="filtersection">
- <div class="filterhd">数量:</div>
- <div class="filterbd">
-   <input type="hidden" id="volume-max" name="volume-max" />
-   <input type="hidden" id="volume-min" name="volume-min" />
-   <ul class="J_Volume">
-    <li class="active"  data-key="" >不限</li>                        
-    <li data-max="50" >0-50</li>
-    <li data-max="100" data-min="50" >50-100</li>
-    <li data-max="200" data-min="100" >100-200</li>
-    <li data-max="500" data-min="200" >200-500</li>
-    <li data-min="500" >500以上</li>
-  </ul>
-  <div class="filtinterval">
-    <input type="text"  class="input-text" id="v-min" name="v-min"  onkeyup="this.value=this.value.replace(/\D/g,'')"  /><em>-</em>
-    <input type="text"  class="input-text" id="v-max" name="v-max"  onkeyup="this.value=this.value.replace(/\D/g,'')"  />
-    <a id="volumeBtn" class="filtbtn">查询</a>
-  </div>
-</div>
-</div>
-</div> -->
 
 
 <div class="input-group">
@@ -193,10 +124,6 @@
 <!-- 筛选 -->
 
 
-
-<!-- 产品主体部分 -->
-<div class="product grid-16-16"></div>
-
 <div class="wrapper service-full mt30">
   <div class="grid-16-16">
    <!-- main -->
@@ -214,27 +141,11 @@
 
       <div class="page-module product-set">
        <div class="row">
-         <div class="bd mt10">
-
+         <div class="product">
 
           <input type="hidden" value="${sessionScope.userinfo.mID}" id="currMID" />
           <div class="row" id="datalist">
 
-
-           <!-- #TO_DEL#
-           <table id="dataset" class="cell-border hover" cellspacing="0" width="100%" style="padding: 0px">
-            <thead>
-              <tr>
-               <th></th>
-               <th></th>
-               <th></th>
-               <th></th>
-               <th></th>
-               <th></th>
-               <th></th>
-             </tr>
-           </thead>
-         </table> -->
     </div>  				
   </div>
 </div>

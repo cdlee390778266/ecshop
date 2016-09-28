@@ -13,7 +13,6 @@
 	<link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
 	<link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
 	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
-	<link type="text/css" rel="stylesheet" href="/mobile/css/selecttags.css" >
 	<link  type="text/css"rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
 	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
 	<script type="text/javascript" src="/mobile/js/leftnavs.js"></script>
@@ -42,35 +41,44 @@
 
 
 	<div class="container-fluid bordert up-datatables">
-		<div class="row safe-type txtcenter bgwhite  borderb">
-			<div class="col-xs-6"><a href="/sell/list.htm"   >销售申请</a>
+		<div class="row safe-type txtcenter bgfff up-list">
+			<div class="col-xs-6"><a href="/sell/list.htm">销售申请</a>
 			</div>
 			<div class="col-xs-6"><a href="/buy/list.htm" class="active" >购买申请</a></div>
 		</div>
 
-		<div class="row mart10">
-			<div class="col-xs-12">
-				<span class="selcomm_dialog">选择商品</span>
-				<input type="hidden" name="commcode" id="commcode" />
-				<div class="selcomm" data-select></div>
-			</div>
-			<div class="col-xs-12 mart5">
-				<select class="form-control" id="type">
-					<option value="#type0">待处理订单</option>
-					<option value="#type1">待审核订单</option>
-					<option value="#type2">待付保证金</option>
-					<option value="#type3">审核未通过</option>
-					<option value="#type4">已撤消订单</option>
-					<option value="#type5">已完成订单</option>
-				</select>
-				<ul id="J_TabBar" class="pa-tabbar pdeta hide">
-					<li class="item tab-cell selected"><a data-role='' id="type0">待处理订单</a></li>
-					<li class="item tab-cell"><a data-role='0' id="type1">待审核订单</a></li>
-					<li class="item tab-cell"><a data-role='1' id="type2">待付保证金</a></li>
-					<li class="item tab-cell"><a data-role='-1' id="type3">审核未通过</a></li>
-					<li class="item tab-cell"><a data-role='-2' id="type4">已撤消订单</a></li>
-					<li class="item tab-cell"><a href="/mall/list.htm" id="type5">已完成订单</a></li>
-				</ul>
+		<div class="condition">
+			<div class="row ">
+				<div class="col-xs-12">
+					<div class="input-group">
+						<span class="input-group-addon">商品类型</span>
+						<input type="text" class="selcomm_dialog form-control" placeholder="请选择商品">
+						<input type="hidden" name="commcode" id="commcode" />
+						<div class="selcomm" data-select></div>
+					</div>
+
+				</div>
+				<div class="col-xs-12 mart10">
+					<div class="input-group">
+						<span class="input-group-addon">订单状态</span>
+						<select class="form-control" id="type">
+							<option value="#type0">待处理订单</option>
+							<option value="#type1">待审核订单</option>
+							<option value="#type2">待付保证金</option>
+							<option value="#type3">审核未通过</option>
+							<option value="#type4">已撤消订单</option>
+							<option value="#type5">已完成订单</option>
+						</select>
+					</div>
+					<ul id="J_TabBar" class="pa-tabbar pdeta hide">
+						<li class="item tab-cell selected"><a data-role='' id="type0">待处理订单</a></li>
+						<li class="item tab-cell"><a data-role='0' id="type1">待审核订单</a></li>
+						<li class="item tab-cell"><a data-role='1' id="type2">待付保证金</a></li>
+						<li class="item tab-cell"><a data-role='-1' id="type3">审核未通过</a></li>
+						<li class="item tab-cell"><a data-role='-2' id="type4">已撤消订单</a></li>
+						<li class="item tab-cell"><a href="/mall/list.htm" id="type5">已完成订单</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 
@@ -100,45 +108,45 @@
 
 	
 
-		<!-- footer -->
-		<jsp:include page="../comm/footer.jsp" flush="true" />
-		<!-- footer End -->
+	<!-- footer -->
+	<jsp:include page="../comm/footer.jsp" flush="true" />
+	<!-- footer End -->
 
-		<script type="text/x-handlebars-template" id="entryTemplate">
-			<table class="ui-table table-primary">
-				<thead>
-					<tr>
-						<td colspan="2">交易商品信息</td>
-						<td>摘牌日期</td>
-						<td>挂牌有效期</td>
-						<td>交易状态</td>
-						<td>交易操作</td>
-					</tr>
-				</thead>
-				<tbody>
-					{{#delists}}
-					<tr class="{{setstyle @index}}">
-						<td><div class="pic"><img src="{{titlePic}}" width="80px" height="80px" alt="" onError="this.src='/mobile/images/loadfail.jpg'"></div></td>
-						<td><div class="ordercommity">单号:{{delistNo}}</div><div class="ordercommity">商品:{{commName}}</div><div class="ordertitle">标题:{{title}}</div></td>
-						<td>{{dod}}</td>
-						<td>{{doe}}</td>
-						<td><span class="cor-red">{{statusDesc}}</span></td>
-						<td>
-							{{#if effRec}}
-							{{#if status}}
-							<a href="/buy/handle/P/{{delistNo}}.htm" class="cor-yellow">支付</a>	
+	<script type="text/x-handlebars-template" id="entryTemplate">
+		<table class="ui-table table-primary">
+			<thead>
+				<tr>
+					<td colspan="2">交易商品信息</td>
+					<td>摘牌日期</td>
+					<td>挂牌有效期</td>
+					<td>交易状态</td>
+					<td>交易操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				{{#delists}}
+				<tr class="{{setstyle @index}}">
+					<td><div class="pic"><img src="{{titlePic}}" width="80px" height="80px" alt="" onError="this.src='/mobile/images/loadfail.jpg'"></div></td>
+					<td><div class="ordercommity">单号:{{delistNo}}</div><div class="ordercommity">商品:{{commName}}</div><div class="ordertitle">标题:{{title}}</div></td>
+					<td>{{dod}}</td>
+					<td>{{doe}}</td>
+					<td><span class="cor-red">{{statusDesc}}</span></td>
+					<td>
+						{{#if effRec}}
+						{{#if status}}
+						<a href="/buy/handle/P/{{delistNo}}.htm" class="cor-yellow">支付</a>	
 
-							{{else}}
-							<a href="/buy/handle/A/{{delistNo}}.htm" class="cor-yellow">审核</a>
+						{{else}}
+						<a href="/buy/handle/A/{{delistNo}}.htm" class="cor-yellow">审核</a>
 
-							<a href="/buy/edit/{{delistNo}}.htm" class="cor-yellow ml20">修改</a>
-							{{/if}}
-							{{/if}}
-						</td>												 	
-					</tr>	
-					{{/delists}}
-				</tbody>
-			</table>
-		</script>
-	</body>
-	</html>
+						<a href="/buy/edit/{{delistNo}}.htm" class="cor-yellow ml20">修改</a>
+						{{/if}}
+						{{/if}}
+					</td>												 	
+				</tr>	
+				{{/delists}}
+			</tbody>
+		</table>
+	</script>
+</body>
+</html>

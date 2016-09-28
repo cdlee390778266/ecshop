@@ -6,20 +6,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <base href=""/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="author" content="" />
-     <link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
-    <link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
-    <link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
-    <link type="text/css" rel="stylesheet" href="/mobile/css/square/green.css">
-    <link type="text/css" rel="stylesheet" href="/mobile/css/selecttags.css" >
-    <script type="text/javascript" src="/mobile/js/jquery.js"></script>
-    <script type="text/javascript" src="/mobile/js/handlebars.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<base href=""/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="author" content="" />
+	<link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
+	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
+	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
+	<link type="text/css" rel="stylesheet" href="/mobile/css/square/green.css">
+	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
+	<script type="text/javascript" src="/mobile/js/handlebars.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.dialog.js"></script>
 	<script type="text/javascript" src="/mobile/js/leftnavs.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.datepicker.js"></script>
@@ -32,21 +31,21 @@
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 	
 	<script type="text/javascript" src="/mobile/js/handle.delivery.buy.js?v=${sessionScope.buildno}"></script>
-    <title>交收管理</title>
-    
+	<title>交收管理</title>
+
 </head>
 <body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
-	
-	<!-- header -->
-	<jsp:include page="../comm/header.jsp" flush="true" />
-	<!-- header End -->
+
+		<!-- header -->
+		<jsp:include page="../comm/header.jsp" flush="true" />
+		<!-- header End -->
 	</div>
 
-	<div class="container-fluid bordert">
+	<div class="container-fluid up-datatables">
 
-		<div class="row safe-type txtcenter bgwhite  borderb">
+		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-4"><a href="/delivery/selllist.htm" >销售交收</a>
 			</div>
 			<div class="col-xs-4"><a href="/delivery/buylist.htm" class="active">采购交收</a>
@@ -55,65 +54,72 @@
 			</div>
 		</div>
 
-		 <table class="table table-responsive">
-										<tbody>
-											<tr>
-												<td width="80" class="ctr">商品分类：</td>
-												<td colspan="5">
-												<input type="hidden" name="commcode" id="commcode" />
-												<div class="selcomm" data-select></div>												
-												</td>
-											</tr>											
-											<tr>												
-												<td class="ctr">交收状态：</td>
-												<td>
-													<select name="status" id="status" class="csel">
-														<option value="">全部状态</option>
-														<option value="100">买方待付款</option>
-														<option value="200">卖方待发货</option>
-														<option value="300">买方待收货</option>
-														<option value="400">买方待确认发票</option>
-													</select>
-												</td>
-												<td class="ctr">交收单号：</td>
-												<td><input type="text"  name="strikeNo" id="strikeNo"  class="cinp"/></td>
-												<td class="ctr">最后付款日：</td>
-												<td><input type="text"  name="lastPD" id="lastPD" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date ml10"/>
-												至
-												<input type="text"  name="elastPD" id="elastPD" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date"/>
-												
-												</td>
-											</tr>											
-										</tbody>
-									</table>
+		<div class="condition">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="input-group">
+						<span class="input-group-addon">&nbsp;&nbsp;&nbsp;商品分类</span>
+						<input type="text" class="selcomm_dialog form-control" placeholder="请选择商品">
+						<input type="hidden" name="commcode" id="commcode" />
+						<div class="selcomm" data-select></div>	
+					</div>
+				</div>
+				<div class="col-xs-12 mart10">
+					<div class="input-group">
+						<span class="input-group-addon">&nbsp;&nbsp;&nbsp;交收状态</span>
+						<select name="status" id="status" class="csel form-control">
+							<option value="">全部状态</option>
+							<option value="100">买方待付款</option>
+							<option value="200">卖方待发货</option>
+							<option value="300">买方待收货</option>
+							<option value="400">买方待确认发票</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-xs-12 mart10">
+					<div class="input-group">
+						<span class="input-group-addon">&nbsp;&nbsp;&nbsp;交收单号</span>
+						<input type="text"  name="strikeNo" id="strikeNo"  class="cinp form-control"/>
+					</div>
+				</div>
+				<div class="col-xs-12 mart10">
+					<div class="input-group">
+						<span class="input-group-addon">最后付款日</span>
+						<input type="text"  name="lastPD" id="lastPD" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date form-control"/>
+						<span class="input-group-addon">至</span>
+						<input type="text"  name="elastPD" id="elastPD" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date form-control"/>
+					</div>
+				</div>
+			</div>
+		</div>
 
-									 <table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
-								        <thead>
-								            <tr>
-								            	<th>品种</th>
-								            	<th>商品代码</th>
-								            	<th>商品名称</th>
-								            	<th>品牌</th>	
-								                <th>产地</th> 
-								                <th>卖方编号</th>								                	
-								                <th>卖方名称</th> 
-								                <th>成交日期</th>								                
-								                <th>最后付款日</th>
-								                <th>最后交收日</th>
-								                <th>状态</th>								                								                								                
-								                <th>商品数量</th>
-								                <th>商品单价</th>
-								                <th>成交金额(元)</th>   								                
-								                <th>交收类型</th>
-								                <th>交收仓库</th>								                								                
-								                <th>标题简述</th>								                								                	
-								                <th>订单号</th>	
-								                <th>合同编号</th> 
-								                									                					                
-								                <th>操作</th>								                
-								            </tr>
-								        </thead>
-								  </table>
+		<table id="dataset" class="display nowrap cell-border table table-responsive" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>品种</th>
+					<th>商品代码</th>
+					<th>商品名称</th>
+					<th>品牌</th>	
+					<th>产地</th> 
+					<th>卖方编号</th>								                	
+					<th>卖方名称</th> 
+					<th>成交日期</th>								                
+					<th>最后付款日</th>
+					<th>最后交收日</th>
+					<th>状态</th>								                								                								                
+					<th>商品数量</th>
+					<th>商品单价</th>
+					<th>成交金额(元)</th>   								                
+					<th>交收类型</th>
+					<th>交收仓库</th>								                								                
+					<th>标题简述</th>								                								                	
+					<th>订单号</th>	
+					<th>合同编号</th> 
+
+					<th>操作</th>								                
+				</tr>
+			</thead>
+		</table>
 
 
 	</div>
@@ -188,9 +194,9 @@
 										<button class="cbtn" id="J_ssearch">搜&nbsp;&nbsp;索</button>																				
 								</div>	
 							</div>
-							 -->
+						-->
 
-							<div class="row">	
+						<div class="row">	
 								<!-- 						 
 								<div id="render"></div>
 								 
@@ -202,8 +208,8 @@
 								       <h3>暂无数据</h3>
 								</div>	
 								
-								 -->	
-								 
+							-->	
+
 								<!--  <table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
 								        <thead>
 								            <tr>
@@ -230,31 +236,31 @@
 								                <th>操作</th>								                
 								            </tr>
 								        </thead>
-								  </table> -->
+								    </table> -->
+								</div>
+
 							</div>
-								 
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- wrapper End -->		
+		<!-- wrapper End -->		
 
-	<!-- footer -->
-	<jsp:include page="../comm/footer.jsp" flush="true" />
-	<!-- footer End -->
-	
-	<!-- 投诉弹出层 -->	
-	<div class="updialog d-add-role w350" id="J_Appeal">
-		<div class="hd">
-			<span class="close ic"></span>
-			<h3>交易投诉</h3>
-		</div>
-		<div class="bd">
-			<div class="d-content">
-				<div class="bd mt10">
-					<div class="uitem">
+		<!-- footer -->
+		<jsp:include page="../comm/footer.jsp" flush="true" />
+		<!-- footer End -->
+
+		<!-- 投诉弹出层 -->	
+		<div class="updialog d-add-role w350" id="J_Appeal">
+			<div class="hd">
+				<span class="close ic"></span>
+				<h3>交易投诉</h3>
+			</div>
+			<div class="bd">
+				<div class="d-content">
+					<div class="bd mt10">
+						<div class="uitem">
 							<table class="ui-table">
 								<tr>
 									<td width="100px" class="tr">交易单号：</td>
@@ -267,11 +273,11 @@
 								<tr>
 									<td class="tr">投诉原因：</td>
 									<td>
-									
-									<input type="radio" name="appealType" id="delayCheck" value="0" checked /><span id="delayMsg"></span>
-									
-									<input type="radio" name="appealType" id="otherCheck" value="1" />其他原因
-									<textarea name="appealDesc" id="appealDesc" cols="40" rows="5" style="display:none; margin-top: 10px"></textarea>	
+
+										<input type="radio" name="appealType" id="delayCheck" value="0" checked /><span id="delayMsg"></span>
+
+										<input type="radio" name="appealType" id="otherCheck" value="1" />其他原因
+										<textarea name="appealDesc" id="appealDesc" cols="40" rows="5" style="display:none; margin-top: 10px"></textarea>	
 									</td>
 								</tr>								
 								<tr>
@@ -282,22 +288,22 @@
 								</tr>
 							</table>
 							<div class="reasonmsg" style="color: #f00;"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	
-	<div class="updialog d-add-role w350" id="J_AppealShow">
-		<div class="hd">
-			<span class="close ic"></span>
-			<h3>投诉查看</h3>
-		</div>
-		<div class="bd">
-			<div class="d-content">
-				<div class="bd mt10">
-					<div class="uitem">
+
+
+		<div class="updialog d-add-role w350" id="J_AppealShow">
+			<div class="hd">
+				<span class="close ic"></span>
+				<h3>投诉查看</h3>
+			</div>
+			<div class="bd">
+				<div class="d-content">
+					<div class="bd mt10">
+						<div class="uitem">
 							<table class="ui-table">
 								<tr>
 									<td width="100px" class="tr">交易单号：</td>
@@ -337,27 +343,27 @@
 									<td><div class="compacceptret"></div></td>
 								</tr>							
 							</table>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<script type="text/x-handlebars-template" id="entryTemplate">
-		<table class="ui-table table-primary">
-			<thead>
-				<tr>
-					<td colspan="2">交易商品</td>
-					<td>合同</td>
-					<td>单价（元）</td>
-					<td>数量</td>
-					<td>交易款项（元）</td>
-	                <td>交收状态</td>
-	                <td>交易操作</td>
+
+		<script type="text/x-handlebars-template" id="entryTemplate">
+			<table class="ui-table table-primary">
+				<thead>
+					<tr>
+						<td colspan="2">交易商品</td>
+						<td>合同</td>
+						<td>单价（元）</td>
+						<td>数量</td>
+						<td>交易款项（元）</td>
+						<td>交收状态</td>
+						<td>交易操作</td>
 					</tr>
-			</thead>	
-            <tbody>
-                {{#strikes}}
+				</thead>	
+				<tbody>
+					{{#strikes}}
 					<tr class="{{setstyle @index}}">
 						<td colspan="2">成交日期:{{dod}}</td>
 						<td colspan="2">订单号:{{strikeNo}}</td>
@@ -383,16 +389,16 @@
 						<td><span class="cor-red">{{statusDesc}}</span></td>
 						<td>
 							{{#if effRec}}
-								{{handlelink status strikeNo doe enableT enableP lastCompNo}}
+							{{handlelink status strikeNo doe enableT enableP lastCompNo}}
 							{{else}}
-								订单无效
+							订单无效
 							{{/if}}
 						</td>									 	
 					</tr>					
-                 {{/strikes}}
-           </tbody>
-       </table>
-	</script>
-	
-</body>
-</html>
+					{{/strikes}}
+				</tbody>
+			</table>
+		</script>
+
+	</body>
+	</html>
