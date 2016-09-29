@@ -100,7 +100,7 @@
 				</div>
 			</div>
 			<div class="col-xs-12 lh40 bgwhite about txtcenter">
-			<a href="/about/aboutus.html" class="fcgreen">关于我们>></a>
+			<a href="/aboutus.htm" class="fcgreen">关于我们>></a>
 			</div>
 		</div>
 	</div>

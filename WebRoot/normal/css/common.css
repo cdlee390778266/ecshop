@@ -359,7 +359,7 @@
 }
 
 .tp-bd .lnk-home {
-  color: #999999;
+    color: #666;
 }
 
 .tp-bd .fa {
@@ -381,8 +381,6 @@
 
 .top-bar .top-nav li.uitem {
   float: left;
-  border-left: solid 1px #eee;
-  border-right: solid 1px #eee;
   border-top: none;
   border-bottom: none;
 }
@@ -422,6 +420,7 @@
 .top-bar .dropdown .dbox dd {
   line-height: 30px;
   float: left;
+    font-size: 12px;
   margin-right: 40px;
 }
 
@@ -460,7 +459,7 @@
 }
 
 .isStuck .header {
-  box-shadow: 0px 2px 2px #f5f5f5;
+  box-shadow: 2px 20px 42px -49px #727272;
   border-bottom: 1px solid #F9F9F9;
 }
 /* end of header */
@@ -514,7 +513,7 @@
 .search-bd {
   border: solid 3px #6db23d;
 }
-
+.search-bd input:focus{box-shadow: 0px 1px 2px 1px #e0e6e0 inset;}
 .space {
   visibility: hidden;
   height: 10px;
@@ -705,7 +704,7 @@
 /* end of slider */ 
 .footer {
   margin-top: 88px;
-  background: #666666;
+  background: #666;
   color: #999;
 }
 
@@ -749,7 +748,6 @@
   line-height: 2;
   text-align: center;
   padding: 40px 0;
-  border-bottom: 10px solid #e8bc24;
 }
 
 .footer .footer-bd a {
@@ -788,10 +786,12 @@
   zoom: 1;
   min-height: 500px;
   margin-bottom: 15px;
-  border: 1px solid #ddd;
   padding-bottom: 66px;
+  border: 1px solid #ddd;
 }
-
+.prelat .main-content{
+    border:none !important;
+}
 .user-mans .ucenter {
   background-color: #89C975;
   line-height: 50px;
@@ -803,8 +803,8 @@
 }
 
 .user-navs {
-  border: 1px solid #ddd;
   padding: 10px 0;
+  border: 1px solid #ddd;
 }
 
 .user-navs li {
@@ -812,21 +812,24 @@
   cursor: pointer;
   font-size: 12px;
   margin-bottom: 10px;
-  margin-left: 30px;
+  text-indent: 26px;
 }
 .user-navs li>a{
   color: #333333;
   font-size: 14px;
 }
 .user-navs li dl a{
-  color: #999;
+  color: #666;
 }
 .user-navs li.current .active {
   display: block;
 }
 
 .user-navs li.current .active a.mlnks,.user-navs li.current a.mlnks {
-  color: #e25f59;
+    color:#ddb94a;
+    display: block;
+    width: 100%;
+    border-left:4px solid #6db23d;
 }
 
 .user-navs li em {
@@ -921,15 +924,14 @@
 .csel {
   height: 35px;
   width: 111px;
-  border: 1px solid #EEE;
+  border: 1px solid #ccc;
   text-align: center;
   margin-top: 3px;
   /*margin-left: 12px;*/
   background: #FEFEFE;
-  color: gray;
-  border-radius: 3px;
+    color: #666;
 }
-
+.csel:active,.csel:focus{border:1px solid rgba(109,178,61,0.9);}
 .to {
   margin: 0 10px;
 }
@@ -947,10 +949,9 @@
 .cbtn {
   height: 25px;
   line-height: 24px;
-  background-color: #eeeeee;
-  border: 1px solid #a3a3a3;
+    background: #6db23d;
   padding: 0 12px;
-  color: #333333;
+  color: #fff;
   border-radius: 3px;
   transition: width 2s;
   -moz-transition: background-color 0.5s;
@@ -1221,21 +1222,22 @@ button.file-btn .cfile {
 }
 
 .delisting {
-  padding-top: 38px;
+    padding-top: 34px;
   margin-left: 20px;
 }
 
 .delisting a {
-  background: #eeeeee;
-  color: #888888;
-  display: block;
-  width: 98px;
-  height: 35px;
-  line-height: 35px;
-  text-align: center;
-  border: 1px solid #dddddd;
+    background: #e5c04e;
+    color: #fff;
+    display: block;
+    width: 118px;
+    height: 38px;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+    border: 1px solid #e5c04e;
 }
-
+.delisting a:hover{background: #ddb94a;}
 .isStuck .top-bar {
   display: none;
 }
@@ -1376,11 +1378,15 @@ button.file-btn .cfile {
 }
 
 .nav-dl h2 .dl-left dt {
-  color: #555555;
-  font-weight: bold;
-  width: 108px;
-  float: left;
-  position: relative;
+    color: #333;
+    font-weight:normal !important;
+    min-width: 69px;
+    float: left;
+    position: relative;
+    display: block;
+    text-align: right;
+    padding-right: 40px
+
 }
 .nav-dl h2 .dl-left dt i{
  display: inline-block;
@@ -1393,11 +1399,9 @@ button.file-btn .cfile {
 }
 
 .nav-dl h2 .dl-left dd {
-  padding: 10px 0;
   width: 800px;
   float: left;
   text-align: left;
-  line-height: 30px;
   border-bottom: 1px solid #eeeeee;
 }
 
@@ -1407,6 +1411,7 @@ button.file-btn .cfile {
 
 .nav-dl h2 .dl-left dd a {
   padding : 0 10px;
+    font-size: 12px;
   border-left: 1px solid #e0e0e0;
 }
 
@@ -1418,6 +1423,7 @@ button.file-btn .cfile {
 .nav-ul li {
   display: inline-block;
   width: 170px;
+    font-size: 16px;
   text-align: center;
 }
 
@@ -1640,10 +1646,14 @@ button.file-btn .cfile {
   margin-bottom: 20px;
   border-radius: 4px;
   display: inline-block;
-  box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);
   cursor: pointer;
+    background-color: #fff;
+    transition: all .2s;
+    -moz-transition: all .2s; /* Firefox 4 */
+    -webkit-transition: all .2s; /* Safari 和 Chrome */
+    -o-transition: all .2s; /* Opera */
 }
-
+.panel:hover{ box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);}
 .product .panel:nth-child(2n) {
   margin-left: 20px;
 }
@@ -1664,6 +1674,8 @@ button.file-btn .cfile {
   margin-right: 30px;
   display: inline-block;
   line-height: 30px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 
 .product-name::before {
@@ -1698,7 +1710,7 @@ button.file-btn .cfile {
 }
 
 .product-price big {
- font-size: 25px;
+ font-size: 18px;
  color: #e5c04e;
  font-weight: 600;
 }
@@ -1717,8 +1729,7 @@ button.file-btn .cfile {
 }
 
 .liTitle {
-  color: #888888;
-  font-weight: bold;
+  color: #666;
 }
 
 .promise {
@@ -1789,7 +1800,7 @@ button.file-btn .cfile {
   margin-right: 5px;
 }
 .dataTables_scrollBody tbody{
-  color: #888888;
+  color: #666;
 }
 .crumb a:last-child{
   color: #999;
@@ -1885,7 +1896,7 @@ button.file-btn .cfile {
   padding: 13px 26px !important;
 }
 .gp-step4 .btn-upload_unselected input:not([type="radio"]):not([type="checkbox"]):not([type="button"]), select{
-  height: 46px !important
+    height: 28px !important;
 }
 .up-form-control{
   width: 100% !important;
@@ -1941,7 +1952,7 @@ button.file-btn .cfile {
   padding-bottom: 5px;
   padding-top: 5px !important;
   font-weight: normal !important;
-  color: #888888;
+  color: #333;
 }
 .up-search  .filtersection .filterbd{
   padding-bottom: 5px;
@@ -1954,8 +1965,9 @@ button.file-btn .cfile {
   border-color: transparent !important;
 }
 .up-search  .filtersection .filterbd .active{
-  color: #6db23d !important;
-  background: #fff !important; 
+  color: #fff !important;
+  background: #6db23d !important;
+    border-radius: 4px !important;
 }
 .up-search .custsort{
   background: #f5f5f5;
@@ -1980,6 +1992,7 @@ border-bottom: 1px solid transparent;
     margin-top: 8px;
     border: 1px solid #ddd;
 }
+.up-search .dataTables_filter input[type=search]:focus{border:1px solid #e5c04e;}
 .up-search .custfilter .filtersection .filterbd .filtinterval{
   margin: 0 !important;
 }
@@ -1988,9 +2001,11 @@ border-bottom: 1px solid transparent;
   border:1px solid #ddd;
   border-radius: 1px;
 }
+.up-search .custfilter .filtersection .filterbd .filtinterval input:focus{border:1px solid #e5c04e;}
 .up-search .custfilter .filtersection .filterbd .filtbtn{
   background: #fff;
-  border-color: #ddd;
+  border-color: #6db23d;
+  color:#6db23d;
   border-radius: 2px;
   line-height: 17px;
   height: 17px;

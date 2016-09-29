@@ -79,7 +79,7 @@
 <li class="star-font marb10">${memdesc} <br />${sessionScope.userinfo.memName}</li>
 </ul>
 <ul class="slide-middle">
-  <li><a href="/member/home.htm"><img src="/mobile/images/icon1.png" alt="" />我的账户</a></li>
+  <li><a href="/member/account.htm"><img src="/mobile/images/icon1.png" alt="" />我的账户</a></li>
   <li><a href="/mall/list.htm" ><img src="/mobile/images/icon8.png" alt="" />我的挂牌</a></li>
   <li><a href="/sell/list.htm" ><img src="/mobile/images/icon2.png" alt="" />我的订单</a></li>
   <li><a href="/contract/list.htm"><img src="/mobile/images/icon3.png" alt="" />我的合同</a></li>
