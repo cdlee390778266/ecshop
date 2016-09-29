@@ -115,6 +115,10 @@ a:focus {
   line-height: 40px !important;
 }
 
+.lh46 {
+  line-height: 46px !important;
+}
+
 .lh100 {
   line-height: 100px;
 }
@@ -2794,6 +2798,28 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
 .sel-search td {
   padding: 0 !important;
 }
+.sel-search thead {
+  display: none;
+}
+.sel-search .dataTables_empty {
+  background: #fff !important;
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+}
+.sel-search .sortbar {
+  height: 36px;
+  line-height: 36px;
+  background: #fff;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+.sel-search .sortbar li {
+  text-align: center;
+}
+.sel-search .sortbar li.active {
+  color: #6db23d;
+}
 
 .c-select, .custfilter {
   line-height: 30px;
@@ -2818,12 +2844,28 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
 .c-select .commbd ul li, .c-select .filterbd ul li, .custfilter .commbd ul li, .custfilter .filterbd ul li {
   display: inline-block;
   margin-right: 15px;
+  color: #aaaaaa;
+}
+.c-select .commbd ul li.active, .c-select .filterbd ul li.active, .custfilter .commbd ul li.active, .custfilter .filterbd ul li.active {
+  color: #6db23d;
 }
 .c-select .commbd ul li a, .c-select .filterbd ul li a, .custfilter .commbd ul li a, .custfilter .filterbd ul li a {
   color: #aaaaaa;
 }
 .c-select .commbd ul li a.active, .c-select .filterbd ul li a.active, .custfilter .commbd ul li a.active, .custfilter .filterbd ul li a.active {
   color: #6db23d;
+}
+
+.mothod-sel {
+  line-height: 46px;
+  background: #fff;
+}
+.mothod-sel .col-xs-6 {
+  border-bottom: 1px solid #ddd;
+}
+.mothod-sel select {
+  height: 46px;
+  line-height: 46px;
 }
 
 @media screen and (max-width: 400px) {

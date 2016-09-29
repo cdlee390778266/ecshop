@@ -973,7 +973,7 @@ function localcallback(index, key, keyname, fullkey, fullname){
 						if(IsContain(selectedvals, nodes[n].mID))
 						{
 							$('.memselect .unselect select').append('<option value="'+nodes[n].mID+'" disabled>'+nodes[n].memName+'</option>');
-							$('#selc-ul').append('<li class="disabled" data='+nodes[n].mID+'>'+nodes[n].memName+'</li>');
+							$('#selc-ul').append('<li class="active" data='+nodes[n].mID+'>'+nodes[n].memName+'</li>');
 						}else{
 							$('.memselect .unselect select').append('<option value="'+nodes[n].mID+'">'+nodes[n].memName+'</option>');
 							$('#selc-ul').append('<li data="' + nodes[n].mID + '">'+nodes[n].memName+'</li>');

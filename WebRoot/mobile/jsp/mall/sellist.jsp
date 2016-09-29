@@ -34,7 +34,7 @@
 		<!-- header End -->
 	</div>
 	
-	<div class="wrapper service-full up-search ">
+	<div class="wrapper service-full up-search sel-search">
 		<div class="grid-16-16">
 			<!-- main：当前节点的路径-->
 		<div class="c-select mart10">
@@ -70,13 +70,8 @@
 </div>
 <!-- main End -->
 
-<div class="">
 	<div class="main-content up-main-content">
-		<div class="bd">
-			<div class="page-module data-query">
-				<div class="">
-					<div class="bd mt10">
-						<div class="">
+		
 
 							<div class="tabbar-wrap">
 								<div class="mod-tabbar" style="display: none;">
@@ -115,7 +110,7 @@
 							</div>
 						</div>
 
-						<div class="sub-wrap">
+						<div class="sub-wrap mart10">
 							<input type="hidden" value="${sessionScope.userinfo.mID}"
 							id="currMID" />
 
@@ -127,7 +122,6 @@
 										<ul class="J_Brand">
 											<li class="active" data-key="">不限</li>
 										</ul>
-										<div class="more-btn">更多&#8870;</div>
 									</div>
 
 								</div>
@@ -138,7 +132,6 @@
 										<ul class="J_Origin">
 											<li class="active" data-key="">不限</li>
 										</ul>
-										<div class="more-btn">更多&#8870;</div>
 									</div>
 								</div>
 
@@ -156,12 +149,6 @@
 											<li data-max="5000" data-min="5000">3000-5000元</li>
 											<li data-min="5000">5000元以上</li>
 										</ul>
-										<div class="filtinterval">
-											<input type="text" class="input-text" id="p-min"
-											name="p-min" /> <em>-</em> <input type="text"
-											class="input-text" id="p-max" name="p-max" /> <a
-											id="priceBtn" class="filtbtn">查询</a>
-										</div>
 									</div>
 								</div>
 
@@ -178,19 +165,10 @@
 											<li data-max="500" data-min="200">200-500</li>
 											<li data-min="500">500以上</li>
 										</ul>
-										<div class="filtinterval">
-											<input type="text" class="input-text" id="v-min"
-											name="v-min"
-											onkeyup="this.value=this.value.replace(/\D/g,'')" /> <em>-</em>
-											<input type="text" class="input-text" id="v-max"
-											name="v-max"
-											onkeyup="this.value=this.value.replace(/\D/g,'')" /> <a
-											id="volumeBtn" class="filtbtn">查询</a>
-										</div>
 									</div>
 								</div>
 							</div>
-							<div class="page-module product-set up-product sel-search">
+							<div class="page-module product-set up-product ">
 								<table id="dataset" class="cell-border hover table" cellspacing="0"
 								width="100%" style="padding: 0px">
 								<thead>
@@ -209,12 +187,7 @@
 
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-</div>
+		
 <!--  content End -->
 </div>
 </div>

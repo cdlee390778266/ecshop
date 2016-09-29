@@ -125,14 +125,14 @@ $(function() {
 				"orderable": false
 			}
 			],	                       	                      
-			"dom": '<"custsort"<"sortbar">f>rt<"bottom"p>',
+			"dom": '<"custsort"<"sortbar">>rt<"bottom"p>',
 			initComplete: function () {
 
 				var $sortul = $('<ul class="row"></ul>').appendTo($('.sortbar'));
 				$('.sortbar').addClass('container-fluid');
-				$sortul.append('<li data-column="3" data-sort=""  class="active col-xs-4">按单价排序<span>&#8593;<span></li>');
-				$sortul.append('<li data-column="4" data-sort="" class="col-xs-4">按数量排序<span><span></li>');
-				$sortul.append('<li data-column="5" data-sort="" class="col-xs-4">按挂牌有效期排序<span><span></li>');
+				$sortul.append('<li data-column="3" data-sort=""  class="active col-xs-4">单价<span>&#8593;<span></li>');
+				$sortul.append('<li data-column="4" data-sort="" class="col-xs-4">数量<span><span></li>');
+				$sortul.append('<li data-column="5" data-sort="" class="col-xs-4">挂牌有效期<span><span></li>');
 
 
 				$('.J_Brand').empty();

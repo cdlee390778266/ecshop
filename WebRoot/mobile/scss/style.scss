@@ -76,6 +76,9 @@ a:focus{
 .lh40{
   line-height: 40px !important;
 }
+.lh46{
+  line-height: 46px !important;
+}
 .lh100{
   line-height: 100px;
 }
@@ -2411,10 +2414,10 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
   .combo-select{
     max-width: 100% !important;
   }
-#memdelistmsg{
-      position: relative;
+  #memdelistmsg{
+    position: relative;
     top: -3px;
-}
+  }
 }
 #J_MemList{
   width:100%;
@@ -2661,6 +2664,28 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
   td{
     padding:0 !important;
   }
+  thead{
+    display:none;
+  }
+  .dataTables_empty{
+   background:#fff !important;
+   text-align: center;
+   height:100px;
+   line-height: 100px;
+  }
+  .sortbar{
+    height:36px;
+    line-height: 36px;
+    background:#fff;
+    margin-top: 3px;
+    margin-bottom:3px;
+    li{
+      text-align: center;
+      &.active{
+      color:$fcgreen;
+    }
+    }
+  }
 }
 .c-select,.custfilter{
   line-height: 30px;
@@ -2684,15 +2709,30 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
       li{
         display:inline-block;
         margin-right: 15px;
+        color:#aaaaaa;
+        &.active{
+          color:$fcgreen;
+        }
         a{
          color:#aaaaaa; 
          &.active{
           color:$fcgreen;
-         }
         }
-        
       }
+
     }
+  }
+}
+}
+.mothod-sel{
+  line-height: 46px;
+  background:#fff;
+  .col-xs-6{
+    border-bottom: 1px solid #ddd;
+  }
+  select{
+    height:46px;
+    line-height: 46px;
   }
 }
 @media screen and (max-width: 400px) {
@@ -2708,9 +2748,9 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
       .up-txt{
         line-height: 20px;
         margin-top: 40px;
-     }
-   }
- }
+      }
+    }
+  }
 }
 }
 
