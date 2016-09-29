@@ -57,6 +57,12 @@ public class LoginController extends TradeController{
 		return "index";
     }
 	
+	@RequestMapping(value="aboutus.htm")
+	public String about()
+	{
+		return "about/aboutus";
+    }
+	
 	@RequestMapping(value="index.htm")
 	public String index()
     {  
