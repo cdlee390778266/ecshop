@@ -84,15 +84,14 @@
     font-weight: bold;
     border-top: 1px  #ddd dashed;
     padding-top: 10px;
-    margin-left:5px;
 }
 
 
 .custfilter .filtersection .filterbd {
     width: 94%;
     float: left;
-    line-height: 30px;
-    border-top: 1px #ddd dashed;
+    line-height: 28px;
+    border-top: 1px #f5f5f5 dashed;
     position: relative;
     background: #fff;
 }
@@ -143,7 +142,7 @@
 }
 
 .custfilter .filtersection .filterbd .intervalactive{ 
-	border: #89C975 dashed 1px;
+
 }
 
 .custfilter .filtersection .filterbd .input-text{

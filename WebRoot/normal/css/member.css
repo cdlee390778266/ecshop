@@ -1,6 +1,5 @@
 .crumb-nav {
 	position: relative;
-	margin-top: 20px;
 }
 
 .crumb-nav .backto {
@@ -36,16 +35,17 @@
     width: 5%;
     float: left;
     text-align: center;
-    line-height: 30px;
-    font-weight: bold;
+    line-height: 38px;
     border-top: 1px #EEE dashed;
     padding-top: 10px;
+    background-color: #f5f5f5;
+    padding: 1px;
 }
 
 .c-select .rlist .commbd {
     width: 94%;
     float: left;
-    line-height: 30px;
+    line-height: 18px;
     border-top: 1px #EEE dashed;
     position: relative;
     background: #fff;
@@ -65,19 +65,15 @@
     float: left;
     display: inline-block;
     margin: 10px 5px 10px 5px;
-    padding: 0 10px 0 10px;
+    padding: 1px 12px 1px 10px;
     cursor: pointer;
 }
-
 .crumb {
 	height: 36px;
 	line-height: 36px;
-	background-color: #f6f6f6;
 	padding-left: 10px;
 	color: #333333;
-	margin-top: 6px;
 	margin-bottom: 6px;
-	border: 1px solid #ddd;
 }
 
 .crumb a {
@@ -108,13 +104,14 @@
 }
 
 .warehouse tr .ctr {
-	text-align: left;
+	text-align:right;
 	padding-left: 8px;
 	height: 35px
 }
 
 .forceinput {
 	color: #9F9F9F;
+    margin-left: 10px;
 }
 
 .item-info {
@@ -146,7 +143,8 @@
 .page-module .sale-info li {
 	margin-top: 10px;
 	padding-left: 10px;
-	color: gray
+    color: #333;
+    text-indent: 24px;
 }
 
 .page-module  .row .hd h3 {
@@ -258,7 +256,8 @@
 .memdelist-select {
 	font-size: 14px;
 	padding: 5px 10px;
-	background-color: #89C975;
+	background-color: #e5c04e;
+    cursor: pointer;
 	margin: 10px 5px;
 	color: #FFFFFF
 }
@@ -273,9 +272,10 @@
 }
 
 .memselect select {
-	width: 240px;
-	height: 300px;
-	border: 1px solid #89C975;
+    width: 240px;
+    height: 300px !important;
+    border: 1px solid #ccc;
+    box-shadow: 1px 4px 6px #f8f8f8 inset;
 }
 
 .memselect .unselect {
@@ -291,7 +291,12 @@
 	width: 300px;
 	min-height: 200px;
 }
-
+.memselect .manage .inp-search{
+    width: 206px;
+    height: 42px !important;
+    border:1px solid #eeeeee;
+    text-align: center;
+}
 .memselect .manage .selbtn {
 	margin-top: 200px;
 	text-align: center;
@@ -347,7 +352,7 @@
 
 .ui-table td {
 	padding: 5px 10px;
-	color: gray;
+    color: #666;
 }
 
 .cont span {
@@ -421,7 +426,7 @@ table.table-primary thead td {
 .ui-table .ctr {
 	text-align: left;
 	font-size: 13px;
-	color: #717171;
+    color: #333;
 	text-align: center;
 }
 
@@ -730,14 +735,14 @@ table.table-primary thead td {
 }
 
 #J_add_operator {
-	border: solid 1px #a6a6a6;
-	color: #666666;
-	padding: 5px 5px;
-	background: #fff;
-	font-size: 14px;
-	border-radius: 4px;
-	float: right;
-	margin-top: -4px;
+    border: solid 1px #29a54e;
+    color: #FFF;
+    padding: 5px 5px;
+    background: #6db23d;
+    font-size: 14px;
+    border-radius: 4px;
+    float: right;
+    margin-top: -4px;
 }
 
 .account-setting .available {
@@ -1154,6 +1159,7 @@ table.table-primary thead td {
 	font-size: 16px;
 	color: #666;
 	border-bottom: 1px solid #6db23d;
+    padding-bottom: 10px;
 }
 
 .commodity-detail .item-info-r .property .pa-wrap .pa-wrap-x .pa-title h3 span {
@@ -1315,7 +1321,7 @@ table.table-primary thead td {
 	line-height: 24px;
 	font-size: 12px;
 	padding: 10px;
-	color: #7E7E7E;
+    color: #666;
 }
 
 .btn-normal {
@@ -1358,12 +1364,13 @@ table.table-primary thead td {
 }
 
 .pa-btn-sell  .btn-sell {
-	font-size: 16px;
-	height: 36px;
-	line-height: 36px;
-	padding: 0 25px;
-	background-color: #89C975;
-	color: #fff;
+    font-size: 16px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 25px;
+    background-color: #fff;
+    color: #666;
+    border: 1px solid #ddd;
 }
 
 .pa-skin table td {
@@ -1478,7 +1485,7 @@ table.table-primary thead td {
 	width: 226px;
 	height: 348px;
 	margin-top: 10px;
-	border: 1px solid #ddd;
+    background-color: #fbfbfb;
 }
 
 .sale-info .bd .info {
@@ -1495,7 +1502,6 @@ table.table-primary thead td {
 
 .col-sub .attributes {
 	padding: 15px;
-	border-bottom: solid 1px #F5EBEB;
 }
 
 .prodet {
@@ -1592,11 +1598,12 @@ table.table-primary thead td {
 	background-color: #fff;
 	border-right: solid 1px #f5f5f5;
 	border-bottom: solid 1px transparent;
+    border-top: 3px solid green;
 }
 
 .pdeta li.item {
 	margin: 0;
-	padding: 7px 20px;
+    padding: 5px 20px;
 }
 
 .sub-wrap {
@@ -1653,7 +1660,7 @@ table.table-primary thead td {
 	display: inline-block;
 	padding: 5px 12px;
 	font-size: 12px;
-	background-color: #89C975;
+	background-color: #e5c04e;
 	color: #F2FFF1;
 	margin-top: 90px;
 }
@@ -1981,7 +1988,7 @@ td.highlight {
          }
          .gp-step1-main .group-box ul{
          	left: 0 !important;
-         	width: 158px !important;
+             width: 100% !important;
          }
          .select-box{
          	display: inline-block;
@@ -2044,7 +2051,7 @@ td.highlight {
          	padding-bottom: 20px;
          }
          .csel{
-         	width: 188px !important;
+
          }
          .gp-box{
          	transition : all 2s;
@@ -2057,7 +2064,7 @@ td.highlight {
          	border: none !important;
          }
          .data-query .warehouse {
-         	margin: 30px 5px;
+
          }
          .data-query .row .dataTables_wrapper,.dataTables_scroll{
          	padding: 0px 3px 0 5px;
@@ -2142,7 +2149,6 @@ td.highlight {
          	width: 320px !important;
          	padding: 0 10px ;
          	border: 1px solid #eeeeee;
-         	box-shadow: 0 0 2px 0px #ddd;
          	border-radius: 4px;
          	transition : all .4s;
          }
@@ -2164,13 +2170,18 @@ td.highlight {
          	opacity: 0.8;
          }
          #select-txt{
-         	background: #e5c04e;
-         	border-radius: 4px;
-         	border:1px solid #e5c04e;
-         	background: #fff;
-         	cursor: pointer;
-         	padding: 2px 10px;
+             background: #e5c04e !important;
+             border: 1px solid #e5c04e;
+             background: #fff;
+             cursor: pointer;
+             color: #fff;
+             min-width: 78px;
+             min-height: 20px;
+             text-align: center;
+             line-height: 29px;
+             margin-left: 10px;
          }
+         #select-txt:hover{background-color:#e6c04e !important;}
          .layui-layer-ico{
          	left: 0 !important;
          	background: none !important;
@@ -2189,9 +2200,6 @@ td.highlight {
          	margin-left: 5px;
          }
          #memberform{
-         	margin: 40px;
-         	border: 1px solid  #dddddd;
-         	box-shadow: 0 0 10px 0 #eee;
          	padding: 20px 40px;
          	overflow:hidden;
          }
@@ -2285,7 +2293,7 @@ td.highlight {
          .updialog .hd{
          	height: 40px !important;
          	line-height: 40px !important;
-         	background: #91d064 !important;
+         	background: #6db23d !important;
          }
          .mask{
          	background: rgba(0,0,0,0.5) !important;
@@ -2363,7 +2371,7 @@ td.highlight {
          	font-weight: normal;
          }
          .dialog .hd{
-         	background-color: #91d064 !important;
+         	background-color: #6db23d !important;
          	border :none !important;
          }
          .dataTable .cbtn{

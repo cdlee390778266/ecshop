@@ -304,10 +304,14 @@ table.dataTable td {
   margin-left: 1.5em;
   float: left;
   text-align: right;
+  margin-bottom: 7px;
 }
 .dataTables_wrapper .dataTables_filter input {
-  margin-left: 0.5em;
+    margin-left: 0.5em;
+    padding: 1px 34px !important;
+    border: 1px solid #ddd;
 }
+.dataTables_wrapper .dataTables_filter input:focus{border:1px solid #e5c04e;}
 .dataTables_wrapper .dataTables_info {
   clear: both;
   float: left;
@@ -431,6 +435,7 @@ table.dataTable td {
 .dataTables_wrapper .dataTables_paginate {
   color: #333;
 }
+.dataTables_length select{border:1px solid #ddd;}
 .dataTables_wrapper .dataTables_scroll {
   clear: both;
 }
