@@ -2501,3 +2501,19 @@ td.highlight {
  	display: block;
  	width: 100%;
  }
+ #wrno{
+  line-height: 36px;
+  height: 36px;
+  border:1px solid #ddd;
+  padding: 0 10px;
+  position: relative;
+  top: -1px;
+  width: 150px;
+}
+.warehouse .gp-step3 td{
+  border: 1px solid #ECECEC !important;
+  border-bottom: 1px solid #EAEAEA !important;
+}
+.cd-gp li a{
+	width: 396px !important;
+}

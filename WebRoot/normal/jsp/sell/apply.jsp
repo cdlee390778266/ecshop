@@ -44,9 +44,7 @@
 	<div class="fixed-wrapper">  
    <!-- topbar -->
    <jsp:include page="../comm/topbar.jsp" flush="true" />
-
    <!-- topbar End -->
-
    <!-- header -->
    <jsp:include page="../comm/header.jsp" flush="true" />
    <!-- header End -->
@@ -71,122 +69,108 @@
 
 <!-- main -->
 <div class="page mart20 sell-delist">
+ <div class="bd">
+  <form action="/sell/apply.htm" method="post" enctype="multipart/form-data" id="sellApply">
+    <input type="hidden" name="active" value="${active}" />
+    <input type="hidden" name="busDate" id="busDate" value="${busDate}" />
 
-
-  <div class="">
-   <div class="bd">
-    <form action="/sell/apply.htm" method="post" enctype="multipart/form-data" id="sellApply">
-      <input type="hidden" name="active" value="${active}" />
-
-      <input type="hidden" name="busDate" id="busDate" value="${busDate}" />
-
-      <div class="gp-box">
-       <div class="gp-step1 step-pad ">
-         <div class="gp-step1-main txtcenter">
-           <div class="select-box">
-             <div class="select-title">
-               我是：
-             </div>
-             <div class="input-group">
-               <div class="group-box sellerTxt">
-                 <span class="val"><span>卖家</span><i></i></span>
-                 <ul style="display: none;">
-                   <li>卖家</li>
-                   <li>买家</li>
-                 </ul>
-                  <input type="hidden" name="seller" id="seller" />
-               </div>
+    <div class="gp-box">
+     <div class="gp-step1 step-pad ">
+       <div class="gp-step1-main txtcenter">
+         <div class="select-box">
+           <div class="select-title">
+             我是：
+           </div>
+           <div class="input-group">
+             <div class="group-box sellerTxt">
+               <span class="val"><span>卖家</span><i></i></span>
+               <ul style="display: none;">
+                 <li>卖家</li>
+                 <li>买家</li>
+               </ul>
+               <input type="hidden" name="seller" id="seller" />
              </div>
            </div>
-           <div class="select-box">
-             <div class="select-title">
-               交易方式：
-             </div>
-             <div class="input-group ">
-               <div class="group-box trade-promise">
-                 <span class="val"><span >保证金</span><i></i></span>
-                 <ul style="display: none;" id="tradeType">
-                   <li value="M" data-href="/sell/apply.htm?active=enter&type=0" selected>保证金</li>
-                   <li value="W" data-href="/sell/apply.htm?active=enter&type=1">仓单</li>
-                 </ul>
-                 <input type="hidden" name="listedType" value="M" />
-               </div>
+         </div>
+         <div class="select-box">
+           <div class="select-title">
+             交易方式：
+           </div>
+           <div class="input-group ">
+             <div class="group-box trade-promise">
+               <span class="val"><span >保证金</span><i></i></span>
+               <ul style="display: none;" id="tradeType">
+                 <li value="M" data-href="/sell/apply.htm?active=enter&type=0" selected>保证金</li>
+                 <li value="W" data-href="/sell/apply.htm?active=enter&type=1">仓单</li>
+               </ul>
+               <input type="hidden" name="listedType" value="M" />
              </div>
            </div>
-           <div class="select-box" id="product-dialog">
-             <div class="select-title">
-               商品选择：
-             </div>
-             <div class="select-txt" id="select-txt">请选择</div>
+         </div>
+         <div class="select-box" id="product-dialog">
+           <div class="select-title">
+             商品选择：
            </div>
-         </div>
-         <div class="gp-step-btn txtcenter">
-           <span class="btn-next" >下一步</span>
-         </div>
-         <div class="selcomm" data-select style="display:none;"> </div>
-         <!--  comm需要级联查询得到 -->
-         <input type="hidden" name="commCode" id="commCode" value="" />
-         <div class="seledmsg" style="color: #f00;float:right"></div>
-       </div>
-
-       <div class="gp-step2 step-pad ">
-         <div class="step-bar">
-           您选择了：
-           <span  class="seller">未选择</span>
-           <span  class="step-promise">未选择</span>
-           <span  class="product">未选择</span>
-           <a class="modify toStep1 " href="javascript:void(0);" >修改</a>
-         </div>
-         <div class="step-body border">
-           <h2>填写商品信息</h2>
-           <table id="J_AjaxProp" style="display:none">
-             <tbody>
-              <tr>                                                  
-               <td>&nbsp;</td>
-             </tr>
-           </tbody>                                               
-         </table>
-         <div class="gp-step-btn txtcenter">
-           <span class="btn-next" >下一步</span>
+           <div class="select-txt" id="select-txt">请选择</div>
          </div>
        </div>
-
-
-
-
+       <div class="gp-step-btn txtcenter">
+         <span class="btn-next" >下一步</span>
+       </div>
+       <div class="selcomm" data-select style="display:none;"> </div>
+       <!--  comm需要级联查询得到 -->
+       <input type="hidden" name="commCode" id="commCode" value="" />
+       <div class="seledmsg" style="color: #f00;float:right"></div>
      </div>
 
-
-     <div class="gp-step3 step-pad">
+     <div class="gp-step2 step-pad ">
        <div class="step-bar">
          您选择了：
          <span  class="seller">未选择</span>
          <span  class="step-promise">未选择</span>
          <span  class="product">未选择</span>
-         <a class="modify toStep1" href="javascript:void(0);" >修改</a>
-       </div>
-       <div class="step-bar">
-         您已选择了商品属性：
-         <a class="modify toStep2" href="javascript:void(0);" >修改</a>
+         <a class="modify toStep1 " href="javascript:void(0);" >修改</a>
        </div>
        <div class="step-body border">
-        <h2>设置交易方式</h2>
-        <table class="ui-table">
-         <tbody>
-          <tr>
-           <td class="ctr">单价<span class="forceinput">(必填)</span>：</td>
-           <td width="300px">
+         <h2>填写商品信息</h2>
+         <table id="J_AjaxProp" style="display:none">
+           <tbody>
+            <tr>                                                  
+             <td>&nbsp;</td>
+           </tr>
+         </tbody>                                               
+       </table>
+       <div class="gp-step-btn txtcenter">
+         <span class="btn-next" >下一步</span>
+       </div>
+     </div>
+   </div>
 
+   <div class="gp-step3 step-pad">
+     <div class="step-bar">
+       您选择了：
+       <span  class="seller">未选择</span>
+       <span  class="step-promise">未选择</span>
+       <span  class="product">未选择</span>
+       <a class="modify toStep1" href="javascript:void(0);" >修改</a>
+     </div>
+     <div class="step-bar">
+       您已选择了商品属性：
+       <a class="modify toStep2" href="javascript:void(0);" >修改</a>
+     </div>
+     <div class="step-body border">
+      <h2>设置交易方式</h2>
+      <table class="ui-table">
+       <tbody>
+        <tr>
+         <td class="ctr">单价<span class="forceinput">(必填)</span>：</td>
+         <td width="300px">
 
-             <div class="form_control">
-              <input type="text" name="unitPrice" id="unitPrice" class="required"  data-tip="请输入商品单价" data-valid="isNonEmpty||isNoNZeroMoney" data-error="单价必填||金额格式:1.00"/>
-              <span class="priceunit_message"></span>
-
-              <span class="valid_message"></span>
-
-            </div>
-
-
+           <div class="form_control">
+            <input type="text" name="unitPrice" id="unitPrice" class="required"  data-tip="请输入商品单价" data-valid="isNonEmpty||isNoNZeroMoney" data-error="单价必填||金额格式:1.00"/>
+            <span class="priceunit_message"></span>
+            <span class="valid_message"></span>
+          </div>
                                             <!--  
                                             <div style="width: 119px;position: relative; margin-left: 9px; ">
                                                 <input type="text" name="unitPrice" id="unitPrice"  style="width:119px;height:24px; padding: 5px 5px; border: 1px solid #ECECEC;"  />
@@ -195,22 +179,17 @@
                                                 
                                             </div>
                                           -->
-
                                         </td>
-
                                         <td class="ctr" width="125px">一口价：</td>
                                         <td>
                                          <span class="ml20 mr20"><input type="radio" name="DfpFlag" value="F" checked disabled="disabled" />是</span>
-
                                          <input type="hidden" name="fpFlag" value="F" />
                                             <!--  
                                             <span><input type="radio" name="fpFlag" value="V" />否</span>
                                           -->
                                         </td>
                                       </tr>
-
                                       <tr>
-
                                        <td class="ctr">总量<span class="forceinput">(必填)</span>：</td>
                                        <td>                                         
                                         <div class="form_control">
@@ -218,18 +197,15 @@
                                          <span class="unit_message"></span>
                                        </div> 
                                      </td>
-
                                      <td class="ctr">是否整单：</td>
                                      <td>
                                        <div class="J_WholeFlag">
                                         <span class="ml20 mr20"><input type="radio" name="wholeFlag" id="w_flag" value="W"  />是</span>
                                         <span><input type="radio" name="wholeFlag" id="s_flag" value="S" checked />否</span>
                                       </div>
-
                                     </td>
                                   </tr>
                                   <tr>
-
                                    <td class="ctr">起订数量<span class="forceinput">(必填)</span>：</td>
                                    <td>
                                     <div class="form_control">
@@ -281,8 +257,6 @@
                                         <span class="valid_message"></span>
                                       </td>
                                     </tr>
-
-
                                     <tr>
                                      <td class="ctr">交收仓库<span class="forceinput">(必选)</span>：</td>
                                      <td>
@@ -296,10 +270,8 @@
                                     <td>
                                      <span class="ml20 mr20"><input type="radio" name="invoice" value="Y" checked />需要</span>
                                      <span><input type="radio" name="invoice" value="N" />不需要</span>
-
                                    </td>
                                  </tr> 
-
                                  <tr>
                                    <td class="ctr">是否指定摘牌方：</td>
                                    <td colspan="3">
@@ -310,7 +282,6 @@
                                      <input type="hidden" name="memdelists" id="memdelists" />
                                    </td>
                                  </tr> 
-
                                </tbody>
                              </table>
                            </div>
@@ -354,7 +325,7 @@
                                  <div class="detailmsg" style="color: #f00;"></div>
                                </td>
                              </tr>                          
-                           </tr>                                                                                       
+                           </tr>
                          </tbody>
                        </table>
                      </div>
@@ -402,16 +373,15 @@
                    </td>
                  </tr>
                </table>
+             </div>
+             <div class="pa-btn-sell fn-fr mart30">                                    
+              <button class="btn-normal btn-sell" style="margin-left: 200px;">我要挂牌</button>
             </div>
-              <div class="pa-btn-sell fn-fr mart30">                                    
-                <button class="btn-normal btn-sell" style="margin-left: 200px;">我要挂牌</button>                                             
-              </div>
           </div>
         </div>
       </form>
     </div>
   </div>
-</div>
 </div>
 </div>
 <!-- wrapper End -->		
@@ -430,14 +400,11 @@
    <div class="d-content">
     <div>
      <div class="memselect">
-
       <div class="unselect">
         <h3>会员列表</h3>
         <select name="seletlist" size="20" multiple id="selectlist">
-
         </select>				
       </div>
-
       <div class="manage mr10 ml10">				
         <input type="text" placeholder="请选择行政区域" name="divisID" data-key="0086"  data-idx="0" data-full="中国" id="divisID" class="inp-search"/>		
         <div class="localcity"></div>																
@@ -445,7 +412,7 @@
          <ul>
           <li>
            <div class="pa-btn-sell btn-single-select">								
-            <button class="btn-normal btn-sell">单个&gt;&nbsp;&nbsp;</button>												
+            <button class="btn-normal btn-sell">单个&gt;&nbsp;&nbsp;</button>
           </div>
         </li>									
         <li>
@@ -456,14 +423,11 @@
     </ul>
     <ul>
       <li>
-
        <div class="pa-btn-sell btn-all-unselect">									
         <button class="btn-normal btn-sell" >&lt;&lt;全部</button>												
       </div>
     </li>
-
     <li>
-
      <div class="pa-btn-sell btn-single-unselect">									
       <button class="btn-normal btn-sell">&nbsp;&nbsp;&lt;单个</button>												
     </div>
@@ -474,13 +438,10 @@
 
 <div class="selected">
   <h3>已选择会员列表</h3>
-  <select name="seletedlist" size="20" multiple id="selectedlist">
-
-  </select>						
+  <select name="seletedlist" size="20" multiple id="selectedlist"></select>						
 </div>
 </div>
 <div style="float:right">
-
   <button class="cbtn" id="confirmbtn">确&nbsp;&nbsp;认</button>
   <button class="cbtn" id="cancelbtn">取&nbsp;&nbsp;消</button>							
 </div>

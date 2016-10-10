@@ -107,9 +107,9 @@ $('#product-dialog').on('click', function(){
     	step(3);
     })
 
-// $('#tradeType li').click(function(){
-// 	location.href = $(this).data('href');
-// })
+$('#tradeType li').click(function(){
+	location.href = $(this).data('href');
+})
 
 //改版部分新增代码   ---end
 
@@ -330,12 +330,8 @@ $(document).ready(function() {
 			step2 = false;
 			return false;
 		}
-		
-		//var valFlag = $(this).validate('submitValidate');
-		var valFlag = true
-		if (valFlag == true) {
-			
-			var selFlag = false;
+
+		var selFlag = false;
 			$("select[name=propsel]").each(function() {	
 				
 				var tval = $(this).find("option:selected").text();
@@ -351,8 +347,8 @@ $(document).ready(function() {
 					return;
 				}
 			});
-
-			if(selFlag == true){
+		
+		if(selFlag == true){
 				event.preventDefault();
 				return;
 			}
@@ -363,7 +359,9 @@ $(document).ready(function() {
 				return false;
 			}
 
-			
+		var valFlag = $(this).validate('submitValidate');
+		if (valFlag == true) {
+		
 			if(checkUnitPrice() == false){
 				event.preventDefault();
 				return ;

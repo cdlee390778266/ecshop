@@ -31,7 +31,7 @@
 	<title>我的挂牌</title>
 
 </head>
-<body class="drawer drawer-left">
+<body class="drawer drawer-left backTemplate-dialog">
 
 	<div class="fixed-wrapper">
 		<!-- header -->
@@ -144,35 +144,32 @@
 		</table>
 	</script>
 
-
-	<script type="text/x-handlebars-template" id="backTemplate">
-		<div class="title ml20">单号：{{listedNo}}</div>							
-		<div class="title ml20">处理状态：{{statusDesc}}</div>
-
-		<div class="box">	
-			<table class="ui-table table-primary">
-				<caption>本次下架费用说明</caption>
-				<thead>
-					<tr>
-						<td>费用名称</td>
-						<td>交易类型</td>
-						<td>费用金额</td>
-						<td>当前状态</td>
-					</tr>
-				</thead>
-				<tbody>
+		<script type="text/x-handlebars-template" id="backTemplate">
+			<div class="title ml20">单号：{{listedNo}}</div>							
+			<div class="title ml20">处理状态：{{statusDesc}}</div>
+			<div class="container-fluid">
+				<div class="lh40 mart5 marb60">
+					<div class="row">
+						<div class="col-xs-12 padlr25 up-title">本次摘牌费用说明</div>
+					</div>
 					{{#costPays}}
-					<tr>
-						<td>{{costName}}</td>
-						<td>{{trTypeName}}</td>
-						<td>{{money costAmt}}</td>
-						<td>{{flagDesc}}</td>
-					</tr>
+					<div class="row bgfff up-cost">
+						<div class="col-xs-4 borderdb  txtleft">费用名称</div>
+						<div class="col-xs-8 borderdb fc999">{{costName}}</div>
+						<div class="col-xs-4 borderdb txtleft ">交易类型</div>
+						<div class="col-xs-8 borderdb fc999">{{trTypeName}}</div>
+						<div class="col-xs-4 borderdb txtleft ">费用金额</div>
+						<div class="col-xs-8 borderdb fcyellow">
+							{{money costAmt}}
+						</div>
+						<div class="col-xs-4 borderdb txtleft ">当前状态</div>
+						<div class="col-xs-8 borderdb fc999">{{flagDesc}}</div>
+					</div>
 					{{/costPays}}
-				</tbody>
-			</table>										
+			</div>	
 		</div>
 	</script>
+
 	<script type="text/x-handlebars-template" id="backTemplatecd">
 		<div class="title ml20">单号：{{listedNo}}</div>							
 		<div class="title ml20">处理状态：{{statusDesc}}</div>

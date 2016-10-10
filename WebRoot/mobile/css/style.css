@@ -3117,3 +3117,17 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
   line-height: 40px;
   background: #f5f5f5;
 }
+
+.backTemplate-dialog {
+  font-size: 12px !important;
+}
+.backTemplate-dialog .dialog {
+  width: 92% !important;
+}
+.backTemplate-dialog .dialog .bd {
+  padding: 20px 0 !important;
+  margin: 0 !important;
+}
+.backTemplate-dialog .dialog .bd * {
+  font-size: 12px !important;
+}

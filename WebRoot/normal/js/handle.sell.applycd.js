@@ -1,5 +1,101 @@
 $(function() {
 	
+	var step3 = false;
+	var step4 = false;
+
+//改版部分新增代码   ---start
+$('.group-box').click(function(event){
+	event.stopPropagation();
+	$('.group-box ul').slideUp(10);
+	$(this).find('ul').slideDown(10);
+})
+$(document).click(function(){
+	$('.group-box ul').slideUp(10);
+})
+$('.group-box ul li').click(function(event){
+	event.stopPropagation();
+	$(this).parents('.group-box').find('.val span').html($(this).html());
+	$(this).parents('.group-box').find('input').val($(this).attr("value"));
+	if( $(this).parents('.group-box').hasClass('sellerTxt')){
+		$('.seller').html($(this).html());
+	}else if($(this).parents('.group-box').hasClass('trade-promise')){
+		$('.step-promise').html($(this).html());
+	}
+	$(document).click();
+})
+
+
+    //初始化
+    $('#wrno').val('');
+    $('#step1-notice,#step2-notice,#step3-notice,#step4-notice').removeClass('active');
+    $('#step1-notice').addClass('active');
+    $('.curmbs').find('img').hide();
+    $('.gp-step1,.gp-step2,.gp-step3,.gp-step4').hide();
+    $('.gp-step1').show();
+
+
+    $('.step-promise').html($('.trade-promise .val span').html());
+   
+
+    function step(num){
+    	if(num ==1){
+    		$('#step1-notice,#step2-notice,#step3-notice,#step4-notice').removeClass('active');
+    		$('#step1-notice').addClass('active');
+    		$('.curmbs').find('img').hide();
+    		$('.gp-step1,.gp-step2,.gp-step3,.gp-step4').hide();
+    		$('.gp-step1').show();
+    	}else if(num == 2){
+    		$('#step1-notice,#step2-notice,#step3-notice,#step4-notice').removeClass('active');
+    		$('#step2-notice').addClass('active');
+    		$('.curmbs').find('img').hide();
+    		$('#step1-notice img').show();
+    		$('.gp-step1,.gp-step2,.gp-step3,.gp-step4').hide();
+    		$('.gp-step2').show();
+    	}else if(num == 3){
+    		$('#step1-notice,#step2-notice,#step3-notice,#step4-notice').removeClass('active');
+    		$('#step3-notice').addClass('active');
+    		$('.curmbs').find('img').hide();
+    		$('#step1-notice img,#step2-notice img').show();
+    		$('.gp-step1,.gp-step2,.gp-step3,.gp-step4').hide();
+    		$('.gp-step3').show();
+    	}else if(num == 4){
+    		$('#step1-notice,#step2-notice,#step3-notice,#step4-notice').removeClass('active');
+    		$('#step4-notice').addClass('active');
+    		$('.curmbs').find('img').hide();
+    		$('#step1-notice img,#step2-notice img,#step3-notice img').show();
+    		$('.gp-step1,.gp-step2,.gp-step3,.gp-step4').hide();
+    		$('.gp-step4').show();
+    	}
+    }
+
+    $('.gp-step1 .btn-next').click(function(event){
+    	step3 = true;
+    	$('#sellApply').submit();
+
+    })
+    
+    $('.gp-step3 .btn-next').click(function(event){
+    	step4 = true;
+    	$('#sellApply').submit();
+    })
+
+    $('.toStep1').click(function(){
+    	step(1);
+    })
+
+    $('.toStep3').click(function(){
+    	step(3);
+    })
+
+$('#tradeType li').click(function(){
+	location.href = $(this).data('href');
+})
+
+//改版部分新增代码   ---end
+
+
+
+
 	$(document).ready(function() {
 		$('.fixed-wrapper').stickUp();
 		$('#dataset').dataTable();
@@ -142,12 +238,19 @@ $(function() {
 		}
 		if ($("#wrno").val() == null || $("#wrno").val() == "") {
 			//$('.seledmsg').html("未选择商品品种");
-			$('#codev').html("请选择注册仓单！");
+			layer.msg("请选择注册仓单！");
 			event.preventDefault();
 			return;
 		}else{
 			$('#codev').html("");
 		}
+
+		if(step3){
+				step(3);
+				step3 = false;
+				return false;
+			}
+		
 		var valFlag = $(this).validate('submitValidate');
 		if (valFlag == true) {
 			
@@ -172,8 +275,8 @@ $(function() {
 				event.preventDefault();
 				return;
 			}
-			
-			
+
+       
 			if(checkUnitPrice() == false){
 				event.preventDefault();
 				return;
@@ -187,7 +290,12 @@ $(function() {
 				event.preventDefault();
 				return;
 			}
-
+            
+            if(step4){
+		    	step(4);
+		    	step4 = false;
+		    	return false;
+		    }
 			
 	    	var rlen =  UTFStrLength($('#detail').val())
 	    	if(rlen >= 1500){
@@ -714,6 +822,7 @@ $(function() {
 		$('.mask').hide();
 		$('.mark').remove();
 		
+		$('.cd-id').html($('#wrno').val());
 	});
 	
 });
