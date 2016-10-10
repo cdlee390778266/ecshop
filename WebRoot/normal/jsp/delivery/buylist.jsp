@@ -200,13 +200,13 @@
 									<input type="radio" name="appealType" id="delayCheck" value="0" checked /><span id="delayMsg"></span>
 									
 									<input type="radio" name="appealType" id="otherCheck" value="1" />其他原因
-									<textarea name="appealDesc" id="appealDesc" cols="40" rows="5" style="display:none; margin-top: 10px"></textarea>	
+									<textarea name="appealDesc" id="appealDesc" rows="5" style="display:none; margin-top: 10px" width="100%"></textarea>	
 									</td>
 								</tr>								
 								<tr>
 									<td></td>
 									<td>
-										<div class="pt10"><button class="cbtn cpublish">提交投诉</button></div>         
+										<div class="mart15"><button class="cbtn cpublish">提交投诉</button></div>         
 									</td>
 								</tr>
 							</table>

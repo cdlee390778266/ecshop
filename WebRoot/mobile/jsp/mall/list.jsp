@@ -56,7 +56,7 @@
 				<div class="col-xs-12">
 					<div class="input-group mart5 up-group">
 						<span class="input-group-addon">挂牌日期：</span>
-						<input type="text" name="dol" id="dol" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control" />
+						<input type="text" name="dol" id="dol" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control"  />
 						<span class="input-group-addon">至</span>
 						<input type="text" name="edol" id="edol" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control" />
 					</div>

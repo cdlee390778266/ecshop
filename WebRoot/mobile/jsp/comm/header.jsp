@@ -97,6 +97,31 @@
 </div>
 <!-- 左侧导航条 end  -->
 
+<!-- 页面加载 Start  -->
+<div class="spinner-wrapper">
+<div class="spinner">
+  <div class="spinner-container container1">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container2">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container3">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+</div>
+</div>
+<!-- 页面加载 end  -->
+
 <script>
  var touchFlag = true;
  $(document).ready(function($) {
@@ -118,6 +143,16 @@
        	$('#top-search').submit();
        })
      });
+
+    /** 
+    * 文档加载完成显示页面内容
+    */ 
+    window.onload = function(){
+      $('.spinner-wrapper').fadeOut();
+      $('body').css('overflow','auto');
+    }
+
+
 /** 
 * @description 事件绑定，兼容各浏览器 
 * @param target 事件触发对象 

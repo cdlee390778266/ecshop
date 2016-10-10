@@ -234,6 +234,7 @@ $(function() {
 					$(this).focus();
 					selFlag = true;
 					empty = false;
+					
 					return;
 				}
 			});
@@ -271,6 +272,7 @@ $(function() {
 
 			if($('#doe').val() == ''){
                  layer.msg('挂牌有效期必填');
+                 $('#doe').focus();
                  return false;
 			}
 
@@ -952,7 +954,7 @@ function localcallback(index, key, keyname, fullkey, fullname){
 	var formParam = "divlevel="+index+"&divcode="+key+"&markcode="+selmarkcode;
 	$('.memselect .unselect select option').remove();
 	$('#selc-ul').html('');
-	$('#selectedlist option').remove();
+	// $('#selectedlist option').remove();
 	$.ajax({
 		type : 'post',
 		url : '/divis/findmember.htm',
@@ -1150,7 +1152,8 @@ var step4 = false;
     })
 
     $('.close').click(function(){
-    	$('.con').removeClass('cityactive');
+    	// $('.con').removeClass('cityactive');
+    	$('.cancelbtn').click();
     })
 
 function checkData(id){

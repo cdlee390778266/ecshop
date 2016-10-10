@@ -36,7 +36,7 @@
 
             $('.select_mask').on('click',function(){
              $('.select_mask').css('display','none').animate({opacity: 0});
-             $('.selcomm').css('bottom','-142px');
+             $('.selcomm').css('bottom','-50vh');
              $('.rlist .commsection').css('display','none');
              $('.rlist .commsection:first-child').css('display','block');
              $('body').css('overflow','auto');
@@ -67,7 +67,12 @@
                   head = "商品";
                 }
 
-                var ulh = '<div class="commsection"><div class="commhead">'+head+'<img src="/mobile/images/select_close.png" /></div><div class="commbd"><ul><li class="active" data-level="'+level+'" data-key="" data-leaf="true" >不限</li>';
+                if(level == 0){
+                  var ulh = '<div class="commsection"><div class="commhead">'+head+'<span class="ch-close"><img src="/mobile/images/select_close.png" /></span></div><div class="commbd"><ul>';
+                }else{
+                  var ulh = '<div class="commsection"><div class="commhead"><span class="sel-back"><img src="/mobile/images/sel-back.png" /></span>'+head+'<span class="ch-close"><img src="/mobile/images/select_close.png" /></span></div><div class="commbd"><ul>';
+                }
+
                 for(var i=0;i<idata.length;i++){
                   ulh += '<li data-level="'+idata[i].level+'" data-key="'+idata[i].code+'" data-leaf="'+idata[i].haveLeaf+'">'+idata[i].name+'</li>';
                   
@@ -187,9 +192,14 @@ grandnext.show();
 
 })
 
-$(this).on('click','.commhead img,.commbd li:first-child',function(){
+$(this).on('click','.ch-close',function(){
  $('.selcomm_dialog').val('请选择挂牌商品');
  $('.select_mask').click();
+})
+
+$(this).on('click','.sel-back',function(){
+ $(this).parents('.commsection').hide();
+ $(this).parents('.commsection').prev().show();
 })
 
 

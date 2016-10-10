@@ -6,50 +6,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <base href=""/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="author" content="" />
-    <link rel="shortcut icon" href="/normal/images/icon/favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="/normal/css/global.css" />
-    <link type="text/css" rel="stylesheet" href="/normal/css/font.css" />
-    <link type="text/css" rel="stylesheet" href="/normal/css/common.css" />
-    <link type="text/css" rel="stylesheet" href="/normal/css/member.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<base href=""/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="author" content="" />
+	<link rel="shortcut icon" href="/normal/images/icon/favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="/normal/css/global.css" />
+	<link type="text/css" rel="stylesheet" href="/normal/css/font.css" />
+	<link type="text/css" rel="stylesheet" href="/normal/css/common.css" />
+	<link type="text/css" rel="stylesheet" href="/normal/css/member.css" />
 	<link type="text/css" rel="stylesheet" href="/normal/widget/css/ui.datepicker.css" />
 	<link type="text/css" rel="stylesheet" href="/normal/css/selecttags.css" >
 	<link type="text/css" rel="stylesheet" href="/normal/widget/css/ui.dialog.css" />
 	<script type="text/javascript">
 		var enablePay = ${enablePay};
 	</script>
-    <script type="text/javascript" src="/normal/js/jquery.js"></script>
-    <script type="text/javascript" src="/normal/js/leftnavs.js"></script>
+	<script type="text/javascript" src="/normal/js/jquery.js"></script>
+	<script type="text/javascript" src="/normal/js/leftnavs.js"></script>
 	<script type="text/javascript" src="/normal/widget/js/ui.datepicker.js"></script>
 	<script type="text/javascript" src="/normal/js/handlebars.js"></script>
-    <script type="text/javascript" src="/normal/js/ui.pagination.js"></script>
-    <script type="text/javascript" src="/normal/js/selecttags.js"></script>
-    <script type="text/javascript" src="/normal/js/stickup.js"></script>
-    <script type="text/javascript" src="/normal/widget/js/ui.dialog.js"></script>
-    
-    <jsp:include page="../comm/datatables.jsp" flush="true" />
-    
-    <script type="text/javascript" src="/normal/js/handle.warehouse.js?v=${sessionScope.buildno}"></script>
-    <title>仓单管理</title>
-    
+	<script type="text/javascript" src="/normal/js/ui.pagination.js"></script>
+	<script type="text/javascript" src="/normal/js/selecttags.js"></script>
+	<script type="text/javascript" src="/normal/js/stickup.js"></script>
+	<script type="text/javascript" src="/normal/widget/js/ui.dialog.js"></script>
+
+	<jsp:include page="../comm/datatables.jsp" flush="true" />
+
+	<script type="text/javascript" src="/normal/js/handle.warehouse.js?v=${sessionScope.buildno}"></script>
+	<title>仓单管理</title>
+
 </head>
 <body>
 
 	<div class="fixed-wrapper"> 
-	<!-- topbar -->
-	<jsp:include page="../comm/topbar.jsp" flush="true" />
-	
-	<!-- topbar End -->
-	
-	<!-- header -->
-	<jsp:include page="../comm/header.jsp" flush="true" />
-	<!-- header End -->
-	
+		<!-- topbar -->
+		<jsp:include page="../comm/topbar.jsp" flush="true" />
+
+		<!-- topbar End -->
+
+		<!-- header -->
+		<jsp:include page="../comm/header.jsp" flush="true" />
+		<!-- header End -->
+
 	</div>
 	
 	<!-- wrapper -->
@@ -63,7 +63,7 @@
 			
 			<!-- main -->
 			<div class="page">
-			
+
 				<!-- left -->
 				<jsp:include page="../comm/left.jsp" flush="true" />
 				<!-- left End -->
@@ -73,63 +73,61 @@
 						
 						<div class="page-module data-query">
 							<div class="row">
-							    <div class="hd">
-							   		<h3>签发仓单注册</h3>
-							    </div>
-							    <div class="bd mt10 warehouse">
-							      
-							      	  
+								<div class="hd gp-h3">
+									<h3>签发仓单注册</h3>
+								</div>
+								<div class="bd mt10 warehouse">
+
 									<table class="ui-table">
-									<tbody>
-										<tr>
-											<td width="80" class="ctr">商品分类：</td>
-												<td colspan="5">
-												<input type="hidden" name="commcode" id="commcode" />
-												<div class="selcomm" data-select></div>
-																																
-											</td>		
-										</tr>																	
-										<tr>
-											<td class="ctr">入库时间：</td>
-											<td>
-												<input type="text" name="contTime" id="contTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date ml10" />
+										<tbody>
+											<tr>
+												<td width="80" class="ctr">商品分类：</td>
+												<td>
+													<input type="hidden" name="commcode" id="commcode" />
+													<div class="selcomm" data-select></div>
+													<div class="select-box" id="product-dialog">
+														<div class="select-txt" id="select-txt">请选择</div>
+													</div>								
+												</td>	
+												<td class="ctr">入库时间：</td>
+												<td>
+													<input type="text" name="contTime" id="contTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date ml10" />
 													至
-												<input type="text" name="econtTime" id="econtTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date" />
-											</td>
-											<td class="ctr">仓库编号：</td>
-											<td colspan="3"><input type="text" class="cinp" name="storeno" maxlength="12" id="storeno" /></td>
-										</tr>																	
-									</tbody>
-								</table>
-							    </div>
-							</div>
-							<div class="tabbar-wrap">
-								 <div class="mod-tabbar">
-									<div class="header-exg tab-sty">
-										<ul id="J_TabBar" class="pa-tabbar pdeta">
-											<li class="item tab-cell selected"><a href="#">可注册仓单</a></li>
-											<li class="item tab-cell"><a href="/warehouse/list.htm?category=cancel">待审核仓单</a></li>
-											<li class="item tab-cell"><a href="/warehouse/list.htm?category=audited">已审核仓单</a></li>
-										</ul>
-									</div>
+													<input type="text" name="econtTime" id="econtTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date" />
+												</td>
+												<td class="ctr">仓库编号：</td>
+												<td colspan="3"><input type="text" class="cinp" name="storeno" maxlength="12" id="storeno" /></td>	
+											</tr>																	
+											<tr>
+											<td class="ctr txtcenter" width="80">仓单状态：</td>
+												<td colspan="5">
+													<select class="csel" id="type">
+														<option value="#" selected="">可注册仓单</option>	
+														<option value="/warehouse/list.htm?category=cancel" >待审核仓单</option>
+														<option value="/warehouse/list.htm?category=audited" >已审核仓单</option>
+													</select>
+												</td>
+											</tr>																	
+										</tbody>
+									</table>
 								</div>
 							</div>
 							<div class="row">
 								<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
-								        <thead>
-								            <tr>
-								            	<th>商品种类名称</th>
-								            	<th>交易商名称</th>
-								            	<th>签发仓单编号</th>
-								                <th>仓库名称</th>
-								                <th>仓库编号</th>
-								                <th>货物数量</th>
-								                <th>剩余数量</th>
-								                <th>货物单位</th>
-								                <th>操作</th>
-								            </tr>
-								        </thead>
-								  </table>
+									<thead>
+										<tr>
+											<th>商品种类名称</th>
+											<th>交易商名称</th>
+											<th>签发仓单编号</th>
+											<th>仓库名称</th>
+											<th>仓库编号</th>
+											<th>货物数量</th>
+											<th>剩余数量</th>
+											<th>货物单位</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -151,7 +149,7 @@
 							<td><span id="receiptnotmp" style="margin-left: 10px"></span></td>
 						</tr> 
 						
-						 <tr>
+						<tr>
 							<td class="ctr">商品种类名称：</td>											
 							<td><span id="mdsenametmp" style="margin-left: 10px"></span></td>
 						</tr>
@@ -181,25 +179,25 @@
 							<td class="ctr">注册数量：</td>											
 							<td><input type="text" class="cinp" style="width: 50px;" name="resnum" id="resnum" />
 								<span id="cinpunit" style="margin-left: 2px;"></span><span id="msg" style="margin-left: 5px; color: red"></span></td>
-							
-						</tr>  
-					</tbody>
-				</table>
-			</div>
-			
-			<div>
-				<div style="float: right;margin-top: 10px;">
 
-					<button class="cbtn" id="confirmbtn1">提&nbsp;&nbsp;交</button>
-					<button class="cbtn" id="cancelbtn1">取&nbsp;&nbsp;消</button>
+							</tr>  
+						</tbody>
+					</table>
 				</div>
+
+				<div>
+					<div style="float: right;margin-top: 10px;">
+
+						<button class="cbtn" id="confirmbtn1">提&nbsp;&nbsp;交</button>
+						<button class="cbtn" id="cancelbtn1">取&nbsp;&nbsp;消</button>
+					</div>
+				</div>
+
 			</div>
-			
 		</div>
-	</div>
-	
-	<!-- footer -->
-	<jsp:include page="../comm/footer.jsp" flush="true" />
-	<!-- footer End -->
-</body>
-</html>
+
+		<!-- footer -->
+		<jsp:include page="../comm/footer.jsp" flush="true" />
+		<!-- footer End -->
+	</body>
+	</html>

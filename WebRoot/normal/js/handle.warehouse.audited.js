@@ -141,4 +141,10 @@ $(function() {
 	var dataList =dataTablesInit('#dataset', surl, ajaxfn, defaultOrder, btnfn, columns, columndefs, rowfn);
 
 	loadMarket(marketurl);
+
+	 //仓单状态选择
+    $('#type').change(function(event) {
+    	location.href = $(this).val();
+    });
+    
 });

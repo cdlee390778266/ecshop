@@ -61,14 +61,11 @@
 	<div class="fixed-wrapper">  
    <!-- topbar -->
    <jsp:include page="comm/topbar.jsp" flush="true" />
-
    <!-- topbar End -->
-
    <!-- header -->
    <jsp:include page="comm/header.jsp" flush="true" />
    <!-- header End -->
  </div>
-
 
  <!-- banner Start -->
  <div class="swiper-container">
@@ -100,65 +97,45 @@
        </ul>
      </div>
    </div>
-   
 
-
-
-<div class="input-group">
- <div class="group-txt">挂牌方式</div>
- <div class="group-box">
-   <span class="val"><span>不限 </span><i></i></span>
-   <ul>
-     <li>买方挂牌</li>
-     <li>卖方挂牌</li>
-   </ul>
+   <div class="input-group">
+     <div class="group-txt">挂牌方式</div>
+     <div class="group-box">
+       <span class="val"><span>不限 </span><i></i></span>
+       <ul>
+         <li>买方挂牌</li>
+         <li>卖方挂牌</li>
+       </ul>
+     </div>
+   </div>
+   <div class="screen-search">
+     <label for=""></label>
+     <input type="text" placeholder="在结果中搜索关键字" />
+   </div>
  </div>
-</div>
-<div class="screen-search">
- <label for=""></label>
- <input type="text" placeholder="在结果中搜索关键字" />
-</div>
-</div>
-
 </div>
 <!-- 筛选 -->
 
-
 <div class="wrapper service-full mt30">
   <div class="grid-16-16">
-   <!-- main -->
-
-
-   <div class="main">
-
-
-   </div>
-
-   <!-- main End -->
-
    <div class="main-content">
      <div class="bd">
-
       <div class="page-module product-set">
        <div class="row">
          <div class="product">
-
           <input type="hidden" value="${sessionScope.userinfo.mID}" id="currMID" />
           <div class="row" id="datalist">
-
-    </div>  				
+          </div>  				
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
 </div>			
 </div>	
 <!--  content End -->			
 </div>
 
-
 <!-- wrapper End -->
-
 
 <script type="text/x-handlebars-template" id="entryTemplate">
 	<table class="ui-table table-primary">
@@ -262,9 +239,9 @@
   });
   
   $(document).ready(function(){
-	  var tab = $("#datalist").tabulation("/mall/findtradelist.htm");
-	  console.log(tab);
-  });
+   var tab = $("#datalist").tabulation("/mall/findtradelist.htm");
+   console.log(tab);
+ });
   
   $(function(){
     $('body').on('click','.group-box',function(event){
@@ -284,7 +261,7 @@
     $('body').on('click','.panel',function(){
       location.href = $(this).find('a').eq(0).attr('href');
     })
-})
+  })
 
 </script>
 </body>

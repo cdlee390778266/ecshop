@@ -39,7 +39,7 @@
 </head>
 <body>
 
-	<div class="fixed-wrapper">
+	<div class="fixed-wrapper cd">
 		<!-- topbar -->
 		<jsp:include page="../comm/topbar.jsp" flush="true" />
 
@@ -72,23 +72,26 @@
 
 						<div class="page-module data-query">
 							<div class="row">
-								<div class="hd">
+								<div class="hd gp-h3">
 									<h3>会员绑定</h3>
 								</div>
 							</div>
 							<div class="row">
 								<form id="J_StaticForm" action="trigmembinding.htm" method="post">
 									<div class="gn-cd-bangding">
+										<label>仓库会员账号</label><span class="gn-cd-zh">${rspBody.provId}</span>
 										<span>绑定状态</span>
-										<span class="gn-cd-yibang">
+										
 											<c:if test="${rspBody.provId != null && rspBody.provId != ''}">
+											<span class="gn-cd-yibang">
 												已绑定
+											</span>
 											</c:if>
 											<c:if test="${rspBody.provId == null || rspBody.provId == ''}">
+											<span class="gn-cd-wbang">
 												未绑定
+												</span>
 											</c:if>
-										</span>
-										<label>仓库会员账号</label><span class="gn-cd-zh">${rspBody.provId}</span>
 									</div>
 									<div class="gn-cd-bangding-input">
 										<div class="field">
@@ -106,12 +109,12 @@
 										<c:if test="${rspBody.provId != null && rspBody.provId != ''}">
 											<input type="hidden" name="flag" id="flag" value="0">
 										</c:if>
-										<div class="submit">
+										<div class="submit txtcenter">
 											<c:if test="${rspBody.provId != null && rspBody.provId != ''}">
-												<button type="submit" class="btn-normal J_Submit" tabindex="5" id="J_SubmitStatic">取消绑定</button>
+												<button type="submit" class="cd_c_Submit" tabindex="5" id="J_SubmitStatic">取消绑定</button>
 											</c:if>
 											<c:if test="${rspBody.provId == null || rspBody.provId == ''}">
-												<button type="submit" class="btn-normal J_Submit" tabindex="5" id="J_SubmitStatic">绑定会员</button>
+												<button type="submit" class=" cd_c_Submit" tabindex="5" id="J_SubmitStatic">绑定会员</button>
 											</c:if>
 										</div>
 									</div>

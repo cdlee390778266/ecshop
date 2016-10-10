@@ -110,7 +110,7 @@
 											<div class="pt10 pwman-row">
 												<div class="pwman-coll"></div>
 												<div class="pwman-colr">
-												<button class="pwdman-btn" data-value="" id="confirmbtn" tabindex="3" >确&nbsp;&nbsp;认</button>
+												<button class="pwdman-btn" data-value="1" id="confirmbtn" tabindex="3" >确&nbsp;&nbsp;认</button>
 												</div>
 											</div>   
 										</div>

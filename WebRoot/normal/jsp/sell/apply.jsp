@@ -105,9 +105,9 @@
              <div class="input-group ">
                <div class="group-box trade-promise">
                  <span class="val"><span >保证金</span><i></i></span>
-                 <ul style="display: none;">
-                   <li value="M">保证金</li>
-                   <li value="W">仓单</li>
+                 <ul style="display: none;" id="tradeType">
+                   <li value="M" data-href="/sell/apply.htm?active=enter&type=0" selected>保证金</li>
+                   <li value="W" data-href="/sell/apply.htm?active=enter&type=1">仓单</li>
                  </ul>
                  <input type="hidden" name="listedType" value="M" />
                </div>
@@ -119,10 +119,7 @@
              </div>
              <div class="select-txt" id="select-txt">请选择</div>
            </div>
-
-
          </div>
-
          <div class="gp-step-btn txtcenter">
            <span class="btn-next" >下一步</span>
          </div>

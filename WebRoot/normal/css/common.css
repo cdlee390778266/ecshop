@@ -1376,7 +1376,9 @@ button.file-btn .cfile {
 .nav-dl h2:hover .dl-left {
   display: block;
 }
-
+.nav-dl h2 .dl-left dl{
+  clear: both;
+}
 .nav-dl h2 .dl-left dt {
     color: #333;
     font-weight:normal !important;
@@ -1583,10 +1585,10 @@ button.file-btn .cfile {
 .group-box ul {
   position: absolute !important;
   top: 39px !important;
-  left: -90px !important;
+  left: -82px !important;
   background: #fff !important;
   border: 1px solid #ddd !important;
-  width: 349px !important;
+  width: 341px !important;
   line-height: 40px !important;
   z-index: 88 !important;
   display: none ;
@@ -1718,6 +1720,7 @@ button.file-btn .cfile {
 .panel-body {
   line-height: 30px;
   color: #888888;
+  height: 164px;
 }
 
 .panel-body li {
@@ -1815,7 +1818,8 @@ button.file-btn .cfile {
 #J_LoginBox{
   position: relative;
   top: 100px;
-  opacity: 0;
+  top:0px\9;
+  opacity: 1\9;
   animation: login ease 1s  forwards;
   -moz-animation: login ease 1s  forwards;  /* Firefox */
   -webkit-animation: login ease 1s  forwards; /* Safari 和 Chrome */
@@ -1943,6 +1947,7 @@ button.file-btn .cfile {
   width:99%;
   border:none !important;
   border-bottom: 1px solid #ddd !important;
+  margin-left: 5px;
 }
 .up-search  .filtersection:first-child .filterhd,.up-search  .filtersection:first-child .filterbd{
   border-top: 1px solid #ddd !important;
@@ -2074,18 +2079,15 @@ border-bottom: 1px solid transparent;
 
 
 .up-page-main{
-  margin-right: 10px;
+  margin: 0 10px;
 }
 .up-page-main a{
   display: inline-block;
-  float: left;
   border: 1px solid #e4e4e4;
   border-left: none; 
   padding: 0 14px;
-  position: relative;
-  top: -1px; 
 }
-.up-page-main a:hover,.up-page-main a.active{
+.up-page-main a.active{
   color: #fff;
   background: #6db23d;
 }
@@ -2093,7 +2095,10 @@ border-bottom: 1px solid transparent;
    border-left: 1px solid #e4e4e4;
 }
 .up-page-main span{
-  margin-left: 5px;
+  margin: 0 10px;
+}
+.up-page-main span + a{
+    border-left: 1px solid #e4e4e4; 
 }
 .up-pager{
   position: relative;
@@ -2113,4 +2118,169 @@ border-bottom: 1px solid transparent;
   border-radius: 4px;
   margin-left: 5px;
 }
-
+.up-item{
+  width: 700px;
+ height: 60px;
+ line-height: 60px;
+ background: #f4f4f4;
+ color: #666666;
+ margin-top: 70px;
+}
+.up-item span{
+padding-left: 20px;
+}
+.up-primary thead td{
+background: #f7f7f7;
+color: #6db23d;
+}
+.up-table td{
+  border-bottom: 1px solid #ddd !important;
+}
+.up-search .crumb{
+  text-align: left;
+}
+.up-search .sell-commodity .c-summary .sum-commname{
+  background: #fff !important;
+  padding: 6px 0px 6px 0;
+ 
+}
+.up-search .sum-detail{
+  overflow: hidden;
+    height: 78px;
+    line-height: 36px;
+    margin-top: 0px !important;
+}
+.up-search .sum-detail span{
+  display: inline-block;
+  width: 31.3%;
+  font-size: 13px !important;
+  color: #888888;
+  text-align: left;
+}
+.up-search .sum-detail span strong{
+  color: #555555;
+}
+.up-search .sell-commodity .c-supply{
+margin: 0px -11px;
+float: right;
+width: 13%;
+height: 119px;
+}
+.up-search .sell-commodity .c-caption{
+  height: 139px;
+  padding: 0;
+  width: 12%
+}
+.up-search .sell-commodity .c-supply .sup-sellinfo {
+    float: left;
+    width: 100%;
+    height: 92px;
+    border-left: 1px solid #ddd;
+    margin-left: -1px;
+}
+.up-search td:hover .sum-commname{
+  background: #F3F3F3 !important;
+}
+.up-search{
+  text-align: center;
+}
+.up-search .sup-sellinfo a{
+  display: inline-block;
+  width: 80px;
+  height:  26px;
+  text-align: center;
+  line-height: 26px;
+  background: #6db23d;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #fff;
+  margin-top: 30px;
+}
+.up-search .sup-sellinfo a:hover{
+  background: #558a2f;
+}
+.up-search .sup-sellinfo a.disabled{
+  background: #fff;
+  color: #888888;
+  border:1px solid #ddd;
+  cursor: default;
+}
+.up-search .cap-img{
+  padding: 10px;
+}
+.up-search .sell-commodity .c-summary{
+  width: 75.7%;
+}
+.up-search .sell-commodity .c-supply .sup-doe{
+  font-size: 13px;
+  color: #555555;
+}
+.up-search .sum-detail>div{
+  overflow: hidden;
+}
+.up-search .sum-detail>div:first-child{
+  border-bottom: 1px solid #ddd;
+}
+.up-search .sum-detail>div span:first-child{
+  margin-left: 10px;
+}
+.up-search .sum-detail>div span strong{
+  margin-right: 5px;
+}
+.up-search .sell-commodity .c-summary .sum-commname{
+  text-align: left;
+}
+.up-search .sell-commodity .c-summary .sum-commname span{
+  background: transparent;
+  color: #e5c04e;
+  margin-left: 0;
+  margin-right: 10px;
+  font-size: 13px;
+}
+.sum-name{
+  background: #6db23d !important;
+  color: #fff !important;
+  margin-left: 10px !important;
+  padding-right: 30px !important;
+  position: relative;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.sum-name:before{
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+ top: 9px;
+ right: 0px;
+}
+.sum-name:after{
+  content: '';
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-left: 15px solid #6db23d;
+  border-top: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  position: absolute;
+ top: 0px;
+ right: -30px;
+}
+.up-search .sell-commodity .c-summary .sum-commname span strong{
+  font-size: 24px;
+}
+.up-search .sell-commodity .c-summary .sum-commname span i{
+ color: #555;
+ font-weight: bold;
+ font-style: normal;
+}
+table.dataTable.hover tbody tr:hover .sum-commname, table.dataTable.display tbody tr:hover .sum-commname{
+  background-color: #f6f6f6 !important;
+}
+.bornone{
+  border:none !important;
+}

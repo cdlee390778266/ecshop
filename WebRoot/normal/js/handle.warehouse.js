@@ -231,5 +231,10 @@ $(function() {
 			}
 		});
 	});
+   
+   //仓单状态选择
+   $('#type').change(function(event) {
+   	 location.href = $(this).val();
+   });
 
 });

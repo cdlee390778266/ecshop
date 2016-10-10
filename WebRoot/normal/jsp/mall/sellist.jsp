@@ -14,21 +14,16 @@
 <link type="text/css" rel="stylesheet" href="/normal/css/global.css" />
 <link type="text/css" rel="stylesheet"
 	href="/normal/css/font-awesome.min.css" />
-<link type="text/css" rel="stylesheet"
-	href="/normal/css/font-awesome-ie7.min.css" />
-<link type="text/css" rel="stylesheet" href="/normal/css/common.css" />
+<link type="text/css" rel="stylesheet" href="/normal/css/font-awesome-ie7.min.css" />
 <link type="text/css" rel="stylesheet" href="/normal/css/home.css" />
 <link type="text/css" rel="stylesheet" href="/normal/css/member.css" />
+<link type="text/css" rel="stylesheet" href="/normal/css/common.css" />
 <script type="text/javascript" src="/normal/js/jquery.js"></script>
 <script type="text/javascript" src="/normal/js/handlebars.js"></script>
 <script type="text/javascript" src="/normal/js/ui.pagination.js"></script>
 <script type="text/javascript" src="/normal/js/stickup.js"></script>
-
 <jsp:include page="../comm/datatables.jsp" flush="true" />
-
-<script type="text/javascript"
-	src="/normal/js/handle.mall.sel.js?v=${sessionScope.buildno}"></script>
-
+<script type="text/javascript" src="/normal/js/handle.mall.sel.js?v=${sessionScope.buildno}"></script>
 <title>交易大厅</title>
 </head>
 <body>
@@ -36,9 +31,7 @@
 	<div class="fixed-wrapper">
 		<!-- topbar -->
 		<jsp:include page="../comm/topbar.jsp" flush="true" />
-
 		<!-- topbar End -->
-
 		<!-- header -->
 		<jsp:include page="../comm/header.jsp" flush="true" />
 		<!-- header End -->
@@ -208,7 +201,7 @@
 												</div>
 											</div>
 
-											<table id="dataset" class="cell-border hover" cellspacing="0"
+											<table id="dataset" class="cell-border hover up-table" cellspacing="0"
 												width="100%" style="padding: 0px">
 												<thead>
 													<tr>

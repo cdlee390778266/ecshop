@@ -11,7 +11,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="author" content="" />
   <link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
-  <link type="text/css" rel="stylesheet" href="/mobile/css/style.css?v=${sessionScope.buildno}" />
   <link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />    
   <link type="text/css" rel="stylesheet" href="/mobile/css/lrtk.css?v=${sessionScope.buildno}" /> 
   <script type="text/javascript" src="/mobile/js/jquery.js"></script>

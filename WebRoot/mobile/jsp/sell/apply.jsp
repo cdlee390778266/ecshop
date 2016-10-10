@@ -380,7 +380,7 @@
 					</div>
 				</div>
 
-				<div class="selected" style="display:none;">
+				<div class="selected" style="display:block;">
 					<h3>已选择会员列表</h3>
 					<select name="seletedlist" size="20" multiple id="selectedlist" >
 
