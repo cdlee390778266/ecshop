@@ -73,10 +73,21 @@
 								</div>
 								<div class="commbd">
 									<ul>
+										<c:set var="index">${status.index}</c:set>
+										<c:if test="${!empty pnodecode}"> 
+										 	<li> 
+										 		<a <c:if test="${index == fn:length(nodepath)}">class="active"</c:if>
+										  			href="/mall/class/${pnodecode}.htm">不限</a>
+										  		</li>
+										  </c:if>
+										
 										<c:forEach items="${nodes}" var="node">
-											<li><c:set var="index">${status.index}</c:set> <a
-												<c:if test="${index < fn:length(nodepath) && node.mdseCode == nodepath[index].mdseCode }">class="active"</c:if>
-												href="/mall/class/${node.mdseCode}.htm">${node.mdseName}</a>
+											<li>
+												<a <c:if test="${index < fn:length(nodepath) && node.mdseCode == nodepath[index].mdseCode }">class="active"</c:if>
+													href="/mall/class/${node.mdseCode}.htm">${node.mdseName}</a>
+												<c:if test="${index < fn:length(nodepath) && node.mdseCode == nodepath[index].mdseCode }">
+													<c:set var ="pnodecode" value="${node.mdseCode}"/>
+												</c:if>
 											</li>
 										</c:forEach>
 									</ul>
