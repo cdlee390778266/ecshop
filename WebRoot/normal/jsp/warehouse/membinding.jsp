@@ -109,12 +109,12 @@
 										<c:if test="${rspBody.provId != null && rspBody.provId != ''}">
 											<input type="hidden" name="flag" id="flag" value="0">
 										</c:if>
-										<div class="submit txtcenter">
+										<div class="submit">
 											<c:if test="${rspBody.provId != null && rspBody.provId != ''}">
 												<button type="submit" class="cd_c_Submit" tabindex="5" id="J_SubmitStatic">取消绑定</button>
 											</c:if>
 											<c:if test="${rspBody.provId == null || rspBody.provId == ''}">
-												<button type="submit" class=" cd_c_Submit" tabindex="5" id="J_SubmitStatic">绑定会员</button>
+												<button type="submit" class="cd_c_Submit" tabindex="5" id="J_SubmitStatic">绑定会员</button>
 											</c:if>
 										</div>
 									</div>

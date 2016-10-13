@@ -4,26 +4,6 @@ $(function() {
 	var step4 = false;
 
 //改版部分新增代码   ---start
-$('.group-box').click(function(event){
-	event.stopPropagation();
-	$('.group-box ul').slideUp(10);
-	$(this).find('ul').slideDown(10);
-})
-$(document).click(function(){
-	$('.group-box ul').slideUp(10);
-})
-$('.group-box ul li').click(function(event){
-	event.stopPropagation();
-	$(this).parents('.group-box').find('.val span').html($(this).html());
-	$(this).parents('.group-box').find('input').val($(this).attr("value"));
-	if( $(this).parents('.group-box').hasClass('sellerTxt')){
-		$('.seller').html($(this).html());
-	}else if($(this).parents('.group-box').hasClass('trade-promise')){
-		$('.step-promise').html($(this).html());
-	}
-	$(document).click();
-})
-
 
     //初始化
     $('#wrno').val('');
@@ -32,10 +12,7 @@ $('.group-box ul li').click(function(event){
     $('.curmbs').find('img').hide();
     $('.gp-step1,.gp-step2,.gp-step3,.gp-step4').hide();
     $('.gp-step1').show();
-
-
     $('.step-promise').html($('.trade-promise .val span').html());
-   
 
     function step(num){
     	if(num ==1){
@@ -87,20 +64,24 @@ $('.group-box ul li').click(function(event){
     	step(3);
     })
 
-$('#tradeType li').click(function(){
-	location.href = $(this).data('href');
-})
+    $('.close').click(function(){
+    	$('.cancelbtn').click();
+    	$('body').css('overflowY','auto');
+    })
+
+    $('#tradeType li').click(function(){
+    	location.href = $(this).data('href');
+    })
+
+    
 
 //改版部分新增代码   ---end
 
+$(document).ready(function() {
+	$('.fixed-wrapper').stickUp();
+	$('#dataset').dataTable();
+});
 
-
-
-	$(document).ready(function() {
-		$('.fixed-wrapper').stickUp();
-		$('#dataset').dataTable();
-	});
-	
 	// 是否整单处理
 	$('.J_WholeFlag input').on('ifChecked', function(event) {
 		if (this.id == 's_flag') {
@@ -121,25 +102,25 @@ $('#tradeType li').click(function(){
 	});
 
 	// 输入域验证
-	$('#sellApply').validate({
-		onFocus : function() {
-			this.parent().addClass('active');
-			return false;
-		},
-		onBlur : function() {
-			var $parent = this.parent();
-			var _status = parseInt(this.attr('data-status'));
-			$parent.removeClass('active');
-			if (!_status) {
-				$parent.addClass('error');
-			}
-			return false;
-		}
-	});
-	
-	laydate.skin('molv');
-	
-	laydate({
+	// $('#sellApply').validate({
+	// 	onFocus : function() {
+	// 		this.parent().addClass('active');
+	// 		return false;
+	// 	},
+	// 	onBlur : function() {
+	// 		var $parent = this.parent();
+	// 		var _status = parseInt(this.attr('data-status'));
+	// 		$parent.removeClass('active');
+	// 		if (!_status) {
+	// 			$parent.addClass('error');
+	// 		}
+	// 		return false;
+	// 	}
+	// });
+
+laydate.skin('molv');
+
+laydate({
 	    elem: '#doe', //目标元素。
 	    event: 'focus', //响应事件。
 	    min: $('#doe').data('min'),
@@ -149,80 +130,80 @@ $('#tradeType li').click(function(){
 	});
 
 
-	function UTFStrLength(value){
-		
-		var rlen= 0;
-    	var len = value.length;
-    	var charCode = -1;
-    	for(var i = 0; i < len; i++){
-    		charCode = value.charCodeAt(i);
-    		if (charCode >= 0 && charCode <= 128) {
-    			rlen += 1;
-    		}else{
-    			rlen += 3;
-    		}
-    	}
-    	return rlen;	
-	}
-	
-	
-	$('#lastPD').on("focus", function(event){ 
-		$(this).css('border','1px #89C975 solid');
-		var $context = $(this).parent();
-	    var $msg = $context.find('.valid_message');
-	    
-	    if($msg.text() == ''){
-		    $msg.css("color","green");
-		    $msg.css("background","");   
-		    $msg.text("请输入最后付款日");
-	    }
-	});
+function UTFStrLength(value){
 
-	$('#lastPD').on("blur", function(event){   
-		checkLastPD();
-	});
-	
-	
-	$('#doe').on("blur", function(event){   
-		if(!$('.datepicker-container').is(':hidden'))
-		{
-			$('.datepicker-container').hide();
+	var rlen= 0;
+	var len = value.length;
+	var charCode = -1;
+	for(var i = 0; i < len; i++){
+		charCode = value.charCodeAt(i);
+		if (charCode >= 0 && charCode <= 128) {
+			rlen += 1;
+		}else{
+			rlen += 3;
 		}
-	});
-	
-	$('#deliDate').on("focus", function(event){ 
-		$(this).css('border','1px #89C975 solid');
-		var $context = $(this).parent();
-	    var $msg = $context.find('.valid_message');
-	    if($msg.text() == ''){
-		    $msg.css("color","green");
-		    $msg.css("background","");   
-		    $msg.text("请输入最后交收日");
-	    }
-	});
+	}
+	return rlen;	
+}
 
-	$('#deliDate ').on("blur", function(event){   
-		checkDeliDate();
-	});
-	
-	
-	$('#storage').on('change', function(event){
-		var $context = $(this).parent();
-        var $msg = $context.find('.valid_message');
-        $msg.css("background","");   
-		if($(this).val()==''){
-			$msg.css("color","red");	
-			$msg.css("font-size","14px");
+
+	// $('#lastPD').on("focus", function(event){ 
+	// 	$(this).css('border','1px #89C975 solid');
+	// 	var $context = $(this).parent();
+	//     var $msg = $context.find('.valid_message');
+
+	//     if($msg.text() == ''){
+	// 	    $msg.css("color","green");
+	// 	    $msg.css("background","");   
+	// 	    $msg.text("请输入最后付款日");
+	//     }
+	// });
+
+	// $('#lastPD').on("blur", function(event){   
+	// 	checkLastPD();
+	// });
+
+
+	// $('#doe').on("blur", function(event){   
+	// 	if(!$('.datepicker-container').is(':hidden'))
+	// 	{
+	// 		$('.datepicker-container').hide();
+	// 	}
+	// });
+
+	// $('#deliDate').on("focus", function(event){ 
+	// 	$(this).css('border','1px #89C975 solid');
+	// 	var $context = $(this).parent();
+	//     var $msg = $context.find('.valid_message');
+	//     if($msg.text() == ''){
+	// 	    $msg.css("color","green");
+	// 	    $msg.css("background","");   
+	// 	    $msg.text("请输入最后交收日");
+	//     }
+	// });
+
+	// $('#deliDate ').on("blur", function(event){   
+	// 	checkDeliDate();
+	// });
+
+
+$('#storage').on('change', function(event){
+	var $context = $(this).parent();
+	var $msg = $context.find('.valid_message');
+	$msg.css("background","");   
+	if($(this).val()==''){
+		$msg.css("color","red");	
+		$msg.css("font-size","14px");
 	        //$msg.text("请选择交收仓");
 	        return false;
-		}else{
-			 $msg.text("");
-		}
+	    }else{
+	    	$msg.text("");
+	    }
 	});
-	
-	
-	var checkSubmitFlg = false; 
-	
+
+
+var checkSubmitFlg = false; 
+
 	// 提示验证
 	$('#sellApply').on('submit', function(event) {
 		
@@ -246,10 +227,10 @@ $('#tradeType li').click(function(){
 		}
 
 		if(step3){
-				step(3);
-				step3 = false;
-				return false;
-			}
+			step(3);
+			step3 = false;
+			return false;
+		}
 		
 		var valFlag = $(this).validate('submitValidate');
 		if (valFlag == true) {
@@ -264,10 +245,10 @@ $('#tradeType li').click(function(){
 					var $msg = $(this).parent().find('.valid_message');
 					$msg.css("color","red");
 					$msg.css("font-size","14px");
-			        $msg.text('请选择'+$(this).attr('data-propname'));
-			        $(this).focus();
-			        selFlag = true;
-			        return;
+					$msg.text('请选择'+$(this).attr('data-propname'));
+					$(this).focus();
+					selFlag = true;
+					return;
 				}
 			});
 			
@@ -276,7 +257,7 @@ $('#tradeType li').click(function(){
 				return;
 			}
 
-       
+
 			if(checkUnitPrice() == false){
 				event.preventDefault();
 				return;
@@ -285,24 +266,24 @@ $('#tradeType li').click(function(){
 			
 			var checkdelist = $('input:radio[name="delist"]:checked').val();
 			if(checkdelist =='A'&&$('#memdelists').val() ==''){
-				$('#memdelistmsg').text("未选择指定摘牌方");	
+				layer.msg("未选择指定摘牌方");	
 				$('#memdelistmsg').addClass('memdelist-error');
 				event.preventDefault();
 				return;
 			}
-            
-            if(step4){
-		    	step(4);
-		    	step4 = false;
-		    	return false;
-		    }
+
+			if(step4){
+				step(4);
+				step4 = false;
+				return false;
+			}
 			
-	    	var rlen =  UTFStrLength($('#detail').val())
-	    	if(rlen >= 1500){
-	    		$('.detailmsg').html("商品描述信息过长,不能超过1500字符");
+			var rlen =  UTFStrLength($('#detail').val())
+			if(rlen >= 1500){
+				layer.msg("商品描述信息过长,不能超过1500字符");
 				event.preventDefault();
 				return;
-	    	}
+			}
 			
 			$("select[name=propsel]").each(function() {		
 				$($(this).siblings()[0]).val($(this).val());
@@ -367,35 +348,35 @@ $('#tradeType li').click(function(){
 				$("#incrNum").parent().addClass('success');
 			}
 		}
-	
+
 	});
 	
 
 	function checkUnitPrice(){
 		
 		$that = $('#unitPrice');
-	    var vlimit = $that.attr('data-limit');
-	    
-	    if(vlimit == undefined || vlimit == ''){
-	    	return true;
-	    }else{
-	    	var vstart = vlimit.indexOf(")");
+		var vlimit = $that.attr('data-limit');
+
+		if(vlimit == undefined || vlimit == ''){
+			return true;
+		}else{
+			var vstart = vlimit.indexOf(")");
 			var vactive = "";
 			if(vstart != -1){
 				vactive = vlimit.substring(1, vstart);
-	    	
+
 				var $relaprop = $("select[name=propsel][data-key="+vactive+"]");
-			
+
 				if($relaprop == undefined){
 					var $context = $that.parent();
-			        var $msg = $context.find('.valid_message');
-				    $msg.text("商品约束关系配置有误");
-				    
-				    if($context.hasClass('success')){
-				    	$context.removeClass('success');
-				    }
-				    
-				    $context.addClass('error');
+					var $msg = $context.find('.valid_message');
+					layer.msg("商品约束关系配置有误");
+
+					if($context.hasClass('success')){
+						$context.removeClass('success');
+					}
+
+					$context.addClass('error');
 					
 					return false;
 				}else{
@@ -405,19 +386,19 @@ $('#tradeType li').click(function(){
 					
 					if(pval == null || pval == ""){
 						var $context = $that.parent();
-				        var $msg = $context.find('.valid_message');
-					    $msg.text("商品约束关系配置有误");
-					    
-					    if($context.hasClass('success')){
-					    	$context.removeClass('success');
-					    }
-					    
-					    $context.addClass('error');
+						var $msg = $context.find('.valid_message');
+						layer.msg("商品约束关系配置有误");
+
+						if($context.hasClass('success')){
+							$context.removeClass('success');
+						}
+
+						$context.addClass('error');
 						
 						return false;
 						
 					}else{
-					
+
 						var pvstart = vlimit.indexOf(pval);
 						
 						if(pvstart == -1)
@@ -430,14 +411,14 @@ $('#tradeType li').click(function(){
 							if(pvend == -1){
 								
 								var $context = $that.parent();
-						        var $msg = $context.find('.valid_message');
-							    $msg.text("商品约束关系配置有误");
-							    
-							    if($context.hasClass('success')){
-							    	$context.removeClass('success');
-							    }
-							    
-							    $context.addClass('error');
+								var $msg = $context.find('.valid_message');
+								layer.msg("商品约束关系配置有误");
+
+								if($context.hasClass('success')){
+									$context.removeClass('success');
+								}
+
+								$context.addClass('error');
 								
 								return false;
 							}else{
@@ -451,20 +432,20 @@ $('#tradeType li').click(function(){
 								if(parseFloat(priceval)< parseFloat(mpara[0]) || parseFloat(priceval) > parseFloat(mpara[1])){
 									
 									var $context = $that.parent();
-							        var $msg = $context.find('.valid_message');
-								    $msg.text("单价："+  parseFloat(mpara[0])+"到"+ parseFloat(mpara[1])+"之间");
-								    
-								    if($context.hasClass('success')){
-								    	$context.removeClass('success');
-								    }
-								    
-								    $context.addClass('error');
-								    $that.focus();
+									var $msg = $context.find('.valid_message');
+									layer.msg("单价："+  parseFloat(mpara[0])+"到"+ parseFloat(mpara[1])+"之间");
+
+									if($context.hasClass('success')){
+										$context.removeClass('success');
+									}
+
+									$context.addClass('error');
+									$that.focus();
 									
 									return false;
 									
 								}else{
-															
+
 									return true;
 								}
 							}
@@ -474,18 +455,18 @@ $('#tradeType li').click(function(){
 			}else{
 				
 				var $context = $that.parent();
-		        var $msg = $context.find('.valid_message');
-			    $msg.text("数据格式有误");
-			    
-			    if($context.hasClass('success')){
-			    	$context.removeClass('success');
-			    }
-			    
-			    $context.addClass('error');
+				var $msg = $context.find('.valid_message');
+				layer.msg("数据格式有误");
+
+				if($context.hasClass('success')){
+					$context.removeClass('success');
+				}
+
+				$context.addClass('error');
 				return false;
 				
 			}
-	    }
+		}
 	}
 
 	function propChange(p){		
@@ -522,7 +503,7 @@ $('#tradeType li').click(function(){
 
 
 	function finderr(msg) {
-		$('.seledmsg').html("无相关可挂牌的商品列表，请确认用户权限");
+		layer.msg("无相关可挂牌的商品列表，请确认用户权限");
 	}
 
 	var marketurl = '/mall/findallmarket.htm';
@@ -541,13 +522,13 @@ $('#tradeType li').click(function(){
 						removeUrl : "/mall/parsellclass.htm",// 通过“X"删除时请求的 url
 						callback : load,
 					// 回调函数，每次触发select change 事件和删除项，会返回一个code
-						defaultparams : {
-							txtype : "T"
-						},
-						exceptcallback : finderr
-					});
+					defaultparams : {
+						txtype : "T"
+					},
+					exceptcallback : finderr
+				});
 				} else {
-					$('.seledmsg').html("无相关有效市场，请确认用户权限");
+					layer.msg("无相关有效市场，请确认用户权限");
 				}
 			}
 		});
@@ -599,6 +580,7 @@ $('#tradeType li').click(function(){
 			$('#memdelistlink').removeClass('memdelist-select');
 		
 		$('#memdelistmsg').text('');
+		$('#memdelistmsg').hide();
 		$('.memselect .unselect select option').remove();
 		$('.memselect .selected select option').remove();
 		$('#memdelists').val('');
@@ -607,11 +589,13 @@ $('#tradeType li').click(function(){
 			$('#memdelistlink').text('');							
 		}else{
 			if(wrno == ''){
-				$('#memdelistlink').text('请先选择注册仓单');
+				$('#memdelistlink .input-group-addon').html('<span>请先选择注册仓单</span>');
 				$('#memdelistlink').addClass('memdelist-unknowmark');
+				$('#memdelistlink').show();
 			}else{
-				$('#memdelistlink').text('选择会员列表');
+				$('#memdelistlink .input-group-addon').html('<span>选择会员列表</span>');
 				$('#memdelistlink').addClass('memdelist-select');
+				$('#memdelistlink').show();
 			}
 		}
 	}
@@ -621,6 +605,7 @@ $('#tradeType li').click(function(){
 		if(mc != ''){
 			localcallback($('#divisID').attr("data-idx"), $('#divisID').attr("data-key"), '', '', $('#divisID').attr("data-full"));
 			UP.Dialog('J_MemList');
+			$('body').css('overflowY','hidden');
 		}	
 	});
 	
@@ -652,6 +637,7 @@ $('#tradeType li').click(function(){
 		var formParam = "divlevel="+index+"&divcode="+key+"&markcode="+mc;
 		
 		$('.memselect .unselect select option').remove();
+		$('#selc-ul').html('');
 		$.ajax({
 			type : 'post',
 			url : '/divis/findmember.htm',
@@ -661,144 +647,202 @@ $('#tradeType li').click(function(){
 			success : function(data) {
 				if(data.succflag == 0){									
 					var selectedvals = new Array(); //定义数组
-				    $("#selectedlist option").each(function(){ 
-				        var val = $(this).val(); 
-				        if(val != undefined && val != "") 
-				        	selectedvals.push(val); 
-				    });
+					$("#selectedlist option").each(function(){ 
+						var val = $(this).val(); 
+						if(val != undefined && val != "") 
+							selectedvals.push(val); 
+					});
 					
 					var nodes = data.data.memList;		
 					for(var n = 0; n < nodes.length; n++){
-						if(IsContain(selectedvals, nodes[n].mID))
+						if(IsContain(selectedvals, nodes[n].mID)){
 							$('.memselect .unselect select').append('<option value="'+nodes[n].mID+'" disabled>'+nodes[n].memName+'</option>');
-						else
+							$('#selc-ul').append('<li class="active" data='+nodes[n].mID+'>'+nodes[n].memName+'</li>');
+						}
+						else{
 							$('.memselect .unselect select').append('<option value="'+nodes[n].mID+'">'+nodes[n].memName+'</option>');
+							$('#selc-ul').append('<li data="' + nodes[n].mID + '">'+nodes[n].memName+'</li>');
+						}
+
 					}										
 				}else{
 					$('.memselect .unselect select').append('<option disabled>无会员列表</option>');
+					$('#selc-ul').append('<li class="disabled">无会员列表</li>');
 				}
 			}
 		});
-	}
-	
-	$('.selbtn').delegate('.pa-btn-sell', 'click', function(e) {
-		
-		if($(this).hasClass('btn-single-select')){
-			var selvals = $("#selectlist").val();
-			var selectedobj =$("#selectedlist"); 			
-			$("#selectlist option").each(function(){ 
-				var val = $(this).val();
-				if(IsContain(selvals, val)){	
-					selectedobj.append('<option value="'+val+'">'+ $(this).text()+'</option>');  
-					$(this).attr("disabled", "disabled");
-				}
-			 });
-		}else if($(this).hasClass('btn-all-select')){
-			var selectedobj =$("#selectedlist"); 
-			$("#selectlist option").each(function(){ 
-		    	var val = $(this).val();
-		    	if($(this).attr('disabled') == undefined){
-		    		selectedobj.append('<option value="'+val+'">'+ $(this).text()+'</option>');  
-					$(this).attr("disabled", "disabled");
-		    	}
-		    }); 
-		}else if($(this).hasClass('btn-single-unselect')){
-			var selvals = $("#selectedlist").val();
-			var selectobj =$("#selectlist"); 			
-			$("#selectedlist option").each(function(){ 
-				var val = $(this).val();
-				if(IsContain(selvals, val)){	
-					$(this).remove();
-				}
-			 });
-			
-			$("#selectlist option").each(function(){ 
-				var val = $(this).val();
-				if(IsContain(selvals, val)){	
-					$(this).removeAttr("disabled");
-				}
-			 });	
-		}else if($(this).hasClass('btn-all-unselect')){
-			var selectobj =$("#selectlist"); 		
-			var selectarray = new Array();
-			
-			$("#selectedlist option").each(function(){ 
-				selectarray.push($(this).val());
+}
+
+$('.selbtn').delegate('.pa-btn-sell', 'click', function(e) {
+
+	if($(this).hasClass('btn-single-select')){
+		var selvals = $("#selectlist").val();
+		var selectedobj =$("#selectedlist"); 			
+		$("#selectlist option").each(function(){ 
+			var val = $(this).val();
+			if(IsContain(selvals, val)){
+				selectedobj.append('<option value="'+val+'">'+ $(this).text()+'</option>');  
+				$(this).attr("disabled", "disabled");
+
+			}
+		});
+	}else if($(this).hasClass('btn-all-select')){
+		var selectedobj =$("#selectedlist"); 
+		$('#selc-ul li').addClass('active');
+		$("#selectlist option").each(function(){ 
+			var val = $(this).val();
+			if($(this).attr('disabled') == undefined){
+				selectedobj.append('<option value="'+val+'">'+ $(this).text()+'</option>');  
+				$(this).attr("disabled", "disabled");
+			}
+		}); 
+	}else if($(this).hasClass('btn-single-unselect')){
+		var selvals = $("#selectedlist").val();
+		var selectobj =$("#selectlist"); 			
+		$("#selectedlist option").each(function(){ 
+			var val = $(this).val();
+			if(IsContain(selvals, val)){	
 				$(this).remove();
-		    }); 
-			
-			$("#selectlist option").each(function(){ 
-				var val = $(this).val();
-				if(IsContain(selectarray, val)){	
-					$(this).removeAttr("disabled");
-				}
-		    }); 
-		}
-	});
-	
-	
-	$('#J_MemList').delegate('.cbtn', 'click', function(e) {	
-		if($(this).attr('id') == 'confirmbtn'){
-			var selectarray = new Array();			
-			$("#selectedlist option").each(function(){ 
-				selectarray.push($(this).val());
-		    }); 
-			if($('#memdelistmsg').hasClass('memdelist-error'))
-				$('#memdelistmsg').removeClass('memdelist-error');
-			
-			if(selectarray.length > 0)
-				$('#memdelistmsg').text("共选择"+selectarray.length+"家会员做的指定摘牌方");
-			else
-				$('#memdelistmsg').text("未选择指定摘牌方");			
-			$('#memdelists').val(selectarray.join(";"));
+			}	
+		});
 
-		}else if($(this).attr('id') == 'cancelbtn'){
-			
-		}
-		UP.Dialog('J_MemList').close();
-		$('.mask').hide();
-		$('.mark').remove();
-	});
-	
-	var btnfn = function(){
-		if($('#sCCode').val()==''||$('#commCode').val() == ''){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
-			event.stopPropagation();
-			return false;
-		}
-		return true;
+		$("#selectlist option").each(function(){ 
+			var val = $(this).val();
+			if(IsContain(selvals, val)){	
+				$(this).removeAttr("disabled");
+			}
+		});	
+	}else if($(this).hasClass('btn-all-unselect')){
+		var selectobj =$("#selectlist"); 
+		$('#selc-ul li').removeClass('active');		
+		var selectarray = new Array();
+
+		$("#selectedlist option").each(function(){ 
+			selectarray.push($(this).val());
+			$(this).remove();
+		}); 
+
+		$("#selectlist option").each(function(){ 
+			var val = $(this).val();
+			if(IsContain(selectarray, val)){	
+				$(this).removeAttr("disabled");
+			}
+		}); 
+	}
+});
+
+$('#selc-ul').on('click','li',function(){
+	if($(this).hasClass('active')){
+		$(this).removeClass('active');
+
+
+		$('#selectedlist option[value='+ $(this).attr('data') +']').get(0).selected = true;
+		$('#selectlist option[value='+ $(this).attr('data') +']').get(0).selected = false;
+		$('.btn-single-unselect').click();
+
+	}else{
+		$(this).addClass('active');
+		$('#selectlist option').get($(this).index()).selected = true;
+		$('.btn-single-select').click();
 	}
 	
-	var ajaxfn  = function(d){	
-        d.code = $('#commCode').val();
+})
 
-	};
-	
-	var columns =  [
-		            { "data": "storeno", "type":"cn-string" },
-		            { "data": "storename", "type":"cn-string" },
-		            { "data": "registno", "type":"cn-string" },
-		            { "data": "memname"},		        
-		            { "data": "mdsename", "type":"cn-string"},
-		            { "data": "qty"}
-		        ];
-	
-	var surl = '/sell/findCdList.htm';
-	var defaultOrder = [0, "desc"];
-	var dataList = dataTablesInit1('#J_cdList #dataset', surl, ajaxfn, defaultOrder, btnfn, columns, null, "");
-	$('#selectCd').on('click', function(event){
-		UP.Dialog('J_cdList');
+$('.btn-close').click(function(){
+	$('#confirmbtn').click();
+})
+$('#confirmbtn').click(function(){
+	$('body').css('overflowY','auto');
+})
+
+
+$('#J_MemList').delegate('.cbtn', 'click', function(e) {	
+	if($(this).attr('id') == 'confirmbtn'){
+		var selectarray = new Array();			
+		$("#selectedlist option").each(function(){ 
+			selectarray.push($(this).val());
+		}); 
+		if($('#memdelistmsg').hasClass('memdelist-error'))
+			$('#memdelistmsg').removeClass('memdelist-error');
+
+		if(selectarray.length > 0){
+			$('#memdelistmsg').text("共选择"+selectarray.length+"家会员做的指定摘牌方");
+			$('#memdelistmsg').show();
+		}else{
+			$('#memdelistmsg').text("未选择指定摘牌方");
+			$('#memdelistmsg').show();			
+		}
+		$('#memdelists').val(selectarray.join(";"));
+
+	}else if($(this).attr('id') == 'cancelbtn'){
+
+	}
+	UP.Dialog('J_MemList').close();
+	$('.mask').hide();
+	$('.mark').remove();
+});
+
+var btnfn = function(){
+	if($('#sCCode').val()==''||$('#commCode').val() == ''){
+		UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
+		event.stopPropagation();
+		return false;
+	}
+	return true;
+}
+
+var ajaxfn  = function(d){	
+	d.code = $('#commCode').val();
+
+};
+
+var columns =  [
+{ "data": "storeno", "type":"cn-string" },
+{ "data": "storename", "type":"cn-string" },
+{ "data": "registno", "type":"cn-string" },
+{ "data": "memname"},		        
+{ "data": "mdsename", "type":"cn-string"},
+{ "data": "qty"}
+];
+
+var surl = '/sell/findCdList.htm';
+var defaultOrder = [0, "desc"];
+var dataList = dataTablesInit1('#J_cdList #dataset', surl, ajaxfn, defaultOrder, btnfn, columns, null, "");
+$('#selectCd').on('click', function(event){
+
+		// UP.Dialog('J_cdList');
+		$('.select_mask').css({
+			display:'block',
+			opacity:0.5
+		})
+		$('#J_cdList').css('display','block').animate({
+			bottom : '0'
+		})
 		dataList.columns.adjust();
 	});
 
 	//选择注册仓单取消
 	$('#cancelbtn1').on('click', function(event){
 		//获取已经获取的数据
-		UP.Dialog('J_cdList').close();
+		// UP.Dialog('J_cdList').close();
+		$('.select_mask').css({
+			display:'none',
+			opacity:0.5
+		})
+		$('#J_cdList').css({
+			'display' : 'none',
+			'bottom' : '-70vh'
+		})
 		$('.mask').hide();
 		$('.mark').remove();
+
 	});
-	
+
+    //注册仓单弹窗关闭
+    $('.select-hd span,.select_mask').click(function(){
+    	$('#cancelbtn1').click();
+    })
+
 	//选择注册仓单确定
 	$('#confirmbtn1').on('click', function(event){
 		//获取已经获取的数据
@@ -817,10 +861,11 @@ $('#tradeType li').click(function(){
 			$("#qty").val(d[0].qty);   //货物数量
 		}
 		
-		UP.Dialog('J_cdList').close();
+		// UP.Dialog('J_cdList').close();
+		
 		$('.mask').hide();
 		$('.mark').remove();
-		
+		$('#cancelbtn1').click();
 		$('.cd-id').html($('#wrno').val());
 	});
 	

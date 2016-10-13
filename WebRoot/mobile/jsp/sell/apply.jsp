@@ -54,10 +54,8 @@
 		<!-- 挂牌 Start -->
 		<form action="/sell/apply.htm" method="post"
 		enctype="multipart/form-data" id="sellApply" class="form-horizontal">
-
 		<input type="hidden" name="active" value="${active}" />
 		<inputtype="hidden" name="busDate" id="busDate" value="${busDate}" />
-
 		<input type="hidden" name="listedType" value="M" /> 
 
 		<div id="step1">
@@ -69,8 +67,12 @@
 			<div class="form-group  borderb  form-group-lg">
 				<label class="col-xs-5 control-label ">挂牌类型</label>
 				<div class="col-xs-7">
-					<span class="form-control txtright lh26" id="delist-type">
-						<input type="radio" name="DlistedType" value="M" checked disabled="disabled" class="hide" />
+				<select name="" id="cd-type" class="form-control">
+							<option value="/sell/apply.htm?active=enter&type=0" selected="">保证金</option>
+							<option value="/sell/apply.htm?active=enter&type=1">仓单</option>
+						</select>
+					<span class="form-control txtright lh26 hide" id="delist-type">
+						<input type="radio" name="DlistedType" value="M" checked disabled="disabled" class="hide" class="hide" />
 						<input type="hidden" name="listedType" value="M" />保证金
 					</span>
 				</div>
@@ -380,7 +382,7 @@
 					</div>
 				</div>
 
-				<div class="selected" style="display:block;">
+				<div class="selected" style="display:none;">
 					<h3>已选择会员列表</h3>
 					<select name="seletedlist" size="20" multiple id="selectedlist" >
 

@@ -281,7 +281,8 @@ dataTablesInit1 = function(table, url,  ajaxfncallback, defaultOrder, btnfncallb
 	            "info": "显示从_START_ 到 _END_ 记录,共 _TOTAL_ 条记录", 
 	            "infoEmpty": "",
 	            "infoFiltered": "(从 _MAX_ 总记录查询)",
-	            "search": "结果检索：",
+	            "search": "",
+	            "searchPlaceholder": "结果检索",
 	            'paginate': {  
 	                'first':      '第一页',  
 	                'last':       '最后一页',  

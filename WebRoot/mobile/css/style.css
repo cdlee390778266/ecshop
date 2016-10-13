@@ -1911,6 +1911,11 @@ div.dataTables_filter input {
   line-height: 30px;
 }
 
+.step-title {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 .step-title .success {
   padding: 0px 15px;
 }
@@ -2574,6 +2579,9 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
   position: relative;
   top: -3px;
 }
+#step3 .iradio_square-green.disabled {
+  background-position: -216px 0 !important;
+}
 
 #J_MemList {
   width: 100%;
@@ -3130,4 +3138,106 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
 }
 .backTemplate-dialog .dialog .bd * {
   font-size: 12px !important;
+}
+
+.cd-txt {
+  height: 46px !important;
+  background-color: #fff !important;
+}
+
+.cd-select {
+  line-height: 40px;
+  color: #333;
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+}
+.cd-select .crumb-list {
+  display: none;
+}
+.cd-select .commsection {
+  clear: both;
+}
+.cd-select .commsection .commhead {
+  width: 20%;
+  text-align: left;
+  font-weight: bold;
+  float: left;
+  padding-left: 10px;
+}
+.cd-select .commsection .commbd {
+  width: 80%;
+  float: left;
+}
+.cd-select .commsection .commbd li {
+  display: inline-block;
+  margin-right: 15px;
+}
+.cd-select .commsection .commbd li.active {
+  color: #6db23d;
+}
+
+#J_cdList {
+  position: fixed;
+  width: 100%;
+  height: 70vh !important;
+  bottom: -70vh;
+  left: 0;
+  z-index: 1000;
+  background: #fff;
+}
+#J_cdList .dt-button {
+  width: 100%;
+  height: 40px;
+  line-height: 27px;
+  background: #e5c04e;
+  margin-top: 5px;
+}
+#J_cdList .dataTables_filter label {
+  display: block;
+}
+#J_cdList #dataset_filter {
+  margin-left: 0;
+}
+#J_cdList input[type=search] {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  border: 1px solid #ddd;
+  margin: 0;
+  padding: 0 10px;
+  outline: none;
+}
+#J_cdList .select-hd {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #6db23d;
+}
+#J_cdList .select-hd span {
+  display: block;
+  float: right;
+  padding: 0 20px;
+}
+#J_cdList .select-hd span img {
+  width: 12px;
+}
+#J_cdList .select-body {
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+#J_cdList #confirmbtn1 {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  background: #62a734;
+  border: none;
+}
+
+#J_cdList #dataset_wrapper {
+  padding: 0 10px;
 }

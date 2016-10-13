@@ -226,3 +226,109 @@ dataTablesInit = function(table, url,  ajaxfncallback, defaultOrder, btnfncallba
 	return $dataset;
 	
 }
+
+//文闻2016年3月23日添加
+dataTablesInit1 = function(table, url,  ajaxfncallback, defaultOrder, btnfncallback,  columns, columndefs, rowfncallback){
+	
+	var columnselector =new Array()
+	
+	var columnlength =  $('#dataset thead').find('th').length;
+	
+	if(columndefs != null) columnlength--;
+	
+	for(var i = 0; i < columnlength; i++){
+		columnselector.push(i);
+	}
+	
+	var hiddencolumn = [];
+	
+	//设置FLASH路径
+	$.fn.dataTable.Buttons.swfPath = '/images/swf/flashExport.swf';
+	
+	$.fn.dataTable.ext.type.order['cn-string-asc']  = function(s1,s2) {  
+	    return s1.localeCompare(s2);  
+	};  
+	
+	$.fn.dataTable.ext.type.order['cn-string-desc']  = function(s1,s2) {  
+	    return s2.localeCompare(s1);  
+	}; 
+	
+	//定义页面的DataTable对象
+	var $dataset = $(table).DataTable( {
+	        "ajax": {
+	        	"url": url,
+	            "data":  function ( d ) {	           
+	            	if( typeof ajaxfncallback === 'function' ){
+	            		ajaxfncallback(d); 
+	            	}
+	            		           	
+	            },
+	            "dataSrc": function (json) {
+					var flag = json.succflag;
+					if(flag < 0){
+						return new Array();
+					}
+					return json.data;
+	            }
+	        },
+	        "order": defaultOrder,
+	        "scrollX": true,
+	        "scrollY": '200px',
+	        "processing" : true,
+	        "language": {
+	        	"processing": "",
+	            "lengthMenu": "每页显示 _MENU_ 条",
+	            "zeroRecords": "无相关数据记录",
+	            "info": "显示从_START_ 到 _END_ 记录,共 _TOTAL_ 条记录", 
+	            "infoEmpty": "",
+	            "infoFiltered": "(从 _MAX_ 总记录查询)",
+	            "search": "",
+	            "searchPlaceholder": "关键字检索",
+	            'paginate': {  
+	                'first':      '第一页',  
+	                'last':       '最后一页',  
+	                'next':       '下一页',  
+	                'previous':   '上一页'  
+	            },
+	            "decimal": ".",
+	            "thousands": ","
+	        },
+	        "lengthMenu": [[5, 10, -1], [5, 10, "全部"]],
+	        buttons: [ 
+	          {
+				text: '条件查询',
+				action: function ( e, dt, node, config ) {					
+					var flag = true;					
+					if(typeof btnfncallback === 'function'){
+						flag = btnfncallback();
+					}
+					if(flag == true){
+						dt.ajax.reload();
+						dt.draw();
+					}
+				 }
+	           }
+	        ],	        
+	        "columns": columns,  
+	        "columnDefs": columndefs,
+	        "dom": 'Bf<"clear">rt<"bottom"p><"clear">',
+	        createdRow: function ( row, data, index ) {	        	       
+	        	if(typeof rowfncallback === 'function'){
+	        		rowfncallback(row, data, index);
+	        	}
+	        }
+	} );
+	//选择加粗显示
+	$(table + ' tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+        	$dataset.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    } );
+	
+	
+	return $dataset;
+}

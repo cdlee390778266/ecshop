@@ -1174,6 +1174,9 @@ function checkData(id){
 	}
 }
 
+$('#cd-type').change(function(event) {
+	location.href = $(this).val();
+});
 
 //改版部分新增代码   ---end
 

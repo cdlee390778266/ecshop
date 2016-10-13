@@ -121,7 +121,7 @@
 											注册仓单编码：
 										</div>
 										<input type="text" readonly="readonly" name="wrno" id="wrno" />
-										<a href="#" id="selectCd" >选择注册仓单</a>	
+										<a href="#" id="selectCd" >选择仓单编码</a>	
 										<span id="codev" class="valid_message" ></span>
 									</div>
 								</div>
@@ -447,19 +447,18 @@
 </div>
 
 <!-- 选择注册仓单弹出层 -->
-<div class="updialog w850" id="J_cdList" style="height: 500px;overflow: scroll;">
+<div class="updialog w850" id="J_cdList" >
 	<div class="hd">
 		<span class="close ic"></span>
 		<h3>注册仓单选择</h3>
 	</div>
-	<div class="bd">
+	<div class="bd" style="height: 550px;">
 		<div style="margin-top: 5px;">
 			<table class="ui-table">
 				<tbody>
 					<input type="hidden" name="listedType" value="M" /> 
 					<tr>
-						<td class="ctr">商品分类：</td>
-						<td colspan="3">
+						<td colspan="4" class="bornone">
 							<div class="selcomm" data-select></div> <!--  comm需要级联查询得到 -->
 							<input type="hidden" name="commCode" id="commCode"
 							value="" />
@@ -470,7 +469,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div style="width: 99%;margin: 5px;min-height: 100px;">
+		<div style="width: 96%;margin: 20px;min-height: 100px;">
 			<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%" >
 				<thead>
 					<tr>
@@ -486,10 +485,9 @@
 		</div>
 
 		<div>
-			<div style="float: right">
-
-				<button class="cbtn" id="confirmbtn1">确&nbsp;&nbsp;认</button>
-				<button class="cbtn" id="cancelbtn1">取&nbsp;&nbsp;消</button>
+			<div  class="txtcenter">
+				<button class="cd-btn cd-confirm" id="confirmbtn1">确&nbsp;&nbsp;认</button>
+				<button class="cd-btn cd-cancle" id="cancelbtn1">取&nbsp;&nbsp;消</button>
 			</div>
 		</div>
 
