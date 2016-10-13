@@ -3,3 +3,5 @@
 .mymetadata
 .project
 WebRoot/WEB-INF/classes/
+dist/
+build/
