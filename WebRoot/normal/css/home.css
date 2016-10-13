@@ -69,13 +69,6 @@
     border-bottom:1px solid #ddd;
 }
 
-
-.custfilter .filtersection{
-    margin: 10px 0 10px;
-    border-right: 1px;
-}
-
-
 .custfilter .filtersection .filterhd{
     width: 5%;
     float: left;

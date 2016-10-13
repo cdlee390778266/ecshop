@@ -540,12 +540,10 @@
   height: 30px;
   border: none;
   background-color: #6db23d;
-  border-left: solid 1px #ccc;
   outline: none;
   position: relative;
   color: #fff;
 }
-
 .search-bd button i {
   position: absolute;
   top: 0;
@@ -821,12 +819,15 @@
 .user-navs li dl a{
   color: #666;
 }
+.user-navs li dl a:hover{
+  color:#6db23d
+}
 .user-navs li.current .active {
   display: block;
 }
 
 .user-navs li.current .active a.mlnks,.user-navs li.current a.mlnks {
-    color:#ddb94a;
+    color:#6db23d;
     display: block;
     width: 100%;
     border-left:4px solid #6db23d;
@@ -961,6 +962,7 @@
   -o-transition: background-color 0.5s;
   /* Opera */
   margin-right: 10px;
+    border: none;
 }
 
 .cbtn:hover {
@@ -1185,9 +1187,15 @@ button.file-btn .cfile {
   background: #e5c04e;
   padding: 1px 5px;
   color: #fff !important;
-  border-radius: 5px;
+  border-radius: 2px;
+  border:1px solid #e5c04e;
 }
-
+.gn-loginout a:hover{
+    border:1px solid #e5c04e;
+    background: none;
+    color:#333 !important;
+    padding: 1px 5px;
+    border-radius:2px;}
 .user-face {
   width: 88px;
   text-align: center;
@@ -1198,7 +1206,6 @@ button.file-btn .cfile {
 }
 .dlData a:hover{
   color: #6db23d;
-  text-decoration: underline;
 }
 
 .dlData h2 {
@@ -1231,13 +1238,20 @@ button.file-btn .cfile {
     color: #fff;
     display: block;
     width: 118px;
-    height: 38px;
+    height: 35px;
     font-size: 16px;
-    line-height: 35px;
+    line-height: 34px;
     text-align: center;
     border: 1px solid #e5c04e;
+    border-radius: 2px;
+    margin-top: 2px;
 }
-.delisting a:hover{background: #ddb94a;}
+.delisting a:hover{
+    background: #ddb94a;
+    transition: all .2s;
+    -moz-transition: all .2s; /* Firefox 4 */
+    -webkit-transition: all .2s; /* Safari 和 Chrome */
+    -o-transition: all .2s; /* Opera */}
 .isStuck .top-bar {
   display: none;
 }
@@ -1996,6 +2010,10 @@ border-bottom: 1px solid transparent;
     padding: 5px 10px !important;
     margin-top: 8px;
     border: 1px solid #ddd;
+    transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
 }
 .up-search .dataTables_filter input[type=search]:focus{border:1px solid #e5c04e;}
 .up-search .custfilter .filtersection .filterbd .filtinterval{
@@ -2062,11 +2080,13 @@ border-bottom: 1px solid transparent;
 }
 .prev a,.next a{
   border: 1px solid #e4e4e4;
-  display: inline-block;  
+  display: inline-block;
+    margin-right: 10px;
 }
 .prev a:hover,.next a:hover{
   background: #6db23d;
   color: #fff;
+    border:1px solid #6db23d;
 }
 .prev .disabled{
   cursor: default;
@@ -2083,7 +2103,6 @@ border-bottom: 1px solid transparent;
 }
 .up-page-main a{
   display: inline-block;
-  border: 1px solid #e4e4e4;
   border-left: none; 
   padding: 0 14px;
 }
@@ -2195,6 +2214,10 @@ height: 119px;
   font-size: 13px;
   color: #fff;
   margin-top: 30px;
+    transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
 }
 .up-search .sup-sellinfo a:hover{
   background: #558a2f;

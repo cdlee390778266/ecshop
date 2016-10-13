@@ -573,7 +573,12 @@ body {
   color: #333;
   background-color:#fff;
 }
-
+tr,a,input,button,.dropdown{
+    transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+}
 
 .grid-16-16{width:1200px;margin:0px auto;}
 .footer-bd .grid-16-16{width:1200px;margin:-38px auto;}

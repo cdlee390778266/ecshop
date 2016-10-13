@@ -270,7 +270,7 @@
 	float: right;
 	margin: 5px 0;
 }
-
+.memselect+div{  margin: 20px auto}
 .memselect select {
     width: 240px;
     height: 300px !important;
@@ -743,8 +743,15 @@ table.table-primary thead td {
     border-radius: 4px;
     float: right;
     margin-top: -4px;
+    transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
 }
-
+#J_add_operator:hover{
+    box-shadow: 1px 1px 6px #249044 inset;
+    border:1px solid #249044;
+}
 .account-setting .available {
 	padding: 8px 0;
 }
@@ -1372,7 +1379,10 @@ table.table-primary thead td {
     color: #666;
     border: 1px solid #ddd;
 }
-
+.pa-btn-sell  .btn-sell:hover{
+    border:1px solid #6db23d;
+    color:#6db23d;
+}
 .pa-skin table td {
 	padding: 5px 0;
 }
@@ -2074,7 +2084,6 @@ td.highlight {
          	display: none;
          }
          .paging_simple_numbers > span{
-         	border: 1px solid #ddd;
          	display: inline-block;
          }
          .paging_simple_numbers > span a{
@@ -2180,8 +2189,12 @@ td.highlight {
              text-align: center;
              line-height: 29px;
              margin-left: 10px;
+             transition: all .2s;
+             -moz-transition: all .2s; /* Firefox 4 */
+             -webkit-transition: all .2s; /* Safari 和 Chrome */
+             -o-transition: all .2s; /* Opera */
          }
-         #select-txt:hover{background-color:#e6c04e !important;}
+         #select-txt:hover{background-color:#e0b524 !important;}
          .layui-layer-ico{
          	left: 0 !important;
          	background: none !important;
@@ -2277,6 +2290,15 @@ td.highlight {
          	border-radius: 2px;
          	color: #fff;
          	margin-right: 10px;
+             transition: all .2s;
+             -moz-transition: all .2s;
+             -webkit-transition: all .2s;
+             -o-transition: all .2s;
+
+         }
+         .oper-box p a:hover{
+           box-shadow: 1px 1px 6px #249044 inset;
+
          }
          .oper-modify{
          	background: #6db23d;
@@ -2309,6 +2331,8 @@ td.highlight {
          .paginate_button:hover,.paginate_button.current,#dataset_paginate a:hover{
          	background: #6db23d !important;
          	color: #fff !important;
+             border:1px solid #6db23d;
+             cursor: pointer;
          }
          .sorting select, .sorting_asc select, .sorting_desc select{
          	padding: 0 5px;
@@ -2488,16 +2512,23 @@ td.highlight {
  	border:1px solid #ddd;
  }
  .cd_c_Submit{
- 	display: inline-block;
- 	width: 124px;
- 	height: 44px;
- 	text-align: center;
- 	line-height: 44px;
- 	margin-top: 40px;
- 	background: #e8bc24;
- 	color: #fff;
- 	margin-left: 95px;
+     display: inline-block;
+     width: 91px;
+     height: 34px;
+     text-align: center;
+     line-height: 28px;
+     margin-top: 4px;
+     background: #e8bc24;
+     color: #fff;
+     margin-left: 95px;
+     border: none;
+     border-radius: 2px;
+     transition: all .2s;
+     -moz-transition: all .2s; /* Firefox 4 */
+     -webkit-transition: all .2s; /* Safari 和 Chrome */
+     -o-transition: all .2s; /* Opera */
  }
+.cd_c_Submit:hover{background: #e0b524;}
  .cd .header-bd{
  	display: block;
  	width: 100%;
