@@ -239,7 +239,7 @@
 
 	<c:if test="${enableBuy=='false'}">
 	<div class="col-xs-12  martb10 txtright padb20">
-		<a href="javascript:alert('您无购买权限！');" class="yellow-btn1 block btn-disbabled">立即购买</a>
+		<a href="javascript:layer.msg('您无购买权限！');" class="yellow-btn1 block btn-disbabled">立即购买</a>
 	</div>
 	</c:if>
 </div>

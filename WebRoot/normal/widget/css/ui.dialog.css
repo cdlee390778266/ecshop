@@ -7,7 +7,7 @@
 .dialog  .bd{position:relative;padding:20px 15px;font-size:12px;overflow:visible;margin:0 20px;color:#394754}
 .dialog  .ft{text-align:center;padding:10px 0 20px;padding-top:0;}
 .dialog  .bn-flat{margin:0 .5em;}
-.dialog  .delete-info{line-height:25px;font-size:14px;color:#999;text-align:center }
+.dialog  .delete-info{line-height:25px;font-size:14px;color: #666;text-align:center }
 .dialog  .tips-info{line-height:25px;font-size:14px;text-align:center}
 .dialog  .btn-confim,.dialog .btn-cancel,.dialog .btn-tips{padding:6px 15px 6px;color:#333030;cursor:pointer;line-height:14px;font-size:14px;outline:none}
 .dialog  .btn-confim{background:#fff;border:solid 1px #cccccc;margin-right:10px;color:#4a9431;}

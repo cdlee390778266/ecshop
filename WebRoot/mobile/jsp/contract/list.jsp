@@ -15,7 +15,6 @@
 	<link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
 	<link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
 	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
-	<link type="text/css" rel="stylesheet" href="/mobile/css/selecttags.css" >
 	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
 	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
 	<script type="text/javascript" src="/mobile/js/leftnavs.js"></script>
@@ -43,243 +42,135 @@
 	</div>
 
 
-	<div class="container-fluid bordert">
-		<div class="row safe-type txtcenter bgwhite  borderb">
+	<div class="container-fluid up-datatables">
+		<div class="row safe-type txtcenter bgfff">
 			<div class="col-xs-12"><a href="#"  class="active" >我的合同</a>
 			</div>
 		</div>
-
-
-		<table class="table table-responsive">
-			<tbody>
-				<tr>
-					<td width="80" class="ctr">合同商品：</td>
-					<td colspan="5">
-						<input type="hidden" name="commcode" id="commcode" />
-						<div class="selcomm" data-select></div>
-
-					</td>		
-				</tr>										
-				<tr>
-
-					<td class="ctr">订立日期：</td>
-					<td>
-
-						<input type="text" name="contTime" id="contTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date ml10" />
-						至
-						<input type="text" name="econtTime" id="econtTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date" />
-
-					</td>
-					<td class="ctr">买卖方向：</td>
-					<td>
-						<select name="bsType" id="bsType" class="csel">
-							<option value="" selected>全部</option>
-							<option value="B" >采购合同</option>
-							<option value="S">销售合同</option>
-						</select>
-					</td>
-					<td class="ctr">合同状态：</td>
-					<td>
-						<select name="status" id="status"  class="csel">
-							<option value="">全部</option>
-							<option value="0">合同执行中</option>
-							<option value="1">合同执行完毕</option>
-							<option value="100">合同取消</option>
-							<option value="-1">合同违约</option>
-						</select>
-					</td>
-				</tr>									
-				<tr>
-					<td class="ctr">合同编号：</td>
-					<td><input type="text" class="cinp" name="contNo" id="contNo" /></td>
-					<td class="ctr">交易订单号：</td>
-					<td colspan="3"><input type="text" class="cinp" name="strikeNo" id="strikeNo" /></td>
-				</tr>																	
-			</tbody>
-		</table>
-
-		<table id="dataset" class="display nowrap cell-border table table-responsive" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th>品种</th>
-					<th>商品</th>
-					<th>合同类型</th>								                
-					<th>买方编号</th>
-					<th>买方名称</th>
-					<th>卖方编号</th>
-					<th>卖方名称</th>								                
-					<th>订立日期</th>
-					<th>商品数量</th>
-					<th>商品单价</th>
-					<th>合同金额(元)</th>
-					<th>合同状态</th>       
-					<th>合同编号</th>  							                  
-					<th>成交编号</th> 							                							                
-					<th>操作</th>								                
-				</tr>
-			</thead>
-		</table>
-
-	</div>
-	
-	<!-- wrapper -->
-	
-			
-			
-			<!-- main -->
-			<!-- <div class="">
-
-				<div class="main-content">
-					<div class="bd">
-						
-						<div class="page-module data-query">
-							<div class="row">
-								<div class="hd">
-									<h3>我的合同</h3>
-								</div>
-								<div class="bd mt10 warehouse">
-
-
-									<table class="ui-table">
-										<tbody>
-											<tr>
-												<td width="80" class="ctr">合同商品：</td>
-												<td colspan="5">
-													<input type="hidden" name="commcode" id="commcode" />
-													<div class="selcomm" data-select></div>
-
-												</td>		
-											</tr>										
-											<tr>
-
-												<td class="ctr">订立日期：</td>
-												<td>
-
-													<input type="text" name="contTime" id="contTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date ml10" />
-													至
-													<input type="text" name="econtTime" id="econtTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date" />
-
-												</td>
-												<td class="ctr">买卖方向：</td>
-												<td>
-													<select name="bsType" id="bsType" class="csel">
-														<option value="" selected>全部</option>
-														<option value="B" >采购合同</option>
-														<option value="S">销售合同</option>
-													</select>
-												</td>
-												<td class="ctr">合同状态：</td>
-												<td>
-													<select name="status" id="status"  class="csel">
-														<option value="">全部</option>
-														<option value="0">合同执行中</option>
-														<option value="1">合同执行完毕</option>
-														<option value="100">合同取消</option>
-														<option value="-1">合同违约</option>
-													</select>
-												</td>
-											</tr>									
-											<tr>
-												<td class="ctr">合同编号：</td>
-												<td><input type="text" class="cinp" name="contNo" id="contNo" /></td>
-												<td class="ctr">交易订单号：</td>
-												<td colspan="3"><input type="text" class="cinp" name="strikeNo" id="strikeNo" /></td>
-											</tr>																	
-										</tbody>
-									</table>
-									
-									
-									
-								</div>							
-							</div> -->
-
-							<!-- 
-							<div class="row clearfix">
-								<div class="sub-search">
-									<button class="cbtn ml5" id="J_ssearch">搜&nbsp;&nbsp;索</button>
-								</div>
-							</div>
-						-->
-						<!-- <div class="row">
-
-							<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
-								<thead>
-									<tr>
-										<th>品种</th>
-										<th>商品</th>
-										<th>合同类型</th>								                
-										<th>买方编号</th>
-										<th>买方名称</th>
-										<th>卖方编号</th>
-										<th>卖方名称</th>								                
-										<th>订立日期</th>
-										<th>商品数量</th>
-										<th>商品单价</th>
-										<th>合同金额(元)</th>
-										<th>合同状态</th>       
-										<th>合同编号</th>  							                  
-										<th>成交编号</th> 							                							                
-										<th>操作</th>								                
-									</tr>
-								</thead>
-							</table>
-
- -->
-						</div>
-
-					</div>
+		<div class="condition">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="input-group">
+					<span class="input-group-addon">&nbsp;&nbsp; 商品类型</span>
+					<input type="text" class="selcomm_dialog form-control" placeholder="请选择商品" >
+				<input type="hidden" name="commcode" id="commcode" />
+				<div class="selcomm" data-select></div>
+			</div>
+			</div>
+			<div class="col-xs-12 mart10">
+				<div class="input-group">
+					<span class="input-group-addon">&nbsp;&nbsp; 订立日期</span>
+					<input type="text" name="contTime" id="contTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date form-control" />
+					<span class="input-group-addon">至</span>
+					<input type="text" name="econtTime" id="econtTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date form-control" />
+				</div>
+			</div>
+			<div class="col-xs-12 mart10">
+				<div class="input-group">
+					<span class="input-group-addon">&nbsp;&nbsp; 买卖方向</span>
+					<select name="bsType" id="bsType" class="csel form-control">
+						<option value="" selected>全部</option>
+						<option value="B" >采购合同</option>
+						<option value="S">销售合同</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-xs-12 mart10">
+				<div class="input-group">
+					<span class="input-group-addon">&nbsp;&nbsp; 合同状态</span>
+					<select name="status" id="status"  class="csel form-control">
+						<option value="">全部</option>
+						<option value="0">合同执行中</option>
+						<option value="1">合同执行完毕</option>
+						<option value="100">合同取消</option>
+						<option value="-1">合同违约</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-xs-12 mart10 ">
+				<div class="input-group">
+					<span class="input-group-addon">&nbsp;&nbsp; 合同编号</span>
+					<input type="text" class="cinp form-control" name="contNo" id="contNo" />
+				</div>
+			</div>
+			<div class="col-xs-12 mart10">
+				<div class="input-group">
+					<span class="input-group-addon">交易订单号</span>
+					<input type="text" class="cinp form-control" name="strikeNo" id="strikeNo" />
 				</div>
 			</div>
 		</div>
+		</div>
+		<table id="dataset" class="display nowrap cell-border table table-responsive" cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th>品种</th>
+						<th>商品</th>
+						<th>合同类型</th>								                
+						<th>买方编号</th>
+						<th>买方名称</th>
+						<th>卖方编号</th>
+						<th>卖方名称</th>								                
+						<th>订立日期</th>
+						<th>商品数量</th>
+						<th>商品单价</th>
+						<th>合同金额(元)</th>
+						<th>合同状态</th>       
+						<th>合同编号</th>  							                  
+						<th>成交编号</th> 							                							                
+						<th>操作</th>								                
+					</tr>
+				</thead>
+			</table>
+</div>
 	
-<!-- wrapper End -->		
-<script type="text/x-handlebars-template" id="entryTemplate">
-	<table class="ui-table table-primary">
-		<thead>
-			<tr>
-				<td>信息</td>
-				<td>类型</td>
-				<td>交易商品</td>
-				<td>签订日期</td>
-				<td>合同金额</td>
-				<td>单价</td>
-				<td>合同数量</td>
-				<td>合同状态</td>
-				<td width="80">操作</td>
-			</tr>
-		</thead>	
-		<tbody>
-			{{#contracts}}
-			<tr class="{{setstyle @index}}">
-				<td class="ctl">
-					<div class="mbox">
-						<p>{{contNo}}</p>
-						<p>卖方：{{lsMemName}}</p>
-						<p>买方：{{dbMemName}}</p>
-					</div>
-				</td>
-				<td>{{contractName}}</td>
-				<td>
-					<div class="cell">{{commName}}</div>
-					<div class="cell">{{strikeNo}}</div>
-				</td>
-				<td>{{contTime}}</td>
-				<td>{{money contAmt}}元</td>
-				<td>{{money up}}元/{{uom}}</td>
-				<td>{{vol}}</td>
-				<td>{{statusDesc}}</td>
-				<td>
-					<a href="/contract/info/{{contNo}}.htm"  class="lnks" target="_blank">查看</a><br/>
-					<a href="/contract/download/{{contNo}}.htm" class="lnks" target="_blank">下载</a><br/>
-				</td>
-			</tr>
-			{{/contracts}}
-		</tbody>
-	</table>
-</script>
+	<script type="text/x-handlebars-template" id="entryTemplate">
+		<table class="ui-table table-primary">
+			<thead>
+				<tr>
+					<td>信息</td>
+					<td>类型</td>
+					<td>交易商品</td>
+					<td>签订日期</td>
+					<td>合同金额</td>
+					<td>单价</td>
+					<td>合同数量</td>
+					<td>合同状态</td>
+					<td width="80">操作</td>
+				</tr>
+			</thead>	
+			<tbody>
+				{{#contracts}}
+				<tr class="{{setstyle @index}}">
+					<td class="ctl">
+						<div class="mbox">
+							<p>{{contNo}}</p>
+							<p>卖方：{{lsMemName}}</p>
+							<p>买方：{{dbMemName}}</p>
+						</div>
+					</td>
+					<td>{{contractName}}</td>
+					<td>
+						<div class="cell">{{commName}}</div>
+						<div class="cell">{{strikeNo}}</div>
+					</td>
+					<td>{{contTime}}</td>
+					<td>{{money contAmt}}元</td>
+					<td>{{money up}}元/{{uom}}</td>
+					<td>{{vol}}</td>
+					<td>{{statusDesc}}</td>
+					<td>
+						<a href="/contract/info/{{contNo}}.htm"  class="lnks" target="_blank">查看</a><br/>
+						<a href="/contract/download/{{contNo}}.htm" class="lnks" target="_blank">下载</a><br/>
+					</td>
+				</tr>
+				{{/contracts}}
+			</tbody>
+		</table>
+	</script>
 
-<!-- footer -->
-<jsp:include page="../comm/footer.jsp" flush="true" />
-<!-- footer End -->
+	<!-- footer -->
+	<jsp:include page="../comm/footer.jsp" flush="true" />
+	<!-- footer End -->
 </body>
 </html>

@@ -16,7 +16,6 @@
 	<link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
 	<link rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" type="text/css"/>
 	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
-	<link type="text/css" rel="stylesheet" href="/mobile/css/selecttags.css" >
 	<link type="text/css" rel="stylesheet" href="/mobile/css/square/green.css">
 	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
 	<script type="text/javascript" src="/mobile/js/handlebars.js"></script>
@@ -43,9 +42,9 @@
 		<!-- header End -->
 	</div>
 	
-	<div class="container-fluid bordert">
+	<div class="container-fluid  up-datatables">
 
-		<div class="row safe-type txtcenter bgwhite  borderb">
+		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-4"><a href="/delivery/selllist.htm" class="active">销售交收</a>
 			</div>
 			<div class="col-xs-4"><a href="/delivery/buylist.htm">采购交收</a>
@@ -54,59 +53,68 @@
 			</div>
 		</div>
 
-		<table class="ui-table">
-										<tbody>
-											<tr>
-												<td width="80" class="ctr">商品分类：</td>
-												<td colspan="3">
-													<input type="hidden" name="commcode" id="commcode" />
-													<div class="selcomm" data-select></div>
 
-												</td>
-											</tr>
-											<tr>
-												<td class="ctr">交收状态：</td>
-												<td>
-													<select name="status" id="status" class="csel">
-														<option value="">全部状态</option>
-														<option value="100">买方待付款</option>
-														<option value="200">卖方待发货</option>
-														<option value="300">买方待收货</option>
-														<option value="400">买方待确认发票</option>
-													</select>
-												</td>
-												<td class="ctr">交收编号：</td>
-												<td width="380"><input type="text"  name="strikeNo" id="strikeNo"  class="cinp"/></td>
-											</tr>
-										</tbody>
-									</table>
+		<div class="condition">
+			<div class="row">
+			<div class="col-xs-12">
+					<div class="input-group">
+						<span class="input-group-addon">商品分类</span>
+						<input type="text" class="selcomm_dialog form-control" placeholder="请选择商品">
+						<input type="hidden" name="commcode" id="commcode" />
+						<div class="selcomm" data-select></div>
+					</div>
+				</div>
+				<div class="col-xs-12 mart10">
+					<div class="input-group">
+						<span class="input-group-addon">交收状态</span>
+						<select name="status" id="status" class="csel form-control">
+							<option value="">全部状态</option>
+							<option value="100">买方待付款</option>
+							<option value="200">卖方待发货</option>
+							<option value="300">买方待收货</option>
+							<option value="400">买方待确认发票</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-xs-12 mart10">
+					<div class="input-group">
+						<span class="input-group-addon">交收编号</span>
+						<input type="text"  name="strikeNo" id="strikeNo"  class="cinp form-control"/>
+					</div>
+				</div>
 
-									<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
-								<thead>
-									<tr>
-										<th>品种</th>
-										<th>商品代码</th>
-										<th>商品名称</th>
-										<th>品牌</th>	
-										<th>产地</th> 
-										<th>买方编号</th>								                	
-										<th>买方名称</th> 
-										<th>成交日期</th>
-										<th>付款日期</th>								                
-										<th>交收日期</th>
-										<th>状态</th>								                								                								                
-										<th>商品数量</th>
-										<th>商品单价</th>
-										<th>成交金额(元)</th>   								                
-										<th>交收类型</th>
-										<th>交收仓库</th>								                								                
-										<th>标题简述</th>								                								                	
-										<th>订单号</th>	
-										<th>合同编号</th> 								                									                					                
-										<th>操作</th>								                
-									</tr>
-								</thead>
-							</table>
+
+			</div>
+		</div>
+
+
+
+		<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>品种</th>
+					<th>商品代码</th>
+					<th>商品名称</th>
+					<th>品牌</th>	
+					<th>产地</th> 
+					<th>买方编号</th>								                	
+					<th>买方名称</th> 
+					<th>成交日期</th>
+					<th>付款日期</th>								                
+					<th>交收日期</th>
+					<th>状态</th>								                								                								                
+					<th>商品数量</th>
+					<th>商品单价</th>
+					<th>成交金额(元)</th>   								                
+					<th>交收类型</th>
+					<th>交收仓库</th>								                								                
+					<th>标题简述</th>								                								                	
+					<th>订单号</th>	
+					<th>合同编号</th> 								                									                					                
+					<th>操作</th>								                
+				</tr>
+			</thead>
+		</table>
 
 
 
@@ -116,10 +124,10 @@
 
 	<!-- wrapper -->
 	<!-- <div class="wrapper service-full mt30">
-		<div class="grid-16-16"> -->
-			
-			
-			<!-- main -->
+	<div class="grid-16-16"> -->
+
+
+		<!-- main -->
 			<!-- <div class="">
 				
 				<div class="main-content">
@@ -160,7 +168,7 @@
 								</div>
 								
 							</div>
- -->
+						-->
 							<!-- 
 							<div class="row clearfix">
 								<div class="sub-search">
@@ -168,7 +176,7 @@
 								</div>	
 							</div>
 						-->
-					<!-- 	<div class="row"> -->
+						<!-- 	<div class="row"> -->
 
 							 	<!--  
 								 <div id="render"></div>
@@ -229,11 +237,11 @@
 
 <div class="updialog d-add-role w350" id="J_Appeal">
 	<div class="hd">
-		<span class="close ic"></span>
+		<span class="close dialog-close"></span>
 		<h3>交易投诉</h3>
 	</div>
 	<div class="bd">
-		<div class="d-content">
+		<div class="d-content lh26">
 			<div class="bd mt10">
 				<div class="uitem">
 					<table class="ui-table">
@@ -269,11 +277,11 @@
 
 <div class="updialog d-add-role w350" id="J_AppealShow">
 	<div class="hd">
-		<span class="close ic"></span>
+		<span class="close ic dialog-close"></span>
 		<h3>投诉查看</h3>
 	</div>
 	<div class="bd">
-		<div class="d-content">
+		<div class="d-content lh26">
 			<div class="bd mt10">
 				<div class="uitem">
 					<table class="ui-table">

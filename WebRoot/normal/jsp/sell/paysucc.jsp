@@ -57,42 +57,21 @@
 			
 			<!-- main -->
 			<div class="page">
-				<div class="user-mans">
-					<div class="portrait-big">
-						<c:if test="${empty sessionScope.userinfo.operPhoto}">
-							<img  width="200" height="161" alt="" src="/images/portrait.jpg" />
-						</c:if>
-						<c:if test="${!empty sessionScope.userinfo.operPhoto}">
-							<img  width="200" height="161" alt="" src="${sessionScope.userinfo.operPhoto}"/>
-						</c:if>
-					</div>
-					<div class="ucenter">
-						<span>买卖菜单</span>
-					</div>
-					<div class="user-navs members">
-						<ul>
-							<li class="current"><a href="/sell/list.htm">销售订单</a></li>							
-						</ul>
-					</div>
-				</div>
 				
-				<div class="main-content">
+				<div class="">
 					<div class="bd">
 					
 						<div class="page-module">
 							
 							<div class="row">
-								<div class="hd">
-									<h3 class="cor-green">挂牌处理</h3>
-								</div>
+								
 								<div class="bd">
-									<div class="bind-item">
-										<div class="title ml20">挂牌单号：${rspBody.listedNo}</div>
-										
-										<div class="title ml20">处理状态：${rspBody.statusDesc}</div>
-										
-										<div class="box">											
-											<table class="ui-table table-primary">
+									<div class="up-item">
+										<span>挂牌单号：${rspBody.listedNo}</span>
+										<span>处理状态：<span class="fcyellow">${rspBody.statusDesc}</span></span>
+									</div>
+									<div class="box mart40 marb100">											
+											<table class="ui-table table-primary up-primary">
 											<caption>本次挂牌费用说明</caption>
 											<thead>
 													<tr>
@@ -114,7 +93,6 @@
 											</tbody>
 											</table>
 										</div>
-									</div>
 								</div>														
 							</div>
 						</div>	

@@ -55,7 +55,7 @@
 			<!-- main -->
 			<div class="page">
 
-				<div class="main-content">
+				<div class="main-content bornone">
 					<div class="bd">
 					
 						<div class="page-module bsmenus">

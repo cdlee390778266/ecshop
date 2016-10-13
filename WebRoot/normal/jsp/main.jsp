@@ -20,6 +20,7 @@
   <link type="text/css" rel="stylesheet" href="/normal/widget/css/ui.dialog.css" />    
   <link type="text/css" rel="stylesheet" href="/normal/css/lrtk.css?v=${sessionScope.buildno}" /> 
   <script type="text/javascript" src="/normal/js/jquery.js"></script>
+  <script type="text/javascript" src="/normal/js/cnacexutil.js?v=${sessionScope.buildno}"></script>
   <script type="text/javascript" src="/normal/js/selecttags_index.js?v=${sessionScope.buildno}"></script>
   <script type="text/javascript" src="/normal/js/handlebars.js?v=${sessionScope.buildno}"></script>
   <script type="text/javascript" src="/normal/js/ui.pagination.js?v=${sessionScope.buildno}"></script>
@@ -31,9 +32,10 @@
   <script type="text/javascript" src="/normal/js/ui.tips.js?v=${sessionScope.buildno}"></script>
   <script type="text/javascript" src="/normal/js/sha.js"></script>
   <script type="text/javascript" src="/normal/js/swiper.min.js"></script>
-  <script type="text/javascript" src="/normal/js/handle.home.js?v=${sessionScope.buildno}"></script>
+  <script type="text/javascript" src="/normal/js/handle.home.beta.js?v=${sessionScope.buildno}"></script>
+  <script type="text/javascript" src="/normal/js/handle.main.table.js?v=${sessionScope.buildno}"></script>
   
-  <jsp:include page="comm/datatables_index.jsp" flush="true" />
+  <!-- <jsp:include page="comm/datatables_index.jsp" flush="true" /> -->
 
   <style>
     .selcomm .rlist .commhead{
@@ -59,14 +61,11 @@
 	<div class="fixed-wrapper">  
    <!-- topbar -->
    <jsp:include page="comm/topbar.jsp" flush="true" />
-
    <!-- topbar End -->
-
    <!-- header -->
    <jsp:include page="comm/header.jsp" flush="true" />
    <!-- header End -->
  </div>
-
 
  <!-- banner Start -->
  <div class="swiper-container">
@@ -94,179 +93,49 @@
        <span class="val"><span>不限 </span><i></i></span>
        <ul>
          <li>保证金</li>
+         <li>仓单</li>
        </ul>
      </div>
    </div>
-   
-   
-   <div class="selcomm" data-select>        
-   </div>                  
-   
 
-   <div class="custfilter">                  
-    <div class="filtersection">
-     <div class="filterhd">品牌:</div>
-     <div class="filterbd">
-       <ul class="J_Brand">
-        <li  class="active"  data-key="" >不限</li>
-      </ul>
-      <div class="more-btn">更多&#8870;</div>
-    </div>
-
-  </div>
-
-  <div class="filtersection">
-   <div class="filterhd">产地:</div>
-   <div class="filterbd">
-     <ul class="J_Origin">
-      <li class="active"  data-key="" >不限</li>
-    </ul>                     
-    <div class="more-btn">更多&#8870;</div>
-  </div>
-</div>
-
-
-<div class="filtersection">
- <div class="filterhd">价格:</div>
- <div class="filterbd">
-   <input type="hidden" id="price-max" name="price-max" />
-   <input type="hidden" id="price-min" name="price-min" />
-   <ul class="J_Price">
-    <li  class="active"  data-key="" >不限</li>                       
-    <li data-max="1000"  >1000元以下</li>
-    <li data-max="2000" data-min="1000" >1000-2000元</li>
-    <li data-max="3000" data-min="2000" >2000-3000元</li>
-    <li data-max="5000" data-min="5000" >3000-5000元</li>
-    <li data-min="5000" >5000元以上</li>
-  </ul>
-  <div class="filtinterval">
-    <input type="text" class="input-text" id="p-min" name="p-min" /><em>-</em>
-    <input type="text" class="input-text" id="p-max" name="p-max" />
-    <a id="priceBtn" class="filtbtn">查询</a>
-  </div>
-</div>
-</div>
-
-<div class="filtersection">
- <div class="filterhd">数量:</div>
- <div class="filterbd">
-   <input type="hidden" id="volume-max" name="volume-max" />
-   <input type="hidden" id="volume-min" name="volume-min" />
-   <ul class="J_Volume">
-    <li class="active"  data-key="" >不限</li>                        
-    <li data-max="50" >0-50</li>
-    <li data-max="100" data-min="50" >50-100</li>
-    <li data-max="200" data-min="100" >100-200</li>
-    <li data-max="500" data-min="200" >200-500</li>
-    <li data-min="500" >500以上</li>
-  </ul>
-  <div class="filtinterval">
-    <input type="text"  class="input-text" id="v-min" name="v-min"  onkeyup="this.value=this.value.replace(/\D/g,'')"  /><em>-</em>
-    <input type="text"  class="input-text" id="v-max" name="v-max"  onkeyup="this.value=this.value.replace(/\D/g,'')"  />
-    <a id="volumeBtn" class="filtbtn">查询</a>
-  </div>
-</div>
-</div>
-</div>                
-
-
-<div class="input-group">
- <div class="group-txt">挂牌方式</div>
- <div class="group-box">
-   <span class="val"><span>不限 </span><i></i></span>
-   <ul>
-     <li>买方挂牌</li>
-     <li>卖方挂牌</li>
-   </ul>
+   <div class="input-group">
+     <div class="group-txt">挂牌方式</div>
+     <div class="group-box">
+       <span class="val"><span>不限 </span><i></i></span>
+       <ul>
+         <li>买方挂牌</li>
+         <li>卖方挂牌</li>
+       </ul>
+     </div>
+   </div>
+   <div class="screen-search">
+     <label for=""></label>
+     <input type="text" placeholder="在结果中搜索关键字" />
+   </div>
  </div>
-</div>
-<div class="screen-search">
- <label for=""></label>
- <input type="text" placeholder="在结果中搜索关键字" />
-</div>
-</div>
-
 </div>
 <!-- 筛选 -->
 
-
-
-<!-- 产品主体部分 -->
-<div class="product grid-16-16"></div>
-
 <div class="wrapper service-full mt30">
   <div class="grid-16-16">
-   <!-- main -->
-
-
-   <div class="main">
-
-
-   </div>
-
-   <!-- main End -->
-
    <div class="main-content">
      <div class="bd">
-
       <div class="page-module product-set">
        <div class="row">
-         <div class="bd mt10">
-
-
+         <div class="product">
           <input type="hidden" value="${sessionScope.userinfo.mID}" id="currMID" />
-          <div class="row">
-
-           <table id="dataset" class="cell-border hover" cellspacing="0" width="100%" style="padding: 0px">
-            <thead>
-              <tr>
-               <th></th>
-               <th></th>
-               <th></th>
-               <th></th>
-               <th></th>
-               <th></th>
-               <th></th>
-             </tr>
-           </thead>
-         </table>	
-
-         <div class="up-page">
-          <div class="up-pagel">
-            <div class="prev">
-              <a href="" class="disabled"> < 第一页</a>
-            </div>
-            <div class="up-page-main">
-              <a href="" >1</a>
-              <a href="" >2</a>
-              <a href="" >3</a>
-              <a href="" >4</a>
-              <span>...</span>
-            </div>
-            <div class="next">
-             <a href="">下一页 > </a>
-           </div>
-         </div>
-         <div class="up-pager">
-          <span>共 15 页</span>
-          <span>到第 <input type="text" value="1" /> 页</span>
-          <a href="">确定</a>
+          <div class="row" id="datalist">
+          </div>  				
         </div>
       </div>
-
-    </div>  				
+    </div>
   </div>
-</div>
-</div>
-</div>
 </div>			
 </div>	
 <!--  content End -->			
 </div>
 
-
 <!-- wrapper End -->
-
 
 <script type="text/x-handlebars-template" id="entryTemplate">
 	<table class="ui-table table-primary">
@@ -368,6 +237,12 @@
     spaceBetween: 30,
     effect: 'fade'
   });
+  
+  $(document).ready(function(){
+   var tab = $("#datalist").tabulation("/mall/findtradelist.htm");
+   console.log(tab);
+ });
+  
   $(function(){
     $('body').on('click','.group-box',function(event){
      event.stopPropagation();
@@ -386,67 +261,7 @@
     $('body').on('click','.panel',function(){
       location.href = $(this).find('a').eq(0).attr('href');
     })
-
-//         var str = '';
-//         $.ajax({
-//             url : '/mall/findunlimitlist.htm',
-//             success : function(res){
-
-
-//                $.each(res.data.listeds, function(index, val) {
-//                  str +=  '<div class="panel">'
-//                  str +=  '<div class="panel-title">'
-//                  str +=  '<strong class="product-name">' + val.commName
-//                  str +=  '</strong>'
-//                  str +=  '<span class="product-price marr40">'
-//                  str +=  ' 单价： <small>￥</small><big>' + val.up + '/Kg</big>'
-//                  str +=  '</span>'
-//                  str +=  '<span>有效期：' + val.dol + '</span>'
-//                  str +=  '</div>'
-//                  str +=  '<ul class="panel-body mart20">'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">仓单编号</span> ：' + val.listedNo
-//                  str +=  '</li>'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">品牌</span> ：' + val.summary1
-//                  str +=  '</li>'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">数量</span> ：<span class="fcred">' + val.rem + '' + val.qty + '</span>吨'
-//                  str +=  '</li>'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">产地</span> ：' + val.summary2
-//                  str +=  '</li>'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">仓库名称</span> ：<span title="' + val.storage  +'">' + val.storage +'</span>'
-//                  str +=  '</li>'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">仓库地址</span> ：'+ '待开发...'
-//                  str +=  '</li>'
-//                  str +=  '<li>'
-//                  str +=  '<span class="liTitle">交易类型</span> ：<span class="promise">' + val.listedTypeName + '</span>'
-//                  str +=  '</li>'
-//                  str +=  '</ul>'
-//                  str +=  '<div class="describe-box">'
-//                  str +=  '<div class="product-describe"><p >' + '待开发...' + '</p>'
-//                  str +=  '</div>'
-//                  str +=  '</div>'
-//                  str +=  '<div class="product-bottom">'
-//                  str +=  '<div class="product-bl">'
-//                  str +=  '编号：' + val.mid
-//                  str +=  '</div>'
-//                  str +=  '<div class="product-br">'
-//                  str +=  '<span>卖家</span> ' + val.memName
-//                  str +=  '</div>'
-//                  str +=  '</div>'
-//                  str +=  '</div>'
-//              });
-// $('.product').append(str)
-// }
-// })
-
-
-
-})
+  })
 
 </script>
 </body>

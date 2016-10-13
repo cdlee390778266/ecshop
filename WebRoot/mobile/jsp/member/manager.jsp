@@ -43,7 +43,7 @@
     .authbox .btn{position: relative;z-index: 2;}
   </style>
 </head>
-<body class="drawer drawer-left">
+<body class="drawer drawer-left up-manager">
 
   <div class="fixed-wrapper"> 
 
@@ -54,9 +54,9 @@
 
  <!-- wrapper -->
 
- <div class="main safe examine " >
-  <div class="header">
-   <div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left"></a></div>
+ <div class="main safe examine bgfff " >
+  <div class="header borhb">
+   <div class="header-left"><a href="javascript:history.back(-1);"><img src="/mobile/images/back.png" alt=""></a></div>
    <div class="logo ">
      操作员设置
    </div>
@@ -65,15 +65,15 @@
   <div class="row marb60">
 
     <c:forEach items="${operlist}" var="oper" varStatus="obj">
-    <div class="cox-xs-12 bgwhite operBox " >
-      <div class="media">
+    <div class="cox-xs-12" >
+      <div class="media  operBox">
         <div class="media-left media-middle padlr15 ">
           <a href="#">
             <img class="media-object" src="/mobile/images/operation.png" alt="...">
           </a>
         </div>
         <div class="media-body ">
-          <h4 class="media-heading ">${oper.operName} 
+          <p class="mart3">${oper.operName} 
             <span class="fc999 ">
               <c:if test="${oper.status == 100}">
               已注销
@@ -81,21 +81,21 @@
             <c:if test="${oper.status != 100}">
             活动
           </c:if> </span>
-        </h4>
+        </p>
         ${oper.operID}
       </div>
       <div class="media-body">
        <c:if test="${oper.status != 100}">
-       <a href="javascript: void(0)" class="btn btn-success J_modify" data-href="modify_template" data-id="${oper.operID}">修改</a>
+       <a href="javascript: void(0)" class="J_modify btn-modify" data-href="modify_template" data-id="${oper.operID}">修改</a>
      </c:if>
      <c:if test="${oper.status != 100}">
      <c:if test="${oper.operID !=  sessionScope.userinfo.operID}">
-     <a href="javascript: void(0)" class="btn btn-success J_delete" data-id="${oper.operID}">注销</a>
+     <a href="javascript: void(0)" class="btn-delete J_delete" data-id="${oper.operID}">注销</a>
    </c:if>
  </c:if>
  <c:if test="${oper.status == 100}">
  <c:if test="${oper.operID !=  sessionScope.userinfo.operID}">
- <a href="javascript: void(0)" class="btn btn-success J_active" data-id="${oper.operID}">启用</a>
+ <a href="javascript: void(0)" class="btn-active J_active" data-id="${oper.operID}">启用</a>
 </c:if>
 </c:if>
 
@@ -104,8 +104,8 @@
 </div>
 </c:forEach>
 
-<div class="col-xs-12 mart15">
-  <a href="javascript: void(0)" id="J_add_operator" data-href="add_template" class="btn btn-success btn-block"><span>+</span>新增操作员</a>
+<div class="col-xs-12 mart30">
+  <a href="javascript: void(0)" id="J_add_operator" data-href="add_template" class="up-btn-success "><span>+</span>新增操作员</a>
 </div>
 </div>
 </div>
@@ -127,7 +127,7 @@
       <span class="close dclose ic"></span>
       <h3>新增操作员</h3>
     </div>
-    <div class="main safe examine addoperation">
+    <div class="main safe examine addoperation manager-dialog">
       <div class="container-fluid">
         <div class="duserinfo">
           <div class="bd mt10 warehouse">
@@ -135,11 +135,11 @@
               <form id="frmUpload" enctype="multipart/form-data" class="form-horizontal up-frmUpload">
 
                 <div class="row">
-                  <div class="col-xs-12 file bgwhite bordertb padtb15">
+                  <div class="col-xs-12 file bordertb padtb15">
 
                    <img id="operPhotoPre" src="" width="120px" height="120px"  onerror="this.src='/mobile/images/portrait.jpg'" class="img-rounded">
                    <span class="btn-upload fileinput inputTxt fc999">
-                    <span>仅支持JPEG、GIF、PNG、BMP格式，文件小于4M</span>
+                    <span class="up-txt">仅支持JPEG、GIF、PNG、BMP格式，文件小于4M</span>
                     <input type="file" name="operPhoto" id="operPhoto" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" class="form-control txtright" />
                   </span>
                 </div>
@@ -214,7 +214,7 @@
           </div>
 
           <div class="col-xs-12 martb40">
-           <button class="cbtn cpublish btn btn-success btn-block btn-lg" id="J_add_opter">添加</button>
+           <button class="cbtn cpublish up-btn-success" id="J_add_opter">添加</button>
          </div>
 
        </div>
@@ -236,7 +236,7 @@
       <span class="close dclose ic"></span>
       <h3>修改操作员</h3>
     </div>
-    <div class="main safe examine addoperation">
+    <div class="main safe examine addoperation manager-dialog">
       <div class="container-fluid">
         <div class="duserinfo">
           <div class="bd mt10 warehouse">
@@ -247,10 +247,10 @@
 
                 <div class="row">
 
-                  <div class="col-xs-12 file bgwhite bordertb padtb15">
+                  <div class="col-xs-12 file bordertb padtb15">
                     <img id="operPhotoPre" src="{{info.operPhoto}}" width="120px" height="120px" style="display: block;float:left" onerror="this.src='/mobile/images/portrait.jpg'">
                     <span class="btn-upload fileinput inputTxt fc999">
-                      <span>仅支持JPEG、GIF、PNG、BMP格式，文件小于4M</span>
+                      <span class="up-txt">仅支持JPEG、GIF、PNG、BMP格式，文件小于4M</span>
                       <input type="file" name="operPhoto" id="operPhoto" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
                     </span>
                   </div>
@@ -304,7 +304,7 @@
                       </div>
                     </li>
                     <li><div class="authbox">
-                     <span>审核<i class="fa fa-angle-down"></i></span>
+                     <span class="btn btn-default">审核<i class="fa fa-angle-down glyphicon glyphicon-menu-down"></i></span>
                      {{rightshow "ad" right}}
                    </div>
                  </li>
@@ -312,21 +312,17 @@
              </div>
            </div>
 
-           <div class="input-group form-group-lg">
-            <span class="input-group-addon "><input type="checkbox" id="reset" name="reset">重置密码</span> 
+           <div class="input-group form-group-lg bgfff">
+            <span class="input-group-addon "><input type="checkbox" id="reset" name="reset" ><span class="marl5">重置密码</span></span> 
             <div id="J_Reset"></div>
             <div id="J_ConfReset"></div>
           </div>
-
-           <div class="col-xs-12 martb40">
-           <button class="cbtn cpublish btn btn-success btn-block btn-lg" id="J_modify_opter">修改</button>
-         </div>
-
         </div>
       </div> 
 </form>
 <div class="seledmsg" style="text-align:center;color: #f00;"></div>
-<div class="pt20" style="margin-bottom:8px; float:right;"><button class="cbtn cpublish" id="J_modify_opter">修&nbsp;&nbsp;改</button></div>  
+<div class="mart15">
+ <button class="cbtn cpublish up-btn-success" id="J_modify_opter">修&nbsp;&nbsp;改</button></div>  
 </div>
 </div>
 

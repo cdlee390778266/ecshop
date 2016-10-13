@@ -57,7 +57,7 @@
 	                	head = "商品";
 	                }
                     
-                    var ulh = '<div class="commsection col-xs-4 stype"><h2 class="commhead">'+head+'<span class="glyphicon glyphicon-menu-down"></span></h2><div class="commbd"><ul class="selectUl"><li class="active" data-level="'+level+'" data-key="" data-leaf="true" >不限<span class="glyphicon glyphicon-ok"></span></li>';
+                    var ulh = '<div class="commsection col-xs-6 stype"><h2 class="commhead">'+head+'<span class="glyphicon glyphicon-menu-down"></span></h2><div class="commbd"><ul class="selectUl"><li class="active" data-level="'+level+'" data-key="" data-leaf="true" >不限<span class="glyphicon glyphicon-ok"></span></li>';
                     for(var i=0;i<idata.length;i++){
                         ulh += '<li data-level="'+idata[i].level+'" data-key="'+idata[i].code+'" data-leaf="'+idata[i].haveLeaf+'">'+idata[i].name+'<span class="glyphicon glyphicon-ok"></span></li>';
                         

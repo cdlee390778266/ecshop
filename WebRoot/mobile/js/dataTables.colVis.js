@@ -261,7 +261,9 @@ ColVis.prototype = {
 			.append( '<span>'+this.s.buttonText+'</span>' )
 			.bind( this.s.activate=="mouseover" ? "mouseover" : "click", function (e) {
 				e.preventDefault();
+				$('body').css('overflowY','hidden');
 				that._fnCollectionShow();
+
 			} )
 			.appendTo( this.dom.wrapper )[0];
 
@@ -694,7 +696,7 @@ ColVis.prototype = {
 			'display': 'none',
 			'opacity': 0,
 			'position': ! this.s.bCssPosition ?
-				'absolute' :
+				'fixed' :
 				''
 		} )[0];
 	},
@@ -715,6 +717,7 @@ ColVis.prototype = {
 
 		$(nCatcher).click( function () {
 			that._fnCollectionHide.call( that, null, null );
+
 		} );
 
 		return nCatcher;
@@ -736,6 +739,7 @@ ColVis.prototype = {
 			.addClass( 'ColVis_collectionBackground' )
 			.css( 'opacity', 0 )
 			.click( function () {
+				$('body').css('overflowY','auto');
 				that._fnCollectionHide.call( that, null, null );
 			} );
 
@@ -772,7 +776,7 @@ ColVis.prototype = {
 
 		if ( ! this.s.bCssPosition )
 		{
-			nHidden.style.top = iDivY+"px";
+			nHidden.style.bottom = '0';
 			nHidden.style.left = iDivX+"px";
 		}
 
@@ -787,7 +791,7 @@ ColVis.prototype = {
 		var oStyle = this.dom.catcher.style;
 		oStyle.height = $(this.dom.button).outerHeight()+"px";
 		oStyle.width = $(this.dom.button).outerWidth()+"px";
-		oStyle.top = oPos.top+"px";
+		oStyle.top = '25vh';
 		oStyle.left = iDivX+"px";
 
 		document.body.appendChild( nBackground );
@@ -798,7 +802,7 @@ ColVis.prototype = {
 		 * much smoother. If you don't want the animation, then the setTimeout can be removed
 		 */
 		$(nHidden).animate({"opacity": 1}, that.s.iOverlayFade);
-		$(nBackground).animate({"opacity": 0.1}, that.s.iOverlayFade, 'linear', function () {
+		$(nBackground).animate({"opacity": 0.5}, that.s.iOverlayFade, 'linear', function () {
 			/* In IE6 if you set the checked attribute of a hidden checkbox, then this is not visually
 			 * reflected. As such, we need to do it here, once it is visible. Unbelievable.
 			 */

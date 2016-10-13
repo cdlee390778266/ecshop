@@ -181,11 +181,18 @@ public class MemberController {
 		 */
 	@RequestMapping(value="/home.htm")
 	public String home(Model model){  
-		
 		return "member/home";
     }
 	
-	
+	/**
+	 * 进入账户页面
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/account.htm")
+	public String account(Model model){  
+		return "member/account";
+    }
 
 	@RequestMapping(value="/setpwd.htm")
 	public @ResponseBody JSonComm passwordSet(

@@ -59,7 +59,7 @@ $(function() {
 			success : function(data) {
 				var rsdl = UI.Dialog({
 					type : 'tips',
-					width : 320,
+					width : '80%',
 					title : '交易结果',
 					content : data.msg,
 				}).show();
@@ -80,7 +80,7 @@ $(function() {
 
 		var dl = UI.Dialog({
 			type : 'delete', // 提示框类型，这里是delete 代表删除提示框
-			width : 480, // 设置提示框的宽度
+			width : '80%', // 设置提示框的宽度
 			title : '交易确认', // 提示框标题的文字信息
 			content : '您确定单号' + strikeNo + '的商品要发货吗？', // 提示框的内容文字信息
 			href : noTips,
@@ -147,7 +147,7 @@ $(function() {
 					}else{
 						var rsdl = UI.Dialog({
 							type : 'tips',
-							width : 320,
+							width : '80%',
 							title : '交易结果',
 							content : data.msg,
 						}).show();
@@ -219,7 +219,7 @@ $(function() {
 					success : function(data) {
 						var rsdl = UI.Dialog({
 							type : 'tips',
-							width : 320,
+							width : '80%',
 							title : '交易结果',
 							content : data.msg
 						}).show();
@@ -370,7 +370,7 @@ $(function() {
 	
 	var btnfn = function(){
 		if($('#code').val()!=''&&$('#commcode').val() == ''){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
 			event.stopPropagation();
 			return false;
 		}

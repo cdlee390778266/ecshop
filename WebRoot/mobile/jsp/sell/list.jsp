@@ -13,7 +13,6 @@
 	<link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
 	<link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
 	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
-	<link type="text/css" rel="stylesheet" href="/mobile/css/selecttags.css" >
 	<link  type="text/css"rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
 	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
 	<script type="text/javascript" src="/mobile/js/leftnavs.js"></script>
@@ -40,38 +39,47 @@
 	</div>
 	
 
-	<div class="container-fluid bordert up-datatables">
-		<div class="row safe-type txtcenter bgwhite  borderb">
+	<div class="container-fluid up-datatables">
+		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-6"><a href="/sell/list.htm"  class="active" >销售申请</a>
 			</div>
 			<div class="col-xs-6"><a href="/buy/list.htm" >购买申请</a></div>
 		</div>
 
-		<div class="row mart10">
-			<div class="col-xs-12">
-				<span class="selcomm_dialog">选择商品</span>
-				<input type="hidden" name="commcode" id="commcode" />
-				<div class="selcomm" data-select></div>
-			</div>
-			<div class="col-xs-12 mart5">
-				<select class="form-control" id="type">
-					<option value="#type0">待处理订单</option>
-					<option value="#type1">待审核订单</option>
-					<option value="#type2">待付保证金</option>
-					<option value="#type3">审核未通过</option>
-					<option value="#type4">已撤消订单</option>
-					<option value="#type5">已完成订单</option>
-				</select>
-				<ul id="J_TabBar" class="pa-tabbar pdeta hide">
-					<li class="item tab-cell selected"><a data-role='' id="type0">待处理订单</a></li>
-					<li class="item tab-cell"><a data-role='0' id="type1">待审核订单</a></li>
-					<li class="item tab-cell"><a data-role='1' id="type2">待付保证金</a></li>
-					<li class="item tab-cell"><a data-role='-1' id="type3">审核未通过</a></li>
-					<li class="item tab-cell"><a data-role='-2' id="type4">已撤消订单</a></li>
-					<li class="item tab-cell"><a href="/mall/list.htm" id="type5">已完成订单</a></li>
-				</ul>
+		<div class="condition">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="input-group">
+						<span class="input-group-addon">商品类型</span>
+						<input type="text" class="selcomm_dialog form-control" placeholder="请选择商品"/>
+						<input type="hidden" name="commcode" id="commcode" />
+						<div class="selcomm" data-select></div>
+					</div>
+				</div>
+				<div class="col-xs-12 mart10">
+					<div class="input-group">
+						<span class="input-group-addon">订单状态</span>
+						<select class="form-control" id="type">
+							<option value="#type0">待处理订单</option>
+							<option value="#type1">待审核订单</option>
+							<option value="#type2">待付保证金</option>
+							<option value="#type3">审核未通过</option>
+							<option value="#type4">已撤消订单</option>
+							<option value="#type5">已完成订单</option>
+						</select>
+					</div>
+					<ul id="J_TabBar" class="pa-tabbar pdeta hide">
+						<li class="item tab-cell selected"><a data-role='' id="type0">待处理订单</a></li>
+						<li class="item tab-cell"><a data-role='0' id="type1">待审核订单</a></li>
+						<li class="item tab-cell"><a data-role='1' id="type2">待付保证金</a></li>
+						<li class="item tab-cell"><a data-role='-1' id="type3">审核未通过</a></li>
+						<li class="item tab-cell"><a data-role='-2' id="type4">已撤消订单</a></li>
+						<li class="item tab-cell"><a href="/mall/list.htm" id="type5">已完成订单</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
+		
 		<input type="hidden" value="${sessionScope.userinfo.mID}" id="mid" />
 		<input type="hidden" value="${sessionScope.userinfo.operID}" id="pid" />
 

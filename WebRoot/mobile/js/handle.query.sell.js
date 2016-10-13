@@ -89,13 +89,13 @@ $(function() {
 	
 	var btnfn = function(){
 		if($('#code').val()!=''&&$('#commcode').val() == ''){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
 			event.stopPropagation();
 			return false;
 		}
 		
 		if($('#strikeDate').val()==''&&$('#estrikeDate').val() == ''){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '请必须输入成交开始日期或结束日期'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '请必须输入成交开始日期或结束日期'}).show();						
 			event.stopPropagation();
 			return false;
 		}
@@ -109,7 +109,7 @@ $(function() {
 		}
 		
 		if($('#strikeDate').val() > $('#estrikeDate').val()){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '成交开始日期大于结束日期'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '成交开始日期大于结束日期'}).show();						
 			event.stopPropagation();
 			return false;
 		}

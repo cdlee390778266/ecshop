@@ -62,13 +62,13 @@ $(function() {
 	
 	var btnfn = function(){
 		if($('#code').val()!=''&&$('#commcode').val() == ''){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
 			event.stopPropagation();
 			return false;
 		}
 		
 		if($('#dol').val()==''&&$('#edol').val() == ''){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '请必须输入挂牌开始日期或结束日期'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '请必须输入挂牌开始日期或结束日期'}).show();						
 			event.stopPropagation();
 			return false;
 		}
@@ -82,7 +82,7 @@ $(function() {
 		}
 		
 		if($('#dol').val() > $('#edol').val()){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '挂牌开始日期大于结束日期'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '挂牌开始日期大于结束日期'}).show();						
 			event.stopPropagation();
 			return false;
 		}
@@ -140,7 +140,7 @@ $(function() {
 	$('#dataset').on('click', '.J_Detail', function(e) {
 		var key = $(this).attr('data-key');
 		
-		window.open("/mall/item/"+key+".htm");  
+		location.href = '/mall/item/'+key+'.htm';
 
 	});
 	
@@ -151,7 +151,7 @@ $(function() {
 		// 初始化确认提示框
 		var dl = UI.Dialog({
 			type : 'delete', // 提示框类型，这里是delete 代表删除提示框
-			width : 480, // 设置提示框的宽度
+			width : '80%', // 设置提示框的宽度
 			title : '下架确认', // 提示框标题的文字信息
 			content : '您确定要下架挂牌号为' + key + '商品交易单吗？', // 提示框的内容文字信息
 			href : todoCancel,
@@ -189,7 +189,7 @@ $(function() {
 				}else{
 					var rsdl = UI.Dialog({
 					type : 'tips',
-					width : 320,
+					width : '80%',
 					title : '交易结果',
 					content : data.msg,
 					}).show();

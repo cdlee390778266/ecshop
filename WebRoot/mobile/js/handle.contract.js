@@ -101,14 +101,14 @@ $(function() {
 	
 	var btnfn = function(){
 		if($('#code').val()!=''&&$('#commcode').val() == ''){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
 			event.stopPropagation();
 			return false;
 		}
 		
 		
 		if($('#contTime').val()==''&&$('#econtTime').val() == ''){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '请必须输入订立开始日期或结束日期'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '请必须输入订立开始日期或结束日期'}).show();						
 			event.stopPropagation();
 			return false;
 		}
@@ -122,7 +122,7 @@ $(function() {
 		}
 		
 		if($('#contTime').val() > $('#econtTime').val()){
-		    UI.Dialog({type : 'tips',width : 320, title : '查询提示',content : '订立开始日期大于结束日期'}).show();						
+		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '订立开始日期大于结束日期'}).show();						
 			event.stopPropagation();
 			return false;
 		}
@@ -138,14 +138,14 @@ $(function() {
 	$('#dataset').on('click', '.J_Show', function(e) {
 		var key = $(this).attr('data-key');
 
-		window.open("/contract/info/"+key+".htm");  
+		location.href = "/contract/info/"+key+".htm";
 
 	});
 	
 	$('#dataset').on('click', '.J_Download', function(e) {
 		var key = $(this).attr('data-key');
 
-		window.open("/contract/download/"+key+".htm");  
+		location.href =  "/contract/download/"+key+".htm";
 
 	});
 

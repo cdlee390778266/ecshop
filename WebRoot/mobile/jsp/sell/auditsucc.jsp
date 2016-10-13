@@ -20,9 +20,7 @@
 	<title>挂牌审核</title>
 	<script type="text/javascript">
 
-
 		$(function() {
-
 			$(document).ready(function() {
 				$('.fixed-wrapper').stickUp();
 			});
@@ -61,11 +59,9 @@
 	</div>
 </div>
 
-
-
-
 <!-- footer -->
 <jsp:include page="../comm/footer.jsp" flush="true" />
 <!-- footer End -->
+
 </body>
 </html>

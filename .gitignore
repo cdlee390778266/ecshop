@@ -2,4 +2,11 @@
 .classpath
 .mymetadata
 .project
-WebRoot/WEB-INF
+WebRoot/WEB-INF/classes/
+/build/
+scss/
+dist/
+
+.idea/
+WebRoot/WEB-INF/classes
+WebRoot/WEB-INF/weblogic.xml

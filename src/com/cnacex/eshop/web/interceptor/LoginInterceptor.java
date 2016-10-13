@@ -18,7 +18,7 @@ import com.cnacex.eshop.util.SysStatusUtil;
 public class LoginInterceptor extends HandlerInterceptorAdapter{
 	
 	
-	 private static final String[] IGNORE_URI = {"/index.htm", "/error/","/login.htm","/member/logout.htm"};
+	 private static final String[] IGNORE_URI = {"/index.htm", "/error/","/login.htm","/member/logout.htm","/aboutus.htm"};
 	 
 	 private static final String LOGIN_URL = "/index.htm";
 	 

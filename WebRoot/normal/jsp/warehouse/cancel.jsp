@@ -72,7 +72,7 @@
 					<div class="bd">
 						<div class="page-module data-query">
 							<div class="row">
-							    <div class="hd">
+							    <div class="hd gp-h3">
 							   		<h3>注册仓单撤销</h3>
 							    </div>
 							    <div class="bd mt10 warehouse">
@@ -80,12 +80,13 @@
 									<tbody>
 										<tr>
 											<td width="80" class="ctr">商品分类：</td>
-												<td colspan="5">
+												<td>
 												<input type="hidden" name="commcode" id="commcode" />
 												<div class="selcomm" data-select></div>
-											</td>		
-										</tr>																	
-										<tr>
+												<div class="select-box" id="product-dialog">
+														<div class="select-txt" id="select-txt">请选择</div>
+													</div>		
+											</td>	
 											<td class="ctr">入库时间：</td>
 											<td>
 												<input type="text" name="contTime" id="contTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date ml10" />
@@ -93,24 +94,23 @@
 												<input type="text" name="econtTime" id="econtTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date" />
 											</td>
 											<td class="ctr">仓库编号：</td>
-											<td><input type="text" class="cinp" name="storeno" maxlength="12" id="storeno" /></td>
+											<td><input type="text" class="cinp" name="storeno" maxlength="12" id="storeno" /></td>	
+										</tr>																	
+										<tr>
 											<td class="ctr">审核编号：</td>
 											<td><input type="text" class="cinp" name="auditno" maxlength="14" id="auditno" /></td>
-										</tr>																	
+											<td class="ctr">仓单状态：</td>
+											<td>
+											<select class="csel" id="type">
+														<option value="/warehouse/list.htm" >可注册仓单</option>	
+														<option value="#" selected="" >待审核仓单</option>
+														<option value="/warehouse/list.htm?category=audited" >已审核仓单</option>
+													</select>
+											</td>
+										</tr>						
 									</tbody>
 								</table>
 							    </div>							
-							</div>
-							<div class="tabbar-wrap">
-								 <div class="mod-tabbar">
-									<div class="header-exg tab-sty">
-										<ul id="J_TabBar" class="pa-tabbar pdeta">
-											<li class="item tab-cell"><a href="/warehouse/list.htm">可注册仓单</a></li>
-											<li class="item tab-cell selected"><a href="#">待审核仓单</a></li>
-											<li class="item tab-cell"><a href="/warehouse/list.htm?category=audited">已审核仓单</a></li>
-										</ul>
-									</div>
-								</div>
 							</div>
 							<div class="row">
 								<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">

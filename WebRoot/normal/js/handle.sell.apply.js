@@ -107,6 +107,9 @@ $('#product-dialog').on('click', function(){
     	step(3);
     })
 
+// $('#tradeType li').click(function(){
+// 	location.href = $(this).data('href');
+// })
 
 //改版部分新增代码   ---end
 

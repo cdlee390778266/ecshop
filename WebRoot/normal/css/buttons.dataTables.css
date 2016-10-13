@@ -123,7 +123,7 @@ button.dt-button:hover:not(.disabled),
 div.dt-button:hover:not(.disabled),
 a.dt-button:hover:not(.disabled) {
   // border: 1px solid #666;
-  background-color: #FEA31B;
+  background-color:#74bd41;
   /* Fallback */
   //background-image: -webkit-linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
   /* Chrome 10+, Saf5.1+, iOS 5+ */
@@ -142,7 +142,7 @@ a.dt-button:focus:not(.disabled) {
   //border: 1px solid #426c9e;
   text-shadow: 0 1px 0 #c4def1;
   outline: none;
-  background-color: #FEA31B;
+  background-color:#74bd41;
   /* Fallback */
   //background-image: -webkit-linear-gradient(top, #bddef4 0%, #79ace9 100%);
   /* Chrome 10+, Saf5.1+, iOS 5+ */
