@@ -2,6 +2,4 @@
 .classpath
 .mymetadata
 .project
-WebRoot/WEB-INF/classes/
-/build/
-scss/
+WebRoot/WEB-INF
