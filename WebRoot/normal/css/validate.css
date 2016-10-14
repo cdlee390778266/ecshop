@@ -23,10 +23,6 @@
 
   }
 
-  .form_control.error input[type="text"],
-  .form_control.error input[type="password"] {
-    color: #e25f59;
-  }
 
   .form_control input[type="text"]:focus,
   .form_control input[type="password"]:focus {

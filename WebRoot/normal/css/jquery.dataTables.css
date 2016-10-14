@@ -99,7 +99,9 @@ table.dataTable.cell-border tbody tr td:first-child {
 
 table.dataTable.cell-border tbody:last-child tr th,
 table.dataTable.cell-border tbody:last-child tr td{
-  border-bottom: 1px solid #ddd;
+    border: 1px solid #f3f3f3 !important;
+    border-left: none !important;
+    border-top: none !important;
 }
 
 table.dataTable.cell-border tbody tr:first-child th,
@@ -213,7 +215,6 @@ table.dataTable td.dt-center,
 table.dataTable td.dataTables_empty {
   color: #DADADA;
   font-size: 2.0em;
-  padding-left: 350px;
 }
 table.dataTable th.dt-right,
 table.dataTable td.dt-right {
@@ -308,10 +309,18 @@ table.dataTable td {
 }
 .dataTables_wrapper .dataTables_filter input {
     margin-left: 0.5em;
-    padding: 1px 34px !important;
+    padding: 1px 14px !important;
     border: 1px solid #ddd;
+    height: 32px !important;
+    background-color: #eeeeee;
+    border-radius: 2px;
+
 }
-.dataTables_wrapper .dataTables_filter input:focus{border:1px solid #e5c04e;}
+.dataTables_wrapper .dataTables_filter input:focus{
+    border:1px solid #e5c04e;
+    background-color: #fff;
+
+}
 .dataTables_wrapper .dataTables_info {
   clear: both;
   float: left;

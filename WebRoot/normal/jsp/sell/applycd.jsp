@@ -452,7 +452,7 @@
 		<span class="close ic"></span>
 		<h3>注册仓单选择</h3>
 	</div>
-	<div class="bd" style="height: 550px;">
+	<div class="bd" style="min-height:560px;padding-bottom:10px;">
 		<div style="margin-top: 5px;">
 			<table class="ui-table">
 				<tbody>
@@ -485,7 +485,7 @@
 		</div>
 
 		<div>
-			<div  class="txtcenter">
+			<div  class="txtcenter cd-confirm-box">
 				<button class="cd-btn cd-confirm" id="confirmbtn1">确&nbsp;&nbsp;认</button>
 				<button class="cd-btn cd-cancle" id="cancelbtn1">取&nbsp;&nbsp;消</button>
 			</div>

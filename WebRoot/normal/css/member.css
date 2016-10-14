@@ -2252,10 +2252,11 @@ td.highlight {
          	margin:0 5px !important; 
          }
          .user-safe button{
-         	border: 1px solid #999999;
-         	padding: 0 20px;
-         	border-radius: 4px;
-         	background: #eeeeee;
+             border: 1px solid #6db23d;
+             padding: 0 20px;
+             border-radius: 4px;
+             background: #6db23d;
+             color: #fff;
          }
          .bind-item{
          	width: 80%;
@@ -2399,9 +2400,15 @@ td.highlight {
          	border :none !important;
          }
          .dataTable .cbtn{
+             border: 1px solid #e5c04e !important;
          	background: #e5c04e !important;
          	color: #fff !important;
-         	border: none !important;
+
+         }
+         .dataTable .cbtn:hover{
+             border: 1px solid #e5c04e !important;
+             background: #fff !important;
+             color: #e5c04e !important;
          }
          #sellform .ctr{
          	text-align: center !important;
