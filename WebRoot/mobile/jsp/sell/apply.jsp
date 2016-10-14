@@ -28,6 +28,7 @@
 	<script type="text/javascript" src="/mobile/js/localcity.js"></script>
 	<script type="text/javascript" src="/mobile/js/stickup.js"></script>
 	<script type="text/javascript" src="/mobile/widget/laydate/laydate.js"></script>
+	<script type="text/javascript" src="/mobile/js/iscroll.js"></script>
 	<script type="text/javascript" src="/mobile/js/handle.sell.apply.js?v=${sessionScope.buildno}"></script>
 
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
@@ -80,7 +81,7 @@
 			<div class="form-group  borderb  form-group-lg">
 				<label class="col-xs-5 control-label ">选择具体商品</label>
 				<div class="col-xs-7">
-					<span class="form-control txtright lh26 selcomm_dialog" >请选择挂牌商品</span>
+					<span class="form-control txtleft lh26 selcomm_dialog" >请选择挂牌商品</span>
 					<div class="selcomm" data-select ></div> 
 					<input type="hidden" name="commCode" id="commCode"
 					value="" />
@@ -341,56 +342,20 @@
 						<div class="row">
 							<div class="col-xs-6 up-sell-btn">
 								<div class="pa-btn-sell btn-all-select ">
-									<button class="btn-normal btn-sell">全选</button>/
+									<button class="btn-normal btn-sell" id="select-all">全选</button>/
 								</div>
 								<div class="pa-btn-sell btn-all-unselect ">
-									<button class="btn-normal btn-sell">取消全选</button>
+									<button class="btn-normal btn-sell" id="select-none">取消全选</button>
 								</div>
 							</div>
 							<div class="col-xs-6 up-sell-btn">
-								<span class="fcgreen btn-close">确定</span>
+								<span class="fcgreen btn-close" id="select-confirm">确定</span>
 							</div>
 						</div>
-
-						<ul style="display:none;">
-							<li>
-								<div class="pa-btn-sell btn-single-select">
-									<button class="btn-normal btn-sell">单个&gt;&nbsp;&nbsp;</button>
-								</div>
-							</li>
-							<li>
-								<div class="pa-btn-sell btn-all-select">
-									<button class="btn-normal btn-sell">全部&gt;&gt;</button>
-								</div>
-							</li>
-						</ul>
-						<ul style="display:none;">
-							<li>
-
-								<div class="pa-btn-sell btn-all-unselect">
-									<button class="btn-normal btn-sell">&lt;&lt;全部</button>
-								</div>
-							</li>
-
-							<li>
-
-								<div class="pa-btn-sell btn-single-unselect">
-									<button class="btn-normal btn-sell">&nbsp;&nbsp;&lt;单个</button>
-								</div>
-							</li>
-						</ul>
 					</div>
-				</div>
-
-				<div class="selected" style="display:none;">
-					<h3>已选择会员列表</h3>
-					<select name="seletedlist" size="20" multiple id="selectedlist" >
-
-					</select>
 				</div>
 			</div>
 			<div style="float: right;display:none;">
-
 				<button class="cbtn" id="confirmbtn">确&nbsp;&nbsp;认</button>
 				<button class="cbtn" id="cancelbtn">取&nbsp;&nbsp;消</button>
 			</div>

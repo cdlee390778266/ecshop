@@ -10,9 +10,7 @@
 			draw : null
 		};
 
-		// function page(totalPage,){
-
-		// }
+		var totalPage = 0; // 分页总数
 
 		return this.each(function() {
 			var that = $(this);
@@ -40,7 +38,6 @@
 						var pageSize = initData.length; // 每页大小
 						var recordsTotal = 0; // 总记录数
 						var recordsFiltered = 0; // 过滤后总记录数
-						var totalPage = 0; // 分页总数
 						var breakpage = 7; //最多显示页码个数
                         var breakspace = 2; //两边显示页码个数
                         var space =  (breakpage-1)/2;
@@ -191,17 +188,13 @@
 								+ '<span class="liTitle">交收仓库</span> ：<span title="' + row.storage + '">' + row.storage + '</span>'
 								+ '</li>'
 								+ '<li>'
-								+ '<span class="liTitle">仓库地址</span> ：'
-								+ '待开发...'
-								+ '</li>'
-								+ '<li>'
 								+ '<span class="liTitle">交收类型</span> ：<span class="promise">' + row.listedTypeName
 								+ '</span>'
 								+ '</li>'
 								+ '</ul>'
 								+ '<div class="describe-box">'
 								+ '<div class="product-describe"><p >'
-								+ '待开发...'
+								+ '无商品描述'
 								+ '</p>'
 								+ '</div>'
 								+ '</div>'
@@ -240,6 +233,10 @@
 					 */
 					 $(this).on('click', '.up-pager a', function() {
 					 	var page = parseInt($('.up-pager input').val());
+					 	if(totalPage < page){
+					 		layer.msg('输入页面太大!');
+					 		return 
+					 	}
 					 	var options = {
 					 		start : initData.length * (page - 1),
 					 		length : 4
@@ -260,7 +257,7 @@
 					 		length : 4
 					 	};
 					 	var initOpts = $.extend({}, initData, options);
-					 	init(initOpts, page);
+					 	init(initOpts, page+1);
 					 });
 
 					/**

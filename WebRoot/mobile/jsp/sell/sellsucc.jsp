@@ -81,13 +81,13 @@
 <c:if test="${listedType=='W'}">
 <div class="row padb120">
 	<div class="col-xs-12 mart15  txtcenter padtb40 lh26">
-		摘牌单号：<span class="fcgreen ">${listed.listedNo}</span><br>
+		摘牌单号：<span class="fcgreen ">${listed.listedno}</span><br>
 		摘牌状态：<span class="fcyellow">${listed.statusDesc}</span>
 	</div>
 	<div class="box">
 		<c:if test="${enableAudit=='1'}">
 		<div class="pa-action clearfix mt10 ml60">
-			<div class="pa-btn-sell txtcenter examine-go examine">
+			<div class="pa-btn-sell txtcenter examine-go examine-btn">
 				<a href="/sell/handle/A/${listed.listedno}.htm" >继续审核</a>
 			</div>
 		</div>

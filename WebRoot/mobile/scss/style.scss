@@ -807,9 +807,12 @@ ul{
 
 
 /********** product **********/
-
+#product{
+  background:#f5f5f5;
+  position:relative;
+}
 .product{
-  background : #fff;
+  background:#fff;
   box-shadow : 0px 1px 1px 1px #eee;
   margin-bottom: 10px;
   padding : 0px 15px;

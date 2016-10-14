@@ -2068,7 +2068,7 @@ border-bottom: 1px solid transparent;
   background: #6db23d;
   color: #fff;
 }
-.prev .disabled{
+.prev .disabled,.next .disabled{
   cursor: default;
   color: #aaa;
 }
@@ -2285,8 +2285,7 @@ table.dataTable.hover tbody tr:hover .sum-commname, table.dataTable.display tbod
   border:none !important;
 }
 #product-dialog1{
-  position: relative;
-  top: 28px;
+ 
 }
 #J_cdList #dataset_filter{
   margin-left: 0;

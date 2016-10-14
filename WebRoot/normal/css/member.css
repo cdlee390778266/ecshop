@@ -2182,7 +2182,7 @@ td.highlight {
              margin-left: 10px;
          }
          #select-txt:hover{background-color:#e6c04e !important;}
-         .layui-layer-ico{
+         /*.layui-layer-ico{
          	left: 0 !important;
          	background: none !important;
          }
@@ -2195,7 +2195,7 @@ td.highlight {
          	width: 40px;
          	text-align: center;
          	font-size: 14px;
-         }
+         }*/
          .valid_message{
          	margin-left: 5px;
          }

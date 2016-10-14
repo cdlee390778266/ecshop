@@ -234,16 +234,16 @@
 			</div>
 			<c:forEach items="${rspBody.costPays}" var="cost" >
 			<div class="row rs-detail">
-				<div class="col-xs-4 borderdb  txtcenter  ">费用名称</div>
-				<div class="col-xs-8 borderdb fc999">${cost.costName}</div>
-				<div class="col-xs-4 borderdb txtcenter ">交易类型</div>
-				<div class="col-xs-8 borderdb fc999">${cost.trTypeName}</div>
-				<div class="col-xs-4 borderdb txtcenter ">费用金额</div>
-				<div class="col-xs-8 borderdb fcyellow">
+				<div class="col-xs-4   txtcenter  ">费用名称</div>
+				<div class="col-xs-8  fc999">${cost.costName}</div>
+				<div class="col-xs-4  txtcenter ">交易类型</div>
+				<div class="col-xs-8  fc999">${cost.trTypeName}</div>
+				<div class="col-xs-4  txtcenter ">费用金额</div>
+				<div class="col-xs-8  fcyellow">
 					<fmt:formatNumber value="${cost.costAmt}" type="currency" pattern="￥0.00元" />
 				</div>
-				<div class="col-xs-4 borderdb txtcenter ">当前状态</div>
-				<div class="col-xs-8 borderdb fc999">${cost.flagDesc}</div>
+				<div class="col-xs-4  txtcenter ">当前状态</div>
+				<div class="col-xs-8  fc999">${cost.flagDesc}</div>
 			</div>
 			</c:forEach>  
 	</div>											
@@ -321,26 +321,7 @@
 		    increaseArea: '20%' // optional
 		});
 		
-
-		//输入域验证
-		// $('#sellform').validate({
-		//     onFocus: function() {
-		//       this.parent().addClass('active');
-		//       return false;
-		//     },
-		//     onBlur: function() {
-		//       var $parent = this.parent();
-		//       var _status = parseInt(this.attr('data-status'));
-		//       $parent.removeClass('active');
-		//       if (!_status) {
-		//         $parent.addClass('error');
-		//       }
-		//       return false;
-		//     }
-		// });
-	    	
 	    var checkSubmitFlg = false;
-	    
 	    
 	    $('#sellform').on('submit', function(event) {
 	    

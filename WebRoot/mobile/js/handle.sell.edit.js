@@ -1,5 +1,8 @@
 $(function() {
 	
+	var selectarray = [];
+	var emptyFlag = true;
+
 	$(document).ready(function() {
 		$('.fixed-wrapper').stickUp();
 	});
@@ -38,17 +41,17 @@ $(function() {
 	function UTFStrLength(value){
 		
 		var rlen= 0;
-    	var len = value.length;
-    	var charCode = -1;
-    	for(var i = 0; i < len; i++){
-    	　　charCode = value.charCodeAt(i);
-    	　　if (charCode >= 0 && charCode <= 128) {
-    	　　		rlen += 1;
-    	　　}else{
-    			rlen += 3;
-    	　　}
-    	}
-    	return rlen;	
+		var len = value.length;
+		var charCode = -1;
+		for(var i = 0; i < len; i++){
+			　　charCode = value.charCodeAt(i);
+			　　if (charCode >= 0 && charCode <= 128) {
+				　　		rlen += 1;
+			　　}else{
+				rlen += 3;
+			　　}
+		}
+		return rlen;	
 	}
 	
 	function checkLastPD(){
@@ -58,23 +61,23 @@ $(function() {
 		$this.css("border","1px #ECECEC solid");
 		$this.css("background-color","#FFFFFF");
 		var $context = $this.parent();
-        var $msg = $context.find('.valid_message');
-        $msg.css("background","");   
+		var $msg = $context.find('.valid_message');
+		$msg.css("background","");   
 		if($this.val()==''){
 			$this.css("border","1px solid #F8C944");
 			$msg.css("color","red");	
 			$msg.css("font-size","14px");
-	       layer.msg("最后付款日必填");
-	        $this.focus();
-	        return false;
+			layer.msg("最后付款日必填");
+			$this.focus();
+			return false;
 		}
 		if(!/^[0-9]*$/.test($this.val())){
 			$this.css("border","1px solid #F8C944");
 			$msg.css("color","red");
 			$msg.css("font-size","14px");
-	        layer.msg("最后付款日为整数");
-	        $this.focus();
-	        return false;
+			layer.msg("最后付款日为整数");
+			$this.focus();
+			return false;
 		}
 		$msg.html("&nbsp;&nbsp;&nbsp;&nbsp;");
 		$msg.css("background","url(/images/icon/sucess.png) no-repeat");
@@ -89,23 +92,23 @@ $(function() {
 		$this.css("border","1px #ECECEC solid");
 		$this.css("background-color","#FFFFFF");
 		var $context = $this.parent();
-        var $msg = $context.find('.valid_message');
-        $msg.css("background","");   
+		var $msg = $context.find('.valid_message');
+		$msg.css("background","");   
 		if($this.val()==''){
 			$this.css("border","1px solid #F8C944");
 			$msg.css("color","red");
 			$msg.css("font-size","14px");
-	        layer.msg("最后交收日必填");
-	        $this.focus();
-	        return false;
+			layer.msg("最后交收日必填");
+			$this.focus();
+			return false;
 		}
 		if(!/^[0-9]*$/.test($this.val())){
 			$this.css("border","1px solid #F8C944");
 			$msg.css("color","red");
 			$msg.css("font-size","14px");
-	        layer.msg("最后交收日为整数");
-	        $this.focus();
-	        return false;
+			layer.msg("最后交收日为整数");
+			$this.focus();
+			return false;
 		}
 		$msg.html("&nbsp;&nbsp;&nbsp;&nbsp;");
 		$msg.css("background","url(/images/icon/sucess.png) no-repeat");
@@ -113,73 +116,36 @@ $(function() {
 		return true;
 	}
 	
-	// $('#lastPD').on("focus", function(event){ 
-	// 	$(this).css('border','1px #4c9430 solid');
-	// 	var $context = $(this).parent();
-	//     var $msg = $context.find('.valid_message');
-	//     if($msg.text() == ''){
-	// 	    $msg.css("color","green");
-	// 	    $msg.css("background","");   
-	// 	    $msg.text("请输入最后付款日");
-	//     }
-	// });
 
-	// $('#lastPD').on("blur", function(event){   
-	// 	checkLastPD();
-	// });
-	
-	
-	// $('#doe').on("blur", function(event){   
-	// 	if(!$('.datepicker-container').is(':hidden'))
-	// 	{
-	// 		$('.datepicker-container').hide();
-	// 	}
-	// });
-	
-	// $('#deliDate').on("focus", function(event){ 
-	// 	$(this).css('border','1px #4c9430 solid');
-	// 	var $context = $(this).parent();
-	//     var $msg = $context.find('.valid_message');
-	//     if($msg.text() == ''){
-	// 	    $msg.css("color","green");
-	// 	    $msg.css("background","");   
-	// 	    layer.msg("请输入最后交收日")
-	//     }
-	// });
-
-	// $('#deliDate ').on("blur", function(event){   
-	// 	checkDeliDate();
-	// });
-	
 	$('#storage').on('change', function(event){
 		var $context = $(this).parent();
-        var $msg = $context.find('.valid_message');
-        $msg.css("background","");   
+		var $msg = $context.find('.valid_message');
+		$msg.css("background","");   
 		if($(this).val()==''){
 			$msg.css("color","red");	
 			$msg.css("font-size","14px");
-	        layer.msg("请选择交收仓");
-	        return false;
+			layer.msg("请选择交收仓");
+			return false;
 		}else{
-			 $msg.text("");
+			$msg.text("");
 		}
 	});
-	
-	
+
+
 	$('.ui-table select[name=propsel]').change(function(){ 
 		var key = $(this).attr("data-key");									
 		var val = $(this).val();	
-		
+
 		var $msg = $(this).parent().find('.valid_message');		
-        $msg.text('');
-        
+		$msg.text('');
+
 		$("select[data-type=03]").each(function(){ 
 			var relakey = $(this).attr('data-relakey');
 			var items = $(this).attr('data-items');										
 			var relaname = $(this).attr('data-relaname');										
 			if(key == relakey){											
 				$(this).empty();											
-															
+
 				if(val != null &&  val !=""){												
 					var begkey = "{"+val+":";
 					var begoffset = items.indexOf(begkey);
@@ -206,135 +172,135 @@ $(function() {
 				} 
 			}
 		}); 
-	}); 
+}); 
 
-	
-	$('#detail').text($('.proddetail').text());
-	
-	$('#storage').comboSelect();
-	
 
-	function checkUnitPrice(){
-		
-		$that = $('#unitPrice');
-	    var vlimit = $that.attr('data-limit');
-	    
-	    if(vlimit == undefined || vlimit == ''){
-	    	return true;
-	    }else{
-	    	var vstart = vlimit.indexOf(")");
-			var vactive = "";
-			if(vstart != -1){
-				vactive = vlimit.substring(1, vstart);
-	    	
-				var $relaprop = $("select[name=propsel][data-key="+vactive+"]");
+$('#detail').text($('.proddetail').text());
+
+$('#storage').comboSelect();
+
+
+function checkUnitPrice(){
+
+	$that = $('#unitPrice');
+	var vlimit = $that.attr('data-limit');
+
+	if(vlimit == undefined || vlimit == ''){
+		return true;
+	}else{
+		var vstart = vlimit.indexOf(")");
+		var vactive = "";
+		if(vstart != -1){
+			vactive = vlimit.substring(1, vstart);
+
+			var $relaprop = $("select[name=propsel][data-key="+vactive+"]");
 			
-				if($relaprop == undefined){
+			if($relaprop == undefined){
+				var $context = $that.parent();
+				var $msg = $context.find('.valid_message');
+				layer.msg("商品约束关系配置有误");
+
+				if($context.hasClass('success')){
+					$context.removeClass('success');
+				}
+
+				$context.addClass('error');
+
+				return false;
+			}else{
+
+
+				var pval =  $relaprop.val();
+
+				if(pval == null || pval == ""){
 					var $context = $that.parent();
-			        var $msg = $context.find('.valid_message');
-				    layer.msg("商品约束关系配置有误");
-				    
-				    if($context.hasClass('success')){
-				    	$context.removeClass('success');
-				    }
-				    
-				    $context.addClass('error');
-					
+					var $msg = $context.find('.valid_message');
+					layer.msg("商品约束关系配置有误");
+
+					if($context.hasClass('success')){
+						$context.removeClass('success');
+					}
+
+					$context.addClass('error');
+
 					return false;
+
 				}else{
 					
-					
-					var pval =  $relaprop.val();
-					
-					if(pval == null || pval == ""){
-						var $context = $that.parent();
-				        var $msg = $context.find('.valid_message');
-					    layer.msg("商品约束关系配置有误");
-					    
-					    if($context.hasClass('success')){
-					    	$context.removeClass('success');
-					    }
-					    
-					    $context.addClass('error');
-						
-						return false;
-						
-					}else{
-					
-						var pvstart = vlimit.indexOf(pval);
-						
-						if(pvstart == -1)
-							return true;
-						else{
-							var rvalue = vlimit.substring(pvstart+pval.length+1);
-							
-							var pvend = rvalue.indexOf('}');
-							
-							if(pvend == -1){
-								
+					var pvstart = vlimit.indexOf(pval);
+
+					if(pvstart == -1)
+						return true;
+					else{
+						var rvalue = vlimit.substring(pvstart+pval.length+1);
+
+						var pvend = rvalue.indexOf('}');
+
+						if(pvend == -1){
+
+							var $context = $that.parent();
+							var $msg = $context.find('.valid_message');
+							layer.msg("商品约束关系配置有误");
+
+							if($context.hasClass('success')){
+								$context.removeClass('success');
+							}
+
+							$context.addClass('error');
+
+							return false;
+						}else{
+							var vm = rvalue.substring(0, pvend);
+
+							var mpara = vm.split('~');
+
+							var priceval = $that.val();
+
+
+							if(parseFloat(priceval)< parseFloat(mpara[0]) || parseFloat(priceval) > parseFloat(mpara[1])){
+
 								var $context = $that.parent();
-						        var $msg = $context.find('.valid_message');
-							    layer.msg("商品约束关系配置有误");
-							    
-							    if($context.hasClass('success')){
-							    	$context.removeClass('success');
-							    }
-							    
-							    $context.addClass('error');
-								
-								return false;
-							}else{
-								var vm = rvalue.substring(0, pvend);
-								
-								var mpara = vm.split('~');
-								
-								var priceval = $that.val();
-								
-								
-								if(parseFloat(priceval)< parseFloat(mpara[0]) || parseFloat(priceval) > parseFloat(mpara[1])){
-									
-									var $context = $that.parent();
-							        var $msg = $context.find('.valid_message');
-								    layer.msg("单价："+  parseFloat(mpara[0])+"到"+ parseFloat(mpara[1])+"之间");
-								    
-								    if($context.hasClass('success')){
-								    	$context.removeClass('success');
-								    }
-								    
-								    $context.addClass('error');
-								    
-								    $that.focus();
-									
-									return false;
-									
-								}else{
-															
-									return true;
+								var $msg = $context.find('.valid_message');
+								layer.msg("单价："+  parseFloat(mpara[0])+"到"+ parseFloat(mpara[1])+"之间");
+
+								if($context.hasClass('success')){
+									$context.removeClass('success');
 								}
+
+								$context.addClass('error');
+
+								$that.focus();
+
+								return false;
+
+							}else{
+
+								return true;
 							}
 						}
 					}
 				}
-			}else{
-				
-				var $context = $that.parent();
-		        var $msg = $context.find('.valid_message');
-			   layer.msg("数据格式有误");
-
-			    
-			    if($context.hasClass('success')){
-			    	$context.removeClass('success');
-			    }
-			    
-			    $context.addClass('error');
-				return false;
-				
 			}
-	    }
+		}else{
+
+			var $context = $that.parent();
+			var $msg = $context.find('.valid_message');
+			layer.msg("数据格式有误");
+
+
+			if($context.hasClass('success')){
+				$context.removeClass('success');
+			}
+
+			$context.addClass('error');
+			return false;
+
+		}
 	}
-	
-	var checkSubmitFlg = false;
-	
+}
+
+var checkSubmitFlg = false;
+
 	// 提示验证
 	$('#sellEdit').on('submit', function(event) {
 		
@@ -371,10 +337,10 @@ $(function() {
 					$msg.css("color","red");
 					$msg.css("font-size","14px");
 					upSelFlag = false;
-                   layer.msg('请选择'+$(this).attr('data-propname'));
-			        $(this).focus();
-			        selFlag = true;
-			        return;			   
+					layer.msg('请选择'+$(this).attr('data-propname'));
+					$(this).focus();
+					selFlag = true;
+					return;			   
 				}
 			});
 			
@@ -400,47 +366,47 @@ $(function() {
 			
 			var $storage = $('#storage');
 			var $context = $storage.parent().parent();
-	        var $msg = $context.find('.valid_message');
-	        $msg.css("background","");   
+			var $msg = $context.find('.valid_message');
+			$msg.css("background","");   
 			if($storage.val()==''){
 				$msg.css("color","red");	
 				$msg.css("font-size","14px");
 		        //$msg.text("请选择交收仓");
-				 $storage.focus();
+		        $storage.focus();
 		        return false;
-			}
-			
-			var checkdelist = $('input:radio[name="delist"]:checked').val();
-			if(checkdelist =='A'&&$('#memdelists').val() ==''){
-				layer.msg("未选择指定摘牌方");	
-				$('#memdelistmsg').addClass('memdelist-error');
-				event.preventDefault();
-				return;
-			}
-			
-	    	var rlen =  UTFStrLength($('#detail').val())
-	    	if(rlen >= 1500){
-	    		layer.msg("商品描述信息过长,不能超过1500字符");
-				event.preventDefault();
-				return;
-	    	}
-	    	
-			$("select[name=propsel]").each(function(i) {		
-				$($(this).siblings()[0]).val($(this).val());
-			});
-			
-			
-			$("input[name=propdata]").each(function(i) {
-				if($(this).val() != ''){
-					$(this).val($(this).attr('data-key') + '~' + $(this).val()+$(this).attr('data-unit'));
-				}
-			});
-			
-			var lPDval = $('#lastPD').val();
-			$('#lastPD').val('cycle:'+lPDval);	
-			var lDelival = $('#deliDate').val();
-			$('#deliDate').val('cycle:'+lDelival);
-			
+		    }
+
+		    var checkdelist = $('input:radio[name="delist"]:checked').val();
+		    if(checkdelist =='A'&&$('#memdelists').val() ==''){
+		    	layer.msg("未选择指定摘牌方");	
+		    	$('#memdelistmsg').addClass('memdelist-error');
+		    	event.preventDefault();
+		    	return;
+		    }
+
+		    var rlen =  UTFStrLength($('#detail').val())
+		    if(rlen >= 1500){
+		    	layer.msg("商品描述信息过长,不能超过1500字符");
+		    	event.preventDefault();
+		    	return;
+		    }
+
+		    $("select[name=propsel]").each(function(i) {		
+		    	$($(this).siblings()[0]).val($(this).val());
+		    });
+
+
+		    $("input[name=propdata]").each(function(i) {
+		    	if($(this).val() != ''){
+		    		$(this).val($(this).attr('data-key') + '~' + $(this).val()+$(this).attr('data-unit'));
+		    	}
+		    });
+
+		    var lPDval = $('#lastPD').val();
+		    $('#lastPD').val('cycle:'+lPDval);	
+		    var lDelival = $('#deliDate').val();
+		    $('#deliDate').val('cycle:'+lDelival);
+
 		} else {
 			event.preventDefault();
 			return;
@@ -509,7 +475,10 @@ $(function() {
 		provurl : "/divis/findprov.htm", 
 		cityurl : "/divis/findcity.htm",
 		disturl : "/divis/finddist.htm",
-		callback : localcallback
+		callback : function(){
+			localcallback();
+			emptyFlag = false;
+		}
 	});
 	
 	
@@ -580,7 +549,6 @@ $(function() {
 		$('#divisID').attr("date-full", fullname);
 		
 		var formParam = "divlevel="+index+"&divcode="+key+"&markcode="+$('#markcode').val();
-		$('.memselect .unselect select option').remove();
 		$('#selc-ul').html('');
 		$.ajax({
 			type : 'post',
@@ -590,134 +558,86 @@ $(function() {
 			dataType : 'json',
 			success : function(data) {
 				if(data.succflag == 0){									
-					var selectedvals = new Array(); //定义数组
-				    $("#selectedlist option").each(function(){ 
-				        var val = $(this).val(); 
-				        if(val != undefined && val != "") 
-				        	selectedvals.push(val); 
-				    });
-					
+
 					var nodes = data.data.memList;		
 					for(var n = 0; n < nodes.length; n++){
-						if(IsContain(selectedvals, nodes[n].mID)){
-							$('.memselect .unselect select').append('<option value="'+nodes[n].mID+'" disabled>'+nodes[n].memName+'</option>');
-							$('#selc-ul').append('<li class="disabled" data='+nodes[n].mID+'>'+nodes[n].memName+'</li>');
-						}
-						else{
-							$('.memselect .unselect select').append('<option value="'+nodes[n].mID+'">'+nodes[n].memName+'</option>');
+						if(IsContain(selectarray, nodes[n].mID))
+						{
+							$('#selc-ul').append('<li class="active" data='+nodes[n].mID+'>'+nodes[n].memName+'</li>');
+						}else{
 							$('#selc-ul').append('<li data="' + nodes[n].mID + '">'+nodes[n].memName+'</li>');
 						}
 					}										
 				}else{
-					$('.memselect .unselect select').append('<option disabled>无会员列表</option>');
 					$('#selc-ul').append('<li class="disabled">无会员列表</li>');
 				}
 			}
 		});
 	}
-	
-	$('.selbtn').delegate('.pa-btn-sell', 'click', function(e) {
-		
-		if($(this).hasClass('btn-single-select')){
-			var selvals = $("#selectlist").val();
-			var selectedobj =$("#selectedlist"); 			
-			$("#selectlist option").each(function(){ 
-				var val = $(this).val();
-				if(IsContain(selvals, val)){	
-					selectedobj.append('<option value="'+val+'">'+ $(this).text()+'</option>');  
-					$(this).attr("disabled", "disabled");
-				}
-			 });
-		}else if($(this).hasClass('btn-all-select')){
-			var selectedobj =$("#selectedlist"); 
-			$('#selc-ul li').addClass('active');
-			$("#selectlist option").each(function(){ 
-		    	var val = $(this).val();
-		    	if($(this).attr('disabled') == undefined){
-		    		selectedobj.append('<option value="'+val+'">'+ $(this).text()+'</option>');  
-					$(this).attr("disabled", "disabled");
-		    	}
-		    }); 
-		}else if($(this).hasClass('btn-single-unselect')){
-			var selvals = $("#selectedlist").val();
-			var selectobj =$("#selectlist"); 			
-			$("#selectedlist option").each(function(){ 
-				var val = $(this).val();
-				if(IsContain(selvals, val)){	
-					$(this).remove();
-				}
-			 });
-			
-			$("#selectlist option").each(function(){ 
-				var val = $(this).val();
-				if(IsContain(selvals, val)){	
-					$(this).removeAttr("disabled");
-				}
-			 });	
-		}else if($(this).hasClass('btn-all-unselect')){
-			var selectobj =$("#selectlist"); 
-			$('#selc-ul li').removeClass('active');			
-			var selectarray = new Array();
-			
-			$("#selectedlist option").each(function(){ 
-				selectarray.push($(this).val());
-				$(this).remove();
-		    }); 
-			
-			$("#selectlist option").each(function(){ 
-				var val = $(this).val();
-				if(IsContain(selectarray, val)){	
-					$(this).removeAttr("disabled");
-				}
-		    }); 
-		}
-	});
-	
-	$('#selc-ul').on('click','li',function(){
-	if($(this).hasClass('active')){
-      $(this).removeClass('active');
-      $('#selectedlist option[value='+ $(this).attr('data') +']').get(0).selected = true;
-       $('#selectlist option[value='+ $(this).attr('data') +']').get(0).selected = false;
-      $('.btn-single-unselect').click();
 
+//会员列表  单选
+$('#selc-ul').on('click','li',function(){
+	if($(this).hasClass('active')){
+		$(this).removeClass('active');
 	}else{
 		$(this).addClass('active');
-		 $('#selectlist option').get($(this).index()).selected = true;
-        $('.btn-single-select').click();
-       }
-	
+	}	
+})
+
+//会员列表  全选
+$('#select-all').click(function(){
+	$('#selc-ul li').addClass('active');
+})
+
+//会员列表  取消全选
+$('#select-none').click(function(){
+	$('#selc-ul li').removeClass('active');
 })
 
 $('.btn-close').click(function(){
 	$('#confirmbtn').click();
 })
-$('#confirmbtn,.close').click(function(){
+$('#confirmbtn').click(function(){
 	$('body').css('overflowY','auto');
 })
-	
-	$('#J_MemList').delegate('.cbtn', 'click', function(e) {	
-		if($(this).attr('id') == 'confirmbtn'){
-			var selectarray = new Array();			
-			$("#selectedlist option").each(function(){ 
-				selectarray.push($(this).val());
-		    }); 
-			if($('#memdelistmsg').hasClass('memdelist-error'))
-				$('#memdelistmsg').removeClass('memdelist-error');
-			
-			if(selectarray.length > 0)
-				$('#memdelistmsg').text("共选择"+selectarray.length+"家会员做的指定摘牌方");
-			else
-				$('#memdelistmsg').text("未选择指定摘牌方");			
-			$('#memdelists').val(selectarray.join(";"));
 
-		}else if($(this).attr('id') == 'cancelbtn'){
-			
+$('#confirmbtn').click(function(){
+
+	if(emptyFlag){
+		selectarray = [];
+	}
+	selectarray = unique(selectarray);
+	$('#selc-ul li').each(function(){
+		if($(this).hasClass('active') && !$(this).hasClass('disabled')){
+			selectarray.push($(this).attr('data'));
 		}
-		UP.Dialog('J_MemList').close();
-		$('.mask').hide();
-		$('.mark').remove();
-	});
+	})
+	if(selectarray.length > 0){
+		$('#memdelistmsg').text("共选择"+selectarray.length+"家会员做的指定摘牌方");
+		$('#memdelistmsg').show();
+	}
+	else{
+		$('#memdelistmsg ').text("未选择指定摘牌方");
+		$('#memdelistmsg').show();			
+	}
+	$('#memdelists').val(selectarray.join(";"));
 
-	
+	UP.Dialog('J_MemList').close();
+	$('.mask').hide();
+	$('.mark').remove();
+});
+
+//移除数组中相同的项
+function unique(arr){
+		// 遍历arr，把元素分别放入tmp数组(不存在才放)
+		var tmp = new Array();
+		for(var i in arr){
+		//该元素在tmp内部不存在才允许追加
+		if(tmp.indexOf(arr[i])==-1){
+			tmp.push(arr[i]);
+		}
+	}
+	return tmp;
+}
 
 });
