@@ -16,7 +16,6 @@
   <link type="text/css" rel="stylesheet" href="/normal/css/home.css?v=${sessionScope.buildno}" />
   <link type="text/css" rel="stylesheet" href="/normal/css/member.css?v=${sessionScope.buildno}" />
   <link type="text/css" rel="stylesheet" href="/normal/css/commsel.css?v=${sessionScope.buildno}" />
-  
   <link type="text/css" rel="stylesheet" href="/normal/widget/css/ui.dialog.css" />    
   <link type="text/css" rel="stylesheet" href="/normal/css/lrtk.css?v=${sessionScope.buildno}" /> 
   <script type="text/javascript" src="/normal/js/jquery.js"></script>
@@ -240,7 +239,6 @@
   
   $(document).ready(function(){
    var tab = $("#datalist").tabulation("/mall/findtradelist.htm");
-   console.log(tab);
  });
   
   $(function(){

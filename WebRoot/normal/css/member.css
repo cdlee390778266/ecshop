@@ -2194,21 +2194,10 @@ td.highlight {
              -webkit-transition: all .2s; /* Safari 和 Chrome */
              -o-transition: all .2s; /* Opera */
          }
+
          #select-txt:hover{background-color:#e0b524 !important;}
-         .layui-layer-ico{
-         	left: 0 !important;
-         	background: none !important;
-         }
-         .layui-layer-ico::after{
-         	content: '确定';
-         	display: block;
-         	position: absolute;
-         	top: -5px;
-         	left: -12px;
-         	width: 40px;
-         	text-align: center;
-         	font-size: 14px;
-         }
+         #select-txt:hover{background-color:#e6c04e !important;}
+
          .valid_message{
          	margin-left: 5px;
          }

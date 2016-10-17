@@ -108,12 +108,12 @@
 									</div>
 									</c:if>
 									<c:if test="${listedType=='W'}">
-									<div class="bind-item">
+									<div class="bind-item  up-bind-item">
 										<div class="title ml20">挂牌单号：${listed.listedno}</div>
 										<div class="title ml20">挂牌状态：${listed.statusDesc}</div>
 										<div class="box">
 										<c:if test="${enableAudit=='1'}">
-										<div class="pa-action clearfix mt10 ml60">
+										<div class="pa-action clearfix mt10 ">
 											<div class="pa-btn-sell fn-fl">
 												<a href="/sell/handle/A/${listed.listedno}.htm" class="btn-normal btn-sell">继续审核</a>
 											</div>

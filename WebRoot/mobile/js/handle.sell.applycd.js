@@ -2,6 +2,8 @@ $(function() {
 	
 	var step3 = false;
 	var step4 = false;
+	var selectarray = [];
+	var emptyFlag = true;
 
 //改版部分新增代码   ---start
 
@@ -73,7 +75,18 @@ $(function() {
     	location.href = $(this).data('href');
     })
 
-    
+   //移除数组中相同的项
+   function unique(arr){
+		// 遍历arr，把元素分别放入tmp数组(不存在才放)
+		var tmp = new Array();
+		for(var i in arr){
+		//该元素在tmp内部不存在才允许追加
+		if(tmp.indexOf(arr[i])==-1){
+			tmp.push(arr[i]);
+		}
+	}
+	return tmp;
+}
 
 //改版部分新增代码   ---end
 
@@ -101,26 +114,9 @@ $(document).ready(function() {
 		}
 	});
 
-	// 输入域验证
-	// $('#sellApply').validate({
-	// 	onFocus : function() {
-	// 		this.parent().addClass('active');
-	// 		return false;
-	// 	},
-	// 	onBlur : function() {
-	// 		var $parent = this.parent();
-	// 		var _status = parseInt(this.attr('data-status'));
-	// 		$parent.removeClass('active');
-	// 		if (!_status) {
-	// 			$parent.addClass('error');
-	// 		}
-	// 		return false;
-	// 	}
-	// });
+	laydate.skin('molv');
 
-laydate.skin('molv');
-
-laydate({
+	laydate({
 	    elem: '#doe', //目标元素。
 	    event: 'focus', //响应事件。
 	    min: $('#doe').data('min'),
@@ -130,70 +126,30 @@ laydate({
 	});
 
 
-function UTFStrLength(value){
+	function UTFStrLength(value){
 
-	var rlen= 0;
-	var len = value.length;
-	var charCode = -1;
-	for(var i = 0; i < len; i++){
-		charCode = value.charCodeAt(i);
-		if (charCode >= 0 && charCode <= 128) {
-			rlen += 1;
-		}else{
-			rlen += 3;
+		var rlen= 0;
+		var len = value.length;
+		var charCode = -1;
+		for(var i = 0; i < len; i++){
+			charCode = value.charCodeAt(i);
+			if (charCode >= 0 && charCode <= 128) {
+				rlen += 1;
+			}else{
+				rlen += 3;
+			}
 		}
+		return rlen;	
 	}
-	return rlen;	
-}
 
 
-	// $('#lastPD').on("focus", function(event){ 
-	// 	$(this).css('border','1px #89C975 solid');
-	// 	var $context = $(this).parent();
-	//     var $msg = $context.find('.valid_message');
-
-	//     if($msg.text() == ''){
-	// 	    $msg.css("color","green");
-	// 	    $msg.css("background","");   
-	// 	    $msg.text("请输入最后付款日");
-	//     }
-	// });
-
-	// $('#lastPD').on("blur", function(event){   
-	// 	checkLastPD();
-	// });
-
-
-	// $('#doe').on("blur", function(event){   
-	// 	if(!$('.datepicker-container').is(':hidden'))
-	// 	{
-	// 		$('.datepicker-container').hide();
-	// 	}
-	// });
-
-	// $('#deliDate').on("focus", function(event){ 
-	// 	$(this).css('border','1px #89C975 solid');
-	// 	var $context = $(this).parent();
-	//     var $msg = $context.find('.valid_message');
-	//     if($msg.text() == ''){
-	// 	    $msg.css("color","green");
-	// 	    $msg.css("background","");   
-	// 	    $msg.text("请输入最后交收日");
-	//     }
-	// });
-
-	// $('#deliDate ').on("blur", function(event){   
-	// 	checkDeliDate();
-	// });
-
-
-$('#storage').on('change', function(event){
-	var $context = $(this).parent();
-	var $msg = $context.find('.valid_message');
-	$msg.css("background","");   
-	if($(this).val()==''){
-		$msg.css("color","red");	
-		$msg.css("font-size","14px");
+	$('#storage').on('change', function(event){
+		var $context = $(this).parent();
+		var $msg = $context.find('.valid_message');
+		$msg.css("background","");   
+		if($(this).val()==''){
+			$msg.css("color","red");	
+			$msg.css("font-size","14px");
 	        //$msg.text("请选择交收仓");
 	        return false;
 	    }else{
@@ -202,7 +158,7 @@ $('#storage').on('change', function(event){
 	});
 
 
-var checkSubmitFlg = false; 
+	var checkSubmitFlg = false; 
 
 	// 提示验证
 	$('#sellApply').on('submit', function(event) {
@@ -562,7 +518,10 @@ var checkSubmitFlg = false;
 		provurl : "/divis/findprov.htm", 
 		cityurl : "/divis/findcity.htm",
 		disturl : "/divis/finddist.htm",
-		callback : localcallback
+		callback : function(){
+			localcallback();
+			emptyFlag = false;
+		}
 	});
 	
 	
@@ -635,8 +594,6 @@ var checkSubmitFlg = false;
 		$('#divisID').attr("date-full", fullname);
 		
 		var formParam = "divlevel="+index+"&divcode="+key+"&markcode="+mc;
-		
-		$('.memselect .unselect select option').remove();
 		$('#selc-ul').html('');
 		$.ajax({
 			type : 'post',
@@ -645,107 +602,42 @@ var checkSubmitFlg = false;
 			cache : false,
 			dataType : 'json',
 			success : function(data) {
+
 				if(data.succflag == 0){									
-					var selectedvals = new Array(); //定义数组
-					$("#selectedlist option").each(function(){ 
-						var val = $(this).val(); 
-						if(val != undefined && val != "") 
-							selectedvals.push(val); 
-					});
-					
+
 					var nodes = data.data.memList;		
 					for(var n = 0; n < nodes.length; n++){
-						if(IsContain(selectedvals, nodes[n].mID)){
-							$('.memselect .unselect select').append('<option value="'+nodes[n].mID+'" disabled>'+nodes[n].memName+'</option>');
+						if(IsContain(selectarray, nodes[n].mID))
+						{
 							$('#selc-ul').append('<li class="active" data='+nodes[n].mID+'>'+nodes[n].memName+'</li>');
-						}
-						else{
-							$('.memselect .unselect select').append('<option value="'+nodes[n].mID+'">'+nodes[n].memName+'</option>');
+						}else{
 							$('#selc-ul').append('<li data="' + nodes[n].mID + '">'+nodes[n].memName+'</li>');
 						}
-
 					}										
 				}else{
-					$('.memselect .unselect select').append('<option disabled>无会员列表</option>');
 					$('#selc-ul').append('<li class="disabled">无会员列表</li>');
 				}
 			}
 		});
-}
-
-$('.selbtn').delegate('.pa-btn-sell', 'click', function(e) {
-
-	if($(this).hasClass('btn-single-select')){
-		var selvals = $("#selectlist").val();
-		var selectedobj =$("#selectedlist"); 			
-		$("#selectlist option").each(function(){ 
-			var val = $(this).val();
-			if(IsContain(selvals, val)){
-				selectedobj.append('<option value="'+val+'">'+ $(this).text()+'</option>');  
-				$(this).attr("disabled", "disabled");
-
-			}
-		});
-	}else if($(this).hasClass('btn-all-select')){
-		var selectedobj =$("#selectedlist"); 
-		$('#selc-ul li').addClass('active');
-		$("#selectlist option").each(function(){ 
-			var val = $(this).val();
-			if($(this).attr('disabled') == undefined){
-				selectedobj.append('<option value="'+val+'">'+ $(this).text()+'</option>');  
-				$(this).attr("disabled", "disabled");
-			}
-		}); 
-	}else if($(this).hasClass('btn-single-unselect')){
-		var selvals = $("#selectedlist").val();
-		var selectobj =$("#selectlist"); 			
-		$("#selectedlist option").each(function(){ 
-			var val = $(this).val();
-			if(IsContain(selvals, val)){	
-				$(this).remove();
-			}	
-		});
-
-		$("#selectlist option").each(function(){ 
-			var val = $(this).val();
-			if(IsContain(selvals, val)){	
-				$(this).removeAttr("disabled");
-			}
-		});	
-	}else if($(this).hasClass('btn-all-unselect')){
-		var selectobj =$("#selectlist"); 
-		$('#selc-ul li').removeClass('active');		
-		var selectarray = new Array();
-
-		$("#selectedlist option").each(function(){ 
-			selectarray.push($(this).val());
-			$(this).remove();
-		}); 
-
-		$("#selectlist option").each(function(){ 
-			var val = $(this).val();
-			if(IsContain(selectarray, val)){	
-				$(this).removeAttr("disabled");
-			}
-		}); 
 	}
-});
 
+//会员列表  单选
 $('#selc-ul').on('click','li',function(){
 	if($(this).hasClass('active')){
 		$(this).removeClass('active');
-
-
-		$('#selectedlist option[value='+ $(this).attr('data') +']').get(0).selected = true;
-		$('#selectlist option[value='+ $(this).attr('data') +']').get(0).selected = false;
-		$('.btn-single-unselect').click();
-
 	}else{
 		$(this).addClass('active');
-		$('#selectlist option').get($(this).index()).selected = true;
-		$('.btn-single-select').click();
-	}
-	
+	}	
+})
+
+//会员列表  全选
+$('#select-all').click(function(){
+	$('#selc-ul li').addClass('active');
+})
+
+//会员列表  取消全选
+$('#select-none').click(function(){
+	$('#selc-ul li').removeClass('active');
 })
 
 $('.btn-close').click(function(){
@@ -755,32 +647,32 @@ $('#confirmbtn').click(function(){
 	$('body').css('overflowY','auto');
 })
 
+$('#confirmbtn').click(function(){
 
-$('#J_MemList').delegate('.cbtn', 'click', function(e) {	
-	if($(this).attr('id') == 'confirmbtn'){
-		var selectarray = new Array();			
-		$("#selectedlist option").each(function(){ 
-			selectarray.push($(this).val());
-		}); 
-		if($('#memdelistmsg').hasClass('memdelist-error'))
-			$('#memdelistmsg').removeClass('memdelist-error');
-
-		if(selectarray.length > 0){
-			$('#memdelistmsg').text("共选择"+selectarray.length+"家会员做的指定摘牌方");
-			$('#memdelistmsg').show();
-		}else{
-			$('#memdelistmsg').text("未选择指定摘牌方");
-			$('#memdelistmsg').show();			
-		}
-		$('#memdelists').val(selectarray.join(";"));
-
-	}else if($(this).attr('id') == 'cancelbtn'){
-
+	if(emptyFlag){
+		selectarray = [];
 	}
+	selectarray = unique(selectarray);
+	$('#selc-ul li').each(function(){
+		if($(this).hasClass('active') && !$(this).hasClass('disabled')){
+			selectarray.push($(this).attr('data'));
+		}
+	})
+	if(selectarray.length > 0){
+		$('#memdelistmsg').text("共选择"+selectarray.length+"家会员做的指定摘牌方");
+		$('#memdelistmsg').show();
+	}
+	else{
+		$('#memdelistmsg ').text("未选择指定摘牌方");
+		$('#memdelistmsg').show();			
+	}
+	$('#memdelists').val(selectarray.join(";"));
+
 	UP.Dialog('J_MemList').close();
 	$('.mask').hide();
 	$('.mark').remove();
 });
+
 
 var btnfn = function(){
 	if($('#sCCode').val()==''||$('#commCode').val() == ''){
