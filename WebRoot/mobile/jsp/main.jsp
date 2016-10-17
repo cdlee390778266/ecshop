@@ -14,7 +14,7 @@
   <link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />    
   <link type="text/css" rel="stylesheet" href="/mobile/css/lrtk.css?v=${sessionScope.buildno}" /> 
   <script type="text/javascript" src="/mobile/js/jquery.js"></script>
-  <script type="text/javascript" src="/mobile/js/selecttags_index.js?v=${sessionScope.buildno}"></script>
+<script type="text/javascript" src="/mobile/js/cnacexutil.js?v=${sessionScope.buildno}"></script>
   <script type="text/javascript" src="/mobile/js/handlebars.js?v=${sessionScope.buildno}"></script>
   <script type="text/javascript" src="/mobile/js/ui.pagination.js?v=${sessionScope.buildno}"></script>
   <script type="text/javascript" src="/mobile/js/ui.focus.js?v=${sessionScope.buildno}"></script>
@@ -27,8 +27,9 @@
 
   <script src="/mobile/js/swiper.min.js"></script>  
 
-  <jsp:include page="comm/datatables.jsp" flush="true" />
   <jsp:include page="comm/mobile.jsp" flush="true" />
+
+  <script src="/mobile/js/handle.main.table.js"></script>  
 
   <style>
     .commhead,.commbd{
@@ -77,15 +78,14 @@
       </ul> 
     </div>
 
-    <div>                  
-     <div class="filtercomm">                                     
-      <div class="selcomm_index" data-select>        
-      </div>                  
-    </div>                  
-</div>  
-
+    <div class="col-xs-6 stype">
+      <h2>市场<span class="glyphicon glyphicon-menu-down"></span></h2>
+      <ul class="selectUl">
+        <li>不限<span class="glyphicon glyphicon-ok"></span></li>
+        <li>生产资料<span class="glyphicon glyphicon-ok"></span></li>
+      </ul> 
+    </div>
 </div>
-
 <div class="row">
   <div class="select-mark"></div>
 </div>
@@ -96,6 +96,22 @@
 <div class="gn-sSearch hide">
   <input type="text" placeholder="关键字搜索"  />
 </div>
+
+<div class="container-fluid mart15" >
+<div class="row" id="product">
+    <input type="hidden" value="${sessionScope.userinfo.mID}" id="currMID" />
+</div>
+<!-- 加载更多 -->
+<div class="row rel">
+   <div class="loadMore" data-page='1' id="loadMore">加载更多</div>
+   <div class="loader" style="display: block;"><span></span><span></span><span></span><span></span>
+   <div>正在为您拼命加载中...</div> 
+   </div>
+ </div>
+ <!-- 加载更多 end-->
+</div>
+
+
 <!-- product End -->
 
 <!-- <div class="container-fluid mart15">
@@ -115,84 +131,9 @@
 
   </div> -->
 
-  <!-- 加载更多 -->
-<!-- <div class="row rel">
-   <div class="loadMore" ng-click="load();">加载更多</div>
-   <div class="loader"><div class="loader-icon"> <div></div><div></div></div>加载中</div>
- </div> -->
- <!-- 加载更多 end-->
+
 
  <!-- </div> -->
-
- <!-- main -->
- <div class="service-full marb60 mart15">
-   <div class="page-module product-set up-product" >
-     <div >
-       <div class="mt10">
-        <input type="hidden" value="${sessionScope.userinfo.mID}" id="currMID" />
-        <table id="dataset" class="cell-border hover tabble-index table" cellspacing="0" width="100%" style="padding: 0px">
-          <thead>
-           <tr>
-             <th></th>
-             <th></th>
-             <th></th>
-             <th></th>
-             <th></th>
-             <th></th>
-             <th></th>
-           </tr>
-         </thead>
-       </table>								  				
-     </div>
-   </div>			
- </div>	
-</div>
-<!-- main End -->
-
-<script type="text/x-handlebars-template" id="entryTemplate">
-	<table class="ui-table table-primary">
-		<tbody>
-      {{#listeds}}
-      <tr>
-        <td rowspan="3" width="200px">		
-         <div class="pic"><a target="_blank" href="/mall/item/{{listedNo}}.htm" >{{imgshow titlePic}}</a></div>
-         <div class="title">{{title}}</div>
-       </td>
-       <td class="ctl-2" width="650px"><span style="padding-left:15px">{{commName}}</span> </td>
-       <td class="ctl-3"><span class="cell">有效期:{{doe}}</span></td> 
-     </tr>
-     <tr>
-       <td rowspan="2">
-        <table>
-         <tr>
-          <td class="ctl" width="25%"><span>单价:{{money up}}/{{uom}}</span></td>
-          <td class="ctl" width="25%"><span>现量:{{rem}}/{{qty}}</span></td>
-          <td><span class="cell">交收仓库:{{storage}}</span></td>
-          <td><span class="cell">交收类型:{{listedTypeName}}</span>
-          </tr>
-          <tr>
-            <td colspan="4">
-             {{HandleSummary summary1 summary2 summary3 summary4 }}
-           </td>
-         </tr>
-       </table>
-     </td>
-     <td class="ctl">
-      <div style="text-align:left;">卖家:{{memName}}<br/>编号:{{mid}}</div>
-    </tr>
-    <tr>
-      <td>
-       {{delistbtn listedNo mid}}
-     </td>
-   </tr>
-   {{/listeds}}							
- </tbody>
-</table>
-</script>
-
-<!-- footer -->
-<jsp:include page="comm/footer.jsp" flush="true" />
-<!-- footer End -->
 
 
 <!-- 用于判断用户是否修改过密码 -->
