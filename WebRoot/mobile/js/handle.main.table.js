@@ -120,6 +120,8 @@
                          $('.loadMore').html('没有更多数据了');
                          $('.loader').hide();
                      }
+
+                      
                  }
 
 					/**
@@ -140,6 +142,8 @@
                     });
                     init(initData, 1);
                 });
+
+                     
 
 }
 })(jQuery);
