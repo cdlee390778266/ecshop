@@ -20,7 +20,6 @@
 	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
 	<script type="text/javascript" src="/mobile/js/handlebars.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.dialog.js"></script>
-	<script type="text/javascript" src="/mobile/js/leftnavs.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.datepicker.js"></script>
 	<script type="text/javascript" src="/mobile/js/ui.pagination.js"></script>
 	<script type="text/javascript" src="/mobile/js/selecttags.js"></script>
@@ -31,13 +30,13 @@
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 	
 	<script type="text/javascript" src="/normal/js/handle.delivery.inv.js?v=${sessionScope.buildno}"></script>
+
 	<title>交收管理</title>
 
 </head>
 <body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
-
 		<!-- header -->
 		<jsp:include page="../comm/header.jsp" flush="true" />
 		<!-- header End -->
@@ -53,8 +52,10 @@
 			<div class="col-xs-4"><a href="/delivery/invlist.htm" class="active">发票确认</a>
 			</div>
 		</div>
+
 		<div class="condition">
 			<div class="row">
+
 				<div class="col-xs-12">
 					<div class="input-group">
 						<span class="input-group-addon">商品分类</span>
@@ -63,6 +64,7 @@
 						<div class="selcomm" data-select></div>
 					</div>
 				</div>
+
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
 						<span class="input-group-addon">交收状态</span>
@@ -71,12 +73,14 @@
 						</select>
 					</div>
 				</div>
+
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
 						<span class="input-group-addon">交收单号</span>
 						<input type="text"  name="strikeNo" id="strikeNo"  class="cinp form-control"/>
 					</div>
 				</div>
+
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
 						<span class="input-group-addon">最后付款日</span>
@@ -85,42 +89,39 @@
 						<input type="text"  name="elastPD" id="elastPD" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date form-control"/>
 					</div>
 				</div>
+
 			</div>
+
 		</div>
 
+		<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>品种</th>
+					<th>商品代码</th>
+					<th>商品名称</th>
+					<th>品牌</th>	
+					<th>产地</th> 
+					<th>卖方编号</th>								                	
+					<th>卖方名称</th> 
+					<th>成交日期</th>								                
+					<th>最后付款日</th>
+					<th>最后交收日</th>
+					<th>状态</th>								                								                								                
+					<th>商品数量</th>
+					<th>商品单价</th>
+					<th>成交金额(元)</th>   								                
+					<th>交收类型</th>
+					<th>交收仓库</th>								                								                
+					<th>标题简述</th>								                								                	
+					<th>订单号</th>	
+					<th>合同编号</th> 
 
-
-
-	
-			
-
-				<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
-					<thead>
-						<tr>
-							<th>品种</th>
-							<th>商品代码</th>
-							<th>商品名称</th>
-							<th>品牌</th>	
-							<th>产地</th> 
-							<th>卖方编号</th>								                	
-							<th>卖方名称</th> 
-							<th>成交日期</th>								                
-							<th>最后付款日</th>
-							<th>最后交收日</th>
-							<th>状态</th>								                								                								                
-							<th>商品数量</th>
-							<th>商品单价</th>
-							<th>成交金额(元)</th>   								                
-							<th>交收类型</th>
-							<th>交收仓库</th>								                								                
-							<th>标题简述</th>								                								                	
-							<th>订单号</th>	
-							<th>合同编号</th> 
-
-							<th>操作</th>								                
-						</tr>
-					</thead>
-				</table>
+					<th>操作</th>								                
+				</tr>
+			</thead>
+		</table>
+		
 	</div>
 
 	<!-- footer -->

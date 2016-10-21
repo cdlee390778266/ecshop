@@ -191,7 +191,7 @@
 					}
 
 					htm += '<span class="ml10 fnt-bnd">总金额'+'<span class="fr">'+ Number(totalAmt).toFixed(2) +'</span>'+'</span>';
-                   
+
 					$('.seletop').html(htm);
 					$('#all-money').text('￥'+Number(totalAmt).toFixed(2)+'元')
 
@@ -282,7 +282,9 @@
 
 
 </script>
+
 <title>用户摘牌</title>
+
 </head>
 <body class="drawer drawer-left">
 
@@ -303,23 +305,29 @@
 
 		<div class="container-fluid bgfff padb60">
 
-
 			<!-- 本次摘牌费用说明  -->
 			<div class="row bgwhite  examine-data delist mart15 lh40 fc999">
+
 				<h2 class="active">摘牌信息</h2>
+
 				<div class="detail-data" style="display: block;">
+
 					<div class="col-xs-12 strong">
 						<span class="fcgreen">摘牌商品： </span>${buyBody.commName} <span style="color: #F40">${buyBody.title}</span>
 					</div>
+
 					<div class="col-xs-12 strong">
 						<span class="fcgreen ">交货仓库：</span>${buyBody.storage}
 					</div>
+
 					<div class="col-xs-12 strong">
 						<span class="fcgreen ">有效期至：</span>${buyBody.doe}
 					</div>
+
 					<div class="col-xs-12 strong">
 						<span class="fcgreen ">挂牌方式：</span>${buyBody.listedTypeName}
 					</div>
+
 					<div class="col-xs-12 strong">
 						<span class="fcgreen ">交收日期：</span>
 						<c:choose>
@@ -331,6 +339,7 @@
 				</c:otherwise>
 			</c:choose>	
 		</div>
+
 		<div class="col-xs-12 strong">
 			<span class="fcgreen ">最后付款日：</span>
 			<c:choose>
@@ -342,6 +351,7 @@
 	</c:otherwise>
 </c:choose>
 </div>
+
 <div class="col-xs-12 strong">
 	<span class="fcgreen ">发票监管：</span>
 	<c:choose>												
@@ -355,6 +365,7 @@
 </div>
 
 </div>
+
 </div>
 
 <form name="buyform" id="buyform" method="post" action="/buy/apply.htm" class="marb60 mart10 order-buyform" >
@@ -366,15 +377,20 @@
 
 	<div class="productData row">
 		<h2 class="col-xs-12 marb15 ">填写并确认信息</h2>
+
 		<div id="J_Stock" class="padlr20">
 			<div class="col-xs-7 padlr5">
+
 				<c:if test="${buyBody.wholeFlg=='W'}">可购买数量
 				<input id="vol" name="vol"  type="text" class="p-text" value="${buyBody.rem}" readOnly maxlength="8" title="整单交易不允许修改"><span class="cnumber fn-fl ml40 cor-red">整单交易不允许修改</span> 
 			</c:if>
+
 			<c:if test="${buyBody.wholeFlg=='S'}">
+
 			<c:if test="${buyBody.rem <= buyBody.moq}">
 			<input id="vol" name="vol"  type="text" class="p-text" value="${buyBody.rem}" readOnly maxlength="8" title="剩余商品一次性交易"> 
 		</c:if>
+
 		<c:if test="${buyBody.rem > buyBody.moq}">
 		<div class="input-group input-group-lg">
 			<span class="input-group-addon padlr5 ">购买数量</span>
@@ -385,8 +401,11 @@
 			</span>
 		</div>
 	</c:if>
+
 </c:if>
+
 </div>
+
 <div class="col-xs-5 rel h46 ">
 	<label class="radio-inline  radio-top ">
 		<input type="radio" name="top" id="top" value="S" name="cpay" > 付定金
@@ -395,22 +414,29 @@
 		<input type="radio" name="top" id="top" value="F" name="cpay" >付全款
 	</label>
 </div>
+
 <div class="seletop fcyellow"></div>
+
 </div>
+
 <div class="col-xs-12 fc333 mart15">
 	单价
 	<span class="fcyellow fnt-bnd fr fs18">
 		<fmt:formatNumber value="${buyBody.up}" type="currency" pattern="￥0.00元" />/${buyBody.uom}<input type="hidden" name="up" id="up" value="${buyBody.up}" />
 	</span>
 </div>
+
 <div class="col-xs-12 fc333 ">
 	递增数量<span class="fr fc999">${buyBody.ic}${buyBody.uom}</span>
 </div>
+
 <div class="col-xs-12 order-borb fc333">
 	可买数量<span class="fr fc999">${buyBody.rem}${buyBody.uom}</span>
 </div>
+
 <div class="col-xs-12 upperamt fc333"></div>
 <div class="col-xs-12 seledmsg bornone"></div>
+
 <div class="col-xs-12 ">
 	<span class="fc333">可用资金</span>
 	<div class="valid-money">
@@ -419,8 +445,8 @@
 	</div>
 </div>
 
-
 <div class="order-submit">
+
 	<div>
 		总金额<br />
 		<strong class="fcyellow" id="all-money">￥0.00元</strong>

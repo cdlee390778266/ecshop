@@ -27,20 +27,20 @@
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 
 	<script type="text/javascript" src="/mobile/js/handle.buy.js?v=${sessionScope.buildno}"></script>
+
 	<title>采购清单</title>
 
 </head>
 <body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
-
 		<!-- header -->
 		<jsp:include page="../comm/header.jsp" flush="true" />
 		<!-- header End -->
 	</div>
 
-
 	<div class="container-fluid bordert up-datatables">
+
 		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-6"><a href="/sell/list.htm">销售申请</a>
 			</div>
@@ -49,6 +49,7 @@
 
 		<div class="condition">
 			<div class="row ">
+
 				<div class="col-xs-12">
 					<div class="input-group">
 						<span class="input-group-addon">商品类型</span>
@@ -56,9 +57,10 @@
 						<input type="hidden" name="commcode" id="commcode" />
 						<div class="selcomm" data-select></div>
 					</div>
-
 				</div>
+
 				<div class="col-xs-12 mart10">
+
 					<div class="input-group">
 						<span class="input-group-addon">订单状态</span>
 						<select class="form-control" id="type">
@@ -70,6 +72,7 @@
 							<option value="#type5">已完成订单</option>
 						</select>
 					</div>
+
 					<ul id="J_TabBar" class="pa-tabbar pdeta hide">
 						<li class="item tab-cell selected"><a data-role='' id="type0">待处理订单</a></li>
 						<li class="item tab-cell"><a data-role='0' id="type1">待审核订单</a></li>
@@ -78,7 +81,9 @@
 						<li class="item tab-cell"><a data-role='-2' id="type4">已撤消订单</a></li>
 						<li class="item tab-cell"><a href="/mall/list.htm" id="type5">已完成订单</a></li>
 					</ul>
+
 				</div>
+
 			</div>
 		</div>
 
@@ -105,8 +110,6 @@
 			</thead>
 		</table>		
 	</div>
-
-	
 
 	<!-- footer -->
 	<jsp:include page="../comm/footer.jsp" flush="true" />
@@ -148,5 +151,6 @@
 			</tbody>
 		</table>
 	</script>
+	
 </body>
 </html>

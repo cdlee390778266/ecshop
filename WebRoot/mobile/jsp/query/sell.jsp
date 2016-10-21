@@ -21,7 +21,6 @@
 	<script type="text/javascript" src="/mobile/js/handlebars.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.dialog.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.datepicker.js"></script>
-	<script type="text/javascript" src="/mobile/js/leftnavs.js"></script>
 	<script type="text/javascript" src="/mobile/js/ui.pagination.js"></script>
 	<script type="text/javascript" src="/mobile/js/selecttags.js"></script>
 	<script type="text/javascript" src="/mobile/js/icheck.js"></script>
@@ -31,25 +30,27 @@
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 	
 	<script type="text/javascript" src="/mobile/js/handle.query.sell.js?v=${sessionScope.buildno}"></script>
+
 	<title>历史交收查询</title>
 
 </head>
 <body class="drawer drawer-left">
 
 	<div class="fixed-wrapper"> 
-
 		<!-- header -->
 		<jsp:include page="../comm/header.jsp" flush="true" />
 		<!-- header End -->
 	</div>
 	
 	<div class="container-fluid up-datatables">
+
 		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-6"><a href="/query/selllist.htm" class="active">卖出查询</a>
 			</div>
 			<div class="col-xs-6"><a href="/query/buylist.htm" >买入查询</a>
 			</div>
 		</div>
+
 		<div class="condition">
 			<div class="col-xs-12">
 				<div class="input-group">
@@ -67,28 +68,29 @@
 				</div>
 			</div>
 		</div>
-<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
-					<thead>
-						<tr>
-							<th>品种</th>
-							<th>商品代码</th>
-							<th>商品名称</th>
-							<th>买方ID</th>
-							<th>买方名称</th>
-							<th>品牌</th>
-							<th>产地</th>
-							<th>数量</th>
-							<th>单价</th> 
-							<th>交易款(元)</th>           
-							<th>交收仓库</th>
-							<th>交收完成日期</th>
-							<th>挂牌类型</th>
-							<th>状态</th>	
-							<th>成交编号</th>								                								                
-							<th>合同编号</th>								                								                
-						</tr>
-					</thead>
-				</table>
+
+		<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>品种</th>
+					<th>商品代码</th>
+					<th>商品名称</th>
+					<th>买方ID</th>
+					<th>买方名称</th>
+					<th>品牌</th>
+					<th>产地</th>
+					<th>数量</th>
+					<th>单价</th> 
+					<th>交易款(元)</th>           
+					<th>交收仓库</th>
+					<th>交收完成日期</th>
+					<th>挂牌类型</th>
+					<th>状态</th>	
+					<th>成交编号</th>								                								                
+					<th>合同编号</th>								                								                
+				</tr>
+			</thead>
+		</table>
 
 	</div>
 

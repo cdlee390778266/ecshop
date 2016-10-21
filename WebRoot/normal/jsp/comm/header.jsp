@@ -28,28 +28,7 @@
 							<button type="submit" class="icon-search">搜索</button>
 						</div>
 					</form>
-
-					<!--  
-					<div class="search-ft">
-						<div class="search-hots">
-							<div class="search-hots-sline">
-								<dl>
-									<dt><span>热门搜索：</span></dt>
-									<dd>
-										<a href="javascript: void(0)" class="h">化肥</a>
-										<a href="javascript: void(0)" class="h">农药</a>
-										<a href="javascript: void(0)" class="h">农用机械</a>
-										<a href="javascript: void(0)" class="h">水果</a>
-										<a href="javascript: void(0)" class="h">中药材</a>
-										<a href="javascript: void(0)" class="h">农作物</a>
-										<a href="javascript: void(0)" class="more more-with-border">更多&gt;&gt;</a>
-									</dd>
-								</dl>
-								
-							</div>
-						</div>
-					</div>
-					-->
+                    
 				</div>
 				
 				<div class="logo"><a href="/home.htm"><img src="/normal/images/logo.png" alt=""></a></div>

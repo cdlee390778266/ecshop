@@ -28,7 +28,6 @@
 
 	<title>挂牌处理</title>
 
-
 </head>
 <body class="drawer drawer-left">
 
@@ -40,16 +39,14 @@
 
 	
 
-<div class="container-fluid bgwhite">
+	<div class="container-fluid bgwhite">
 		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-12"><a href="javascript:void(0);" class="active">挂牌处理</a></div>
 		</div>
 		<form action="/sell/${rspBody.listedType}/${link}.htm" method="post" id="sellform" >
 
 			<input type="hidden" name="listedNo" value="${rspBody.listedNo}" />
-
 			<input type="hidden" name="opertype" value="${operType}" />
-
 
 			<table class="table table-bordered table-responsive mart10 vmiddle bgfff">
 				<tbody>
@@ -245,7 +242,7 @@
 				<div class="col-xs-4  txtcenter ">当前状态</div>
 				<div class="col-xs-8  fc999">${cost.flagDesc}</div>
 			</div>
-			</c:forEach>  
+		</c:forEach>  
 	</div>											
 </td>																																		
 </tr>  
@@ -261,7 +258,7 @@
 	<tr>
 		<td class="ctr">审核意见：</td>
 		<td>
-				<textarea name="comment" id="comment"  class="required up-comment"  data-tip="请输入审核意见" data-valid="maxGBLength:512" data-error="审核意见长度错误"    placeholder="请输入审核意见"></textarea>
+			<textarea name="comment" id="comment"  class="required up-comment"  data-tip="请输入审核意见" data-valid="maxGBLength:512" data-error="审核意见长度错误"    placeholder="请输入审核意见"></textarea>
 		</td>                          
 	</tr>
 
@@ -281,7 +278,7 @@
 	<td class="ctr">资金密码：</td>
 	<td>
 		<div class="">
-			<input type="password" name="fundPwd" id="fundPwd" class="required up-text"  data-tip="请输入资金密码" data-valid="isNonEmpty||between:6-16" data-error="资金密码必填||密码长度错误" />
+			<input type="password" name="fundPwd" id="fundPwd" class="required up-text lh30"  data-tip="请输入资金密码" data-valid="isNonEmpty||between:6-16" data-error="资金密码必填||密码长度错误" />
 		</div>
 	</td>                          
 </tr>
@@ -301,31 +298,30 @@
 </form>
 </div>
 
-	<!-- footer -->
-	<jsp:include page="../comm/footer.jsp" flush="true" />
-	<!-- footer End -->
-	
-	 <script type="text/javascript">
-    
+<!-- footer -->
+<jsp:include page="../comm/footer.jsp" flush="true" />
+<!-- footer End -->
+
+<script type="text/javascript">
 
 	$(function() {
 
 		$(document).ready(function() {
-				$('.fixed-wrapper').stickUp();
+			$('.fixed-wrapper').stickUp();
 		});
 
 		//RADIO效果渲染		
-	    $('input').iCheck({
-		    checkboxClass: 'icheckbox_square-green',
-		    radioClass: 'iradio_square-green',
+		$('input').iCheck({
+			checkboxClass: 'icheckbox_square-green',
+			radioClass: 'iradio_square-green',
 		    increaseArea: '20%' // optional
 		});
 		
-	    var checkSubmitFlg = false;
-	    
-	    $('#sellform').on('submit', function(event) {
-	    
-		    if(checkSubmitFlg == true)
+		var checkSubmitFlg = false;
+
+		$('#sellform').on('submit', function(event) {
+
+			if(checkSubmitFlg == true)
 			{
 				UI.Dialog({
 					type : 'tips',
@@ -335,26 +331,26 @@
 				}).show();
 				return false;
 			}
-		
-		    var valFlag = $(this).validate('submitValidate'); 
-		    
 
-		    if(valFlag == true){
-		    	if($("#fundPwd").length > 0)
-		    	{
-		    		$("#fundPwd").val(b64_sha1($("#fundPwd").val()));
-		    	}	
-		    	
-		    	var auditflag  = $("input[name='auditRet']:checked").val();
-		    	if(auditflag != undefined && auditflag == '0'){
-		    		if($('#comment').val() == '' || $('#comment').val() == null){
-		    			var $parent = $('#comment').parent();		    			 		    	
-		    			var $msg = $parent.find('.valid_message');
-	    				layer.msg("请输入审核意见")	;
-	    				event.preventDefault();
+			var valFlag = $(this).validate('submitValidate'); 
+
+
+			if(valFlag == true){
+				if($("#fundPwd").length > 0)
+				{
+					$("#fundPwd").val(b64_sha1($("#fundPwd").val()));
+				}	
+
+				var auditflag  = $("input[name='auditRet']:checked").val();
+				if(auditflag != undefined && auditflag == '0'){
+					if($('#comment').val() == '' || $('#comment').val() == null){
+						var $parent = $('#comment').parent();		    			 		    	
+						var $msg = $parent.find('.valid_message');
+						layer.msg("请输入审核意见")	;
+						event.preventDefault();
 						return;	    			
-		    		}
-		    	}		    		
+					}
+				}		    		
 			}else{
 				event.preventDefault();
 				return;
@@ -362,8 +358,8 @@
 			
 			checkSubmitFlg = true;	
 		});
-    });
+	});
 
-    </script>
+</script>
 </body>
 </html>

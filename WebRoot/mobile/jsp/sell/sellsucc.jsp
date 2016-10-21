@@ -20,6 +20,7 @@
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 
 	<title>卖方挂牌</title>
+
 	<script type="text/javascript">
 
 		$(function() {
@@ -29,6 +30,7 @@
 		});
 
 	</script>
+
 </head>
 <body class="drawer drawer-left">
 
@@ -39,7 +41,9 @@
 	</div>
 
 	<div class="container-fluid up-applay examine">
+
 		<c:if test="${listedType=='M'}">
+
 		<div class="row">
 			<div class="col-xs-12 mart15  txtcenter padtb40 lh26">
 				摘牌单号：<span class="fcgreen ">${listed.listedNo}</span><br>
@@ -79,11 +83,14 @@
 </c:if>
 
 <c:if test="${listedType=='W'}">
+
 <div class="row padb120">
+
 	<div class="col-xs-12 mart15  txtcenter padtb40 lh26">
 		摘牌单号：<span class="fcgreen ">${listed.listedno}</span><br>
 		摘牌状态：<span class="fcyellow">${listed.statusDesc}</span>
 	</div>
+
 	<div class="box">
 		<c:if test="${enableAudit=='1'}">
 		<div class="pa-action clearfix mt10 ml60">
@@ -93,7 +100,9 @@
 		</div>
 	</c:if>
 </div>
+
 </div>
+
 </c:if>
 
 </div>

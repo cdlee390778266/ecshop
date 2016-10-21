@@ -13,7 +13,7 @@ table.dataTable {
   /*
    * Body styles
    */
-}
+ }
 table.dataTable thead th,
 table.dataTable tfoot th {
   font-weight: bold;
@@ -405,7 +405,7 @@ table.dataTable td {
   	position: fixed;
   	top: 0;
   	left: 0;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     text-align: center;
     font-size: 1.2em;

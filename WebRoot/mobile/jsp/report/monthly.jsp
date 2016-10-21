@@ -24,6 +24,7 @@
 
 	<script type="text/javascript" src="/mobile/js/tableselect.js"></script>
 	<script type="text/javascript">
+
 		$(function() {
 
 			$(document).ready(function() {
@@ -159,15 +160,12 @@
 			});
 		});
 
-
-
 	</script>
+
 	<title>交易商月报表</title>
 
 </head>
 <body class="drawer drawer-left">
-
-
 
 	<div class="fixed-wrapper">
 		<!-- header -->
@@ -176,12 +174,14 @@
 	</div>
 
 	<div class="container-fluid up-datatables report">
+
 		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-6"><a href="/report/check.htm" >日常对账单</a>
 			</div>
 			<div class="col-xs-6"><a href="javascript:void(0);" class="active">账户月报表</a>
 			</div>
 		</div>
+
 		<div class="condition">
 			<div class="row">
 				<div class="col-xs-12">
@@ -194,12 +194,14 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="report-box mart10" style="display:none;">
 			<div class="row">
 				<div id="monthlyrender" class="rpt-content lh34">
 				</div>
 			</div>
 		</div>
+
 	</div>
 
 	<div class="report-export">
@@ -207,50 +209,50 @@
 	</div>
 
 
-<script type="text/x-handlebars-template" id="monthlyTemplate">
-	<div class="col-xs-12">
-		<select name="" id="" class="">
-			<option value="交易商月报表" selected="">交易商月报表</option>
-		</select>
-	</div>
-	<div class="col-xs-6 padl20">交易商号</div>
-	<div class="col-xs-6 txtright fc999 padr20">{{mid}}</div>
-	<div class="col-xs-6 padl20">交易商名称</div>	
-	<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
-	<div class="col-xs-6 padl20">报表周期</div>
-	<div class="col-xs-6 txtright fc999 padr20">{{reportdate}}</div>
+	<script type="text/x-handlebars-template" id="monthlyTemplate">
+		<div class="col-xs-12">
+			<select name="" id="" class="">
+				<option value="交易商月报表" selected="">交易商月报表</option>
+			</select>
+		</div>
+		<div class="col-xs-6 padl20">交易商号</div>
+		<div class="col-xs-6 txtright fc999 padr20">{{mid}}</div>
+		<div class="col-xs-6 padl20">交易商名称</div>	
+		<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
+		<div class="col-xs-6 padl20">报表周期</div>
+		<div class="col-xs-6 txtright fc999 padr20">{{reportdate}}</div>
 
-	<div class="col-xs-12 padb60">
-		<table class="rpt-model table table-responsive">
-			<thead>
-				<tr>
-					<th>序号</th>
-					<th>摘要</th>
-					<th>增加</th>
-					<th>减少</th>
-					<th>余额</th>
-				</tr>
-			</thead>
-			<tbody>
-				{{#if succflag}}
-				{{#each list}}
-				<tr>
-					<td>{{seqno}}</td>
-					<td>{{style remark bold}}</td>
-					<td>{{money incAmt}}</td>
-					<td>{{money decrAmt}}</td>
-					<td>{{money amt}}</td>
-				</tr>
-				{{/each}}
-				{{#if list}}
+		<div class="col-xs-12 padb60">
+			<table class="rpt-model table table-responsive">
+				<thead>
+					<tr>
+						<th>序号</th>
+						<th>摘要</th>
+						<th>增加</th>
+						<th>减少</th>
+						<th>余额</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#if succflag}}
+					{{#each list}}
+					<tr>
+						<td>{{seqno}}</td>
+						<td>{{style remark bold}}</td>
+						<td>{{money incAmt}}</td>
+						<td>{{money decrAmt}}</td>
+						<td>{{money amt}}</td>
+					</tr>
+					{{/each}}
+					{{#if list}}
 					{{else}}
 					<td colspan="5" class="report-nodata">无数据</td>
 					{{/if}}
-				{{/if}}											
-			</tbody>
-		</table>
-	</div>
-</script>
+					{{/if}}											
+				</tbody>
+			</table>
+		</div>
+	</script>
 
 
 

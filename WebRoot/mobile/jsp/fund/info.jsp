@@ -24,15 +24,16 @@
 	<script type="text/javascript">
 		$(function(){
 			
-				// $(document).ready(function() {
-				// 	$('.fixed-wrapper').stickUp();
-				// });
+			$(document).ready(function() {
+				$('.fixed-wrapper').stickUp();
+			});
 
-		$('#tab1').tabs();
+			$('#tab1').tabs();
 
-	});
-</script>
-<title>我的账户</title>
+		});
+	</script>
+
+	<title>我的账户</title>
 
 </head>
 <body class="drawer drawer-left">
@@ -45,28 +46,34 @@
 
 
 	<div class="container-fluid up-datatables">
+
 		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-6"><a href="/fund/info.htm" class="active">资金账户</a>
 			</div>
 			<div class="col-xs-6"><a href="/fund/list.htm"  >账务明细</a></div>
 		</div>
+
 	</div>
 
 	<div class="container-fluid marb15">
 		<div class="row lh26">
+
 			<div class="col-xs-12 mart10 ">
 				系统总余额： 
 				<span class="fcgreen ">
 					<fmt:formatNumber value="${rspBody.totalBal}" type="currency" pattern="￥#,##0.00#" />
 				</span> 元
 			</div>
+
 			<div class="col-xs-12 marb10 ">
 				系统总可用余额： 
 				<span class="fcgreen ">
 					<fmt:formatNumber value="${rspBody.totalABal}" type="currency" pattern="￥#,##0.00#" />
 				</span> 元
 			</div>
+
 			<div class="found-bar col-xs-12 txtcenter">
+
 				<c:forEach items="${rspBody.details}" var="info" varStatus="status">
 				<c:if test="${status.count == 1}">
 				<a href="javascript: void(0)" class="active">${info.acctTypeName}</a>
@@ -75,19 +82,18 @@
 			<a href="javascript: void(0)">${info.acctTypeName}</a>
 		</c:if>
 	</c:forEach>
+
 </div>
 
 <c:forEach items="${rspBody.details}" var="info" varStatus="status">
 
 <div class="found-box" <c:if test="${status.count != 1}"> style="display:none;" </c:if> >
 
-	
 	<div class="col-xs-12 mart15 ">
 		<c:if test="${info.acctType=='00'}">
 		余额： <span class="fcyellow "><fmt:formatNumber value="${info.totalBal}" type="currency" pattern="￥#,##0.00#元" /></span>
 	</c:if>
 </div>
-
 
 <div class="col-xs-12">
 	<table class="table table-bordered">
@@ -132,20 +138,15 @@
 </c:if>
 </tbody>
 </table>
+
 </div>
+
 </div>
+
 </c:forEach>
 
 </div>
 </div>
-
-
-
-
-
-<!-- footer -->
-<jsp:include page="../comm/footer.jsp" flush="true" />
-<!-- footer End -->
 
 <script>
 	$(function(){

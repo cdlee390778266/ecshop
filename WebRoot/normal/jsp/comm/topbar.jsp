@@ -55,7 +55,7 @@
 					<a href="javascript:;" class="dcell n" style="border-bottom:1px solid transparent"><img src="/normal/images/user.png" alt="" class="dropdown-face" />会员中心<span class="fa fa-angle-down"></span></a>
 					<div class="dbox dmember padt20">
 						<div class="user-face fl">
-							<img src="/normal/images/face.png" alt="" class="mart10" />
+							<img src="${user.operPhoto}"  alt="" class="mart10" onError="this.src='/normal/images/face.png'" width="43" height="43" style="border-radius : 50%" />
 						</div>
 						<div class="dlData fl">
 							<div class="dlTitle">

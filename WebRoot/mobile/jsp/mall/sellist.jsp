@@ -24,170 +24,172 @@
 	<script type="text/javascript" src="/mobile/js/handle.mall.sel.js?v=${sessionScope.buildno}"></script>
 
 	<title>交易大厅</title>
+
 </head>
 <body class="drawer drawer-left">
 
 	<div class="fixed-wrapper">  
-
 		<!-- header -->
 		<jsp:include page="../comm/header.jsp" flush="true" />
 		<!-- header End -->
 	</div>
 	
 	<div class="wrapper service-full up-search sel-search">
+
 		<div class="grid-16-16">
 			<!-- main：当前节点的路径-->
-		<div class="c-select mart10">
-			<div class="rlist">
-				<div class="commsection">
-					<c:forEach items="${nodetree}" var="nodes" varStatus="status">
-					<c:if test="${fn:length(nodes)>= 1}">
-					<c:set var="classFlag">${nodes[0].classFlg}</c:set>
-					<div class="up-comm">
-					<div class="commhead  ">
-						<c:choose>
-						<c:when test="${'0'==classFlag }">市场</c:when>
-						<c:when test="${'1'==classFlag }">分类</c:when>
-						<c:when test="${'2'==classFlag }">类别</c:when>
-						<c:otherwise>商品</c:otherwise>
-					</c:choose>
+			<div class="c-select mart10">
+				<div class="rlist">
+					<div class="commsection">
+						<c:forEach items="${nodetree}" var="nodes" varStatus="status">
+						<c:if test="${fn:length(nodes)>= 1}">
+						<c:set var="classFlag">${nodes[0].classFlg}</c:set>
+						<div class="up-comm">
+							<div class="commhead  ">
+								<c:choose>
+								<c:when test="${'0'==classFlag }">市场</c:when>
+								<c:when test="${'1'==classFlag }">分类</c:when>
+								<c:when test="${'2'==classFlag }">类别</c:when>
+								<c:otherwise>商品</c:otherwise>
+							</c:choose>
+						</div>
+						<div class="commbd">
+							<ul>
+								<c:forEach items="${nodes}" var="node">
+								<li><c:set var="index">${status.index}</c:set> <a
+									<c:if test="${index < fn:length(nodepath) && node.mdseCode == nodepath[index].mdseCode }">class="active"</c:if>
+									href="/mall/class/${node.mdseCode}.htm">${node.mdseName}</a>
+								</li>
+							</c:forEach>
+						</ul>
+					</div>
 				</div>
-				<div class="commbd">
-					<ul>
-						<c:forEach items="${nodes}" var="node">
-						<li><c:set var="index">${status.index}</c:set> <a
-							<c:if test="${index < fn:length(nodepath) && node.mdseCode == nodepath[index].mdseCode }">class="active"</c:if>
-							href="/mall/class/${node.mdseCode}.htm">${node.mdseName}</a>
-						</li>
-					</c:forEach>
-				</ul>
-			</div>
-			</div>
-		</c:if>
-	</c:forEach>
-</div>
+			</c:if>
+		</c:forEach>
+	</div>
 </div>
 </div>
 <!-- main End -->
 
-	<div class="main-content up-main-content">
-		
+<div class="main-content up-main-content">
+	
 
-							<div class="tabbar-wrap">
-								<div class="mod-tabbar" style="display: none;">
-									<div class="header-exg tab-sty">
-										<ul id="J_TabBar" class="pa-tabbar pdeta">
+	<div class="tabbar-wrap">
+		<div class="mod-tabbar" style="display: none;">
+			<div class="header-exg tab-sty">
+				<ul id="J_TabBar" class="pa-tabbar pdeta">
 
-											<c:if test="${fn:length(subcls) == 1}">
-											<li class="item tab-cell selected"><a
-												data-role='${subcls[0].mdseCode}'
-												data-flag='${subcls[0].classFlg}'>${subcls[0].mdseName}</a></li>
-											</c:if>
+					<c:if test="${fn:length(subcls) == 1}">
+					<li class="item tab-cell selected"><a
+						data-role='${subcls[0].mdseCode}'
+						data-flag='${subcls[0].classFlg}'>${subcls[0].mdseName}</a></li>
+					</c:if>
 
-											<c:if test="${fn:length(subcls) > 1}">
-											<li class="item tab-cell selected"><a
-												data-role='${curcls.mdseCode}'
-												data-flag='${curcls.classFlg}'>全部</a></li>
-												<c:forEach items="${subcls}" var="cls" varStatus="status">
-												<c:if test="${status.count < 8}">
-												<li class="item tab-cell"><a
-													data-role='${cls.mdseCode}'
-													data-flag='${cls.classFlg}'>${cls.mdseName}</a></li>
-												</c:if>
-												<c:if test="${status.count >= 8}">
-												<li class="item tab-cell" style="display: none"><a
-													data-role='${cls.mdseCode}'
-													data-flag='${cls.classFlg}'>${cls.mdseName}</a></li>
-												</c:if>
-											</c:forEach>
-											<c:if test="${fn:length(subcls) >= 8}">
-											<li class="item tab-cell morecell"><a
-												href="javascript:void(0);">更多分类...</a></li>
-											</c:if>
-										</c:if>
-									</ul>
-								</div>
-							</div>
-						</div>
+					<c:if test="${fn:length(subcls) > 1}">
+					<li class="item tab-cell selected"><a
+						data-role='${curcls.mdseCode}'
+						data-flag='${curcls.classFlg}'>全部</a></li>
+						<c:forEach items="${subcls}" var="cls" varStatus="status">
+						<c:if test="${status.count < 8}">
+						<li class="item tab-cell"><a
+							data-role='${cls.mdseCode}'
+							data-flag='${cls.classFlg}'>${cls.mdseName}</a></li>
+						</c:if>
+						<c:if test="${status.count >= 8}">
+						<li class="item tab-cell" style="display: none"><a
+							data-role='${cls.mdseCode}'
+							data-flag='${cls.classFlg}'>${cls.mdseName}</a></li>
+						</c:if>
+					</c:forEach>
+					<c:if test="${fn:length(subcls) >= 8}">
+					<li class="item tab-cell morecell"><a
+						href="javascript:void(0);">更多分类...</a></li>
+					</c:if>
+				</c:if>
+			</ul>
+		</div>
+	</div>
+</div>
 
-						<div class="sub-wrap mart10">
-							<input type="hidden" value="${sessionScope.userinfo.mID}"
-							id="currMID" />
+<div class="sub-wrap mart10">
+	<input type="hidden" value="${sessionScope.userinfo.mID}" id="currMID" />
 
+	<div class="custfilter up-custfilter">
+		<div class="filtersection">
+			<div class="filterhd">品牌:</div>
+			<div class="filterbd">
+				<ul class="J_Brand">
+					<li class="active" data-key="">不限</li>
+				</ul>
+			</div>
 
-							<div class="custfilter up-custfilter">
-								<div class="filtersection">
-									<div class="filterhd">品牌:</div>
-									<div class="filterbd">
-										<ul class="J_Brand">
-											<li class="active" data-key="">不限</li>
-										</ul>
-									</div>
+		</div>
 
-								</div>
-
-								<div class="filtersection">
-									<div class="filterhd">产地:</div>
-									<div class="filterbd">
-										<ul class="J_Origin">
-											<li class="active" data-key="">不限</li>
-										</ul>
-									</div>
-								</div>
+		<div class="filtersection">
+			<div class="filterhd">产地:</div>
+			<div class="filterbd">
+				<ul class="J_Origin">
+					<li class="active" data-key="">不限</li>
+				</ul>
+			</div>
+		</div>
 
 
-								<div class="filtersection">
-									<div class="filterhd">价格:</div>
-									<div class="filterbd">
-										<input type="hidden" id="price-max" name="price-max" /> <input
-										type="hidden" id="price-min" name="price-min" />
-										<ul class="J_Price">
-											<li class="active" data-key="">不限</li>
-											<li data-max="1000">1000元以下</li>
-											<li data-max="2000" data-min="1000">1000-2000元</li>
-											<li data-max="3000" data-min="2000">2000-3000元</li>
-											<li data-max="5000" data-min="5000">3000-5000元</li>
-											<li data-min="5000">5000元以上</li>
-										</ul>
-									</div>
-								</div>
+		<div class="filtersection">
+			<div class="filterhd">价格:</div>
+			<div class="filterbd">
+				<input type="hidden" id="price-max" name="price-max" /> <input
+				type="hidden" id="price-min" name="price-min" />
+				<ul class="J_Price">
+					<li class="active" data-key="">不限</li>
+					<li data-max="1000">1000元以下</li>
+					<li data-max="2000" data-min="1000">1000-2000元</li>
+					<li data-max="3000" data-min="2000">2000-3000元</li>
+					<li data-max="5000" data-min="5000">3000-5000元</li>
+					<li data-min="5000">5000元以上</li>
+				</ul>
+			</div>
+		</div>
 
-								<div class="filtersection">
-									<div class="filterhd">数量:</div>
-									<div class="filterbd">
-										<input type="hidden" id="volume-max" name="volume-max" />
-										<input type="hidden" id="volume-min" name="volume-min" />
-										<ul class="J_Volume">
-											<li class="active" data-key="">不限</li>
-											<li data-max="50">0-50</li>
-											<li data-max="100" data-min="50">50-100</li>
-											<li data-max="200" data-min="100">100-200</li>
-											<li data-max="500" data-min="200">200-500</li>
-											<li data-min="500">500以上</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="page-module product-set up-product ">
-								<table id="dataset" class="cell-border hover table" cellspacing="0"
-								width="100%" style="padding: 0px">
-								<thead>
-									<tr>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-										<th></th>
-									</tr>
-								</thead>
-							</table>
-						</div>
+		<div class="filtersection">
+			<div class="filterhd">数量:</div>
+			<div class="filterbd">
+				<input type="hidden" id="volume-max" name="volume-max" />
+				<input type="hidden" id="volume-min" name="volume-min" />
+				<ul class="J_Volume">
+					<li class="active" data-key="">不限</li>
+					<li data-max="50">0-50</li>
+					<li data-max="100" data-min="50">50-100</li>
+					<li data-max="200" data-min="100">100-200</li>
+					<li data-max="500" data-min="200">200-500</li>
+					<li data-min="500">500以上</li>
+				</ul>
+			</div>
+		</div>
 
-					</div>
-				</div>
-		
+	</div>
+
+	<div class="page-module product-set up-product ">
+		<table id="dataset" class="cell-border hover table" cellspacing="0"
+		width="100%" style="padding: 0px">
+		<thead>
+			<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+	</table>
+</div>
+
+</div>
+
+</div>
+
 <!--  content End -->
 </div>
 </div>

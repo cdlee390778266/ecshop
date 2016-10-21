@@ -50,15 +50,15 @@ $(function() {
 
 	var marketurl = "/mall/findallmarket.htm";
 	var columns =  [
-	                { "data": "auditno" },
-		            { "data": "mdsename", "type":"cn-string" },
-		            { "data": "memname", "type":"cn-string" },
-		            { "data": "registno", "type":"cn-string" },
-		            { "data": "storename", "type":"cn-string" },		        
-		            { "data": "storeno", "type":"cn-string"},
-		            { "data": "qty"},	                    
-		            { "data": null,"orderable": false}
-		        ];
+	{ "data": "auditno" },
+	{ "data": "mdsename", "type":"cn-string" },
+	{ "data": "memname", "type":"cn-string" },
+	{ "data": "registno", "type":"cn-string" },
+	{ "data": "storename", "type":"cn-string" },		        
+	{ "data": "storeno", "type":"cn-string"},
+	{ "data": "qty"},	                    
+	{ "data": null,"orderable": false}
+	];
 	
 	var surl = '/warehouse/findcancel.htm';
 	
@@ -82,46 +82,46 @@ $(function() {
 	
 	var defaultOrder = [6, "desc"];
 	var columndefs = [                             
-	  	            {"render": function ( data, type, row,index ) {
-	  	            	
-		                var html = '';
-		                if(enablePay == 1){
-		                	html =  '<input type="button" value="注册仓单撤销" class="J_Show cbtn" data-key="'+index.row+ '" />';
-		                }
-		                
-		                return html;
-		              },
-		              "targets": -1
-		            }
-		         ];
+	{"render": function ( data, type, row,index ) {
+		
+		var html = '';
+		if(enablePay == 1){
+			html =  '<input type="button" value="注册仓单撤销" class="J_Show cbtn" data-key="'+index.row+ '" />';
+		}
+		
+		return html;
+	},
+	"targets": -1
+}
+];
+
+var rowfn  = function(row, data, index){
+}
+
+var btnfn = function(){
+	var res =/^\d+$/;
 	
-	var rowfn  = function(row, data, index){
+	if($("#auditno").val() != '' && $("#auditno").val() != null){
+		if(!res.test($("#auditno").val())){
+			UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '审核编号只能由数字组成！'}).show();						
+			event.stopPropagation();
+			return false;
+		}
 	}
 	
-	var btnfn = function(){
-		var res =/^\d+$/;
-		
-		if($("#auditno").val() != '' && $("#auditno").val() != null){
-			if(!res.test($("#auditno").val())){
-				UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '审核编号只能由数字组成！'}).show();						
-				event.stopPropagation();
-				return false;
-			}
-		}
-		
-		if($('#code').val()!=''&&$('#commcode').val() == ''){
-		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
-			event.stopPropagation();
-			return false;
-		}
-		
-		
-		if($('#contTime').val()==''&&$('#econtTime').val() == ''){
-		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '请必须输入订立开始日期或结束日期'}).show();						
-			event.stopPropagation();
-			return false;
-		}
-		
+	if($('#code').val()!=''&&$('#commcode').val() == ''){
+		UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
+		event.stopPropagation();
+		return false;
+	}
+	
+	
+	if($('#contTime').val()==''&&$('#econtTime').val() == ''){
+		UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '请必须输入订立开始日期或结束日期'}).show();						
+		event.stopPropagation();
+		return false;
+	}
+	
 		//为空是填入默认值
 		if($('#contTime').val()==''){
 			$('#contTime').val($('#econtTime').val());
@@ -131,7 +131,7 @@ $(function() {
 		}
 		
 		if($('#contTime').val() > $('#econtTime').val()){
-		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '订立开始日期大于结束日期'}).show();						
+			UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '订立开始日期大于结束日期'}).show();						
 			event.stopPropagation();
 			return false;
 		}
@@ -149,40 +149,40 @@ $(function() {
 //        $(this).addClass('selected');
 //        console.log($(this).attr("data-role"));
 //    });
-	
-	$('#dataset').on('click', '.J_Show', function(e) {
-		
-		var d =dataList.row($(this).data('key')).data();
-		$("#auditnotmp").html('');
-		$("#registnotmp").html('');
-		$("#mdsenametmp").html('');
-		$("#storenotmp").html('');
-		$("#storenametmp").html('');
-		$("#positiontmp").html('');
-		$("#qtytmp").html('');
-		if(d.length<1){
-			$("#auditnotmp").html('无');
-			$("#registnotmp").html('无');
-			$("#mdsenametmp").html('无');
-			$("#storenotmp").html(0);
-			$("#storenametmp").html(0);
-			$("#positiontmp").html('无');
-			$("#qtytmp").html('无');
-		}else{
-			$("#auditnotmp").html(d.auditno);
-			$("#registnotmp").html(d.registno);
-			$("#mdsenametmp").html(d.mdsename);
-			$("#storenotmp").html(d.storeno);
-			$("#storenametmp").html(d.storename);
-			$("#positiontmp").html(d.position);
-			$("#qtytmp").html(d.qty);
-		}
-		UP.Dialog('J_cdList');
-	});
-	
 
-	loadMarket(marketurl);
+$('#dataset').on('click', '.J_Show', function(e) {
 	
+	var d =dataList.row($(this).data('key')).data();
+	$("#auditnotmp").html('');
+	$("#registnotmp").html('');
+	$("#mdsenametmp").html('');
+	$("#storenotmp").html('');
+	$("#storenametmp").html('');
+	$("#positiontmp").html('');
+	$("#qtytmp").html('');
+	if(d.length<1){
+		$("#auditnotmp").html('无');
+		$("#registnotmp").html('无');
+		$("#mdsenametmp").html('无');
+		$("#storenotmp").html(0);
+		$("#storenametmp").html(0);
+		$("#positiontmp").html('无');
+		$("#qtytmp").html('无');
+	}else{
+		$("#auditnotmp").html(d.auditno);
+		$("#registnotmp").html(d.registno);
+		$("#mdsenametmp").html(d.mdsename);
+		$("#storenotmp").html(d.storeno);
+		$("#storenametmp").html(d.storename);
+		$("#positiontmp").html(d.position);
+		$("#qtytmp").html(d.qty);
+	}
+	UP.Dialog('J_cdList');
+});
+
+
+loadMarket(marketurl);
+
 	//选择注册仓单取消
 	$('#cancelbtn1').on('click', function(event){
 		//获取已经获取的数据
@@ -207,7 +207,7 @@ $(function() {
 			return;
 		}
 		
-				
+		
 		//获取已经获取的数据
 		$.ajax({
 			type : 'POST',
@@ -233,7 +233,7 @@ $(function() {
 	});
 
 $('#type').change(function(event) {
-      location.href =   $('#J_TabBar a').eq($(this).val()).attr('href');
-   });
+	location.href =   $('#J_TabBar a').eq($(this).val()).attr('href');
+});
 
 });

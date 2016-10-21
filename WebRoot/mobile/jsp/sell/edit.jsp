@@ -22,6 +22,7 @@
 	<script type="text/javascript">
 		var listedType = '${rspBody.listedType}';
 	</script>
+
 	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.dialog.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.datepicker.js"></script>
@@ -46,11 +47,13 @@
 	</div>
 	
 	<div class="container-fluid examine demand">
+
 		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-12"><a href="javascript:void(0);" class="active">卖方挂牌修改</a></div>
 		</div>
 
 		<form action="/sell/edithandle.htm" method="post" enctype="multipart/form-data" id="sellEdit" class="form-horizontal">
+
 			<input type="hidden" name="busDate" id="busDate" value="${busDate}" />
 
 			<div class="form-group borderb  form-group-lg">
@@ -65,6 +68,7 @@
 				</span>
 			</div>
 		</div>
+
 		<div class="form-group borderb  form-group-lg">
 			<label class="col-xs-5 control-label ">挂牌方式</label>
 			<div class="col-xs-7">
@@ -78,10 +82,11 @@
 		</span>
 	</div>
 </div>
+
 <div class="form-group borderb  form-group-lg">
 	<label class="col-xs-5 control-label ">挂牌商品</label>
 	<div class="col-xs-7">
-		<span class="form-control txtright lh26 ">
+		<span class="form-control txtright lh26 ellipsis">
 			<input type="hidden" name="commCode" id="commCode" value="${rspBody.commCode}" />												
 			${rspBody.markName}&gt;${rspBody.className}&gt;${rspBody.commName}
 		</span>
@@ -306,7 +311,7 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 	<div class="form-group buy-group">
 		<div class="input-group rel">
 			<div class="input-group-addon">单价<span class="fcyellow">(必填)</span></div>
-			<input type="text" name="unitPrice" class="required form-control" id="unitPrice" value="${rspBody.up}" data-limit="${pricelimit}" data-tip="请输入商品单价" data-valid="isNonEmpty||isNoNZeroMoney" data-error="单价必填||金额格式:1.00"/>
+			<input type="text" name="unitPrice" class="required form-control padr45" id="unitPrice" value="${rspBody.up}" data-limit="${pricelimit}" data-tip="请输入商品单价" data-valid="isNonEmpty||isNoNZeroMoney" data-error="单价必填||金额格式:1.00"/>
 			<span class="priceunit_message">元/${rspBody.uom}</span>
 		</div>
 	</div>
@@ -323,7 +328,7 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 
 	<div class="form-group buy-group">
 		<div class="input-group rel">
-			<div class="input-group-addon">总量<span class="fcyellow">(必填)</span></div>								<input type="text" name="qty" id="qty" value="${rspBody.qty}" class="required form-control"  data-tip="请输入商品总量" data-valid="isNonEmpty||plusInt" data-error="总量必填||总量必须为整数" />
+			<div class="input-group-addon">总量<span class="fcyellow">(必填)</span></div>								<input type="text" name="qty" id="qty" value="${rspBody.qty}" class="required form-control padlr25"  data-tip="请输入商品总量" data-valid="isNonEmpty||plusInt" data-error="总量必填||总量必须为整数" />
 			<span class="unit_message">${rspBody.uom}</span>
 		</div>
 	</div>
@@ -346,12 +351,11 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 </div>
 </div>
 
-
 <div class="form-group buy-group">
 	<div class="input-group rel">
 		<div class="input-group-addon">起订数量<span class="fcyellow">(必填)</span></div>
 		<div class="txtright">
-			<input type="text" name="moq" id="moq" class="required form-control"  value="${rspBody.moq}" <c:if test="${rspBody.wholeFlg == 'W'}"> readonly="true" 
+			<input type="text" name="moq" id="moq" class="required form-control padlr25"  value="${rspBody.moq}" <c:if test="${rspBody.wholeFlg == 'W'}"> readonly="true" 
 		</c:if> 
 		data-tip="请输入商品起订数量" data-valid="isNonEmpty||plusInt" data-error="起订量必填||起订量必须为整数" />
 		<span class="unit_message">${rspBody.uom}</span>	
@@ -363,7 +367,7 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 	<div class="input-group rel">
 		<div class="input-group-addon">递增数量<span class="fcyellow">(必填)</span></div>
 		<div class="txtright">
-			<input type="text" name="incrNum" id="incrNum" class="required form-control" value="${rspBody.ic}"  <c:if test="${rspBody.wholeFlg == 'W'}"> readonly="true" </c:if> data-tip="请输入商品递增量" data-valid="isNonEmpty||plusInt" data-error="递增量必填||递增量必须为整数"  />
+			<input type="text" name="incrNum" id="incrNum" class="required form-control padlr25" value="${rspBody.ic}"  <c:if test="${rspBody.wholeFlg == 'W'}"> readonly="true" </c:if> data-tip="请输入商品递增量" data-valid="isNonEmpty||plusInt" data-error="递增量必填||递增量必须为整数"  />
 			<span class="unit_message">${rspBody.uom}</span>
 		</div>
 	</div>
@@ -388,89 +392,89 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 											<!-- 后面再做
 											<span><input type="checkbox" name="mart" value="E" >专有专场</span>
 										-->											
-									</div>
-								</div>
-							</div>
+		</div>
+	</div>
+</div>
 
-							<c:if test="${rspBody.listedType=='M'}">
+<c:if test="${rspBody.listedType=='M'}">
 							
-							<div class="form-group buy-group">
-								<div class="input-group rel">
-									<div class="input-group-addon">最后付款日<span class="fcyellow">(必填)</span></div>
-									<div class="txtright">合同签定后 <input type="text" name="lastPD" id="lastPD" maxlength="4" value="${fn:substringAfter(rspBody.lastPD,'cycle:')}" style="width:40px; height:24px; padding: 5px 5px; border: 1px solid #ECECEC;"  autocomplete="off" />天
-										<span class="valid_message"></span>
-									</div>
-								</div>
-							</div>
-
-							<div class="form-group buy-group">
-								<div class="input-group rel">
-									<div class="input-group-addon">最后交收日<span class="fcyellow">(必填)</span></div>
-									<div class="txtright">
-										全款支付后 <input type="text" name="deliDate" id="deliDate" maxlength="4" value="${fn:substringAfter(rspBody.deliDate,'cycle:')}" style="width:40px; height:24px; padding: 5px 5px; border: 1px solid #ECECEC;" autocomplete="off" />天
-										<span class="valid_message"></span>
-									</div>
-								</div>
-							</div>
-						</c:if>	
-
-						<div class="form-group buy-group">
-							<div class="input-group rel">
-								<div class="input-group-addon">交收仓库<span class="fcyellow">(必填)</span></div>
-								<select name="storage" id="storage" >
-									<c:forEach items="${storeList}" var="store" >
-									<c:choose>
-									<c:when test="${store.storeName == rspBody.storage}">
-									<option value="${store.storeName}" selected>${store.storeName}</option>
-								</c:when>
-								<c:otherwise>
-								<option value="${store.storeName}">${store.storeName}</option>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-				</select>
+	<div class="form-group buy-group">
+		<div class="input-group rel">
+			<div class="input-group-addon">最后付款日<span class="fcyellow">(必填)</span></div>
+			<div class="txtright">合同签定后 <input type="text" name="lastPD" id="lastPD" maxlength="4" value="${fn:substringAfter(rspBody.lastPD,'cycle:')}" style="width:40px; height:24px; padding: 5px 5px; border: 1px solid #ECECEC;"  autocomplete="off" />天
 				<span class="valid_message"></span>
 			</div>
 		</div>
-
-		<div class="form-group buy-group">
-			<div class="input-group rel">
-				<div class="input-group-addon">平台监管发票：</div>
-				<div class="txtright">
-					<c:choose>
-					<c:when test="${rspBody.invoice == 'Y'}">
-					<span class="ml20 mr20"><input type="radio" name="invoice" value="Y" checked />需要</span>
-					<span><input type="radio" name="invoice" value="N" />不需要</span>
-				</c:when>
-				<c:otherwise>
-				<span class="ml20 mr20"><input type="radio" name="invoice" value="Y" />需要</span>
-				<span><input type="radio" name="invoice" value="N" checked />不需要</span>
-			</c:otherwise>
-		</c:choose>											
 	</div>
-</div>
+
+	<div class="form-group buy-group">
+		<div class="input-group rel">
+			<div class="input-group-addon">最后交收日<span class="fcyellow">(必填)</span></div>
+			<div class="txtright">
+				全款支付后 <input type="text" name="deliDate" id="deliDate" maxlength="4" value="${fn:substringAfter(rspBody.deliDate,'cycle:')}" style="width:40px; height:24px; padding: 5px 5px; border: 1px solid #ECECEC;" autocomplete="off" />天
+				<span class="valid_message"></span>
+			</div>
+		</div>
+	</div>
+</c:if>	
+
+<div class="form-group buy-group">
+	<div class="input-group rel">
+		<div class="input-group-addon">交收仓库<span class="fcyellow">(必填)</span></div>
+		<select name="storage" id="storage" >
+			<c:forEach items="${storeList}" var="store" >
+			<c:choose>
+			<c:when test="${store.storeName == rspBody.storage}">
+			<option value="${store.storeName}" selected>${store.storeName}</option>
+		</c:when>
+		<c:otherwise>
+		<option value="${store.storeName}">${store.storeName}</option>
+	</c:otherwise>
+</c:choose>
+</c:forEach>
+</select>
+<span class="valid_message"></span>
+    </div>
 </div>
 
 <div class="form-group buy-group">
 	<div class="input-group rel">
-		<div class="input-group-addon">是否指定摘牌方：</div>
+		<div class="input-group-addon">平台监管发票：</div>
 		<div class="txtright">
-			<c:set var="delistIDs" value="${''}" />										
-			<c:set var="delistNames" value="${''}" />
 			<c:choose>
-			<c:when test="${rspBody.delist =='O'}">
-			<span class="ml20 mr20"><input type="radio" name="delist" value="O" checked />不指定</span>
-			<span><input type="radio" name="delist" value="A" />指定</span>
-			<span id="memdelistlink"></span>
-			<span id="memdelistmsg"></span>	
+			<c:when test="${rspBody.invoice == 'Y'}">
+			<span class="ml20 mr20"><input type="radio" name="invoice" value="Y" checked />需要</span>
+			<span><input type="radio" name="invoice" value="N" />不需要</span>
 		</c:when>
 		<c:otherwise>
-		<span class="ml20 mr20"><input type="radio" name="delist" value="O" />不指定</span>
-		<span><input type="radio" name="delist" value="A" checked />指定</span>
-		<c:forEach items="${rspBody.delistMems}" var="dm" >	
-		<c:set var="delistIDs" value="${delistIDs}${dm.delistMID}${';'}" />	
-		<c:set var="delistNames" value="${delistNames}${dm.delistMemName}${';'}" />
-	</c:forEach>
+		<span class="ml20 mr20"><input type="radio" name="invoice" value="Y" />需要</span>
+		<span><input type="radio" name="invoice" value="N" checked />不需要</span>
+	</c:otherwise>
+</c:choose>											
+        </div>
+    </div>
+</div>
+
+<div class="form-group buy-group">
+<div class="input-group rel">
+	<div class="input-group-addon">是否指定摘牌方：</div>
+	<div class="txtright">
+		<c:set var="delistIDs" value="${''}" />										
+		<c:set var="delistNames" value="${''}" />
+		<c:choose>
+		<c:when test="${rspBody.delist =='O'}">
+		<span class="ml20 mr20"><input type="radio" name="delist" value="O" checked />不指定</span>
+		<span><input type="radio" name="delist" value="A" />指定</span>
+		<span id="memdelistlink"></span>
+		<span id="memdelistmsg"></span>	
+	</c:when>
+	<c:otherwise>
+	<span class="ml20 mr20"><input type="radio" name="delist" value="O" />不指定</span>
+	<span><input type="radio" name="delist" value="A" checked />指定</span>
+	<c:forEach items="${rspBody.delistMems}" var="dm" >	
+	<c:set var="delistIDs" value="${delistIDs}${dm.delistMID}${';'}" />	
+	<c:set var="delistNames" value="${delistNames}${dm.delistMemName}${';'}" />
+</c:forEach>
 </c:otherwise>
 </c:choose>
 <input type="hidden" name="markcode" id="markcode" value="${rspBody.markCode}" />
@@ -488,6 +492,7 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 		</div>
 	</div>
 </div>
+
 </div>
 
 <div class="form-group buy-group bgfff" style="margin-bottom:0;">
@@ -500,10 +505,13 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 </div>
 
 <div class="row">
+
 	<div  id="step4">
+
 		<div class="col-xs-12 bgfff">
 			<div  class="lh46 fc999 ">商品描述</div>
 		</div>
+
 		<div class="col-xs-12 rel bgfff">
 			<div class="proddetail" style="display:none">${rspBody.detail}</div>
 			<textarea name="detail" id="detail" cols="45" rows="6" class="form-control marb10"></textarea>
@@ -526,6 +534,7 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 		</div>
 	</c:if>	                                                     
 </div>
+
 <div class="clearfix col-xs-12">
 	<input type="hidden" name="ctxchg" id="ctxPic0Chg" />
 	<c:if test="${fn:length(rspBody.ctxPic1)> 0 }">
@@ -543,6 +552,7 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 </div>
 </c:if>
 </div>
+
 <div class="clearfix col-xs-12">
 	<input type="hidden" name="ctxchg" id="ctxPic1Chg" /> 
 	<c:if test="${fn:length(rspBody.ctxPic2)> 0 }">
@@ -560,6 +570,7 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 </div>
 </c:if>
 </div>
+
 <div class="clearfix col-xs-12">
 	<input type="hidden" name="ctxchg" id="ctxPic2Chg" /> 
 	<c:if test="${fn:length(rspBody.ctxPic3)> 0 }">
@@ -577,9 +588,11 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 </div>
 </c:if>
 </div>
+
 <div class="col-xs-12 mart15 marb60">
 	<button class="btn btn-warning btn-sell btn-block">我要挂牌</button>
 </div>
+
 </div>	
 </div>	
 
@@ -622,12 +635,11 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 				</div>
 			</div>										
 		</div>
-</div>
-<div style="float:right;display:none;">
-	<button class="cbtn" id="confirmbtn">确&nbsp;&nbsp;认</button>	
-	<button class="cbtn" id="cancelbtn">取&nbsp;&nbsp;消</button>						
-</div>
-
+	</div>
+	<div style="float:right;display:none;">
+		<button class="cbtn" id="confirmbtn">确&nbsp;&nbsp;认</button>	
+		<button class="cbtn" id="cancelbtn">取&nbsp;&nbsp;消</button>						
+	</div>
 
 </div>
 </body>

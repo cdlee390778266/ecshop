@@ -22,11 +22,14 @@
   <title>挂牌支付</title>
 
   <script type="text/javascript">
+
    $(function() {
     $(document).ready(function() {
       $('.fixed-wrapper').stickUp();
     });
+
   });
+
 </script>
 
 </head>
@@ -39,12 +42,14 @@
  </div>
 
  <div class="container-fluid examine bgfff" >
+
    <div class="row">
      <div class="col-xs-12 mart15  txtcenter padtb40 lh26">
       摘牌单号：<span class="fcgreen ">${rspBody.listedNo}</span><br>
       摘牌状态：<span class="fcyellow">${rspBody.statusDesc}</span>
     </div>
   </div>
+  
   <div class="row">
    <div class="col-xs-12 lh50   txtcenter ">
      本次摘牌费用说明

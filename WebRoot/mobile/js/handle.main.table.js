@@ -8,7 +8,7 @@
 		$.fn.tabulation.url = url;
 		$.fn.tabulation.defaults = {
 			start : 0,
-			length : 4,
+			length : 10,
 			draw : null
 		};
 
@@ -34,7 +34,7 @@
 					 * parent 父容器 data 查询返回的数据 reqData 请求数据 pageNum 页码
 					 */
 					 function construct(parent, data, reqData, pageNum) {
-
+                        
 						var pageSize = initData.length; // 每页大小
 						var recordsTotal = 0; // 总记录数
 						var recordsFiltered = 0; // 过滤后总记录数
@@ -83,8 +83,7 @@
                         			buyhtml = '<a target="_blank" href="/mall/item/' + row.listedNo + '.htm" class="btn-normal btn-buy">摘牌</a>';
                         		}
 
-                               
-                                
+                        
                                 html = '<div class="product" >'
                                 + '<div class="product-bar">'
                                 + '<span class="product-name">' + row.commName + '</span>'
@@ -111,13 +110,11 @@
                                 + '</div>'
                                 + '</div>'
                                 parent.append(html);
-
-                                $('.loader').hide();
                             }
 
                         }else{
                          $('.loadMore').addClass('disabled');
-                         $('.loadMore').html('没有更多数据了');
+                         $('.loadMore').html('已加载所有商品');
                          $('.loader').hide();
                      }
 
@@ -142,8 +139,6 @@
                     });
                     init(initData, 1);
                 });
-
-                     
 
 }
 })(jQuery);

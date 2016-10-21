@@ -15,7 +15,6 @@
 	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
 	<link  type="text/css"rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
 	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
-	<script type="text/javascript" src="/mobile/js/leftnavs.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.datepicker.js"></script>
 	<script type="text/javascript" src="/mobile/js/handlebars.js"></script>
 	<script type="text/javascript" src="/mobile/js/ui.pagination.js"></script>
@@ -28,6 +27,7 @@
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 
 	<script type="text/javascript" src="/mobile/js/handle.mall.js?v=${sessionScope.buildno}"></script>
+
 	<title>我的挂牌</title>
 
 </head>
@@ -40,11 +40,14 @@
 	</div>
 
 	<div class="container-fluid bordert up-datatables">
+
 		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-12"><a href="javascript:void(0);" class="active">销售清单</a></div>
 		</div>
+
 		<div class="condition">
 			<div class="row">
+
 				<div class="col-xs-12">
 					<div class="input-group">
 						<span class="input-group-addon">商品分类</span>
@@ -53,17 +56,21 @@
 						<div class="selcomm" data-select></div>
 					</div>
 				</div>
+
 				<div class="col-xs-12">
+
 					<div class="input-group mart5 up-group">
 						<span class="input-group-addon">挂牌日期：</span>
 						<input type="text" name="dol" id="dol" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control"  />
 						<span class="input-group-addon">至</span>
 						<input type="text" name="edol" id="edol" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control" />
 					</div>
+
 					<div class="input-group mart5 up-group">
 						<span class="input-group-addon">挂牌有效截止日：</span>
 						<input type="text" name="doe" id="doe" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control" />
 					</div>
+
 					<div class="input-group mart5 up-group">
 						<span class="input-group-addon">状态：</span>
 						<select class="csel form-control" name="status" id="status">
@@ -78,7 +85,9 @@
 							<option value="997">过期商品</option>
 						</select>	
 					</div>
+					
 				</div>
+
 			</div>
 		</div>
 
@@ -144,28 +153,28 @@
 		</table>
 	</script>
 
-		<script type="text/x-handlebars-template" id="backTemplate">
-			<div class="title ml20">单号：{{listedNo}}</div>							
-			<div class="title ml20">处理状态：{{statusDesc}}</div>
-			<div class="container-fluid">
-				<div class="lh40 mart5 marb60">
-					<div class="row">
-						<div class="col-xs-12 padlr25 up-title">本次摘牌费用说明</div>
+	<script type="text/x-handlebars-template" id="backTemplate">
+		<div class="title ml20">单号：{{listedNo}}</div>							
+		<div class="title ml20">处理状态：{{statusDesc}}</div>
+		<div class="container-fluid">
+			<div class="lh40 mart5 marb60">
+				<div class="row">
+					<div class="col-xs-12 padlr25 up-title">本次摘牌费用说明</div>
+				</div>
+				{{#costPays}}
+				<div class="row bgfff up-cost">
+					<div class="col-xs-4 borderdb  txtleft">费用名称</div>
+					<div class="col-xs-8 borderdb fc999">{{costName}}</div>
+					<div class="col-xs-4 borderdb txtleft ">交易类型</div>
+					<div class="col-xs-8 borderdb fc999">{{trTypeName}}</div>
+					<div class="col-xs-4 borderdb txtleft ">费用金额</div>
+					<div class="col-xs-8 borderdb fcyellow">
+						{{money costAmt}}
 					</div>
-					{{#costPays}}
-					<div class="row bgfff up-cost">
-						<div class="col-xs-4 borderdb  txtleft">费用名称</div>
-						<div class="col-xs-8 borderdb fc999">{{costName}}</div>
-						<div class="col-xs-4 borderdb txtleft ">交易类型</div>
-						<div class="col-xs-8 borderdb fc999">{{trTypeName}}</div>
-						<div class="col-xs-4 borderdb txtleft ">费用金额</div>
-						<div class="col-xs-8 borderdb fcyellow">
-							{{money costAmt}}
-						</div>
-						<div class="col-xs-4 borderdb txtleft ">当前状态</div>
-						<div class="col-xs-8 borderdb fc999">{{flagDesc}}</div>
-					</div>
-					{{/costPays}}
+					<div class="col-xs-4 borderdb txtleft ">当前状态</div>
+					<div class="col-xs-8 borderdb fc999">{{flagDesc}}</div>
+				</div>
+				{{/costPays}}
 			</div>	
 		</div>
 	</script>

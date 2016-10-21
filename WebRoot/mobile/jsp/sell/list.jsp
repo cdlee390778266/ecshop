@@ -15,7 +15,6 @@
 	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
 	<link  type="text/css"rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
 	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
-	<script type="text/javascript" src="/mobile/js/leftnavs.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.datepicker.js"></script>
 	<script type="text/javascript" src="/mobile/js/handlebars.js"></script>
 	<script type="text/javascript" src="/mobile/js/ui.pagination.js"></script>
@@ -27,6 +26,7 @@
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 
 	<script type="text/javascript" src="/mobile/js/handle.sell.js?v=${sessionScope.buildno}"></script>
+
 	<title>销售清单</title>
 
 </head>
@@ -38,8 +38,8 @@
 		<!-- header End -->
 	</div>
 	
-
 	<div class="container-fluid up-datatables">
+		
 		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-6"><a href="/sell/list.htm"  class="active" >销售申请</a>
 			</div>
@@ -104,10 +104,7 @@
 			</thead>
 		</table>
 
-
-
 	</div>	
-
 
 	<script type="text/x-handlebars-template" id="entryTemplate">
 		<table class="ui-table table-primary">

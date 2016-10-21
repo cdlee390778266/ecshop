@@ -14,15 +14,17 @@
     <script type="text/javascript" src="/mobile/js/stickup.js?v=${sessionScope.buildno}"></script>
 
     <script type="text/javascript">
+
         $(function() {
 
             $(document).ready(function() {
                 $('.fixed-wrapper').stickUp();
             });
         });
+
     </script>
 
-    <title>Document</title>
+    <title>关于我们</title>
 </head>
 <body>
 
@@ -37,22 +39,25 @@
 
  <!-- wrapper Start -->
  <div class="aboutpage ">
+
    <div class="aboutBox">
        <h1 >联系我们</h1>
        <p>电话：0311-86031282</p>
        <p>地址：广州市海珠区新港西路82号广州交易所集团A栋</p>
    </div>
+
    <div class="aboutBox">
        <h1 >友情链接</h1>
        <p><span class="glyphicon glyphicon-plus"></span><a href="http://www.cmegroup.com" >芝加哥交易所</a></p>
        <p><span class="glyphicon glyphicon-plus"></span><a href="http://cnacex.com/content/home/index.htm" >中国农业交易平台</a></p>
-      
    </div>
+
 </div>
 <!-- wrapper End -->
 
 <!-- footer -->
 <div class="container-fluid clearfix">
+
    <div id="footer" class="row footer">
       <div class="col-xs-12">
         <p>copyright©2014-2015 冀ICP备09082601</p>
@@ -60,6 +65,7 @@
         <p>技术支持 :上海乾隆高科技有限公司</p>
     </div>
 </div>
+
 </div>
 <!-- footer End -->   
 

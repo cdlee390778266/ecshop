@@ -13,35 +13,25 @@
     <link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
     <script type="text/javascript" src="/mobile/js/jquery.js"></script>
     <jsp:include page="../comm/mobile.jsp" flush="true" />
+
     <title>处理提示</title>
     
 </head>
 <body class="drawer drawer-left">
 
-	
 	<!-- header -->
 	<jsp:include page="../comm/header.jsp" flush="true" />
 	<!-- header End -->
 	
 	<!-- wrapper -->
 	<div class="container-fluid">
-     <div class="row">
-            <div class="col-xs-12 fail">
-                <h3 style="color: #f47912;">${message}</h3>
-            </div>
-        </div>   
-    </div>
-		
-			
-			
-				
-			
-		
-	
-	<!-- wrapper End -->		
+       <div class="row">
+          <div class="col-xs-12 fail">
+              <h3 style="color: #f47912;">${message}</h3>
+          </div>
+    </div>   
+</div>
+     <!-- wrapper End -->		
 
-	<!-- footer -->
-	<jsp:include page="../comm/footer.jsp" flush="true" />
-	<!-- footer End -->
 </body>
 </html>

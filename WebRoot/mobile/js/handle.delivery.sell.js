@@ -1,4 +1,5 @@
 $(function() {
+	
 	$(document).ready(function() {
 		$('.fixed-wrapper').stickUp();
 	});
@@ -197,12 +198,12 @@ $(function() {
 					var rlen = UTFStrLength(reason);
 					
 			    	if(rlen >= 512){
-			    		$('.reasonmsg').html("投诉原因说明不能超过512个字符");
+			    		layer.msg("投诉原因说明不能超过512个字符");
 						event.preventDefault();
 						return;
 			    	}
 			    	if(rlen == 0){
-			    		$('.reasonmsg').html("其他原因时必须填入投诉说明");
+			    		layer.msg("其他原因时必须填入投诉说明");
 						event.preventDefault();
 						return;
 			    	}

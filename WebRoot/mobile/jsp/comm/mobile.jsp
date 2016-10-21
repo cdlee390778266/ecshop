@@ -6,4 +6,3 @@
 <script type="text/javascript" src="/mobile/widget/bootstrap/js/bootstrap.js?v=${sessionScope.buildno}"></script>
 
 <script type="text/javascript" src="/mobile/widget/layer/layer.js?v=${sessionScope.buildno}"></script>
-<!-- <script type="text/javascript" src="/mobile/js/popDialog.js?v=${sessionScope.buildno}"></script> -->

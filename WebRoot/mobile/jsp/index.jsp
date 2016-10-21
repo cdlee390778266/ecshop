@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="/mobile/widget/js/ui.dialog.js?v=${sessionScope.buildno}"></script>
 	<script type="text/javascript" src="/mobile/js/sha.js?v=${sessionScope.buildno}"></script>
 	<script type="text/javascript" src="/mobile/js/login.js?v=${sessionScope.buildno}"></script>
-	 <jsp:include page="comm/mobile.jsp" flush="true" />
+	<jsp:include page="comm/mobile.jsp" flush="true" />
 
 	<title>会员登录</title>
 </head>
@@ -27,18 +27,19 @@
 		<div class="logo"><a href="" ><img src="/mobile/images/logo.png"  alt="" class="img-responsive"  /></a></div>
 	</div>
 	<!-- header End -->
+
 	<!-- wrapper -->
 	<div class="container-fluid ">
 		<div class="row rel">
 			<!-- main -->
+
 			<div >
 				<img src="/mobile/images/login.png" alt="" class="imgW100" />
 			</div>
+
 			<div class="login col-xs-12">
 				<div class="login-main">
-
 					<div id="J_LoginBox" class="mt20 login-box module-static">
-
 						<div class="bd ">
 							<div class="pan-box">
 								<!--login box begin-->
@@ -50,48 +51,46 @@
 											<p class="error">${message}</p>
 										</div>
 
-
 										<div class=" form-group">
 											<!-- <label for="Ca_username">交易商账号</label> -->
 											<input type="text" name="mid" id="mid" class="form-control input-lg J_UserName" value="" maxlength="12" tabindex="1" placeholder="请输入交易商账号"/>            	
 										</div>
+
 										<div class=" form-group">
 											<!-- <label for="Ca_operator">操作员账号</label> -->
 											<input type="text" name="operid" id="operid" class="form-control input-lg J_Operator" value="" maxlength="4" tabindex="2" placeholder="请输入操作员账号"/>            	
 										</div>
+
 										<div class=" form-group">
-													<!-- <label id="password-label" for="Pa_password">操作员密码</label>
-												-->
-												<span id="J_StandardPwd">
-													<input type="password" name="operpwd" id="operpwd" class="form-control input-lg" 
-													maxlength="16" tabindex="3" placeholder="请输入操作员密码">
-												</span>  
-												<strong id="J_CapsLockTip" class="warning-tip" style="display:none;">Caps Lock键正处于启用状态，<br>启用它可能导致密码输入错误。</strong>
-											</div>
-											<div class=" form-group rel" id="l_f_code">
-												<!-- <label id="password-label" for="Pa_password">登录验证码</label> -->
-												<input id="mac" type="text" class="form-control input-lg verCode J_CheckCode" maxlength="4" name="mac" tabindex="4" placeholder="请输入验证码">
-
-												<img id="J_StandardCode_m" src="/AuthImg" width="68" height="33" data-src="" class="code">
-
-												<!-- 	<a href="javascript: void(0)" class="change-code" id="J_StandardCode">换一张</a> -->
-											</div>
-
-											<div class="checkbox">
-												<label for="">
-													<input type="checkbox" id="remmberflag" name="remmberflag"> 记住用户
-												</label>
-											</div>
-
-											<div class="form-group">
-												<button type="submit" class="form-control input-lg btn btn-success J_Submit" tabindex="5" id="J_SubmitStatic">登　录</button>
-											</div>
-										</form>
-									    <!--  
-									    <div class="ft">
-											<a href="javascript: void(0)" class="cor-red"><span>会员申请流程</span></a>
+											<!-- <label id="password-label" for="Pa_password">操作员密码</label>-->
+											<span id="J_StandardPwd">
+												<input type="password" name="operpwd" id="operpwd" class="form-control input-lg" 
+												maxlength="16" tabindex="3" placeholder="请输入操作员密码">
+											</span>  
+											<strong id="J_CapsLockTip" class="warning-tip" style="display:none;">Caps Lock键正处于启用状态，<br>启用它可能导致密码输入错误。</strong>
 										</div>
-									-->
+
+										<div class=" form-group rel" id="l_f_code">
+											<!-- <label id="password-label" for="Pa_password">登录验证码</label> -->
+											<input id="mac" type="text" class="form-control input-lg verCode J_CheckCode" maxlength="4" name="mac" tabindex="4" placeholder="请输入验证码">
+
+											<img id="J_StandardCode_m" src="/AuthImg" width="68" height="33" data-src="" class="code">
+
+											<!-- 	<a href="javascript: void(0)" class="change-code" id="J_StandardCode">换一张</a> -->
+										</div>
+
+										<div class="checkbox">
+											<label for="">
+												<input type="checkbox" id="remmberflag" name="remmberflag"> 记住用户
+											</label>
+										</div>
+
+										<div class="form-group">
+											<button type="submit" class="form-control input-lg btn btn-success J_Submit" tabindex="5" id="J_SubmitStatic">登　录</button>
+										</div>
+
+									</form>
+									
 								</div>
 								<!--login box end-->
 							</div>
@@ -99,9 +98,11 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="col-xs-12 lh40 bgwhite about txtcenter">
-			<a href="/aboutus.htm" class="fcgreen">关于我们>></a>
+				<a href="/aboutus.htm" class="fcgreen">关于我们>></a>
 			</div>
+			
 		</div>
 	</div>
 

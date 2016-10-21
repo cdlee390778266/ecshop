@@ -134,7 +134,7 @@
 					htm += '<span class="ml10 fnt-bnd">总金额:'+Number(totalAmt).toFixed(2)+'</span>';
 
 					$('.seletop').html(htm);
-                    $('#all-money').text('￥'+Number(totalAmt).toFixed(2)+'元')
+					$('#all-money').text('￥'+Number(totalAmt).toFixed(2)+'元')
 				}
 			}
 			);
@@ -218,10 +218,10 @@
 		
 	});
 
-
-
 </script>
+
 <title>用户摘牌</title>
+
 </head>
 <body class="drawer drawer-left">
 
@@ -239,6 +239,7 @@
 	</div>
 
 	<div class="container-fluid main examine examinego order minh100">
+
 		<!-- 摘牌信息 -->
 		<div class="row bgwhite  examine-data delist mart15 lh40 fc999">
 			<h2>摘牌信息</h2>
@@ -301,6 +302,7 @@
 		<h2 class="col-xs-12 marb15 ">填写并确认信息</h2>
 		<div id="J_Stock" class="padlr20">
 			<div class="col-xs-7 padlr5">
+
 				<c:if test="${buyBody.wholeFlg=='W'}">
 				<input id="vol" name="vol"  type="text" class="p-text" value="${buyvol}" readOnly maxlength="8" title="整单交易不允许修改"><span class="cnumber fn-fl ml20 cor-red">整单交易不允许修改</span> 
 			</c:if>
@@ -312,6 +314,7 @@
 		</c:when>
 		<c:otherwise> <!-- 剩余量 大于起订量-->
 		<c:choose>
+
 		<c:when test="${buyBody.rem <= buyvol}">  <!-- 剩余量小于默认量   取剩余量 不能再加可减  -->
 		<div class="input-group input-group-lg">
 			<span class="input-group-addon padlr5 ">购买数量</span>
@@ -322,8 +325,10 @@
 			</span>	
 		</div>											
 	</c:when>
+
 	<c:otherwise>   <!-- 剩余量大于默认量     -->
 	<c:choose>
+
 	<c:when test="${buyvol <= buyBody.moq}"> <!-- 默认量小于起订量 为启订量,可加不可减 -->
 	<div class="input-group input-group-lg">
 		<span class="input-group-addon padlr5 ">购买数量</span>
@@ -356,6 +361,7 @@
 
 
 <div class="col-xs-5 rel h46 ">
+
 	<c:if test="${buytop =='S' }">
 	<label class="radio-inline  radio-top ">
 		<input type="radio" name="top" id="top" value="S" checked name="cpay"/><span class="ml5 mr20">仅付定金</span>
@@ -364,6 +370,7 @@
 		<input type="radio" name="top" id="top" value="F" name="cpay"/><span class="ml5 mr20">付全款</span>
 	</label>
 </c:if>
+
 <c:if test="${buytop =='F' }">
 <label class="radio-inline  radio-top ">
 	<input type="radio" name="top" id="top" value="S" name="cpay"/><span class="ml5 mr20">仅付定金</span>
@@ -372,9 +379,13 @@
 	<input type="radio" name="top" id="top" value="F" checked name="cpay"/><span class="ml5 mr20">付全款</span>
 </label>
 </c:if>
+
 </div>
+
 <div class="seletop fcyellow"></div>
+
 </div>
+
 <div class="col-xs-12 fc333 mart15">
 	单价
 	<span class="fcyellow fnt-bnd fr fs18">
@@ -382,14 +393,18 @@
 		<input type="hidden" name="up" id="up" value="${buyBody.up}" />
 	</span>
 </div>
+
 <div class="col-xs-12 fc333 ">
 	递增数量<span class="fr fc999">${buyBody.ic}${buyBody.uom}</span>
 </div>
+
 <div class="col-xs-12 order-borb fc333">
 	可买数量<span class="fr fc999">${buyBody.rem}${buyBody.uom}</span>
 </div>
+
 <div class="col-xs-12 upperamt fc333"></div>
 <div class="col-xs-12 seledmsg bornone"></div>
+
 <div class="col-xs-12 ">
 	<span class="fc333">可用资金</span>
 	<div class="valid-money">
@@ -398,8 +413,8 @@
 	</div>
 </div>
 
-
 <div class="order-submit">
+
 	<div>
 		总金额<br />
 		<strong class="fcyellow" id="all-money">￥0.00元</strong>
@@ -413,7 +428,6 @@
 </div>
 </div>
 </form>
-
 
 </div>
 

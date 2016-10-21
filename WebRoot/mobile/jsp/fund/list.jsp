@@ -29,6 +29,7 @@
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 
 	<script type="text/javascript" src="/mobile/js/handle.fund.js?v=${sessionScope.buildno}"></script>
+
 	<title>账务明细</title>
 
 </head>
@@ -40,16 +41,17 @@
 		<!-- header End -->
 	</div>
 
-
-
 	<div class="container-fluid up-datatables">
+
 		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-6"><a href="/fund/info.htm" >资金账户</a>
 			</div>
 			<div class="col-xs-6"><a href="/fund/list.htm" class="active" >账务明细</a></div>
 		</div>
+
 		<div class="condition">
 			<div class="row">
+
 				<div class="col-xs-12">
 					<div class="input-group">
 						<span class="input-group-addon">账务日期</span>
@@ -58,6 +60,7 @@
 						<input type="text" name="endDate" id="endDate" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true" class="cinp-date form-control" />	
 					</div>
 				</div>
+
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
 						<span class="input-group-addon">收支类型</span>
@@ -68,6 +71,7 @@
 						</select>
 					</div>
 				</div>
+
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
 						<span class="input-group-addon">费用代码</span>
@@ -79,18 +83,21 @@
 					</select>
 				</div>
 			</div>
+
 			<div class="col-xs-12 mart10">
 				<div class="input-group">
 					<span class="input-group-addon">账务编号</span>
 					<input type="text" class="cinp form-control" id="origAcNo" name="origAcNo"  />
 				</div>
 			</div>
+
 			<div class="col-xs-12 mart10">
 				<div class="input-group">
 					<span class="input-group-addon">交易单号</span>
 					<input type="text" class="cinp form-control" id="extNo" name="extNo"  />
 				</div>
 			</div>
+			
 		</div>
 	</div>
 

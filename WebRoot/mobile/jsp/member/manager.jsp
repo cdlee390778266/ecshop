@@ -43,10 +43,9 @@
     .authbox .btn{position: relative;z-index: 2;}
   </style>
 </head>
-<body class="drawer drawer-left up-manager">
+<body class="drawer drawer-left up-manager bgfff">
 
   <div class="fixed-wrapper"> 
-
    <!-- header -->
    <jsp:include page="../comm/header.jsp" flush="true" />
    <!-- header End -->
@@ -54,14 +53,17 @@
 
  <!-- wrapper -->
 
- <div class="main safe examine bgfff " >
+ <div class="main safe examine bgfff" >
+
   <div class="header borhb">
    <div class="header-left"><a href="javascript:history.back(-1);"><img src="/mobile/images/back.png" alt=""></a></div>
    <div class="logo ">
      操作员设置
    </div>
  </div>
+
  <div class="container-fluid" id="J_operater">
+
   <div class="row marb60">
 
     <c:forEach items="${operlist}" var="oper" varStatus="obj">
@@ -98,7 +100,6 @@
  <a href="javascript: void(0)" class="btn-active J_active" data-id="${oper.operID}">启用</a>
 </c:if>
 </c:if>
-
 </div>
 </div>
 </div>
@@ -107,6 +108,7 @@
 <div class="col-xs-12 mart30">
   <a href="javascript: void(0)" id="J_add_operator" data-href="add_template" class="up-btn-success "><span>+</span>新增操作员</a>
 </div>
+
 </div>
 </div>
 
@@ -114,10 +116,6 @@
 
 
 <!-- wrapper End -->
-
-<!-- footer -->
-<jsp:include page="../comm/footer.jsp" flush="true" />
-<!-- footer End -->
 
 <div class="mask" id="masker"></div>
 <!-- 增加 -->
@@ -312,19 +310,19 @@
              </div>
            </div>
 
-           <div class="input-group form-group-lg bgfff">
+           <div class="input-group form-group-lg bgfff padtb5">
             <span class="input-group-addon "><input type="checkbox" id="reset" name="reset" ><span class="marl5">重置密码</span></span> 
             <div id="J_Reset"></div>
             <div id="J_ConfReset"></div>
           </div>
         </div>
       </div> 
-</form>
-<div class="seledmsg" style="text-align:center;color: #f00;"></div>
-<div class="mart15">
- <button class="cbtn cpublish up-btn-success" id="J_modify_opter">修&nbsp;&nbsp;改</button></div>  
-</div>
-</div>
+    </form>
+    <div class="seledmsg" style="text-align:center;color: #f00;"></div>
+    <div class="mart15">
+     <button class="cbtn cpublish up-btn-success" id="J_modify_opter">修&nbsp;&nbsp;改</button></div>  
+   </div>
+ </div>
 
 </div>
 </div>

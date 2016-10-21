@@ -17,10 +17,11 @@
 	<script type="text/javascript" src="/mobile/js/ui.zoom.js"></script>
 	<script type="text/javascript" src="/mobile/js/ui.tabs.js"></script>
 	<script type="text/javascript" src="/mobile/js/stickup.js"></script>
+
 	<script type="text/javascript">
 		$(function(){
 			
-			$('#tab1').tabs();
+			
 
 			$(document).ready(function() {
 				$('.fixed-wrapper').stickUp();
@@ -28,23 +29,25 @@
 
 			$('.delist h2').click(function(){
 				if($(this).hasClass('active')){
-                  $(this).removeClass('active');
-                  $(this).parents('.delist').find('.detail-data').slideUp();
+					$(this).removeClass('active');
+					$(this).parents('.delist').find('.detail-data').slideUp();
 				}else{
-                  $(this).addClass('active');
-                   $(this).parents('.delist').find('.detail-data').slideDown();
+					$(this).addClass('active');
+					$(this).parents('.delist').find('.detail-data').slideDown();
 				}
 			})
 			
 		})
 	</script>
+
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
+
 	<title>${rspBody.commName} ${rspBody.title}</title>
+
 </head>
 <body class="drawer drawer-left">
 
 	<div class="fixed-wrapper">
-
 		<!-- header -->
 		<jsp:include page="../comm/header.jsp" flush="true" />
 		<!-- header End -->
@@ -60,6 +63,7 @@
 	
 	<!-- main -->
 	<div class="container-fluid main examine examinego order minh100">
+
 		<!-- 摘牌信息 -->
 		<div class="row bgwhite  examine-data delist mart15 lh40 fc999">
 			<h2>摘牌信息 <span class="glyphicon glyphicon-menu-down"></span></h2>
@@ -94,6 +98,7 @@
 	</div>
 </div>
 </div>
+
 <!-- 卖家信息 -->
 <div class="row bgwhite  examine-data delist mart15 lh40 fc999">
 	<h2>卖家信息 <span class="glyphicon glyphicon-menu-down"></span></h2>
@@ -139,9 +144,9 @@
 <div class="row bgwhite  examine-data delist mart15 lh40 fc999">
 	<h2>商品信息 <span class="glyphicon glyphicon-menu-down"></span></h2>
 	<div class="detail-data">
-	<c:forEach items="${rspBody.props}" var="prop" >
-	<div class="col-xs-12 strong"><span class="fcgreen ">${prop.propName}：</span>${prop.propVal}</div>
-</c:forEach>
+		<c:forEach items="${rspBody.props}" var="prop" >
+		<div class="col-xs-12 strong"><span class="fcgreen ">${prop.propName}：</span>${prop.propVal}</div>
+	</c:forEach>
 </div>
 </div>
 
@@ -149,19 +154,19 @@
 <div class="row bgwhite  examine-data delist mart15 lh40 fc999">
 	<h2>商品描述 <span class="glyphicon glyphicon-menu-down"></span></h2>
 	<div class="detail-data">
-	<c:if test="${fn:length(rspBody.detail)>0}">
-	<div class="col-xs-12">
-		${rspBody.detail}1
-	</div>
+		<c:if test="${fn:length(rspBody.detail)>0}">
+		<div class="col-xs-12">
+			${rspBody.detail}1
+		</div>
 	</c:if>
 
-<c:if test="${fn:length(rspBody.detail)<=0}">
-<div class="col-xs-12">
-	<span class="marl10">无描述信息！</span>
-</div>
+	<c:if test="${fn:length(rspBody.detail)<=0}">
+	<div class="col-xs-12">
+		<span class="marl10">暂无描述信息！</span>
+	</div>
 </c:if>
 
-	</div>
+</div>
 </div>
 
 <!-- 商品图描述 -->
@@ -169,80 +174,87 @@
 	<h2>商品图描述<span class="glyphicon glyphicon-menu-down"></span></h2>
 	<div class="detail-data padb10 ofhidden">
 
-	<c:if test="${fn:length(rspBody.ctxPic1)>0}"> 
-	<div class="col-xs-12">
-		<img src="${rspBody.ctxPic1}" alt="" onError="this.src='/mobile/images/loadfail.jpg'" class="img-responsive mart10" >
-</div>
-</c:if>
-
+		<c:if test="${fn:length(rspBody.ctxPic1)>0}"> 
+		<div class="col-xs-12">
+			<img src="${rspBody.ctxPic1}" alt="" onError="this.src='/mobile/images/loadfail.jpg'" class="img-responsive mart10" >
+		</div>
+	</c:if>
 
 	<c:if test="${fn:length(rspBody.ctxPic2)>0}"> 
 	<div class="col-xs-12">
-	<img src="${rspBody.ctxPic2}" alt="" onError="this.src='/mobile/images/loadfail.jpg'" class="img-responsive mart10" >
+		<img src="${rspBody.ctxPic2}" alt="" onError="this.src='/mobile/images/loadfail.jpg'" class="img-responsive mart10" >
 	</div>
 </c:if>
 
-	<c:if test="${fn:length(rspBody.ctxPic3)>0}"> 
-	<div class="col-xs-12">
+<c:if test="${fn:length(rspBody.ctxPic3)>0}"> 
+<div class="col-xs-12">
 	<img src="${rspBody.ctxPic3}" alt="" onError="this.src='/mobile/images/loadfail.jpg'" class="img-responsive mart10" >
-	</div>
+</div>
 </c:if>
 
 <c:if test="${fn:length(rspBody.ctxPic1)<=0 && fn:length(rspBody.ctxPic2)<=0 && fn:length(rspBody.ctxPic3)<=0}"> 
-	<div class="col-xs-12">
-	<span class="marl10">暂无描述</span>
-	</div>
+<div class="col-xs-12">
+	<span class="marl10">暂无商品图</span>
+</div>
 </c:if>
 
 </div>
-</div>
 
+</div>
 
 <c:if test="${rspBody.delist=='A' && rspBody.mID == sessionScope.userinfo.mID}">
 <!-- 指定卖牌方 -->
 <div class="row bgwhite  examine-data delist mart15">
 	<h2>指定卖牌方 <span class="glyphicon glyphicon-menu-down"></span></h2>
 	<div class="detail-data">
-	<c:if test="${fn:length(rspBody.delistMems)>0}">
-	<c:forEach items="${rspBody.delistMems}" var="dm" >
-	<div class="col-xs-12">
-		${rspBody.detail}
-	</div>
-</c:forEach>
+		<c:if test="${fn:length(rspBody.delistMems)>0}">
+		<c:forEach items="${rspBody.delistMems}" var="dm" >
+		<div class="col-xs-12">
+			${rspBody.detail}
+		</div>
+	</c:forEach>
 </c:if>
 </div>
 </div>
 </c:if>
+
 </div>
 
 <!-- 立即购买 -->
 
 <div class="delist-product container-fluid">
-<div class="product row">
-	<div class="product-bar col-xs-12 lh19">
-		<span class="product-name ">${rspBody.commName}</span>
-	</div>
-	<div class="col-xs-12">
-		<span class="fc333 ">${rspBody.title}</span>
-	</div>
-	<div class="col-xs-12 col-sm-6 ">
-		单价： <strong><span class="fcyellow "><fmt:formatNumber value="${rspBody.up}" type="currency" pattern="￥0.00元" />/${rspBody.uom} </span> </strong>
-	</div>
-	<div class="col-xs-12 col-sm-6 ">
-		数量(剩余量/总数量)： <strong><span class="fcyellow ">${rspBody.rem}/</span><span class="fcgreen strong ">${rspBody.qty}${rspBody.uom}</span> <span class="fc333 ">吨</span></strong>
-	</div>
-	<c:if test="${enableBuy=='true'}">
-	<div class="col-xs-12  martb10 txtright">
-		<a href="/buy/prepare/${rspBody.listedNo}.htm" class="yellow-btn1 block">立即购买</a>
-	</div>
+	<div class="product row">
+
+		<div class="product-bar col-xs-12 lh19">
+			<span class="product-name ">${rspBody.commName}</span>
+		</div>
+
+		<div class="col-xs-12">
+			<span class="fc333 ">${rspBody.title}</span>
+		</div>
+
+		<div class="col-xs-12 col-sm-6 ">
+			单价： <strong><span class="fcyellow "><fmt:formatNumber value="${rspBody.up}" type="currency" pattern="￥0.00元" />/${rspBody.uom} </span> </strong>
+		</div>
+
+		<div class="col-xs-12 col-sm-6 ">
+			数量(剩余量/总数量)： <strong><span class="fcyellow ">${rspBody.rem}/</span><span class="fcgreen strong ">${rspBody.qty}${rspBody.uom}</span> <span class="fc333 ">吨</span></strong>
+		</div>
+
+		<c:if test="${enableBuy=='true'}">
+		<div class="col-xs-12  martb10 txtright">
+			<a href="/buy/prepare/${rspBody.listedNo}.htm" class="yellow-btn1 block">立即购买</a>
+		</div>
 	</c:if>
 
 	<c:if test="${enableBuy=='false'}">
 	<div class="col-xs-12  martb10 txtright padb20">
 		<a href="javascript:layer.msg('您无购买权限！');" class="yellow-btn1 block btn-disbabled">立即购买</a>
 	</div>
-	</c:if>
+</c:if>
+
 </div>
+
 </div>
 
 </body>

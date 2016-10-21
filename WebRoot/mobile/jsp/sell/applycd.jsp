@@ -50,93 +50,88 @@
 	<!-- wrapper -->
 
 	<div class="container-fluid examine demand">
+
 		<div class="row safe-type txtcenter bgfff up-list">
 			<!-- <div class="col-xs-6"><a href=""  >买方挂牌</a></div> -->
 			<div class="col-xs-12"><a href="javascript:void(0);"  class="active">卖方挂牌</a></div>
 		</div>
 
-		<form action="/sell/applyListed.htm" method="post"
-		enctype="multipart/form-data" id="sellApply" class="form-horizontal">
-		<input type="hidden" name="active" value="${active}" /> <input
-		type="hidden" name="busDate" id="busDate" value="${busDate}" />
+		<form action="/sell/applyListed.htm" method="post" enctype="multipart/form-data" id="sellApply" class="form-horizontal">
 
-		<div class="gp-box">
+			<input type="hidden" name="active" value="${active}" /> 
+			<input type="hidden" name="busDate" id="busDate" value="${busDate}" />
 
-			<div class="gp-step1" id="step1">
-				<div class="row">
-					<div class="col-xs-12 demand-bar borderb ">
-						选择挂牌类型及仓单编码
-					</div>
-				</div>
-				<div class="form-group  borderb  form-group-lg">
-					<label class="col-xs-5 control-label ">挂牌类型</label>
-					<div class="col-xs-7">
-						<select name="" id="cd-type" class="form-control">
-							<option value="/sell/apply.htm?active=enter&type=0">保证金</option>
-							<option value="/sell/apply.htm?active=enter&type=1" selected="">仓单</option>
-						</select>
-						<span class="form-control txtright lh26 hide" id="delist-type">
-							<input type="radio" name="DlistedType" value="M" checked disabled="disabled" class="hide" class="hide" />
-							<input type="hidden" name="listedType" value="M" />保证金
-						</span>
-					</div>
-				</div>
-				<div class="form-group  borderb  form-group-lg" id="selectCd">
-					<label class="col-xs-5 control-label ">选择注册仓单编码</label>
-					<div class="col-xs-7">
-						<input type="text" readonly="readonly" name="wrno" id="wrno" class="form-control cd-txt" placeholder="选择注册仓单" />	
-						<span id="codev" class="valid_message" ></span>
-					</div>
-				</div>
-				<div class="row martb40">
-					<div class="col-xs-12 txtcenter marb60">
-						<a class="btn btn-warning  btn-next" href="javascript:void(0);" >下一步</a>
-					</div>
-				</div>			
-									<!-- <div class="select-box">
-										<div class="select-title">
-											我是：
-										</div>
-										<div class="input-group">
-											<div class="group-box sellerTxt">
-												<span class="val"><span>卖家</span><i></i></span>
-												<ul style="display: none;">
-													<li>卖家</li>
-													<li>买家</li>
-												</ul>
-												<input type="hidden" name="seller" id="seller" />
-											</div>
-										</div>
-									</div> -->
-								</div>
+			<div class="gp-box">
 
-								<div id="step3" class="gp-step3" >
-									<div class="row">
-										<div class="col-xs-12 demand-bar borderb ">
-											请选择商品属性
-										</div>
-									</div>
-									<div class="form-group buy-group">
-										<div class="input-group rel">
-											<span class="input-group-addon">单价(<span class="fcyellow ">必填</span>)</span>
-											<input type="text" name="unitPrice" id="unitPrice" placeholder="请输入商品单价" class="required form-control" data-tip="请输入商品单价"
-											data-valid="isNonEmpty||isNoNZeroMoney" data-error="单价必填||金额格式:1.00" /> 
-											<span class="priceunit_message"></span> 
-											<span class="valid_message"></span>
-										</div>
-									</div>
-									<div class="form-group buy-group">
-										<div class="input-group rel">
-											<span class="input-group-addon">一口价(<span class="fcyellow ">必填</span>)</span>
-											<div class="txtright">
-												<input type="radio" name="DfpFlag" value="F" checked disabled="disabled" />是
-											</div>
-											<input type="hidden" name="fpflag" value="F" /> 
+				<div class="gp-step1" id="step1">
+
+					<div class="row">
+						<div class="col-xs-12 demand-bar borderb ">
+							选择挂牌类型及仓单编码
+						</div>
+					</div>
+
+					<div class="form-group  borderb  form-group-lg">
+						<label class="col-xs-5 control-label ">挂牌类型</label>
+						<div class="col-xs-7">
+							<select name="" id="cd-type" class="form-control">
+								<option value="/sell/apply.htm?active=enter&type=0">保证金</option>
+								<option value="/sell/apply.htm?active=enter&type=1" selected="">仓单</option>
+							</select>
+							<span class="form-control txtright lh26 hide" id="delist-type">
+								<input type="radio" name="DlistedType" value="M" checked disabled="disabled" class="hide" class="hide" />
+								<input type="hidden" name="listedType" value="M" />保证金
+							</span>
+						</div>
+					</div>
+
+					<div class="form-group  borderb  form-group-lg" id="selectCd">
+						<label class="col-xs-5 control-label ">选择注册仓单编码</label>
+						<div class="col-xs-7">
+							<input type="text" readonly="readonly" name="wrno" id="wrno" class="form-control cd-txt" placeholder="选择注册仓单" />	
+							<span id="codev" class="valid_message" ></span>
+						</div>
+					</div>
+
+					<div class="row martb40">
+						<div class="col-xs-12 txtcenter marb60">
+							<a class="btn btn-warning  btn-next" href="javascript:void(0);" >下一步</a>
+						</div>
+					</div>	
+
+				</div>
+
+				<div id="step3" class="gp-step3" >
+
+					<div class="row">
+						<div class="col-xs-12 demand-bar borderb ">
+							请选择商品属性
+						</div>
+					</div>
+
+					<div class="form-group buy-group">
+						<div class="input-group rel">
+							<span class="input-group-addon">单价(<span class="fcyellow ">必填</span>)</span>
+							<input type="text" name="unitPrice" id="unitPrice" placeholder="请输入商品单价" class="required form-control" data-tip="请输入商品单价"
+							data-valid="isNonEmpty||isNoNZeroMoney" data-error="单价必填||金额格式:1.00" /> 
+							<span class="priceunit_message"></span> 
+							<span class="valid_message"></span>
+						</div>
+					</div>
+
+					<div class="form-group buy-group">
+						<div class="input-group rel">
+							<span class="input-group-addon">一口价(<span class="fcyellow ">必填</span>)</span>
+							<div class="txtright">
+								<input type="radio" name="DfpFlag" value="F" checked disabled="disabled" />是
+							</div>
+							<input type="hidden" name="fpflag" value="F" /> 
 					<!--  
 											<span><input type="radio" name="fpFlag" value="V" />否</span>
 										-->
 									</div>
 								</div>
+
 								<div class="form-group buy-group">
 									<div class="input-group rel">
 										<span class="input-group-addon">总量(<span class="fcyellow ">必填</span>)</span>
@@ -146,6 +141,7 @@
 										class="unit_message"></span>
 									</div>
 								</div>
+
 								<div class="form-group buy-group J_WholeFlag">
 									<div class="input-group rel">
 										<span class="input-group-addon">是否整单</span>
@@ -156,6 +152,7 @@
 										<input type="hidden" name="wholeflag" value="W" />
 									</div>
 								</div>
+
 								<div class="form-group buy-group">
 									<div class="input-group rel">
 										<span class="input-group-addon">挂牌有效期(<span class="fcyellow ">必填</span>)</span>
@@ -166,6 +163,7 @@
 										data-error="挂牌有效期必填||有效期格式不正确||有效期小于业务日期${busDate}" />
 									</div>
 								</div>
+
 								<div class="form-group buy-group">
 									<div class="input-group rel">
 										<span class="input-group-addon">卖场(<span class="fcyellow ">必填</span>)</span>
@@ -177,12 +175,14 @@
 										<input type="hidden" name="mart" value="O" />
 									</div>
 								</div>
+
 								<div class="form-group buy-group">
 									<div class="input-group rel">
 										<span class="input-group-addon">交收仓库(<span class="fcyellow ">必填</span>)</span>
 										<input type="text" name="storage" id="storage" readonly="readonly" class="form-control" />
 									</div>
 								</div>
+
 								<div class="form-group buy-group">
 									<div class="input-group rel">
 										<span class="input-group-addon">平台监管发票(<span class="fcyellow ">必填</span>)</span>
@@ -192,6 +192,7 @@
 										</div>
 									</div>
 								</div>
+
 								<div class="form-group buy-group">
 									<div class="input-group rel">
 										<span class="input-group-addon">是否指定摘牌方(<span class="fcyellow ">必填</span>)</span>
@@ -202,6 +203,7 @@
 										</div>
 									</div>
 								</div>
+
 								<div class="form-group buy-group" id="memdelistlink" style="display:none;border-bottom:none;">
 									<div class="input-group rel">
 										<span class="input-group-addon"></span>
@@ -211,6 +213,7 @@
 										</div>
 									</div>
 								</div>
+
 								<div class="row martb40">
 									<div class="col-xs-6 txtcenter marb60">
 										<a class="btn btn-default  btn-prev"  href="javascript:void(0);">上一步</a>
@@ -219,16 +222,21 @@
 										<a class="btn btn-warning  btn-next" href="javascript:void(0);" >下一步</a>
 									</div>
 								</div>
+
 							</div>
 
 							<div id="step4" class="gp-step4">
+
 								<input type="hidden" name="listedtype" value="W" />
 								<input type="hidden" name="markcode" id="markcode" />
 								<input type="hidden" name="commcode" id="commcode" />
+
 								<div class="row">
+
 									<div class="col-xs-12 demand-bar ">
 										商品描述
 									</div>
+
 									<div class="form-group  step-title">
 										<div class="col-xs-12 rel">
 											<input type="text" name="title" class="required form-control"
@@ -236,8 +244,11 @@
 											data-error="描述标题长度不超过128" />
 										</div>
 									</div>
+
 									<textarea name="detail" id="detail" cols="45" rows="6" class="form-control"></textarea>
+
 									<div class="detailmsg" style="color: #f00;"></div>
+
 									<div class="clearfix col-xs-12" style="margin-top:2px">
 										<img id="titfilePre" width="120px" height="120px"
 										style="display: none; float: left" /> 
@@ -246,6 +257,7 @@
 											<input type="file" name="titfile" id="titfile" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
 										</div>
 									</div>
+
 									<div class="clearfix col-xs-12">
 										<img id="ctxPic0Pre" width="120px" height="120px"
 										style="display: none; float: left" /> 
@@ -254,6 +266,7 @@
 											<input type="file" name="ctxfile" id="ctxPic0" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
 										</div>
 									</div>
+
 									<div class="clearfix col-xs-12">
 										<img id="ctxPic1Pre" width="120px" height="120px"
 										style="display: none; float: left" /> 
@@ -262,6 +275,7 @@
 											<input type="file" name="ctxfile" id="ctxPic1" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
 										</div>
 									</div>
+
 									<div class="clearfix col-xs-12">
 										<img id="ctxPic2Pre" width="120px" height="120px"
 										style="display: none; float: left" /> 
@@ -270,23 +284,23 @@
 											<input type="file" name="ctxfile" id="ctxPic2" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />
 										</div>
 									</div>
+
 								</div>
+
 								<div class="col-xs-6 martb10 marb60">
 									<a class="btn btn-default  btn-prev" href="javascript:void(0);" >上一步</a>
-								</div>   
+								</div>  
+
 								<div class="col-xs-6 martb10 marb60">
 									<button class="btn btn-warning btn-sell">我要挂牌</button>
 								</div>
+								
 							</div>
 						</div>
 
 					</form>
 				</div>
 				<!-- wrapper End -->
-
-				<!-- footer -->
-				<jsp:include page="../comm/footer.jsp" flush="true" />
-				<!-- footer End -->
 
 				<!-- 弹出层 -->
 				<div class="updialog" id="J_MemList">
@@ -335,7 +349,7 @@
 
 				<!-- 选择注册仓单弹出层 -->
 				<div class="select_mask"></div>
-				<div class="" id="J_cdList" style="height: 500px;overflow: scroll;">
+				<div class="up-cdList" id="J_cdList" style="height: 500px;overflow: scroll;">
 					<div class="hd select-hd">
 						注册仓单选择
 						<span><img src="/mobile/images/select_close.png" alt="" /></span>
@@ -347,32 +361,32 @@
 						value="" />
 						<input type="hidden" name="sCCode" id="sCCode" value="" />
 						<div class="seledmsg" style="color: #f00; float: right"></div>
-		
-					<div class="bd">
 
-						<div style="width: 99%;min-height: 100px;">
-							<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%" >
-								<thead>
-									<tr>
-										<th>仓库编号</th>
-										<th>仓库名称</th>
-										<th>仓单编号</th>
-										<th>交易商名称</th>
-										<th>商品种类名称</th>
-										<th>货物数量</th>
-									</tr>
-								</thead>
-							</table>
-						</div>
+						<div class="bd">
 
-						<div>
-							<div style="">
-								<button  id="confirmbtn1">确&nbsp;&nbsp;认</button>
-								<button class="cbtn hide" id="cancelbtn1">取&nbsp;&nbsp;消</button>
+							<div style="width: 99%;min-height: 100px;">
+								<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%" >
+									<thead>
+										<tr>
+											<th>仓库编号</th>
+											<th>仓库名称</th>
+											<th>仓单编号</th>
+											<th>交易商名称</th>
+											<th>商品种类名称</th>
+											<th>货物数量</th>
+										</tr>
+									</thead>
+								</table>
 							</div>
-						</div>
 
-					</div>
+							<div>
+								<div style="">
+									<button  id="confirmbtn1">确&nbsp;&nbsp;认</button>
+									<button class="cbtn hide" id="cancelbtn1">取&nbsp;&nbsp;消</button>
+								</div>
+							</div>
+
+						</div>
 					</div>
 				</div>
 			</body>

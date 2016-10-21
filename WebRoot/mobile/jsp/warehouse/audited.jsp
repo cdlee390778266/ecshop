@@ -16,9 +16,11 @@
 	<link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
 	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
 	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
+
 	<script type="text/javascript">
 		var enablePay = ${enablePay};
 	</script>
+
 	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.datepicker.js"></script>
 	<script type="text/javascript" src="/mobile/js/handlebars.js"></script>
@@ -31,6 +33,7 @@
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 
 	<script type="text/javascript" src="/mobile/js/handle.warehouse.audited.js?v=${sessionScope.buildno}"></script>
+
 	<title>仓单管理</title>
 
 </head>
@@ -51,8 +54,10 @@
 			<div class="col-xs-4"><a href="/warehouse/membinding.htm">会员绑定</a>
 			</div>
 		</div>
+
 		<div class="condition">
 			<div class="row">
+
 				<div class="col-xs-12">
 					<div class="input-group">
 						<span class="input-group-addon">商品分类</span>
@@ -61,6 +66,7 @@
 						<div class="selcomm" data-select></div>
 					</div>
 				</div>
+
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
 						<span class="input-group-addon">入库时间</span>
@@ -69,12 +75,14 @@
 						<input type="text" name="econtTime" id="econtTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date form-control" />
 					</div>
 				</div>
+
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
 						<span class="input-group-addon">仓库编号</span>
 						<input type="text" class="cinp form-control" name="storeno" maxlength="12" id="storeno" />
 					</div>
 				</div>
+
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
 						<span class="input-group-addon">订单状态</span>
@@ -90,8 +98,10 @@
 						</ul>
 					</div>
 				</div>
+
 			</div>
 		</div>
+
 		<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
 			<thead>
 				<tr>
@@ -105,10 +115,12 @@
 				</tr>
 			</thead>
 		</table>
+
 	</div>
 
 	<!-- footer -->
 	<jsp:include page="../comm/footer.jsp" flush="true" />
 	<!-- footer End -->
+	
 </body>
 </html>

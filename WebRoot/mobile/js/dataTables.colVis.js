@@ -41,7 +41,7 @@ var ColVis = function( oDTSettings, oInit )
 	/* Santiy check that we are a new instance */
 	if ( !this.CLASS || this.CLASS != "ColVis" )
 	{
-		alert( "Warning: ColVis must be initialised with the keyword 'new'" );
+		// alert( "Warning: ColVis must be initialised with the keyword 'new'" );
 	}
 
 	if ( typeof oInit == 'undefined' )
@@ -251,7 +251,7 @@ ColVis.prototype = {
 		var that = this;
 		var i, iLen;
 		this.dom.wrapper = document.createElement('div');
-		this.dom.wrapper.className = "ColVis";
+		this.dom.wrapper.className = "ColVis input-group-addon";
 
 		this.dom.button = $( '<button />', {
 				'class': !this.s.dt.bJUI ?
@@ -261,7 +261,6 @@ ColVis.prototype = {
 			.append( '<span>'+this.s.buttonText+'</span>' )
 			.bind( this.s.activate=="mouseover" ? "mouseover" : "click", function (e) {
 				e.preventDefault();
-				$('body').css('overflowY','hidden');
 				that._fnCollectionShow();
 
 			} )
@@ -692,13 +691,25 @@ ColVis.prototype = {
 					"ColVis_collection" :
 					"ColVis_collection ui-buttonset ui-buttonset-multi"
 			} )
+		.on('click',function(e){
+	        $(document).scroll(function(e){
+  e.preventDefault();
+  e.stopPropagation();
+return false;
+	        })
+			if(!(canScoll($(this)))){
+              e.preventDefault();
+              e.stopPropagation();
+			}
+		})
 		.css( {
 			'display': 'none',
 			'opacity': 0,
 			'position': ! this.s.bCssPosition ?
 				'fixed' :
 				''
-		} )[0];
+		} )[0]
+
 	},
 
 
@@ -739,9 +750,12 @@ ColVis.prototype = {
 			.addClass( 'ColVis_collectionBackground' )
 			.css( 'opacity', 0 )
 			.click( function () {
-				$('body').css('overflowY','auto');
 				that._fnCollectionHide.call( that, null, null );
-			} );
+			} )
+			.on('touchmove',function(e){ 
+				 e.preventDefault();
+				return ;
+			});
 
 		/* When considering a mouse over action for the activation, we also consider a mouse out
 		 * which is the same as a mouse over the background - without all the messing around of
@@ -1057,7 +1071,7 @@ ColVis.aInstances = [];
  *  @type     String
  *  @default  ColVis
  */
-ColVis.prototype.CLASS = "ColVis";
+ColVis.prototype.CLASS = "ColVis ";
 
 
 /**

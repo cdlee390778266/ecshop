@@ -23,7 +23,6 @@ $(function() {
 		}
 	});
 
-
 laydate.skin('molv');
 
 laydate({
@@ -148,7 +147,7 @@ var checkSubmitFlg = false;
 		}
 		
 		if ($("#commCode").val() == null || $("#commCode").val() == "") {
-			layer.msg('未选择商品品种',{time : 2000});
+			layer.msg('未选择挂牌商品',{time : 2000});
 
 			event.preventDefault();
 			return;
@@ -964,10 +963,6 @@ $('#confirmbtn').click(function(){
 	$('.mark').remove();
 });
 
-
-//改版部分新增代码   ---start
-
-
 var step2 = false;
 var step3 = false;
 var step4 = false;
@@ -1041,7 +1036,8 @@ var emptyFlag = true;
     		return true;
     	}
     }
-
+    
+    //挂牌类型页面跳转
     $('#cd-type').change(function(event) {
     	location.href = $(this).val();
     });
@@ -1058,13 +1054,5 @@ var emptyFlag = true;
 	}
 	return tmp;
 }
-
-
-
-
-//改版部分新增代码   ---end
-
-
-
 
 });

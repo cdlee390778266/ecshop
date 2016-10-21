@@ -17,7 +17,9 @@
   <script type="text/javascript" src="/mobile/js/handlebars.js"></script>
   <script type="text/javascript" src="/mobile/js/stickup.js"></script>
   <jsp:include page="../comm/mobile.jsp" flush="true" />
+
   <title>安全设置</title>
+
 </head>
 <body class="drawer drawer-left">
 
@@ -28,19 +30,26 @@
  </div>
 
  <div class="main safe examine addoperation " ng-controller="account">
+
   <div class="header">
-   <div class="header-left"><a href="javascript:history.back(-1);" class="glyphicon glyphicon-menu-left"></a></div>
+
+   <div class="header-left"><a href="javascript:history.back(-1);" >
+     <img src="/mobile/images/back.png" alt="">
+   </a></div>
+
    <div class="logo ">我的账户</div>
+
  </div>
 
  <div class="container-fluid marb15">
+
    <div class="row">
     <div class="col-xs-12 file bgwhite bordertb padtb15">
       <c:if test="${empty sessionScope.userinfo.operPhoto}">
-      <img  alt="" src="/mobile/images/portrait.jpg" class="img-rounded" />
+      <img  alt="用户头像" src="/mobile/images/portrait.jpg" class="img-rounded" />
     </c:if>
     <c:if test="${!empty sessionScope.userinfo.operPhoto}">
-    <img  alt="" src="${sessionScope.userinfo.operPhoto}" class="img-rounded" onerror="this.src='/normal/images/portrait.jpg'" />
+    <img  alt="用户头像" src="${sessionScope.userinfo.operPhoto}" class="img-rounded" onerror="this.src='/normal/images/portrait.jpg'" />
   </c:if>
 
   <div class="account-mes fc666">
@@ -48,32 +57,39 @@
     <p >会员等级</p>
   </div>
 </div>
+
 <div class="input-group form-group-lg " >
   <span class="input-group-addon ">
     <span class="glyphicon glyphicon-ok-sign"></span> 安全设置</span>
     <a href="/member/home.htm" class="form-control txtright "><span class=" glyphicon glyphicon-menu-right account-a"></span></a>
   </div>
+
   <div class="input-group form-group-lg " >
     <span class="input-group-addon ">
       <span class="glyphicon glyphicon-th-list"></span> 账户信息</span>
       <a href="/member/info.htm" class="form-control txtright "><span class=" glyphicon glyphicon-menu-right account-a"></span></a>
     </div>
+
     <div class="input-group form-group-lg " >
       <span class="input-group-addon ">
         <span class="glyphicon glyphicon-link"></span> 支付绑定</span>
         <a href="/member/pay.htm"  class="form-control txtright "><span class=" glyphicon glyphicon-menu-right account-a"></span></a>
       </div>
+
       <div class="input-group form-group-lg " >
         <span class="input-group-addon ">
           <span class="glyphicon glyphicon-cog"></span> 操作员设置</span>
           <a href="/member/manager.htm" class="form-control txtright "><span class=" glyphicon glyphicon-menu-right account-a"></span></a>
         </div>
+
         <div class="input-group form-group-lg " >
           <span class="input-group-addon ">
             <span class="glyphicon glyphicon-log-out"></span> 安全退出</span>
             <a href="logout.htm"  class="form-control txtright "><span class=" glyphicon glyphicon-menu-right account-a"></span></a>
           </div>
+
         </div>
+
       </div>
 
     </div>
@@ -83,14 +99,15 @@
      jQuery(function($) {
 
       $(document).ready(function() {
-       $('.fixed-wrapper').stickUp();
+         $('.fixed-wrapper').stickUp();
      });
       $('.form-group-lg').click(function(){
-        location.href = $(this).find('.form-control a').attr('href');
+          location.href = $(this).find('.form-control a').attr('href');
       })
 
     });
      
   </script>
+
 </body>
 </html>

@@ -20,7 +20,7 @@
 .laydate_body .laydate_box .laydate_void{color:#00E8D7!important;}
 .laydate_body .laydate_box a, .laydate_body .laydate_box a:hover{color: #89C975;}
 .laydate_body .laydate_box a:hover{color: #89C975;}
-.laydate_body .laydate_click{background-color:green!important; color:#fff!important;}
+.laydate_body .laydate_click{background-color:green!important; color:#fff!important;border-radius: 50%;}
 .laydate_body .laydate_top{border-top: 1px solid #89C975; background-color: #89C975;}
 .laydate_body .laydate_ym{border: 1px solid #89C975; background-color: #89C975;}
 .laydate_body .laydate_ym .laydate_yms{border:1px solid #89C975; background-color:#89C975; color:#fff;}
@@ -35,9 +35,9 @@
 .laydate_body .laydate_chprev cite{border-right-style:solid; border-right-color:#fff;}
 .laydate_body .laydate_chnext cite{border-left-style:solid; border-left-color:#fff;}
 .laydate_body .laydate_table{width: 240px!important; margin: 0!important; border:1px solid #ccc; border-top:none; border-bottom:none;}
-.laydate_body .laydate_table td{border:none;  height:21px!important; line-height:21px!important; background-color:#fff; color: #89C975;}
+.laydate_body .laydate_table td{border:none;  height:30px!important; line-height:30px!important; background-color:#fff; color: #89C975;}
 .laydate_body .laydate_table .laydate_nothis{color:#999;}
-.laydate_body .laydate_table thead{border-bottom:1px solid #ccc; height:21px!important; line-height:21px!important;}
+.laydate_body .laydate_table thead{border-bottom:1px solid #ccc; height:30px!important; line-height:30px!important;}
 .laydate_body .laydate_table thead th{}
 .laydate_body .laydate_bottom{border:1px solid #ccc; border-top:none;}
 .laydate_body .laydate_bottom #laydate_hms{background-color:#fff;}
@@ -54,6 +54,6 @@
 .laydate_body .laydate_m .laydate_yms span:hover,
 .laydate_body .laydate_time .laydate_hmsno span:hover,
 .laydate_body .laydate_y .laydate_yms ul li:hover,
-.laydate_body .laydate_table td:hover{background-color: #89C975; color:#fff;}
+.laydate_body .laydate_table td:hover{background-color: #89C975; color:#fff;border-radius: 50%;}
 
 

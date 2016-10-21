@@ -20,7 +20,6 @@
 	<script type="text/javascript" src="/mobile/js/jquery.js"></script>
 	<script type="text/javascript" src="/mobile/js/handlebars.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.dialog.js"></script>
-	<script type="text/javascript" src="/mobile/js/leftnavs.js"></script>
 	<script type="text/javascript" src="/mobile/widget/js/ui.datepicker.js"></script>
 	<script type="text/javascript" src="/mobile/js/ui.pagination.js"></script>
 	<script type="text/javascript" src="/mobile/js/selecttags.js"></script>
@@ -31,6 +30,7 @@
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 	
 	<script type="text/javascript" src="/mobile/js/handle.query.buy.js?v=${sessionScope.buildno}"></script>
+
 	<title>历史交收查询</title>
 
 </head>
@@ -43,31 +43,34 @@
 	</div>
 	
 	<div class="container-fluid up-datatables">
+
 		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-6"><a href="/query/selllist.htm" >卖出查询</a>
 			</div>
 			<div class="col-xs-6"><a href="/query/buylist.htm" class="active">买入查询</a>
 			</div>
 		</div>
+
 		<div class="condition">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="input-group">
-					<span class="input-group-addon">商品分类</span>
-					<input type="text" class="selcomm_dialog form-control" placeholder="请选择商品">
-					<input type="hidden" name="commcode" id="commcode" />
-					<div class="selcomm" data-select></div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="input-group">
+						<span class="input-group-addon">商品分类</span>
+						<input type="text" class="selcomm_dialog form-control" placeholder="请选择商品">
+						<input type="hidden" name="commcode" id="commcode" />
+						<div class="selcomm" data-select></div>
+					</div>
 				</div>
-			</div>
-			<div class="col-xs-12 mart10">
-				<div class="input-group">
-					<span class="input-group-addon">成交日期</span>
-					<input type="text" name="strikeDate" id="strikeDate" class="cinp-date form-control"  datepicker data-date-format="yyyy-mm-dd" data-auto-close="true" />
-								<span class="input-group-addon">至</span><input type="text" name="estrikeDate" id="estrikeDate" class="cinp-date form-control"  datepicker data-date-format="yyyy-mm-dd" data-auto-close="true" />
+				<div class="col-xs-12 mart10">
+					<div class="input-group">
+						<span class="input-group-addon">成交日期</span>
+						<input type="text" name="strikeDate" id="strikeDate" class="cinp-date form-control"  datepicker data-date-format="yyyy-mm-dd" data-auto-close="true" />
+						<span class="input-group-addon">至</span><input type="text" name="estrikeDate" id="estrikeDate" class="cinp-date form-control"  datepicker data-date-format="yyyy-mm-dd" data-auto-close="true" />
+					</div>
 				</div>
-			</div>
 			</div>
 		</div>
+
 		<div class="row">
 			<div class="col-xs-12">
 				<table id="dataset" class="display nowrap cell-border" cellspacing="0" width="100%">
@@ -94,12 +97,12 @@
 				</table>	
 			</div>
 		</div>
+
 	</div>
 
 	<!-- footer -->
 	<jsp:include page="../comm/footer.jsp" flush="true" />
 	<!-- footer End -->
-	
 	
 	<script type="text/x-handlebars-template" id="entryTemplate">
 		<table class="ui-table table-primary">

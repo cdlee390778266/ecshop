@@ -75,6 +75,10 @@ $(function() {
     	location.href = $(this).data('href');
     })
 
+    $('#cd-type').change(function(event) {
+    	location.href = $(this).val();
+    });
+
    //移除数组中相同的项
    function unique(arr){
 		// 遍历arr，把元素分别放入tmp数组(不存在才放)

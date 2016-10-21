@@ -29,12 +29,15 @@
 	</div>
 
 	<div class="main safe examine addoperation">
+
 		<div class="container-fluid marb15">
+
 			<div class="row safe-type txtcenter bgwhite  borderb pwdman-setting">
 				<div class="col-xs-6"><a href="javascript:void(0);" class="active" data-type="1" data-href="J_SetPwd">登录密码</a>
 				</div>
 				<div class="col-xs-6"><a href="javascript:void(0);" data-type="2" data-href="J_SetPwd">资金密码</a></div>
 			</div>
+
 			<div id="J_SetPwd" >
 				<div class="row">
 					<div class="input-group form-group-lg">
@@ -54,6 +57,7 @@
 					<button class="btn btn-success btn-block btn-lg " data-value="1" id="confirmbtn"  >确认</button>
 				</div>   
 			</div>
+			
 		</div>
 
 	</div>
@@ -86,7 +90,7 @@
 						if(data.succflag==0){					        	
 							layer.msg('密码修改成功');
 							setTimeout(function(){
-                             location.href = '/member/account.htm';
+								location.href = '/member/account.htm';
 							}, 3000)
 						}else{
 							layer.msg(data.msg);

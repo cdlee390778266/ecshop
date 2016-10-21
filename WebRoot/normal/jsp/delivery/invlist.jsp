@@ -21,15 +21,15 @@
     <link type="text/css" rel="stylesheet" href="/normal/widget/css/ui.datepicker.css" />
     <link type="text/css" rel="stylesheet" href="/normal/css/square/green.css">
     <link type="text/css" rel="stylesheet" href="/normal/css/selecttags.css" >
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/handlebars.js"></script>
-	<script type="text/javascript" src="/widget/js/ui.dialog.js"></script>
-	<script type="text/javascript" src="/js/leftnavs.js"></script>
-	<script type="text/javascript" src="/widget/js/ui.datepicker.js"></script>
-	<script type="text/javascript" src="/js/ui.pagination.js"></script>
-	<script type="text/javascript" src="/js/selecttags.js"></script>
-	<script type="text/javascript" src="/js/icheck.js"></script>
-	<script type="text/javascript" src="/js/stickup.js"></script>
+    <script type="text/javascript" src="/normal/js/jquery.js"></script>
+    <script type="text/javascript" src="/normal/js/handlebars.js"></script>
+	<script type="text/javascript" src="/normal/widget/js/ui.dialog.js"></script>
+	<script type="text/javascript" src="/normal/js/leftnavs.js"></script>
+	<script type="text/javascript" src="/normal/widget/js/ui.datepicker.js"></script>
+	<script type="text/javascript" src="/normal/js/ui.pagination.js"></script>
+	<script type="text/javascript" src="/normal/js/selecttags.js"></script>
+	<script type="text/javascript" src="/normal/js/icheck.js"></script>
+	<script type="text/javascript" src="/normal/js/stickup.js"></script>
 	
 	<jsp:include page="../comm/datatables.jsp" flush="true" />
 	

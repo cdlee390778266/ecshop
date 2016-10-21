@@ -18,6 +18,7 @@
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 
 	<title>挂牌审核</title>
+
 	<script type="text/javascript">
 
 		$(function() {
@@ -25,6 +26,7 @@
 				$('.fixed-wrapper').stickUp();
 			});
 		});
+
 	</script>
 
 </head>
@@ -37,6 +39,7 @@
 	</div>
 	
 	<div class="container-fluid lh34 audit">
+		
 		<div class="row">
 			<div class="col-xs-12 fc777">
 				<p>挂牌状态</p>

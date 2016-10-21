@@ -37,13 +37,9 @@ $(function() {
 				cache : false,
 				success : function(data) {
 					if (data.succflag != 0)
-						$.Tips({
-							message : data.msg
-						});
+						layer.msg(data.msg);
 					else
-						$.Tips({
-							message : "操作员" + id + "注销成功"
-						});
+						layer.msg("操作员" + id + "注销成功");
 					setTimeout(function() {
 						location.reload();
 					}, 3000);
@@ -64,13 +60,9 @@ $(function() {
 				cache : false,
 				success : function(data) {
 					if (data.succflag != 0)
-						$.Tips({
-							message : data.msg
-						});
+						layer.msg(data.msg);
 					else
-						$.Tips({
-							message : "操作员" + id + "启用成功"
-						});
+						layer.msg("操作员" + id + "启用成功");
 					setTimeout(function() {
 						location.reload();
 					}, 3000);
@@ -179,13 +171,9 @@ function operatorManage(url, msg, type, txRights, adRights) {
 	}).done(function(res) {
 		dialog.close();
 		if (res.succflag != 0)
-			$.Tips({
-				message : res.msg
-			});
+			layer.msg(res.msg);
 		else
-			$.Tips({
-				message : msg
-			});
+			layer.msg(msg);
 		setTimeout(function() {
 			location.reload();
 		}, 3000)
@@ -197,8 +185,8 @@ function operatorManage(url, msg, type, txRights, adRights) {
 	.on(
 		'click',
 		'#J_add_opter',
-		function() {
-
+		function(e) {
+            e.preventDefault();
 			var valFlag = $('form').validate('submitValidate');
 			if (valFlag == true) {
 

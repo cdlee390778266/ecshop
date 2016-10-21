@@ -111,7 +111,7 @@
 
 							$('.rpt-content').hide();
 							$('.rpt-content').eq(0).show();
-                            $("#report-type").get(0).selectedIndex=0;
+							$("#report-type").get(0).selectedIndex=0;
 
 							$('#headrender').html('<div class="headtitle">中国农业交易平台</div><div class="title">'+data.mid+'交易商对账单</div>');
 
@@ -162,10 +162,8 @@ $('#report-type').change(function(){
 
 });
 
-
-
-
 </script>
+
 <title>交易商对账单</title>
 
 </head>
@@ -178,12 +176,14 @@ $('#report-type').change(function(){
 	</div>
 
 	<div class="container-fluid up-datatables report">
+
 		<div class="row safe-type txtcenter bgfff up-list">
 			<div class="col-xs-6"><a href="javascript:void(0);" class="active">日常对账单</a>
 			</div>
 			<div class="col-xs-6"><a href="/report/monthly.htm">账户月报表</a>
 			</div>
 		</div>
+
 		<div class="condition">
 			<div class="row">
 				<div class="col-xs-12">
@@ -198,7 +198,9 @@ $('#report-type').change(function(){
 				<div class="col-xs-12 searchmsg"></div>
 			</div>
 		</div>
+
 		<div class="report-box mart10">
+
 			<div class="row">
 				<div class="col-xs-12">
 					<select name="" id="report-type" class="">
@@ -211,20 +213,18 @@ $('#report-type').change(function(){
 				</div>
 			</div>
 
-				<div id="dailyrender" class="rpt-content lh34"></div>
+			<div id="dailyrender" class="rpt-content lh34"></div>
 
-				<div id="fundrender" class="rpt-content lh34"></div>
+			<div id="fundrender" class="rpt-content lh34"></div>
 
-				<div id="tickrender" class="rpt-content lh34"></div>
+			<div id="tickrender" class="rpt-content lh34"></div>
 
-				<div id="noticerender" class="rpt-content lh34"></div>
+			<div id="noticerender" class="rpt-content lh34"></div>
 
-				<div id="attendrender" class="rpt-content lh34"></div>
+			<div id="attendrender" class="rpt-content lh34"></div>
 
-				<div id="tailrender" class="tailrender lh34 txtright"></div>
+			<div id="tailrender" class="tailrender lh34 txtright"></div>
 
-
-			
 		</div>
 
 	</div>
@@ -233,15 +233,14 @@ $('#report-type').change(function(){
 		<button id="J_Export"><img src="/mobile/images/export.png" alt="" />导出结果</button>
 	</div>
 
-
 	<script type="text/x-handlebars-template" id="dailyTemplate">
-         <div class="row">
-		<div class="col-xs-6 padl20">交易商号</div>
-		<div class="col-xs-6 txtright fc999 padr20">{{mid}}</div>
-		<div class="col-xs-6 padl20">交易商名称</div>	
-		<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
-		<div class="col-xs-6 padl20">报表日期</div>
-		<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
+		<div class="row">
+			<div class="col-xs-6 padl20">交易商号</div>
+			<div class="col-xs-6 txtright fc999 padr20">{{mid}}</div>
+			<div class="col-xs-6 padl20">交易商名称</div>	
+			<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
+			<div class="col-xs-6 padl20">报表日期</div>
+			<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
 		</div>
 		<div class="padb20 table-responsive">
 			<table class="rpt-model   table txtcenter">
@@ -278,14 +277,14 @@ $('#report-type').change(function(){
 	
 	
 	<script type="text/x-handlebars-template" id="fundTemplate">
-      <div class="row">
-		<div class="col-xs-6 padl20">交易商号</div>
-		<div class="col-xs-6 txtright fc999 padr20">{{mid}}</div>
-		<div class="col-xs-6 padl20">交易商名称</div>	
-		<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
-		<div class="col-xs-6 padl20">报表日期</div>
-		<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
-      </div>
+		<div class="row">
+			<div class="col-xs-6 padl20">交易商号</div>
+			<div class="col-xs-6 txtright fc999 padr20">{{mid}}</div>
+			<div class="col-xs-6 padl20">交易商名称</div>	
+			<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
+			<div class="col-xs-6 padl20">报表日期</div>
+			<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
+		</div>
 		<div class="padb20 table-responsive">
 			<table class="rpt-model   table">
 				<thead>
@@ -322,13 +321,13 @@ $('#report-type').change(function(){
 	
 	
 	<script type="text/x-handlebars-template" id="tickTemplate">
-	<div class="row">
-		<div class="col-xs-6 padl20">交易商号</div>
-		<div class="col-xs-6 txtright fc999 padr20">{{mid}}</div>
-		<div class="col-xs-6 padl20">交易商名称</div>	
-		<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
-		<div class="col-xs-6 padl20">报表日期</div>
-		<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
+		<div class="row">
+			<div class="col-xs-6 padl20">交易商号</div>
+			<div class="col-xs-6 txtright fc999 padr20">{{mid}}</div>
+			<div class="col-xs-6 padl20">交易商名称</div>	
+			<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
+			<div class="col-xs-6 padl20">报表日期</div>
+			<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
 		</div>
 		<div class="padb20 table-responsive">
 			<table class="rpt-model   table">
@@ -380,13 +379,13 @@ $('#report-type').change(function(){
 	
 	
 	<script type="text/x-handlebars-template" id="noticeTemplate">
-	<div class="row">
-		<div class="col-xs-6 padl20">交易商号</div>
-		<div class="col-xs-6 txtright fc999 padr20">{{mid}}</div>
-		<div class="col-xs-6 padl20">交易商名称</div>	
-		<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
-		<div class="col-xs-6 padl20">报表日期</div>
-		<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
+		<div class="row">
+			<div class="col-xs-6 padl20">交易商号</div>
+			<div class="col-xs-6 txtright fc999 padr20">{{mid}}</div>
+			<div class="col-xs-6 padl20">交易商名称</div>	
+			<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
+			<div class="col-xs-6 padl20">报表日期</div>
+			<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
 		</div>
 		<div class="padb20 table-responsive">
 			<table class="rpt-model   table">
@@ -413,7 +412,7 @@ $('#report-type').change(function(){
 				</thead>
 				<tbody>
 					{{#if succflag}}
-list
+					list
 					{{#each list}}
 					<tr>
 						<td>{{strikeNo}}</td>
@@ -440,20 +439,20 @@ list
 					<td colspan="17" class="report-nodata">无数据</td>
 					{{/if}}
 					{{/if}}
-														
+
 				</tbody>
 			</table>
 		</div>
 	</script>
 	
 	<script type="text/x-handlebars-template" id="attendTemplate">
-	<div class="row">
-		<div class="col-xs-6 padl20">交易商号</div>
-		<div class="col-xs-6 txtright fc999 padr20">{{mid}}</div>
-		<div class="col-xs-6 padl20">交易商名称</div>	
-		<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
-		<div class="col-xs-6 padl20">报表日期</div>
-		<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
+		<div class="row">
+			<div class="col-xs-6 padl20">交易商号</div>
+			<div class="col-xs-6 txtright fc999 padr20">{{mid}}</div>
+			<div class="col-xs-6 padl20">交易商名称</div>	
+			<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
+			<div class="col-xs-6 padl20">报表日期</div>
+			<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
 		</div>
 		<div class="padb20 table-responsive">
 			<table class="rpt-model   table">
@@ -497,7 +496,6 @@ list
 			</table>
 		</div>
 	</script>
-	
 
 </body>
 </html>

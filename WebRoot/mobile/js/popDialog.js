@@ -1,7 +1,7 @@
 ﻿/******        商品类型弹窗          ******/
 $(function(){
 
-$('.selcomm').hide();
+	$('.selcomm').hide();
 	$('.selcomm_dialog').on('click', function(){
 		$('.selcomm').show();
 		layer.open({
@@ -17,5 +17,4 @@ $('.selcomm').hide();
 
 	});
 
-	
 })

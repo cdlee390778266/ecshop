@@ -250,5 +250,5 @@ $(function() {
 	var marketurl = "/mall/findallmarket.htm";
 	
 	loadMarket(marketurl);
-	
+
 });

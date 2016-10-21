@@ -479,28 +479,32 @@ $('.filtinterval').on('click', '#volumeBtn', function(){
 
 	});
 
-   
-	//product
-    $('.product-bar').off('click');
-    $('body').on('click','.product-bar',function(event){
-      event.stopPropagation();
-      var $self = $(this).find('.glyphicon-menu-down');
-      if($(this).find('.glyphicon-menu-down').hasClass('slideOn')){
-        $(this).find('.glyphicon-menu-down').css({'transform':'rotate(0)','color':'#333'});
-        $(this).parents('.product').removeClass('active');
-      }else{
-        $(this).find('.glyphicon-menu-down').css({'transform':'rotate(180deg)','color':'#6db23d'});
-        $(this).parents('.product').addClass('active');
-      }
 
-      $(this).find('.glyphicon-menu-down').parents('.product').find('.product-data').toggle(100,function(){
-        $self.hasClass('slideOn') ? $self.removeClass('slideOn') : $self.addClass('slideOn')
-      });
-    })
+	//商品展示
+	$('.product-bar').off('click');
+	$('body').on('click','.product-bar',function(event){ 
 
-    $('body').on('click','.product-data',function(event){
-      if($(this).find('a').eq(0).attr('href'))
-        location.href = $(this).find('a').eq(0).attr('href');
-    })
+		event.stopPropagation();
+		var $self = $(this).find('.glyphicon-menu-down');
+		if($(this).find('.glyphicon-menu-down').hasClass('slideOn')){
+			$(this).find('.glyphicon-menu-down').css({'transform':'rotate(0)','color':'#333'});
+			$(this).parents('.product').removeClass('active');
+		}else{
+			$(this).find('.glyphicon-menu-down').css({'transform':'rotate(180deg)','color':'#6db23d'});
+			$(this).parents('.product').addClass('active');
+		}
+
+		$(this).find('.glyphicon-menu-down').parents('.product').find('.product-data').toggle(100,function(){
+			$self.hasClass('slideOn') ? $self.removeClass('slideOn') : $self.addClass('slideOn')
+		});
+
+	})
+
+	$('body').on('click','.product-data',function(event){
+
+		if($(this).find('a').eq(0).attr('href'))
+			location.href = $(this).find('a').eq(0).attr('href');
+		
+	})
 
 });

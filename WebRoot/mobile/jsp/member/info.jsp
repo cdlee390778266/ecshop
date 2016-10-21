@@ -44,9 +44,11 @@
 
 			<!-- main -->
 			<form id="memberform" action="/member/info.htm" method="post" enctype="multipart/form-data" class="form-horizontal">
+
 				<input type="hidden" name="active" value="save" />
+
 				<div class="row  bgfff">
-				<div class="col-xs-12 file bordertb">
+					<div class="col-xs-12 file bordertb">
 						<img id="operPhotoPre" src="${user.operPhoto}" width="120px" height="120px" onError="this.src='/normal/images/portrait.jpg'" class="img-rounded" />
 						<div class="account-mes fc999">
 							<span class="btn-upload fileinput ml10 txtright">
@@ -60,20 +62,24 @@
 					</span>
 				</div>
 			</div>
+
 			<div class="input-group    form-group-lg">
 				<span class="input-group-addon ">会员ID</span>
 				<div class="form-control lh26 txtright fc999">${user.mID}</div>
 			</div>
+
 			<div class="input-group form-group-lg">
 				<span class="input-group-addon ">会员名称</span>
 				<div class="form-control lh26 txtright fc999">${user.memName}</div>
 			</div>
+
 			<div class="input-group form-group-lg bgfff">
 				<span class="input-group-addon ">名称</span>
-				<div class="form_control up-info-name">
+				<div class="form_control up-info-name bornone">
 					<input type="text" value="${user.operName}" name="operName" id="operName" class="required txtright"  data-tip="" data-valid="isNonEmpty||maxGBLength:128" data-error="名称不能为空||名称长度不对" />
 				</div>
 			</div>
+
 			<div class="input-group form-group-lg">
 				<span class="input-group-addon ">操作员性别</span>
 				<div class="form-control txtright">
@@ -81,19 +87,20 @@
 					<input type="radio" name="sex" class="marl5 fn-vm"  value="2" <c:if test="${user.operSex=='2'}">checked="checked"</c:if> />女
 				</div>
 			</div>
+
 		</div>
+
 		<div class="row padtb40">
 			<div class="col-xs-12">
 				<input type="submit" value="保存" class="up-btn-success" />
 			</div>
 		</div>
-	</form>					
-</div>
-</div>	
 
-<!-- footer -->
-<jsp:include page="../comm/footer.jsp" flush="true" />
-<!-- footer End -->
+	</form>	
+
+</div>
+
+</div>	
 
 <script type="text/javascript">
 
@@ -110,8 +117,6 @@
 		});
 		
 		// 输入域验证
-	
-		
 		$('#memberform').on('submit', function(event){
 			var valFlag = $(this).validate('submitValidate');
 			if(valFlag == false){

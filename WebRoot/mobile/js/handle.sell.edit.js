@@ -594,9 +594,12 @@ $('#select-none').click(function(){
 	$('#selc-ul li').removeClass('active');
 })
 
+//关闭弹窗
 $('.btn-close').click(function(){
 	$('#confirmbtn').click();
 })
+
+//确认
 $('#confirmbtn').click(function(){
 	$('body').css('overflowY','auto');
 })

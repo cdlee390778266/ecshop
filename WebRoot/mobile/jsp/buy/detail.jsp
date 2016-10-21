@@ -85,10 +85,10 @@
 		});
 	});
 
-
-
 </script>
+
 <title>摘牌处理</title>
+
 </head>
 <body class="drawer drawer-left">
 
@@ -101,8 +101,8 @@
 	<div class="header">
 		<div class="header-left"><a href="javascript:history.back(-1);"><img src="/mobile/images/back.png" alt=""></a></div>
 		<div class="logo  ">
-		<div class="logoTxt">
-			资金支付 <br /><span class="fcyellow ">[全款支付后请到交收管理中准备接收货物]</span>
+			<div class="logoTxt">
+				资金支付 <br /><span class="fcyellow ">[全款支付后请到交收管理中准备接收货物]</span>
 			</div>
 		</div>
 	</div>
@@ -111,25 +111,31 @@
 		<div class="row bgwhite  examine-data delist mart5 lh40 fc999">
 			<h2 class="active">摘牌信息</h2>
 			<div class="detail-data">
+
 				<div class="col-xs-12 strong">
 					<span class="fcgreen">摘牌单号： </span>${rspBody.deListNo}
 				</div>
+
 				<div class="col-xs-12 strong">
 					<span class="fcgreen">摘牌商品： </span>${rspBody.commName}
 				</div>
+
 				<c:forEach items="${rspBody.props}" var="prop" >												
 				<c:if test="${prop.propName =='品牌' || prop.propName =='产地' }">
 				<div class="col-xs-12 strong">
 					<span class="fcgreen">${prop.propName}：</span>${prop.propVal}
 				</div>
 			</c:if>
-		</c:forEach>	
+		</c:forEach>
+
 		<div class="col-xs-12 strong">
 			<span class="fcgreen ">单价：</span><fmt:formatNumber value="${rspBody.up}" type="currency" pattern="￥0.00元" />/${rspBody.uom}
 		</div>
+
 		<div class="col-xs-12 strong">
 			<span class="fcgreen ">挂牌有效期：</span>${rspBody.doe}
 		</div>
+
 		<div class="col-xs-12 strong">
 			<span class="fcgreen ">交收日期：</span>
 			<c:choose>
@@ -141,12 +147,15 @@
 	</c:otherwise>
 </c:choose>
 </div>
+
 <div class="col-xs-12 strong">
 	<span class="fcgreen ">摘牌日期：</span>${rspBody.dod}
 </div>
+
 <div class="col-xs-12 strong">
 	<span class="fcgreen ">购买数量：</span>${rspBody.vol}
 </div>
+
 <div class="col-xs-12 strong">
 	<span class="fcgreen ">最后付款日：</span>
 	<c:choose>
@@ -158,14 +167,17 @@ ${rspBody.lastPD}
 </c:otherwise>
 </c:choose>
 </div>
+
 <div class="col-xs-12 strong">
 	<span class="fcgreen ">付款方式：</span>
 	<c:if test="${rspBody.top =='S'}">仅付定金</c:if>
 	<c:if test="${rspBody.top =='F'}">全款支付</c:if>
 </div>
+
 <div class="col-xs-12 strong">
 	<span class="fcgreen ">交收仓库：</span>${rspBody.storage}
 </div>
+
 <div class="col-xs-12 strong">
 	<span class="fcgreen ">发票监管：</span>
 	<c:choose>												
@@ -177,13 +189,16 @@ ${rspBody.lastPD}
 </c:otherwise>
 </c:choose>
 </div>
+
 </div>
 </div>
 
 <div class="lh40 mart5">
+
 	<div class="row">
 		<div class="col-xs-12 padlr25 up-title">本次摘牌费用说明</div>
 	</div>
+
 	<c:forEach items="${rspBody.costPays}" var="cost" >
 	<div class="row bgfff up-cost">
 		<div class="col-xs-4 borderdb  txtleft">费用名称</div>
@@ -198,59 +213,66 @@ ${rspBody.lastPD}
 		<div class="col-xs-8 borderdb fc999">${cost.flagDesc}</div>
 	</div>
 </c:forEach>
+
 </div>
 
 <div class="row mart5">
-<form name="buyform" id="buyform" method="post" action="/buy/${link}.htm" class="bgfff padb120 ofhidden">
-	<input type="hidden" name="delistNo" value="${rspBody.deListNo}" />
-	<c:if test="${operType=='A'}"> 
+	<form name="buyform" id="buyform" method="post" action="/buy/${link}.htm" class="bgfff padb120 ofhidden">
+		<input type="hidden" name="delistNo" value="${rspBody.deListNo}" />
+		<c:if test="${operType=='A'}"> 
+
+		<div class="col-xs-12 up-title">
+			填写并确认信息
+		</div>
+
+		<div class="form-bgwhite">
+
+			<div class="form-group ">
+				<div class="radio">
+					<label for="radio1">审核通过</label>
+					<input type="radio" name="auditRet" id="auditRet" value="1" checked />
+				</div>
+				<div class="radio">
+					<label for="radio2">不审核通过</label>
+					<input type="radio" name="auditRet" id="auditRet" value="0" />
+				</div>
+			</div>
+
+			<div>
+				<h3 class="marb10 fc999">审核意见</h3>
+				<div class="rel">
+					<textarea name="comment" id="comment" type="text" class="required form-control"  data-tip="请输入审核意见" data-valid="maxGBLength:512" data-error="审核意见长度错误" rows="3"></textarea>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="examine-go txtcenter examine-btn">
+			<button class="btn-normal btn-buy">提交审核</button>
+		</div>
+
+	</c:if>
+
+	<c:if test="${operType=='P'}">
+
 	<div class="col-xs-12 up-title">
-		填写并确认信息
-	</div>
-	<div class="form-bgwhite">
-		<div class="form-group ">
-			<div class="radio">
-				<label for="radio1">审核通过</label>
-				<input type="radio" name="auditRet" id="auditRet" value="1" checked />
-			</div>
-			<div class="radio">
-				<label for="radio2">不审核通过</label>
-				<input type="radio" name="auditRet" id="auditRet" value="0" />
-			</div>
-		</div>
-		<div>
-			<h3 class="marb10 fc999">审核意见</h3>
-			<div class="rel">
-				<textarea name="comment" id="comment" type="text" class="required form-control"  data-tip="请输入审核意见" data-valid="maxGBLength:512" data-error="审核意见长度错误" rows="3"></textarea>
-			</div>
-		</div>
-	</div>
-	<div class="examine-go txtcenter examine-btn">
-		<button class="btn-normal btn-buy">提交审核</button>
-	</div>
-</c:if>
-
-
-<c:if test="${operType=='P'}">
- <div class="col-xs-12 up-title">
 		资金密码
 	</div>  
-      <div class="col-xs-12 mart10 rel up-funpwd">
-      	<input type="password" name="fundPwd" id="fundPwd" class="required form-control input-lg"  data-tip="请输入资金密码" data-valid="isNonEmpty||between:6-16" data-error="资金密码必填||密码长度错误" />
-      </div>  
-     <div class="examine-go txtcenter examine-btn">
+
+	<div class="col-xs-12 mart10 rel up-funpwd">
+		<input type="password" name="fundPwd" id="fundPwd" class="required form-control input-lg"  data-tip="请输入资金密码" data-valid="isNonEmpty||between:6-16" data-error="资金密码必填||密码长度错误" />
+	</div>  
+
+	<div class="examine-go txtcenter examine-btn">
 		<button class="btn-normal btn-buy">支付资金</button>
 	</div>                          	                                        
 
 </c:if>  
 </form>
 
-
-
 </div>
 
 </div>
-
 
 </body>
 </html>
