@@ -66,7 +66,7 @@ dataTablesInit = function(table, url,  ajaxfncallback, defaultOrder, btnfncallba
 	var hiddencolumn = [];
 	
 	//设置FLASH路径
-	$.fn.dataTable.Buttons.swfPath = '/images/swf/flashExport.swf';
+	$.fn.dataTable.Buttons.swfPath = '/normal/images/swf/flashExport.swf';
 	
 	$.fn.dataTable.ext.type.order['cn-string-asc']  = function(s1,s2) {  
 	    return s1.localeCompare(s2);  
