@@ -162,7 +162,7 @@
 
 	<c:if test="${fn:length(rspBody.detail)<=0}">
 	<div class="col-xs-12">
-		<span class="marl10">暂无描述信息！</span>
+		<span class="marl10 fc999">暂无描述信息！</span>
 	</div>
 </c:if>
 
@@ -194,7 +194,7 @@
 
 <c:if test="${fn:length(rspBody.ctxPic1)<=0 && fn:length(rspBody.ctxPic2)<=0 && fn:length(rspBody.ctxPic3)<=0}"> 
 <div class="col-xs-12">
-	<span class="marl10">暂无商品图</span>
+	<span class="marl10 fc999">暂无商品图</span>
 </div>
 </c:if>
 

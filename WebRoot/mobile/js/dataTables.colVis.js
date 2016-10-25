@@ -686,27 +686,16 @@ ColVis.prototype = {
 	 */
 	"_fnDomCollection": function ()
 	{
-		return $('<ul />', {
+		return $('<ul /> ', {
 				'class': !this.s.dt.bJUI ?
 					"ColVis_collection" :
 					"ColVis_collection ui-buttonset ui-buttonset-multi"
 			} )
-		.on('click',function(e){
-	        $(document).scroll(function(e){
-  e.preventDefault();
-  e.stopPropagation();
-return false;
-	        })
-			if(!(canScoll($(this)))){
-              e.preventDefault();
-              e.stopPropagation();
-			}
-		})
 		.css( {
 			'display': 'none',
 			'opacity': 0,
 			'position': ! this.s.bCssPosition ?
-				'fixed' :
+				'absolute' :
 				''
 		} )[0]
 
@@ -751,6 +740,7 @@ return false;
 			.css( 'opacity', 0 )
 			.click( function () {
 				that._fnCollectionHide.call( that, null, null );
+				$('.colVis_wrapper').hide();
 			} )
 			.on('touchmove',function(e){ 
 				 e.preventDefault();
@@ -790,8 +780,8 @@ return false;
 
 		if ( ! this.s.bCssPosition )
 		{
-			nHidden.style.bottom = '0';
-			nHidden.style.left = iDivX+"px";
+			nHidden.style.top = '0';
+			nHidden.style.left = 0+"px";
 		}
 
 		$(nHidden).css( {
@@ -807,16 +797,29 @@ return false;
 		oStyle.width = $(this.dom.button).outerWidth()+"px";
 		oStyle.top = '25vh';
 		oStyle.left = iDivX+"px";
+        console.log($('.colVis_wrapper').length);
+
+        if($('.colVis_wrapper').length <= 0){
+		$('body').append('<div class="colVis_wrapper"></div>');
+		$('.colVis_wrapper').append($(nHidden))
+		 new IScroll('.colVis_wrapper')
+		}
+
+		$('.colVis_wrapper').css({
+			'display':'block',
+			'opacity': 0
+		});
 
 		document.body.appendChild( nBackground );
-		document.body.appendChild( nHidden );
+		// document.body.appendChild( nHidden );
 		document.body.appendChild( this.dom.catcher );
 
 		/* This results in a very small delay for the end user but it allows the animation to be
 		 * much smoother. If you don't want the animation, then the setTimeout can be removed
 		 */
+		$('.colVis_wrapper').animate({"opacity": 1}, that.s.iOverlayFade);
 		$(nHidden).animate({"opacity": 1}, that.s.iOverlayFade);
-		$(nBackground).animate({"opacity": 0.5}, that.s.iOverlayFade, 'linear', function () {
+		$(nBackground).animate({"opacity": 1}, that.s.iOverlayFade, 'linear', function () {
 			/* In IE6 if you set the checked attribute of a hidden checkbox, then this is not visually
 			 * reflected. As such, we need to do it here, once it is visible. Unbelievable.
 			 */

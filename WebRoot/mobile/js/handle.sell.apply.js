@@ -937,6 +937,8 @@ $('#confirmbtn').click(function(){
 	$('body').css('overflowY','auto');
 })
 
+
+
 $('#confirmbtn').click(function(){
 
         if(emptyFlag){
@@ -962,6 +964,9 @@ $('#confirmbtn').click(function(){
 	$('.mask').hide();
 	$('.mark').remove();
 });
+
+var cityHeight = $(window).height() - 120;
+$('#selc-ul').css('height',cityHeight);
 
 var step2 = false;
 var step3 = false;

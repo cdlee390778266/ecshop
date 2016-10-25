@@ -13,7 +13,7 @@
         /*var shtm = '<div class="hd">'+
             '<label for="">'+opts.catText+'</label>'+
             '</div>'+ */
-            var shtm = '<div class="bd">'+
+            var shtm = '<div class="selcomm_loading"><img src="/mobile/images/loading.gif" /></div><div class="bd">'+
             '<div class="crumb-list">'+
             '</div>'+
             '</div>'+
@@ -35,11 +35,16 @@
             $('body').append('<div class="select_mask"></div>');
 
             $('.select_mask').on('click',function(){
-               $('.select_mask').css('display','none').animate({opacity: 0});
-               $('.selcomm').css('bottom','-50%');
-               $('.rlist .commsection').css('display','none');
-               $('.rlist .commsection:first-child').css('display','block');
-               $('body').css('overflow','auto');
+                $('.selcomm').stop().css({
+                  'display' : 'none',
+                  'opacity' : 0
+                 })
+                $('.select_mask').stop().animate({opacity: 0},function(){
+                $('.select_mask').css('display','none')
+               });
+                $('.rlist .commsection').css('display','none');
+                $('.rlist .commsection:first-child').css('display','block');
+                $('body').css('overflow','auto');
            })
 
             return this.each(function(){ 
@@ -68,9 +73,9 @@
           }
 
           if(level == 0){
-              var ulh = '<div class="commsection"><div class="commhead">'+head+'<span class="ch-close"><img src="/mobile/images/select_close.png" /></span></div><div class="commbd"><ul>';
+              var ulh = '<div class="commsection"><div class="commhead">'+head+'<span class="ch-close"><img src="/mobile/images/select_close.png" /></span></div><div class="commbd" id="commbd'+ $('.selcomm .commbd').length + '"><ul>';
           }else{
-              var ulh = '<div class="commsection"><div class="commhead"><span class="sel-back"><img src="/mobile/images/sel-back.png" /></span>'+head+'<span class="ch-close"><img src="/mobile/images/select_close.png" /></span></div><div class="commbd"><ul>';
+              var ulh = '<div class="commsection"><div class="commhead"><span class="sel-back"><img src="/mobile/images/sel-back.png" /></span>'+head+'<span class="ch-close"><img src="/mobile/images/select_close.png" /></span></div><div class="commbd" id="commbd'+ $('.selcomm .commbd').length + '"><ul>';
           }
 
           for(var i=0;i<idata.length;i++){
@@ -79,6 +84,8 @@
           }
           ulh+='</ul></div><div>'
           that.find('.rlist').append(ulh);
+
+          new IScroll('#' + $(ulh).find('.commbd').get(0).id)
       }
   }
   function fixTags(key,value, leaf, level){ 
@@ -110,6 +117,7 @@ init(selData);
 
 
 $(this).on('click','.commbd li',function(){
+  $('.selcomm_loading').show();
   var id= $(this).data('key');           
   var haveleaf= $(this).data("leaf");
   var level = $(this).data("level");               
@@ -268,8 +276,10 @@ $.ajax({
   dataType:'json',    
   success:function(res){	
      if(res.succflag==0){
+        $('.selcomm_loading').hide();
         init(res.data);
     }else{    
+        $('.selcomm_loading').hide();
         $('.J_Tselect').hide();
         if(typeof opts.exceptcallback != 'undefined'){ 
            var propagation = opts.exceptcallback(res.msg);	
@@ -288,8 +298,11 @@ $.ajax({
 
 $(function(){
   $('.selcomm_dialog').click(function(){
+     $('.selcomm_loading').css('display','none');
     $('.select_mask').css('display','block').animate({opacity: 0.5});
-    $('.selcomm').animate({bottom: 0});
+    $('.selcomm').css('display','block').stop().animate({
+      'opacity' : 1
+    });
     $('body').css('overflowY','hidden');
 })
   $('.selcomm_dialog').focus(function(event) {

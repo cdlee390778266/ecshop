@@ -5,7 +5,10 @@ $(function() {
 	var selectarray = [];
 	var emptyFlag = true;
 
-//改版部分新增代码   ---start
+	var cityHeight = $(window).height() - 120;
+    $('#selc-ul').css('height',cityHeight);
+    
+    //改版部分新增代码   ---start
 
     //初始化
     $('#wrno').val('');

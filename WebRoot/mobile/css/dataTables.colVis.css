@@ -83,8 +83,10 @@ div.ColVis_collectionBackground {
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background-color: black;
-	z-index: 1100;
+	background-color: rgba(0,0,0,0.5);
+	border-bottom: 1px solid #ddd;
+	z-index: 1002;
+	text-align: center;
 }
 
 ul.ColVis_collection {
