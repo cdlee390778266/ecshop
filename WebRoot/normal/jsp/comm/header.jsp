@@ -45,11 +45,11 @@
              </dd>
          </dl>
          <ul class="nav-ul">
-             <li><a href="javascript:void();">交易大厅</a></li>
-             <li><a href="javascript:void();">农资挂牌</a></li>
-             <li><a href="javascript:void();">农副挂牌</a></li>
-             <li><a href="javascript:void();">会员专场</a></li>
-             <li><a href="javascript:void();">挂牌行情</a></li>
+             <li><a href="javascript:void(0)">交易大厅</a></li>
+             <li><a href="javascript:void(0)">农资挂牌</a></li>
+             <li><a href="javascript:void(0)">农副挂牌</a></li>
+             <li><a href="javascript:void(0)">会员专场</a></li>
+             <li><a href="javascript:void(0)">挂牌行情</a></li>
          </ul>
      </div>
  </div>
