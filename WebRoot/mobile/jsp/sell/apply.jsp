@@ -371,7 +371,9 @@
 							<select name="seletlist" size="20" multiple id="selectlist" style="display:none;" >
 							</select>
 						</div>
+						<div class="localcity-data">
 						<ul id="selc-ul"></ul>
+						</div>
 						<div class="selbtn">
 							<div class="row">
 								<div class="col-xs-6 up-sell-btn">

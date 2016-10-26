@@ -5,7 +5,7 @@
 
 			<div class="header-bd">
 			<div class="fr delisting" >
-					<a href="/sell/apply.htm?active=enter&type=0" >卖方挂牌</a>
+					<a href="/sell/apply.htm?active=enter&type=0" >我要挂牌</a>
 				</div>
 
 				<div class="search-wrap clearfix fn-fr" id="J_SearchTab">
@@ -45,11 +45,11 @@
              </dd>
          </dl>
          <ul class="nav-ul">
-             <li><a href="javascript:void(0)">交易大厅</a></li>
-             <li><a href="javascript:void(0)">农资挂牌</a></li>
-             <li><a href="javascript:void(0)">农副挂牌</a></li>
-             <li><a href="javascript:void(0)">会员专场</a></li>
-             <li><a href="javascript:void(0)">挂牌行情</a></li>
+             <li><a href="javascript:void(0);">交易大厅</a></li>
+             <li><a href="javascript:void(0);">农资挂牌</a></li>
+             <li><a href="javascript:void(0);">农副挂牌</a></li>
+             <li><a href="javascript:void(0);">会员专场</a></li>
+             <li><a href="javascript:void(0);">挂牌行情</a></li>
          </ul>
      </div>
  </div>

@@ -250,5 +250,8 @@ $(function() {
 	var marketurl = "/mall/findallmarket.htm";
 	
 	loadMarket(marketurl);
+     // var myScroll = new IScroll('.colVis_wrapper');
 
+
+ 
 });

@@ -355,6 +355,7 @@
 						<span><img src="/mobile/images/select_close.png" alt="" /></span>
 					</div>
 					<div class="select-body" id="select-body">
+					<div>
 						<input type="hidden" name="listedType" value="M" /> 
 						<div class="cd-select" data-select></div> <!--  comm需要级联查询得到 -->
 						<input type="hidden" name="commCode" id="commCode"
@@ -387,6 +388,7 @@
 							</div>
 
 						</div>
+					</div>
 					</div>
 				</div>
 			</body>

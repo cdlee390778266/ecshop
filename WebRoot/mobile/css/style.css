@@ -51,6 +51,9 @@ body {
   font-family: "微软雅黑";
   font-size: 12px;
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  -webkit-touch-callout: none;
 }
 
 a:hover {
@@ -784,6 +787,7 @@ strong {
   position: relative;
   overflow: hidden;
   width: 100%;
+  z-index: 1;
 }
 .swipe .swipe-wrap {
   overflow: hidden;
@@ -891,6 +895,7 @@ strong {
 #product {
   background: #f5f5f5;
   position: relative;
+  z-index: 1;
 }
 
 .product {
@@ -1176,9 +1181,14 @@ strong {
   font-size: 14px;
   background: #fafafa;
   color: #333;
+  -webkit-transform-style: preserve-3d;
 }
 .delist h2.active span {
-  transform: rotate(180deg);
+  -webkit-transform: translate3d(0, 0, 0) rotate(180deg);
+  -moz-transform: translate3d(0, 0, 0) rotate(180deg);
+  -ms-transform: translate3d(0, 0, 0) rotate(180deg);
+  transform: translate3d(0, 0, 0) rotate(180deg);
+  -webkit-backface-visibility: hidden;
   color: #6db23d;
 }
 .delist h2 span {
@@ -2345,9 +2355,6 @@ table.dataTable .td.sorting_1 {
 
 .ColVis_collection {
   width: 100% !important;
-  height: 50vh;
-  height: 50%;
-  overflow: scroll !important;
   padding: 0 !important;
   background-color: #fff !important;
   border-radius: 0 !important;
@@ -2370,7 +2377,7 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
 
 .selcomm {
   position: fixed;
-  bottom: -200px;
+  bottom: 0;
   left: 0;
   background: #fff;
   width: 100%;
@@ -2379,13 +2386,14 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
   z-index: 1000;
   line-height: 46px;
   font-size: 14px;
+  display: none;
+  opacity: 0;
 }
 .selcomm .crumb-list {
   display: none;
 }
 .selcomm .commhead {
   text-align: center;
-  padding: 0 20px;
   border-bottom: 1px solid #ddd;
 }
 .selcomm .commhead .ch-close {
@@ -2394,7 +2402,7 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
   height: 46px;
   line-height: 46px;
   float: right;
-  text-align: right;
+  text-align: center;
 }
 .selcomm .commhead .ch-close img {
   width: 12px;
@@ -2405,15 +2413,19 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
   height: 46px;
   line-height: 46px;
   float: left;
-  text-align: left;
+  text-align: center;
 }
 .selcomm .commhead .sel-back img {
   width: 18%;
 }
 .selcomm .commbd {
-  max-height: 160px;
+  position: absolute;
+  top: 47px;
+  left: 0;
+  width: 100%;
+  height: 160px;
   padding-bottom: 10px;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 .selcomm .commbd li {
   padding: 0 20px;
@@ -2421,6 +2433,18 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
 }
 .selcomm .commbd li:active, .selcomm .commbd li:focus {
   background: #f5f5f5;
+}
+.selcomm .selcomm_loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  background: #fff;
+  z-index: 8;
+  display: none;
 }
 
 .select_mask, .date-mask {
@@ -2606,7 +2630,8 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
 
 #J_MemList {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  background: #fff;
 }
 #J_MemList .hd {
   line-height: 40px;
@@ -3303,4 +3328,15 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
 }
 .up-cdList #dataset_filter label .form-control {
   height: 33px;
+}
+
+.colVis_wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #fff;
+  overflow: hidden;
+  z-index: 3333;
 }

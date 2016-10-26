@@ -508,13 +508,9 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 
 	<div  id="step4">
 
-		<div class="col-xs-12 bgfff">
-			<div  class="lh46 fc999 ">商品描述</div>
-		</div>
-
 		<div class="col-xs-12 rel bgfff">
 			<div class="proddetail" style="display:none">${rspBody.detail}</div>
-			<textarea name="detail" id="detail" cols="45" rows="6" class="form-control marb10"></textarea>
+			<textarea name="detail" id="detail" cols="45" rows="6" class="form-control marb10" placeholder="商品描述"></textarea>
 			<div class="detailmsg" style="color: #f00;"></div>
 		</div>
 

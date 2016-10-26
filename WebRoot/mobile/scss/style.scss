@@ -28,6 +28,9 @@ body{
   font-family: "微软雅黑";
   font-size: 12px;
   overflow : hidden;
+  -webkit-overflow-scrolling:touch;
+  overflow-scrolling: touch;
+  -webkit-touch-callout:none;
 }
 a:hover{
   text-decoration: none;
@@ -685,7 +688,7 @@ strong{
   position:relative;
   overflow:hidden;
   width:100%;
-
+  z-index: 1;
   .swipe-wrap {
     overflow: hidden;
     position: relative
@@ -800,6 +803,7 @@ ul{
 #product{
   background:#f5f5f5;
   position:relative;
+  z-index: 1;
 }
 .product{
   background:#fff;
@@ -1090,8 +1094,13 @@ ul{
     font-size: 14px;
     background :#fafafa;
     color:#333;
+    -webkit-transform-style: preserve-3d;
     &.active span{
-      transform:rotate(180deg);
+      -webkit-transform: translate3d(0, 0, 0) rotate(180deg);
+      -moz-transform: translate3d(0, 0, 0) rotate(180deg);
+      -ms-transform: translate3d(0, 0, 0) rotate(180deg);
+      transform: translate3d(0, 0, 0) rotate(180deg);
+      -webkit-backface-visibility: hidden;
       color:$fcgreen;
     }
     span{
@@ -1908,14 +1917,14 @@ i.fa {
  //   width:100%;
  // }
 
-.ColVis_Button.ColVis_MasterButton{
- border: 1px solid #eee;
-}
+ .ColVis_Button.ColVis_MasterButton{
+   border: 1px solid #eee;
+ }
 
-.dataTable th select{
- margin-right: 10px;
-}
-table.dataTable thead th{
+ .dataTable th select{
+   margin-right: 10px;
+ }
+ table.dataTable thead th{
   height:auto !important;
 }
 .ColVis .ColVis_Button.ColVis_MasterButton{
@@ -1934,8 +1943,8 @@ table.dataTable thead th{
     padding:0;
     label{
       display:block;
-     position: relative;
-    top: 1px;
+      position: relative;
+      top: 1px;
     }
   }
   .form-control{
@@ -2227,9 +2236,6 @@ table.dataTable{
 }
 .ColVis_collection{
   width:100% !important;
-  height:50vh;
-  height:50%;
-  overflow:scroll !important;
   padding: 0 !important;
   background-color: #fff !important;
   border-radius: 0 !important;
@@ -2249,7 +2255,7 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
 }
 .selcomm{
   position:fixed;
-  bottom:-200px;
+  bottom:0;
   left:0;
   background:#fff;
   width:100%;
@@ -2258,12 +2264,13 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
   z-index: 1000;
   line-height: 46px;
   font-size: 14px;
+  display:none;
+  opacity:0;
   .crumb-list{
     display:none;
   }
   .commhead{
     text-align: center;
-    padding:0 20px;
     border-bottom: 1px solid #ddd;
     .ch-close{
      display:inline-block;
@@ -2271,7 +2278,7 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
      height:46px;
      line-height: 46px;
      float:right;
-     text-align: right;
+     text-align: center;
      img{
       width: 12px;
     }
@@ -2282,16 +2289,20 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
    height:46px;
    line-height: 46px;
    float:left;
-   text-align: left;
+   text-align: center;
    img{
     width:18%;
   }
 }
 }
 .commbd {
-  max-height:160px;
+  position:absolute;
+  top:47px;
+  left:0;
+  width:100%;
+  height:160px;
   padding-bottom: 10px;
-  overflow-y:auto;
+  overflow-y:scroll;
   ul{
     // padding-bottom: 120px;
   }
@@ -2302,6 +2313,18 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
     background:#f5f5f5;
   }
 }
+}
+.selcomm_loading{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:200px;
+  line-height: 200px;
+  text-align: center;
+  background:#fff;
+  z-index: 8;
+  display:none;
 }
 }
 .select_mask,.date-mask{
@@ -2486,7 +2509,8 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
 }
 #J_MemList{
   width:100%;
-  height:100vh;
+  height:100%;
+  background:#fff;
   .hd{
     line-height: 40px;
     height:40px;
@@ -3155,8 +3179,18 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
     label{
       display:block;
       .form-control{
-         height:33px;
-      }
-    }
-  }
+       height:33px;
+     }
+   }
+ }
+}
+.colVis_wrapper{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:50%;
+  background:#fff;
+  overflow:hidden;
+  z-index: 3333;
 }

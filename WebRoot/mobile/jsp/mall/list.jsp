@@ -32,7 +32,7 @@
 
 </head>
 <body class="drawer drawer-left backTemplate-dialog">
-
+    
 	<div class="fixed-wrapper">
 		<!-- header -->
 		<jsp:include page="../comm/header.jsp" flush="true" />

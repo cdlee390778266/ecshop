@@ -630,6 +630,9 @@ $('#confirmbtn').click(function(){
 	$('.mark').remove();
 });
 
+var cityHeight = $(window).height() - 120;
+$('#selc-ul').css('height',cityHeight);
+
 //移除数组中相同的项
 function unique(arr){
 		// 遍历arr，把元素分别放入tmp数组(不存在才放)

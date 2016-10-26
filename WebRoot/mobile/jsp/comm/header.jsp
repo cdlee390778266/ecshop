@@ -161,8 +161,10 @@
     });
      $('.slide-close').click(function(){
 
-        $('.drawer-toggle').click();
-
+           if(!$('body').hasClass('drawer-close')){
+            $('.drawer-toggle').click();
+        }
+  
     })
 
        //search

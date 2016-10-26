@@ -8,6 +8,7 @@
             callback:function(){return false;}
 		};
         var opts = $.extend({}, $.fn.localCity.defaults, options);
+        var cityHeight = $(window).height() - 127;
 
         var tabs = '<div class="tabs container-fluid">'+
         			'<ul class="row txtright">'+
@@ -43,8 +44,10 @@
             if(that.find('.tabs').length <= 0)
             	that.append(tabs);
             
-            if(that.find('.con').length <= 0)
+            if(that.find('.con').length <= 0){
             	that.append(contexts);
+                that.find('.con ul').css('height',cityHeight);
+            }
             
             if(opts.defaultcity != undefined && opts.defaultcity != null){
             	var selecteds =opts.defaultcity.split('-');           	
