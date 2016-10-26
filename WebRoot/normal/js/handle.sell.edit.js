@@ -4,8 +4,6 @@ $(function() {
 		$('.fixed-wrapper').stickUp();
 	});
 	
-	var listedType = $("input[name='listedType']").val();
-	
 	function setElementReadOnly() {
 		if(listedType == 'W') {   //仓单设置以下元素只读
 			$("input[name='listedType']").attr("disabled", "disabled");   //设置挂牌方式只读

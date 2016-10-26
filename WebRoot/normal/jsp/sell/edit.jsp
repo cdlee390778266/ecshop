@@ -30,7 +30,10 @@
 	<script type="text/javascript" src="/normal/js/localcity.js"></script>
     <script type="text/javascript" src="/normal/js/jquery-validate.js"></script>
     <script type="text/javascript" src="/normal/js/stickup.js"></script>
-    <script type="text/javascript" src="/normal/widget/laydate/laydate.js"></script> 
+    <script type="text/javascript" src="/normal/widget/laydate/laydate.js"></script>
+    <script type="text/javascript">
+		var listedType = '${rspBody.listedType}';
+	</script>
     <script type="text/javascript" src="/normal/js/handle.sell.edit.js?v=${sessionScope.buildno}"></script>
     <title>卖方挂牌</title>   
 </head>
