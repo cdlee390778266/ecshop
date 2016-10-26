@@ -182,7 +182,7 @@
 								+ '</li>'
 								+ '<li>'
 								+ '<span class="liTitle">数量</span> ：<span class="fcred">' + row.rem + '/' + row.qty + row.uom
-								+ '</span>吨'
+								+ '</span>'
 								+ '</li>' + summarystr
 								+ '<li>'
 								+ '<span class="liTitle">交收仓库</span> ：<span title="' + row.storage + '">' + row.storage + '</span>'
@@ -194,13 +194,13 @@
 								+ '</ul>'
 								+ '<div class="describe-box">'
 								+ '<div class="product-describe"><p >'
-								+ '无商品描述'
+								+ ''
 								+ '</p>'
 								+ '</div>'
 								+ '</div>'
 								+ '<div class="product-bottom">'
 								+ '<div class="product-bl">' 
-								+ '编号：' + row.mid
+								+ '会员编号：' + row.mid
 								+ '</div>'
 								+ '<div class="product-br">'
 								+ '<span>卖家</span> ' + row.memName

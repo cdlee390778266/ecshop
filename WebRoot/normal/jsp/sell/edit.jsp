@@ -320,7 +320,7 @@
 											<td width="285px">
 											<div class="form_control">
 												<input type="text" name="unitPrice" class="required" id="unitPrice" value="${rspBody.up}" data-limit="${pricelimit}" data-tip="请输入商品单价" data-valid="isNonEmpty||isNoNZeroMoney" data-error="单价必填||金额格式:1.00"/>
-												<span class="priceunit_message">${rspBody.uom}/元</span>
+												<span class="priceunit_message">元/${rspBody.uom}</span>
 											</div>
 											</td>
 											
@@ -498,7 +498,7 @@
                                              <td  class="ctr">商品描述：</td>
                                             <td >   
                                             	<div class="proddetail" style="display:none">${rspBody.detail}</div>                                        
-                                            	<textarea name="detail" id="detail" cols="45" rows="6"></textarea>
+                                            	<textarea name="detail" id="detail" cols="45" rows="6">${rspBody.detail}</textarea>
                                             	<div class="detailmsg" style="color: #f00;"></div>
                                              </td>                                                                   
                                         </tr>
