@@ -102,7 +102,7 @@ $(function() {
 		                	 +'		<div class="sum-commname"><span>'+row.commName+'</span></div>'
 		                	 +'		<div class="sum-detail">'
 		                	 +'			<span class="fixed-focus fixed-bold">单价:'+Number(row.up).formatMoney()+'元/'+row.uom+'</span>'	 
-		                	 +'			<span class="fixed-focus">数量:'+row.rem+'/'+row.qty+row.uom+'</span>'	
+		                	 +'			<span class="fixed-focus">数量:'+row.rem+'/'+row.qty+'</span>'+row.uom
 		                	 +'			<span>交收仓库:'+row.storage+'</span>'	
 		                	 +'			<span>交收类型:'+row.listedTypeName+'</span>'	
 		                	 +			summarystr
@@ -316,7 +316,7 @@ $(function() {
 				                 + '<span class="liTitle">仓单编号</span> ：' + row.listedNo
 				                 + '</li>'
 				                 + '<li>'
-				                 + '<span class="liTitle">数量</span> ：<span class="fcred">' + row.rem+'/'+row.qty+row.uom + '</span>吨'
+				                 + '<span class="liTitle">数量</span> ：<span class="fcred">' + row.rem+'/'+row.qty + '</span>'+row.uom
 				                 + '</li>'
 				                 + summarystr
 				                 + '<li>'

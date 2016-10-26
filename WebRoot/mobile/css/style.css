@@ -1888,6 +1888,20 @@ div.dataTables_filter input {
   background: rgba(0, 0, 0, 0.5) !important;
 }
 
+.up_cdList .mask {
+  z-index: 999;
+}
+.up_cdList #J_cdList {
+  width: 80%;
+  height: auto !important;
+  bottom: auto;
+}
+.up_cdList #J_cdList #confirmbtn1 {
+  width: auto !important;
+  height: 27px;
+  line-height: 19px;
+}
+
 .found-bar a {
   display: inline-block;
   width: 49%;
@@ -2070,8 +2084,8 @@ i.fa {
   display: block;
   float: none;
 }
-.up-datatables .dt-buttons .dt-button {
-  background: #e5c04e;
+.up-datatables .dt-buttons .dt-button, .up-datatables .dt-buttons .dt-button:focus, .up-datatables .dt-button, .up-datatables .dt-buttons .dt-button:focus:hover {
+  background: #e5c04e !important;
   color: #fff;
   width: 100%;
   padding-top: 10px;
@@ -2079,8 +2093,8 @@ i.fa {
   margin-top: 10px;
   border-radius: 4px;
 }
-.up-datatables .dt-buttons .dt-button:hover, .up-datatables .dt-buttons .dt-button:active, .up-datatables .dt-buttons .dt-button.focus {
-  background: #c9a844;
+.up-datatables .dt-buttons .dt-button:active, .up-datatables .dt-buttons .dt-button:focus:active, .up-datatables .dt-button:active, .up-datatables .dt-buttons .dt-button:focus:hover:active {
+  background: #c9a844 !important;
   color: #fff;
 }
 

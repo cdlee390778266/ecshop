@@ -803,6 +803,7 @@
 .user-navs {
   padding: 10px 0;
   border: 1px solid #ddd;
+  min-height: 696px;
 }
 
 .user-navs li {
@@ -815,6 +816,9 @@
 .user-navs li>a{
   color: #333333;
   font-size: 14px;
+}
+.user-navs li dl{
+  display: none;
 }
 .user-navs li dl a{
   color: #666;
@@ -1641,6 +1645,7 @@ button.file-btn .cfile {
   line-height: 38px;
   padding: 0 10px;
   border: none;
+  outline: none;
 }
 
 .screen-search label {
@@ -2161,42 +2166,52 @@ color: #6db23d;
 }
 .up-search .sell-commodity .c-summary .sum-commname{
   background: #fff !important;
-  padding: 6px 0px 6px 0;
- 
+  margin:0; 
+  height: 47px;
+  line-height: 47px;
+  padding: 0;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
 }
 .up-search .sum-detail{
   overflow: hidden;
-    height: 78px;
-    line-height: 36px;
-    margin-top: 0px !important;
+   height: 78px;
+    line-height: 26px;
+    margin-top: 15px !important;
 }
-.up-search .sum-detail span{
+.up-search .sum-detail > div > span{
   display: inline-block;
   width: 31.3%;
   font-size: 13px !important;
   color: #888888;
   text-align: left;
 }
+.up-search .sum-detail > div > span > span{
+  display: inline-block;
+  width: 215px;
+}
 .up-search .sum-detail span strong{
   color: #555555;
 }
 .up-search .sell-commodity .c-supply{
-margin: 0px -11px;
-float: right;
-width: 13%;
+margin: 0px;
+float: left;
+width: 151px;
 height: 119px;
 }
 .up-search .sell-commodity .c-caption{
   height: 139px;
   padding: 0;
-  width: 12%
+  width: 142px;
+  margin:0;
+  border-right: 1px solid #eee;
 }
 .up-search .sell-commodity .c-supply .sup-sellinfo {
     float: left;
     width: 100%;
     height: 92px;
-    border-left: 1px solid #ddd;
-    margin-left: -1px;
+    border-left: 1px solid #eee;
+    margin-left: 0px;
 }
 .up-search td:hover .sum-commname{
   background: #F3F3F3 !important;
@@ -2232,23 +2247,40 @@ height: 119px;
 .up-search .cap-img{
   padding: 10px;
 }
+.up-search #dataset td{
+  padding: 0;
+  border: 1px solid #ddd !important;
+  border-top: none !important;
+}
 .up-search .sell-commodity .c-summary{
-  width: 75.7%;
+  width: 896px;
 }
 .up-search .sell-commodity .c-supply .sup-doe{
   font-size: 13px;
   color: #555555;
+  height: 47px;
+  line-height: 47px;
+  padding: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.up-search #dataset th{
+  height: 0;
+  border:none;
+  border-bottom: 1px solid #ddd;
 }
 .up-search .sum-detail>div{
   overflow: hidden;
 }
-.up-search .sum-detail>div:first-child{
-  border-bottom: 1px solid #ddd;
+.up-search #dataset tr:hover{
+
 }
-.up-search .sum-detail>div span:first-child{
+
+.up-search .sum-detail>div > span:first-child{
   margin-left: 10px;
 }
 .up-search .sum-detail>div span strong{
+  float: left;
   margin-right: 5px;
 }
 .up-search .sell-commodity .c-summary .sum-commname{
@@ -2357,4 +2389,9 @@ table.dataTable.hover tbody tr:hover .sum-commname, table.dataTable.display tbod
 #J_cdList .dataTables_wrapper .dataTables_info{
   margin-top: 0 !important;
   line-height: 9px;
+}
+.ellipsis{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }

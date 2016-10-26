@@ -320,7 +320,7 @@
 											<td width="285px">
 											<div class="form_control">
 												<input type="text" name="unitPrice" class="required" id="unitPrice" value="${rspBody.up}" data-limit="${pricelimit}" data-tip="请输入商品单价" data-valid="isNonEmpty||isNoNZeroMoney" data-error="单价必填||金额格式:1.00"/>
-												<span class="priceunit_message">${rspBody.uom}/元</span>
+												<span class="priceunit_message">元/${rspBody.uom}</span>
 											</div>
 											</td>
 											

@@ -169,7 +169,7 @@ $(function() {
 			$("#remunit").html(d.unit);
 			$("#cinpunit").html(d.unit);
 		}
-		UP.Dialog('J_cdList');
+		UP.Dialog('J_cdList',{width:'80%'});
 	});
 	
 
@@ -188,17 +188,17 @@ $(function() {
 	$('#confirmbtn1').on('click', function(event){
 		var res=/^[0-9]*[1-9][0-9]*$/;
 		if($("#resnum").val() == null || $("#resnum").val() == ""){
-			$("#msg").html('注册数量不能为空！');
+			layer.msg('注册数量不能为空！');
 			event.preventDefault();
 			return;
 		}else{
 			if(!res.test($("#resnum").val())){
-				$("#msg").html('注册数量只能为正整数！');
+				layer.msg('注册数量只能为正整数！');
 				event.preventDefault();
 				return;
 			}else{
 				if(parseFloat($("#resnum").val()) > parseFloat($("#remtmp").html())){
-					$("#msg").html('注册数量不能大于剩余量！');
+					layer.msg('注册数量不能大于剩余量！');
 					event.preventDefault();
 					return;
 				}else{
