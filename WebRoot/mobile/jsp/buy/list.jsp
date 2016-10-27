@@ -79,7 +79,7 @@
 						<li class="item tab-cell"><a data-role='1' id="type2">待付保证金</a></li>
 						<li class="item tab-cell"><a data-role='-1' id="type3">审核未通过</a></li>
 						<li class="item tab-cell"><a data-role='-2' id="type4">已撤消订单</a></li>
-						<li class="item tab-cell"><a href="/mall/list.htm" id="type5">已完成订单</a></li>
+						<li class="item tab-cell"><a href="/delivery/buylist.htm" id="type5">已完成订单</a></li>
 					</ul>
 
 				</div>
