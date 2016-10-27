@@ -30,7 +30,10 @@
 	<script type="text/javascript" src="/normal/js/localcity.js"></script>
     <script type="text/javascript" src="/normal/js/jquery-validate.js"></script>
     <script type="text/javascript" src="/normal/js/stickup.js"></script>
-    <script type="text/javascript" src="/normal/widget/laydate/laydate.js"></script> 
+    <script type="text/javascript" src="/normal/widget/laydate/laydate.js"></script>
+    <script type="text/javascript">
+		var listedType = '${rspBody.listedType}';
+	</script>
     <script type="text/javascript" src="/normal/js/handle.sell.edit.js?v=${sessionScope.buildno}"></script>
     <title>卖方挂牌</title>   
 </head>
@@ -498,7 +501,7 @@
                                              <td  class="ctr">商品描述：</td>
                                             <td >   
                                             	<div class="proddetail" style="display:none">${rspBody.detail}</div>                                        
-                                            	<textarea name="detail" id="detail" cols="45" rows="6"></textarea>
+                                            	<textarea name="detail" id="detail" cols="45" rows="6">${rspBody.detail}</textarea>
                                             	<div class="detailmsg" style="color: #f00;"></div>
                                              </td>                                                                   
                                         </tr>

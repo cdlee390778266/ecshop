@@ -94,7 +94,7 @@
 														<option value="#type2">待付保证金</option>
 														<option value="#type3">审核未通过</option>
 														<option value="#type4">已撤消订单</option>
-														<option value="#type5" selected="">已完成订单</option>
+														<option value="#type5">已完成订单</option>
 													</select>
 													<ul id="J_TabBar" class="pa-tabbar pdeta" style="display:none;">
 														<li class="item tab-cell selected"><a data-role='' id="type0">待处理订单</a></li>

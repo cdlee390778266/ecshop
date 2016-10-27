@@ -85,6 +85,15 @@ $(function() {
 	$dataset = dataTablesInit('#dataset', surl, ajaxfn, defaultOrder, btnfn, columns, columndefs, rowfn);
 	
 	//选项卡选择事件
+	$('#type').change(function(event) {
+		if($(this).val() != '#type5'){
+			$($(this).val()).click();
+		}else{
+			location.href = '/delivery/buylist.htm';
+		}
+	});
+	
+	//选项卡选择事件
 	$('#J_TabBar').on('click', 'li', function() {
         $(this).hasClass('selected') ? $(this).siblings('li')
 						.removeClass('selected') : $(this).siblings('li')
