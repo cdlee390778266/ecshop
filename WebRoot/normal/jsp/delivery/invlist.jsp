@@ -85,8 +85,11 @@
 											<tr>
 												<td width="80" class="ctr">商品分类：</td>
 												<td colspan="5">
-												<input type="hidden" name="commcode" id="commcode" />
-												<div class="selcomm" data-select></div>												
+													<input type="hidden" name="commcode" id="commcode" />
+													<div class="selcomm" data-select></div>
+													<div class="select-box" id="product-dialog">
+														<div class="select-txt" id="select-txt">请选择</div>
+													</div>											
 												</td>
 											</tr>											
 											<tr>												
