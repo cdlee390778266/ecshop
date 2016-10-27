@@ -773,10 +773,10 @@
 }
 
 .user-mans {
-  width: 125px;
+    width: 154px;
   float: left;
   margin-right: 15px;
-  background: #f6f6f6;
+  background:#fafafa
 }
 
 .page .main-content {
@@ -785,7 +785,7 @@
   min-height: 500px;
   margin-bottom: 15px;
   padding-bottom: 66px;
-  border: 1px solid #ddd;
+  border: 1px solid #f0f0f0 ;
 }
 .prelat .main-content{
     border:none !important;
@@ -802,16 +802,21 @@
 
 .user-navs {
   padding: 10px 0;
-  border: 1px solid #ddd;
   min-height: 696px;
+    border: 1px solid #f0f0f0 ;
 }
 
 .user-navs li {
-  line-height: 30px;
+    line-height: 35px;
   cursor: pointer;
   font-size: 12px;
-  margin-bottom: 10px;
-  text-indent: 26px;
+    margin-bottom: 6px;
+    text-align: center;
+}
+.user-navs li dd{
+    text-align: left;
+    text-indent: 52px;
+    margin-bottom: 4px;
 }
 .user-navs li>a{
   color: #333333;
@@ -823,9 +828,7 @@
 .user-navs li dl a{
   color: #666;
 }
-.user-navs li dl a:hover{
-  color:#6db23d
-}
+.user-navs li dl a:hover{color:#6db23d}
 .user-navs li.current .active {
   display: block;
 }
@@ -834,15 +837,14 @@
     color:#6db23d;
     display: block;
     width: 100%;
-    border-left:4px solid #6db23d;
+
 }
 
 .user-navs li em {
   font-style: normal;
   font-family: Arial;
   font-size: 16px;
-  margin-right: 4px;
-  margin-left: -14px;
+
 }
 
 /* end of user-mans */

@@ -1985,6 +1985,7 @@ td.highlight {
          .examine-result .bind-bd{
          	line-height: 40px;
          	padding : 60px 0px;
+             padding-left: 108px;
          }
          .pay-table,.pay-table tr,.pay-table td{
          	border: none !important;
@@ -2068,7 +2069,7 @@ td.highlight {
          }
          .gp-h3{
          	border: none !important;
-         	border-bottom: 1px solid #ddd !important;
+         	border-bottom: 1px solid #f0f0f0  !important;
          }
          .data-query td,.data-query tr,.warehouse td ,.warehouse tr{
          	border: none !important;
