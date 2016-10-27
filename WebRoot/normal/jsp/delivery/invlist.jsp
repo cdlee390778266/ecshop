@@ -54,13 +54,8 @@
 	<div class="wrapper service-full mt30">
 		<div class="grid-16-16">
 			<div class="crumb-nav">
-				<div class="backto">
-					<div class="backrt">
-						<a href="/home.htm">返回首页<i></i></a>
-					</div>
-				</div>
 				<div class="crumb">
-					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/delivery/buylist.htm">会员中心</a><span class="fa  fa-angle-right"></span>采购交收
+					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/delivery/buylist.htm">会员中心</a><span class="fa  fa-angle-right"></span>发票确认
 				</div>
 			</div>
 			
