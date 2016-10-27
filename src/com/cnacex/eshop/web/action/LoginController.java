@@ -220,7 +220,11 @@ public class LoginController extends TradeController{
 	
 	private List<MenuNode> createMemberMenu(LoginRsp loginRsp){
 		
-		List<MenuNode> tradeMenu = new ArrayList<MenuNode>();	
+		List<MenuNode> tradeMenu = new ArrayList<MenuNode>();
+		
+		//添加"我的账户"下面的菜单
+		tradeMenu.add(createMyAcountMenuTree(loginRsp));
+		
 		
 		if(loginRsp.isSellEnable()){
 			
@@ -511,5 +515,59 @@ public class LoginController extends TradeController{
 		tradeMenu.add(menu);
 
 		return tradeMenu;
+	}
+
+	private MenuNode createMyAcountMenuTree(LoginRsp loginRsp) {
+		MenuNode menunode = new MenuNode();
+		
+		//添加我的账户
+		menunode.setHasSubMenu(true);
+		menunode.setMenuName("我的账户");
+		menunode.setMenuURL("/member/home.htm");
+		
+		
+		List<MenuNode> subMenus = new ArrayList<MenuNode>();
+		menunode.setSubMenus(subMenus);
+		
+		MenuNode submenu = new MenuNode();
+		submenu.setHasSubMenu(false);
+		submenu.setMenuName("安全设置");
+		submenu.setMenuURL("/member/home.htm");
+		subMenus.add(submenu);
+		
+		submenu = new MenuNode();
+		submenu.setHasSubMenu(false);
+		submenu.setMenuName("账户信息");
+		submenu.setMenuURL("/member/info.htm");
+		subMenus.add(submenu);
+		
+		char operType = loginRsp.getOperType();
+		if(operType == '1'){
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("支付绑定");
+			submenu.setMenuURL("/member/pay.htm");
+			subMenus.add(submenu);
+			
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("操作员设置");
+			submenu.setMenuURL("/member/manager.htm");
+			subMenus.add(submenu);
+		}else{
+			submenu = new MenuNode();
+			submenu.setHasSubMenu(false);
+			submenu.setMenuName("账户权限");
+			submenu.setMenuURL("/member/right.htm");
+			subMenus.add(submenu);
+		}
+		
+		submenu = new MenuNode();
+		submenu.setHasSubMenu(false);
+		submenu.setMenuName("安全退出");
+		submenu.setMenuURL("/member/logout.htm");
+		subMenus.add(submenu);
+		
+		return menunode;
 	}
 }

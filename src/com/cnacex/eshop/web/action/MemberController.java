@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -57,7 +58,7 @@ import com.cnacex.eshop.util.ActTypeUtil;
 
 @Controller
 @RequestMapping(value="/member")
-public class MemberController {
+public class MemberController extends TradeController{
 	
 	static Logger logger = LoggerFactory.getLogger(MemberController.class);
 	private static final String IMAGEPATH = Config.getValue("ImagePath");
@@ -102,10 +103,11 @@ public class MemberController {
 			@RequestParam(value = "sex", required = false) String operSex,	
 			@RequestParam(value = "operName", required = false) String operName,
 			@RequestParam(value = "operPhoto", required = false) MultipartFile photofile,
-			Model model){  
+			ModelMap model){  
 		
 		logger.debug("查询操作员资料...");
 		LoginRsp loginRsp =(LoginRsp) request.getSession().getAttribute("userinfo");
+		getUrlMatch(loginRsp.getTradeMenus(), model);
 		InfoQueryReq req=new InfoQueryReq();
 		req.setmID(loginRsp.getmID());
 		req.setOperID(loginRsp.getOperID());
@@ -164,6 +166,7 @@ public class MemberController {
 			}
 		}
 		model.addAttribute("user", rspBody);
+
 		
 		return "member/info";
 		
@@ -180,7 +183,9 @@ public class MemberController {
 	     *
 		 */
 	@RequestMapping(value="/home.htm")
-	public String home(Model model){  
+	public String home(ModelMap model){  
+		LoginRsp loginRsp =(LoginRsp) request.getSession().getAttribute("userinfo");
+		getUrlMatch(loginRsp.getTradeMenus(), model);
 		return "member/home";
     }
 	
@@ -190,7 +195,8 @@ public class MemberController {
 	 * @return
 	 */
 	@RequestMapping(value="/account.htm")
-	public String account(Model model){  
+	public String account(Model model){ 
+		
 		return "member/account";
     }
 
@@ -335,11 +341,13 @@ public class MemberController {
 	
 
 	@RequestMapping(value="/right.htm")
-	public String  queryRight(Model model){
+	public String  queryRight(ModelMap model){
 		
 		logger.debug("操作员权限查询...");
 		
 		LoginRsp user=(LoginRsp) request.getSession().getAttribute("userinfo");
+		getUrlMatch(user.getTradeMenus(), model);
+		
 		RightsQueryReq req=new RightsQueryReq();
 		req.setmID(user.getmID());
 		req.setOperID(user.getOperID());
@@ -414,10 +422,11 @@ public class MemberController {
 	     *
 		 */
 	@RequestMapping(value="/pay.htm")
-	public String payInfo(Model model){  
+	public String payInfo(ModelMap model){  
 		
 		
 		LoginRsp loginRsp =(LoginRsp) request.getSession().getAttribute("userinfo");
+		getUrlMatch(loginRsp.getTradeMenus(), model);
 		
 		BindAccQueryRspMsg rspMsg = fundService.queryBindAccInfo(loginRsp.getmID());
 		
@@ -464,9 +473,10 @@ public class MemberController {
 	@RequestMapping(value="/manager.htm")
 	public String manager(
 			@RequestParam(value = "active", required = false) String active,			
-			Model model){  
+			ModelMap model){  
 		
 		LoginRsp user = (LoginRsp)request.getSession().getAttribute("userinfo");
+		getUrlMatch(user.getTradeMenus(), model);
 		
 		InvQueryReq invQueryReq=new InvQueryReq();
 		invQueryReq.setmID(user.getmID());
