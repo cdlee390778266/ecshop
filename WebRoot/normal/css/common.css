@@ -1825,7 +1825,7 @@ button.file-btn .cfile {
   margin-right: 5px;
 }
 .dataTables_scrollBody tbody{
-  color: #666;
+  color: #333;
 }
 .crumb a:last-child{
   color: #999;
