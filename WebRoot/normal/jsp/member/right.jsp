@@ -17,6 +17,8 @@
     <link type="text/css" rel="stylesheet" href="/normal/css/member.css" />
     <script type="text/javascript" src="/normal/js/jquery.js"></script>
     <script type="text/javascript" src="/normal/js/stickup.js"></script>
+    <script type="text/javascript" src="/normal/js/leftnavs.js"></script>
+
     <title>账户权限</title>
     
 </head>
@@ -44,72 +46,54 @@
 			
 			<!-- main -->
 			<div class="page">
-				<div class="user-mans">
-					<div class="portrait-big">
-						<c:if test="${empty sessionScope.userinfo.operPhoto}">
-							<img  width="200" height="161" alt="" src="/images/portrait.jpg" />
-						</c:if>
-						<c:if test="${!empty sessionScope.userinfo.operPhoto}">
-							<img  width="200" height="161" alt="" src="${sessionScope.userinfo.operPhoto}"/>
-						</c:if>
-					</div>
-					<div class="ucenter">
-						<span>我的账户</span>
-					</div>
-					<div class="user-navs members">
-						<ul>
-							<li><a href="/member/home.htm">安全设置</a></li>
-							<li><a href="/member/info.htm">账户信息</a></li>
-							
-							<c:choose>
-						   		<c:when test="${sessionScope.userinfo.operType=='1'}">  
-									<li><a href="/member/pay.htm">支付绑定</a></li>
-									<li><a href="/member/manager.htm">操作员设置</a></li>    
-							    </c:when>
-							    <c:otherwise> 
-							   		<li class="current"><a href="/member/right.htm" class="mlnks">账户权限</a></li>
-							    </c:otherwise>
-							</c:choose>
-							<li><a href="logout.htm">安全退出</a></li>
-						</ul>
-					</div>
-				</div>
-				
+				<!-- left -->
+				<jsp:include page="../comm/left.jsp" flush="true" />
+				<!-- left End -->
 				
 				<div class="main-content">
 					<div class="bd">
 							<div class="page-module permiss">
 	
 								<div class="row">
-									<div class="hd">
+									<div class="hd gp-h3">
 										<h3>当前权限</h3>
 									</div>
 									<div class="bd">
-	
+	               
 										<div class="permiss-info">
-											<dl>
+											
 												<c:if test="${fn:length(txRights)>0}">	
+											<dl>
 												<dt>交易权限</dt>
 												<dd>																											
 														<c:forEach items="${txRights}" var="tr">
 															<span>${tr.clsName}</span>													
 														</c:forEach>													
 												</dd>
+											</dl>
 												</c:if>
+
 												<c:if test="${fn:length(auRights)>0}" >	
+											<dl>
 												<dt>审核权限</dt>
 												<dd>													
 														<c:forEach items="${auRights}" var="ar">
 															<span>${ar.clsName}</span>														
 														</c:forEach>													
 												</dd>
+											</dl>
 												</c:if>
-												<c:if test="${PRight==true}" >	
-													<dt>资金管理权限</dt>
+
+												<c:if test="${PRight==true}" >
+											<dl>
+												<dt>资金管理权限</dt>
+											</dl>		
 												</c:if>
 												
 												<c:if test="${MRight==true}" >	
-													<dt>会员管理权限</dt>
+											<dl>
+												<dt>会员管理权限</dt>
+											</dl>
 												</c:if>
 											</dl>
 										</div>

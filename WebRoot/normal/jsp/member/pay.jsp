@@ -17,6 +17,8 @@
     <link type="text/css" rel="stylesheet" href="/normal/css/member.css" />
     <script type="text/javascript" src="/normal/js/jquery.js"></script>
     <script type="text/javascript" src="/normal/js/stickup.js"></script>
+    <script type="text/javascript" src="/normal/js/leftnavs.js"></script>
+
     <title>支付绑定</title>
     
 </head>

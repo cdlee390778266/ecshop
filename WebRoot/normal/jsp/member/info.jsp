@@ -22,6 +22,8 @@
 	<script type="text/javascript" src="/normal/js/jquery-validate.js"></script>
 	<script type="text/javascript" src="/normal/js/stickup.js"></script>
 	<script type="text/javascript" src="/normal/widget/layer/layer.js"></script>
+	<script type="text/javascript" src="/normal/js/leftnavs.js"></script>
+
 	<title>账户信息</title>
 
 </head>

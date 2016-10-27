@@ -29,6 +29,7 @@
     <script type="text/javascript" src="/normal/js/icheck.js"></script>
     <script type="text/javascript" src="/normal/js/jquery-validate.js"></script>
     <script type="text/javascript" src="/normal/js/stickup.js"></script>
+    <script type="text/javascript" src="/normal/js/leftnavs.js"></script>
     <script type="text/javascript" src="/normal/js/handle.m.manger.js?v=${sessionScope.buildno}"></script>
     
     <title>操作员设置</title>

@@ -99,47 +99,37 @@
 								
 								<c:forEach items="${rspBody.details}" var="info" varStatus="status">
 								<div class="tab-content" <c:if test="${status.count != 1}"> style="display:none;" </c:if>>
-									<table class="ui-table">
-										<c:if test="${info.acctType=='00'}">
-										<tr class="section-row">
-											<td>
+                                  <ul class="info-data">
+                                  	<c:if test="${info.acctType=='00'}">
+										<li>
 												<p >余额:<span><fmt:formatNumber value="${info.totalBal}" type="currency" pattern="￥#,##0.00#元" /></span></p>
-											</td>
-										</tr>
+										</li>
 									</c:if>
-									<tr>
-										<td>
-											<p >可用余额:<span><fmt:formatNumber value="${info.avalBal}" type="currency" pattern="￥#,##0.00#元" /></span></p>
-										</td>
-									</tr>
-									<tr class="section-row">
-										<td><p>冻结余额:<span><fmt:formatNumber value="${info.frzAmt}" type="currency" pattern="￥#,##0.00#元" /></span></p>
-										</td>
-									</tr>
 
-									<c:if test="${info.acctType=='00'}">
-									<tr>
-										<td>
+									<li>
+										<p >可用余额:<span><fmt:formatNumber value="${info.avalBal}" type="currency" pattern="￥#,##0.00#元" /></span></p>
+									</li>
+
+									<li>
+										<p>冻结余额:<span><fmt:formatNumber value="${info.frzAmt}" type="currency" pattern="￥#,##0.00#元" /></span></p>
+
+										<c:if test="${info.acctType=='00'}">
+									    <div>
 											<p >冻结交易保证金:<span><fmt:formatNumber value="${info.frzMargin}" type="currency" pattern="￥#,##0.00#元" /></span></p>
-										</td>
-									</tr>
-									<tr class="section-row">
-										<td>
-											<p >冻结发票保证金:<span><fmt:formatNumber value="${info.frzInvMargin}" type="currency" pattern="￥#,##0.00#元" /></span></p>
-										</td>
-									</tr>
-									<tr >
-										<td>
+										
+									
+											<p>冻结发票保证金:<span><fmt:formatNumber value="${info.frzInvMargin}" type="currency" pattern="￥#,##0.00#元" /></span></p>
+										
 											<p >冻结货款:<span><fmt:formatNumber value="${info.frzPOG}" type="currency" pattern="￥#,##0.00#元" /></span></p>
-										</td>
-									</tr>
-									<tr class="section-row">
-										<td>
+										
 											<p>冻结手续费:<span><fmt:formatNumber value="${info.frzPond}" type="currency" pattern="￥#,##0.00#元" /></span></p>
-										</td>
-									</tr>
+
+										</div>
+										
 								</c:if>
-							</table>
+									</li>
+
+                                  </ul>
 						</div>
 					</c:forEach>	
 				</div>	
