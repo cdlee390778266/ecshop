@@ -41,11 +41,11 @@
 			<div id="J_SetPwd" >
 				<div class="row">
 					<div class="input-group form-group-lg">
-						<span class="input-group-addon "><span id="prompt_old">用户</span>旧密码</span>
+						<span class="input-group-addon "><span id="prompt_old" style="margin-left:12px;">用户</span>旧密码</span>
 						<input type="password" id="oldpassword" class="inp modifyPwd form-control" maxlength="16" name="oldpassword" tabindex="1" onpaste="return false" oncopy="return false" placeholder="6-16位数字密码" required="" />
 					</div>
 					<div class="input-group  form-group-lg">
-						<span class="input-group-addon "><span id="prompt_new">用户</span>新密码</span>
+						<span class="input-group-addon "><span id="prompt_new" style="margin-left:12px;">用户</span>新密码</span>
 						<input type="password" id="newpassword" class="inp modifyPwd form-control" maxlength="16"  name="newpassword" tabindex="2" onpaste="return false" oncopy="return false"  placeholder="6-16位数字密码" required="" />
 					</div>
 					<div class="input-group  form-group-lg">

@@ -122,7 +122,7 @@
 										</div>
 										<input type="text" readonly="readonly" name="wrno" id="wrno" />
 										<a href="#" id="selectCd" >选择仓单编码</a>	
-										<span id="codev" class="valid_message" ></span>
+										<span id="codev" class="valid_message" style="display:none;"></span>
 									</div>
 								</div>
 								<div class="gp-step-btn txtcenter">
@@ -212,23 +212,8 @@
 											<span><input type="checkbox" name="mart" value="E" >专有专场</span>
 										--></td>
 
-									</tr>
-												<!-- <tr>
-													<td class="ctr">最后付款日<span class="forceinput">(必填)</span>：
-													</td>
-													<td>合同签定后 <input type="text" name="lastPD" id="lastPD"
-														maxlength="4"
-														style="width: 40px; height: 24px; padding: 5px 5px; border: 1px solid #ECECEC;"
-														autocomplete="off" />天 <span class="valid_message"></span>
-													</td>
-													<td class="ctr">最后交收日<span class="forceinput">(必填)</span>：
-													</td>
-													<td>全款支付后 <input type="text" name="deliDate"
-														id="deliDate" maxlength="4"
-														style="width: 40px; height: 24px; padding: 5px 5px; border: 1px solid #ECECEC;"
-														autocomplete="off" />天 <span class="valid_message"></span>
-													</td>
-												</tr> -->
+									  </tr>
+					
 												<tr>
 													<td class="ctr">交收仓库<span class="forceinput">(必选)</span>：
 													</td>

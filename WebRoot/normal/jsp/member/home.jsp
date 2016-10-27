@@ -22,6 +22,8 @@
 	<script type="text/javascript" src="/normal/js/ui.tips.js"></script>
 	<script type="text/javascript" src="/normal/js/sha.js"></script>
 	<script type="text/javascript" src="/normal/js/stickup.js"></script>
+	<script type="text/javascript" src="/normal/js/leftnavs.js"></script>
+
 	<title>安全设置</title>
 
 </head>

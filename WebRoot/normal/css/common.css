@@ -2116,9 +2116,6 @@ border-bottom: 1px solid transparent;
   color: #fff;
   background: #6db23d;
 }
-.up-page-main a:first-child{
-   border-left: 1px solid #e4e4e4;
-}
 .up-page-main span{
   margin: 0 10px;
 }

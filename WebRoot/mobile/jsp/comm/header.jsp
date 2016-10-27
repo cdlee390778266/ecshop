@@ -17,9 +17,9 @@
 
        <div class="btn-group" role="group">
 
-           <a id="btnGroupVerticalDrop1"  class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+           <a href="#" id="hamburger-menu"  class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
 
-          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupVerticalDrop1">
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="hamburger" id="hamburger">
              <li><a href="/home.htm">交易大厅</a></li>
              <li><a ui-sref="{{topData[3]}}">全部商品</a></li>
          </ul>

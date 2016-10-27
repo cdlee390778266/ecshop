@@ -628,7 +628,6 @@ table.table-primary thead td {
 
 .permiss-info {
 	margin-top: 5px;
-	border: 1px solid #EAEAEA;
 	padding: 0 10px;
 }
 
@@ -642,17 +641,24 @@ table.table-primary thead td {
 }
 
 .permiss-info dl {
-	line-height: 2;
+	line-height: 26px;
 	font-size: 14px;
+	margin: 0px 20px ;
+	padding: 20px 0;
+	border-bottom: 1px dashed #dedede;
 }
 
 .permiss-info dt {
-	color: #f47912;
-	padding-top: 5px;
+	color: #333;
+	font-weight: normal;
+	background: url(/normal/images/success.png) left center no-repeat;
+	padding-left: 20px;
 }
 
 .permiss-info dd {
-	border-bottom: 1px dashed #dedede;
+	color: #666;
+	font-weight: normal;
+	padding-left: 20px;
 }
 
 .permiss-info dd span {
@@ -2089,7 +2095,6 @@ td.highlight {
          .paging_simple_numbers > span a{
          	margin :0px !important;
          	border: none !important;
-         	border-right: 1px solid #ddd !important;
          }
          .paging_simple_numbers > span a:last-child{
          	border-right: none !important;
@@ -2544,4 +2549,23 @@ td.highlight {
 }
 .cd-gp li a{
 	width: 396px !important;
+}
+.info-data{
+	line-height: 40px;
+}
+.info-data li{
+	border: 1px solid #ddd;
+	margin-bottom: 5px;
+	background: #f8f8f8;
+}
+.info-data li>p{
+	margin : 0 20px;
+}
+.info-data li>div{
+	padding : 0 20px;
+	background: #fff;
+	border-top: 1px solid #ddd;
+}
+.info-data li p span{
+   color: #e5c04e;
 }

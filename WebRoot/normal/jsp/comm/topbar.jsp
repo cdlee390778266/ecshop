@@ -103,8 +103,7 @@
 <dl class="mart20">
 	<c:forEach items="${sessionScope.userinfo.tradeMenus}" var="menu" >
 	<dd><a href="${menu.menuURL}">${menu.menuName}</a></dd>
-</c:forEach>
-<dd><a href="/member/home.htm" >我的账户</a></dd>	
+</c:forEach>	
 </dl>
 </div>
 </div>
