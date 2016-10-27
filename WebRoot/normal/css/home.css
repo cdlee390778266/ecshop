@@ -264,9 +264,8 @@
 	width:100%;
 }
 
-.sell-commodity .c-summary .sum-detail span{
+.sell-commodity .c-summary .sum-detail > div > span{
 	float:left;
-    margin: 4px 5px;
     font-size: 16px;
     min-width: 150px
 }

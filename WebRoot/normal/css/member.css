@@ -1791,12 +1791,12 @@ table.table-primary thead td {
 }
 
 .rpt-model .selected {
-	background: #5a98de;
-	color: #ffffff;
+	background: #f5f5f5;
+	color: #666;
 }
 
 .rpt-model .over {
-	background: #3bb4f2;
+	background: #f6f6f6;
 }
 
 .rpt-model thead tr th {
@@ -1806,7 +1806,7 @@ table.table-primary thead td {
 }
 
 .rpt-model tbody tr td {
-	border: 1px solid;
+	border: 1px solid #ddd;
 	height: 25px;
 	white-space: nowrap;
 }
@@ -1984,7 +1984,7 @@ td.highlight {
          }
          .examine-result .bind-bd{
          	line-height: 40px;
-         	padding : 60px 20px;
+         	padding : 60px 0px;
          }
          .pay-table,.pay-table tr,.pay-table td{
          	border: none !important;

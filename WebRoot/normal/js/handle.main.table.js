@@ -181,8 +181,8 @@
 								+ '<span class="liTitle">仓单编号</span> ：' + row.listedNo
 								+ '</li>'
 								+ '<li>'
-								+ '<span class="liTitle">数量</span> ：<span class="fcred">' + row.rem + '/' + row.qty + row.uom
-								+ '</span>'
+								+ '<span class="liTitle">数量</span> ：<span class="fcred">' + row.rem + '/' + row.qty
+								+ '</span>' + row.uom
 								+ '</li>' + summarystr
 								+ '<li>'
 								+ '<span class="liTitle">交收仓库</span> ：<span title="' + row.storage + '">' + row.storage + '</span>'
@@ -194,7 +194,7 @@
 								+ '</ul>'
 								+ '<div class="describe-box">'
 								+ '<div class="product-describe"><p >'
-								+ ''
+								+ '无买家需求描述'
 								+ '</p>'
 								+ '</div>'
 								+ '</div>'

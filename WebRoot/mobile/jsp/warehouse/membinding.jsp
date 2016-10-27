@@ -113,9 +113,5 @@
 
 </div>
 
-<!-- footer -->
-<jsp:include page="../comm/footer.jsp" flush="true" />
-<!-- footer End -->
-
 </body>
 </html>

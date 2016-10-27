@@ -1790,6 +1790,22 @@ to {
 .mask{
   background:rgba(0,0,0,0.5) !important;
 }
+.up_cdList{
+  .mask{
+  z-index: 999;
+}
+#J_cdList {
+  width:80%;
+  height:auto !important;
+  bottom:auto;
+}
+#J_cdList #confirmbtn1{
+  width:auto !important;
+  height:27px;
+  line-height: 19px;
+}
+
+}
 .found-bar a{
   display:inline-block;
   width:49%;
@@ -1955,16 +1971,16 @@ i.fa {
   display:block;
   float:none;
 }
-.dt-buttons .dt-button{
-  background:$fcyellow;
+.dt-buttons .dt-button,.dt-buttons .dt-button:focus,.dt-button,.dt-buttons .dt-button:focus:hover{
+  background:$fcyellow !important;
   color:#fff;
   width:100%;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 10px;
   border-radius: 4px;
-  &:hover,&:active,&.focus{
-    background:#c9a844;
+  &:active{
+    background:#c9a844 !important;
     color:#fff;
   }
 }

@@ -2,6 +2,7 @@
 .classpath
 .mymetadata
 .project
+<<<<<<< HEAD
 WebRoot/WEB-INF/classes/
 /build/
 scss/
@@ -10,3 +11,8 @@ dist/
 .idea/
 WebRoot/WEB-INF/classes
 WebRoot/WEB-INF/weblogic.xml
+=======
+WebRoot/WEB-INF/classes/
+dist/
+build/
+>>>>>>> origin/dev_warrant
