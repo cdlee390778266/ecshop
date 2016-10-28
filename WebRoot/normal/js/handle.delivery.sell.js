@@ -316,7 +316,7 @@ $(function() {
         d.strikeNo = $('#strikeNo').val();
         d.lastPD = $('#lastPD').val();
         d.status = $('#status').val();
-        d.commcode = $('#commcode').val();
+        d.code = $('#commcode').val();
 	};
 	
 	var defaultOrder = [9, "asc"];

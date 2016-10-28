@@ -54,13 +54,8 @@
 	<div class="wrapper service-full mt30">
 		<div class="grid-16-16">
 			<div class="crumb-nav">
-				<div class="backto">
-					<div class="backrt">
-						<a href="/home.htm">返回首页<i></i></a>
-					</div>
-				</div>
 				<div class="crumb">
-					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/delivery/buylist.htm">会员中心</a><span class="fa  fa-angle-right"></span>采购交收
+					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/delivery/buylist.htm">会员中心</a><span class="fa  fa-angle-right"></span>发票确认
 				</div>
 			</div>
 			
@@ -83,10 +78,14 @@
 								    <table class="ui-table">
 										<tbody>
 											<tr>
-												<td width="80" class="ctr">商品类型：</td>
-												<td >
-												<input type="hidden" name="commcode" id="commcode" />
-												<div class="selcomm" data-select></div>												
+
+												<td width="80" class="ctr">商品分类：</td>
+												<td>
+													<input type="hidden" name="commcode" id="commcode" />
+													<div class="selcomm" data-select></div>
+													<div class="select-box" id="product-dialog">
+														<div class="select-txt" id="select-txt">请选择</div>
+													</div>											
 												</td>
                                                 <td class="ctr">交收状态：</td>
 												<td>

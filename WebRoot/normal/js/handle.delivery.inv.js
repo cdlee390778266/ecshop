@@ -378,7 +378,7 @@ $(function() {
         d.lastPD = $('#lastPD').val();
         d.elastPD = $('#elastPD').val();
         d.status = $('#status').val();
-        d.commcode = $('#commcode').val();
+        d.code = $('#commcode').val();
 	};
 	
 	var defaultOrder = [8, "asc"];
