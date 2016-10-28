@@ -82,8 +82,8 @@
 									<table class="ui-table">
 										<tbody>
 											<tr>
-												<td width="80" class="ctr">商品分类：</td>
-												<td colspan="5">
+												<td width="80" class="ctr">商品类型：</td>
+												<td>
 													<input type="hidden" name="commcode" id="commcode" />
 													<div class="selcomm" data-select></div>
 													<div class="select-box" id="product-dialog">

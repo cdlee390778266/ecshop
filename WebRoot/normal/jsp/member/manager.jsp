@@ -107,66 +107,6 @@
 </div>
 </c:forEach>
 
-
-
-<!-- <div class="operlist-item">
- <div class="box">
-  <table class="ui-table table-primary">
-   <thead>
-    <tr>
-     <td>编号</td>
-     <td>姓名</td>
-     <td>状态</td>
-     <td colspan="2">操作</td>
- </tr>
-</thead>
-<tbody>								
-    <c:forEach items="${operlist}" var="oper" varStatus="obj">
-    <c:if test="${obj.count%2=='0'}">
-    <tr class="theader">
-    </c:if>
-
-    <c:if test="${obj.count%2!='0'}">
-    <tr>
-    </c:if>
-    <td class="pl15">${oper.operID}</td>
-    <td>${oper.operName}</td>
-
-    <td>
-      <c:if test="${oper.status == 100}">
-      已注销
-  </c:if>
-  <c:if test="${oper.status != 100}">
-  活动
-</c:if>														
-</td>
-<td>
-  <c:if test="${oper.status != 100}">
-  <a href="javascript: void(0)" class="cor-yellow J_modify" data-href="modify_template" data-id="${oper.operID}">修改</a>
-</c:if>
-
-</td>
-<td>
-  <c:if test="${oper.status != 100}">
-  <c:if test="${oper.operID !=  sessionScope.userinfo.operID}">
-  <a href="javascript: void(0)" class="cor-yellow J_delete" data-id="${oper.operID}">注销</a>
-</c:if>
-</c:if>
-<c:if test="${oper.status == 100}">
-<c:if test="${oper.operID !=  sessionScope.userinfo.operID}">
-<a href="javascript: void(0)" class="cor-yellow J_active" data-id="${oper.operID}">启用</a>
-</c:if>
-</c:if>
-</td>
-</tr>
-</c:forEach>
-</tbody>
-</table>
-</div>
-<div class="fn-fr mr30" style="margin-top: 20px;">
-
-</div>
-</div> -->
 </div>
 
 
@@ -219,7 +159,7 @@
                                     <td class="ctr">用户头像：</td>
                                     <td>
                                        <div class="clearfix">
-                                        <img id="operPhotoPre" src="" width="120px" height="120px" style="display: block;float:left" onerror="this.src='/images/portrait.jpg'">
+                                        <img id="operPhotoPre" src="" width="120px" height="120px" style="display: block;float:left" onerror="this.src='/normal/images/portrait.jpg'">
                                         <span class="btn-upload fileinput ml10">
                                             <span>选择头像</span>
                                             <input type="file" name="operPhoto" id="operPhoto" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" />

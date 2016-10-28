@@ -83,14 +83,12 @@
 								    <table class="ui-table">
 										<tbody>
 											<tr>
-												<td width="80" class="ctr">商品分类：</td>
-												<td colspan="5">
+												<td width="80" class="ctr">商品类型：</td>
+												<td >
 												<input type="hidden" name="commcode" id="commcode" />
 												<div class="selcomm" data-select></div>												
 												</td>
-											</tr>											
-											<tr>												
-												<td class="ctr">交收状态：</td>
+                                                <td class="ctr">交收状态：</td>
 												<td>
 													<select name="status" id="status" class="csel">
 														<option value="400">买方待确认发票</option>
@@ -98,6 +96,8 @@
 												</td>
 												<td class="ctr">交收单号：</td>
 												<td><input type="text"  name="strikeNo" id="strikeNo"  class="cinp"/></td>
+											</tr>											
+											<tr>												
 												<td class="ctr">最后付款日：</td>
 												<td><input type="text"  name="lastPD" id="lastPD" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date ml10"/>
 												至

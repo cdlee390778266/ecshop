@@ -120,12 +120,12 @@
 <div class="mask" id="masker"></div>
 <!-- 增加 -->
 <script id="add_template" type="text/x-handlebars-template"> 
-  <div class="updialog d-add-role w700" id="dialog_add_template">
+  <div class="updialog d-add-role manager-dialog" id="dialog_add_template">
     <div class="hd">
       <span class="close dclose ic"></span>
       <h3>新增操作员</h3>
     </div>
-    <div class="main safe examine addoperation manager-dialog">
+    <div class="main safe examine addoperation">
       <div class="container-fluid">
         <div class="duserinfo">
           <div class="bd mt10 warehouse">
@@ -229,12 +229,12 @@
 
 
 <script id="modify_template" type="text/x-handlebars-template">
-  <div class="updialog d-add-role w700" id="dialog_modify_template">
+  <div class="updialog d-add-role manager-dialog" id="dialog_modify_template">
     <div class="hd">
       <span class="close dclose ic"></span>
       <h3>修改操作员</h3>
     </div>
-    <div class="main safe examine addoperation manager-dialog">
+    <div class="main safe examine addoperation">
       <div class="container-fluid">
         <div class="duserinfo">
           <div class="bd mt10 warehouse">

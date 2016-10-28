@@ -58,7 +58,7 @@
 
 				<div class="col-xs-12">
 					<div class="input-group">
-						<span class="input-group-addon">商品分类</span>
+						<span class="input-group-addon"><span class="marl14">商品分类</span></span>
 						<input type="text" class="selcomm_dialog form-control" placeholder="请选择商品">
 						<input type="hidden" name="commcode" id="commcode" />
 						<div class="selcomm" data-select></div>
@@ -67,7 +67,7 @@
 
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
-						<span class="input-group-addon">交收状态</span>
+						<span class="input-group-addon"><span class="marl14">交收状态</span></span>
 						<select name="status" id="status" class="csel form-control">
 							<option value="400">买方待确认发票</option>
 						</select>
@@ -76,7 +76,7 @@
 
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
-						<span class="input-group-addon">交收单号</span>
+						<span class="input-group-addon"><span class="marl14">交收单号</span></span>
 						<input type="text"  name="strikeNo" id="strikeNo"  class="cinp form-control"/>
 					</div>
 				</div>

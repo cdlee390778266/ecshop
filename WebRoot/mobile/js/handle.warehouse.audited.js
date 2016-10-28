@@ -85,7 +85,7 @@ $(function() {
 	  	            	
 		                var html = '';
 		                if(enablePay == 1){
-		                	html =  '<input type="button" value="注册仓单挂牌" class="J_Show cbtn" data-key="' + index.row + '" />';
+		                	// html =  '<input type="button" value="注册仓单挂牌" class="J_Show cbtn" data-key="' + index.row + '" />';
 		                }
 		                
 		                return html;

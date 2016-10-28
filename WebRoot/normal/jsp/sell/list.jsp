@@ -76,7 +76,7 @@
 									<table class="ui-table">
 										<tbody>
 											<tr>
-												<td width="120px" class="ctr">商品类型：</td>
+												<td width="80px" class="ctr">商品类型：</td>
 												<td>
 													<input type="hidden" name="commcode" id="commcode" />
 													<div class="selcomm" data-select></div>
@@ -107,6 +107,8 @@
 
 													</ul>
 												</td>
+												<td width="110"></td>
+												<td width="227"></td>
 											</tr>									
 										</tbody>
 									</table>
