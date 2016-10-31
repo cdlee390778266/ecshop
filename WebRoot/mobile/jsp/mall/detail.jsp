@@ -238,7 +238,7 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-6 ">
-			数量(剩余量/总数量)： <strong><span class="fcyellow ">${rspBody.rem}/</span><span class="fcgreen strong ">${rspBody.qty}${rspBody.uom}</span> <span class="fc333 ">吨</span></strong>
+			数量(剩余量/总数量)： <strong><span class="fcyellow ">${rspBody.rem}/</span><span class="fcgreen strong ">${rspBody.qty}</span> <span class="fc333 ">${rspBody.uom}</span></strong>
 		</div>
 
 		<c:if test="${enableBuy=='true'}">

@@ -53,7 +53,7 @@
 
 				<div class="col-xs-12">
 					<div class="input-group">
-						<span class="input-group-addon">&nbsp;&nbsp; 商品类型</span>
+						<span class="input-group-addon"><span class="marl14">商品类型</span></span>
 						<input type="text" class="selcomm_dialog form-control" placeholder="请选择商品" >
 						<input type="hidden" name="commcode" id="commcode" />
 						<div class="selcomm" data-select></div>
@@ -62,16 +62,16 @@
 
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
-						<span class="input-group-addon">&nbsp;&nbsp; 订立日期</span>
+						<span class="input-group-addon"><span class="marl14">订立日期</span></span>
 						<input type="text" name="contTime" id="contTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date form-control" />
-						<span class="input-group-addon">至</span>
+						<span class="input-group-addon date-pad">至</span>
 						<input type="text" name="econtTime" id="econtTime" maxlength="10" datepicker data-date-format="yyyy-mm-dd"  data-auto-close="true"  class="cinp-date form-control" />
 					</div>
 				</div>
 
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
-						<span class="input-group-addon">&nbsp;&nbsp; 买卖方向</span>
+						<span class="input-group-addon"><span class="marl14">买卖方向</span></span>
 						<select name="bsType" id="bsType" class="csel form-control">
 							<option value="" selected>全部</option>
 							<option value="B" >采购合同</option>
@@ -82,7 +82,7 @@
 
 				<div class="col-xs-12 mart10">
 					<div class="input-group">
-						<span class="input-group-addon">&nbsp;&nbsp; 合同状态</span>
+						<span class="input-group-addon"><span class="marl14">合同状态</span></span>
 						<select name="status" id="status"  class="csel form-control">
 							<option value="">全部</option>
 							<option value="0">合同执行中</option>
@@ -95,7 +95,7 @@
 
 				<div class="col-xs-12 mart10 ">
 					<div class="input-group">
-						<span class="input-group-addon">&nbsp;&nbsp; 合同编号</span>
+						<span class="input-group-addon"><span class="marl14">合同编号</span></span>
 						<input type="text" class="cinp form-control" name="contNo" id="contNo" />
 					</div>
 				</div>

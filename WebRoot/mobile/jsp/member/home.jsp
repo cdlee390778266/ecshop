@@ -42,15 +42,15 @@
 				<div class="row">
 					<div class="input-group form-group-lg">
 						<span class="input-group-addon "><span id="prompt_old" style="margin-left:12px;">用户</span>旧密码</span>
-						<input type="password" id="oldpassword" class="inp modifyPwd form-control" maxlength="16" name="oldpassword" tabindex="1" onpaste="return false" oncopy="return false" placeholder="6-16位数字密码" required="" />
+						<input type="password" id="oldpassword" class="inp modifyPwd form-control" maxlength="16" name="oldpassword" tabindex="1" onpaste="return false" oncopy="return false" placeholder="6-16位密码" required="" />
 					</div>
 					<div class="input-group  form-group-lg">
 						<span class="input-group-addon "><span id="prompt_new" style="margin-left:12px;">用户</span>新密码</span>
-						<input type="password" id="newpassword" class="inp modifyPwd form-control" maxlength="16"  name="newpassword" tabindex="2" onpaste="return false" oncopy="return false"  placeholder="6-16位数字密码" required="" />
+						<input type="password" id="newpassword" class="inp modifyPwd form-control" maxlength="16"  name="newpassword" tabindex="2" onpaste="return false" oncopy="return false"  placeholder="6-16位密码" required="" />
 					</div>
 					<div class="input-group  form-group-lg">
 						<span class="input-group-addon "><span id="prompt_conf">用户</span>确认密码</span>
-						<input type="password" id="confpassword" class="inp modifyPwd form-control" maxlength="16"  name="confpassword"  onpaste="return false" oncopy="return false" placeholder="6-16位数字密码" required="" />
+						<input type="password" id="confpassword" class="inp modifyPwd form-control" maxlength="16"  name="confpassword"  onpaste="return false" oncopy="return false" placeholder="6-16位密码" required="" />
 					</div>
 				</div>
 				<div class="col-xs-12 martb40">

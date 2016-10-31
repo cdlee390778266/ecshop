@@ -106,159 +106,143 @@
 	</div>
 	<div class="item-info clearfix">
 
-								<!-- <div class="item-info-l">
-									<div class="pa-gallery">
-
-										<div class="pa-booth pa-pic">
-											<c:if test="${fn:length(rspBody.titlePic)>0}"> 
-												<a href="${rspBody.titlePic}" id="zoom1" rel="nofollow" class="MagicZoom MagicThumb" target="_blank">     
-													<img id="J_ImgBooth" src="${rspBody.titlePic}" width="200px" height="200px"  onError="this.src='/images/loadfail.jpg'" >
-											 	</a>
-											</c:if>
-											<c:if test="${fn:length(rspBody.titlePic)<= 0}">   
-												<img  src="/images/loadfail.jpg" width="200px" height="200px" >
-											</c:if>																				 
-										</div>
+		<div class="item-info-r">
+			<div class="property">
+				<div class="pa-wrap">
+					<div class="pa-wrap-x">
+						<div class="pa-title">
+							<h3><strong class="product-name">${rspBody.commName} </strong><span>${rspBody.title}</span>
+								<c:if test="${enableBuy=='true'}">  							
+								<div class="pa-action fr">
+									<div class="pa-btn-buy fn-fl">
+										<a href="/buy/prepare/${rspBody.listedNo}.htm"  class="btn-normal btn-buy">立即购买</a>														 
 									</div>
-								</div> -->
-
-								<div class="item-info-r">
-									<div class="property">
-										<div class="pa-wrap">
-											<div class="pa-wrap-x">
-												<div class="pa-title">
-													<h3><strong class="product-name">${rspBody.commName} </strong><span>${rspBody.title}</span>
-														<c:if test="${enableBuy=='true'}">  							
-														<div class="pa-action fr">
-															<div class="pa-btn-buy fn-fl">
-																<a href="/buy/prepare/${rspBody.listedNo}.htm"  class="btn-normal btn-buy">立即购买</a>														 
-															</div>
-														</div>
-													</c:if>
-												</h3>
-											</div>
-											<div class="product-bar">
-												单价：<span class="price marr30"><small>￥</small><fmt:formatNumber value="${rspBody.up}" type="currency" pattern="0.00元" />/${rspBody.uom}</span>
-												数量（剩余数量/总数量）：<span class="fnt-bnd"> <span class="fs18"><span class="fcyellow">${rspBody.rem}</span>/${rspBody.qty}</span> ${rspBody.uom}</span>
-											</div>
-
-											<div class="pa-skin clearfix product-data" id="choose">
-												<table class="ui-table">
-													<tr >
-														<th class="product-dataTitle" colspan="4">挂牌信息</th>
-													</tr>
-													<tr>
-														<td width="120px" >挂牌有效期：</td>
-														<td>${rspBody.doe} </td>
-														<td width="120px" >挂牌单号：</td>
-														<td>${rspBody.listedNo}</td>
-													</tr>
-													<tr>
-														<td >交货仓库：</td>
-														<td>${rspBody.storage}</td>
-														<td >交收类型：</td>
-														<td>${rspBody.listedTypeName}</td>
-													</tr>
-													<tr>
-														<td >最后付款日：</td>
-														<td>合同签下后${fn:substringAfter(rspBody.lastPD,"cycle:")}天</td>
-														<td >最后交收日：</td>
-														<td>全款支付后${fn:substringAfter(rspBody.deliDate,"cycle:")}天</td>
-													</tr>
-
-													<tr>
-														<td >挂牌日期：</td>
-														<td>${rspBody.dol}</td>
-														<td >发票监管：</td>
-														<td><c:choose>												
-															<c:when test="${rspBody.invoice=='Y'}">  
-															(交易平台监管发票)
-														</c:when>
-														<c:otherwise> 
-														(交易平台不负责监管发票)
-													</c:otherwise>
-												</c:choose>
-											</td>
-										</tr>														
-
-
-									</table>
-
 								</div>
-
-							</div>
-
-						</div>
-					</div>
-					<div class="col-sub mt10" id="tab1">
-
-						<!-- mod:tabbar -->
-						<div class="tabbar-wrap">
-							<div class="mod-tabbar up-tabbar">
-								<ul class="pa-tabbar pdeta" id="J_TabBar">
-									<li class="item tab-cell selected">
-										<a  href="javascript:void(0);" hidefocus="true">商品信息</a>				
-									</li>
-									<li class="item tab-cell">
-										<a  href="javascript:void(0);" hidefocus="true">商品描述</a>
-									</li>
-									<li class="item tab-cell">
-										<a  href="javascript:void(0);" hidefocus="true">商品图片描述</a>
-									</li>
-									<c:if test="${rspBody.delist=='A' && rspBody.mID == sessionScope.userinfo.mID}">
-									<li class="item tab-cell">
-										<a  href="javascript:void(0);" hidefocus="true">指定摘牌方</a>
-									</li>
-								</c:if>
-
-							</ul>
-						</div>
-					</div>
-					<!-- end of mod:tabbar -->
-
-					<div class="sub-wrap">
-						<div class="tab-content">
-							<div class="attributes" id="attributes">
-								<ul class="attributes-list clearfix">
-									<c:if test="${fn:length(rspBody.props)>0}">
-									<c:forEach items="${rspBody.props}" var="prop" >
-									<li>${prop.propName}：${prop.propVal}</li>
-								</c:forEach>
 							</c:if>
-						</ul>
+						</h3>
 					</div>
-				</div>
-				<div class="tab-content" style="display:none;">
-					<p style="color:#7E7E7E">${rspBody.detail}</p>
-				</div>
-				<div class="tab-content" style="display:none;">
-					<p style="margin-top:20px;text-align:center;">
+					<div class="product-bar">
+						单价：<span class="price marr30"><small>￥</small><fmt:formatNumber value="${rspBody.up}" type="currency" pattern="0.00元" />/${rspBody.uom}</span>
+						数量（剩余数量/总数量）：<span class="fnt-bnd"> <span class="fs18"><span class="fcyellow">${rspBody.rem}</span>/${rspBody.qty}</span> ${rspBody.uom}</span>
+					</div>
 
-						<c:if test="${fn:length(rspBody.ctxPic1)>0}"> 
-						<img src="${rspBody.ctxPic1}" alt="" onError="this.src='/normal/images/loadfail.jpg'" >
-					</c:if>
+					<div class="pa-skin clearfix product-data" id="choose">
+						<table class="ui-table">
+							<tr >
+								<th class="product-dataTitle" colspan="4">挂牌信息</th>
+							</tr>
+							<tr>
+								<td width="120px" >挂牌有效期：</td>
+								<td>${rspBody.doe} </td>
+								<td width="120px" >挂牌单号：</td>
+								<td>${rspBody.listedNo}</td>
+							</tr>
+							<tr>
+								<td >交货仓库：</td>
+								<td>${rspBody.storage}</td>
+								<td >交收类型：</td>
+								<td>${rspBody.listedTypeName}</td>
+							</tr>
+							<tr>
+								<td >最后付款日：</td>
+								<td>合同签下后${fn:substringAfter(rspBody.lastPD,"cycle:")}天</td>
+								<td >最后交收日：</td>
+								<td>全款支付后${fn:substringAfter(rspBody.deliDate,"cycle:")}天</td>
+							</tr>
 
-					<c:if test="${fn:length(rspBody.ctxPic2)>0}"> 
-					<img src="${rspBody.ctxPic2}" alt="" onError="this.src='/normal//images/loadfail.jpg'" >
-				</c:if>
+							<tr>
+								<td >挂牌日期：</td>
+								<td>${rspBody.dol}</td>
+								<td >发票监管：</td>
+								<td><c:choose>												
+									<c:when test="${rspBody.invoice=='Y'}">  
+									交易平台监管发票
+								</c:when>
+								<c:otherwise> 
+								交易平台不负责监管发票
+							</c:otherwise>
+						</c:choose>
+					</td>
+				</tr>														
 
-				<c:if test="${fn:length(rspBody.ctxPic3)>0}"> 
-				<img src="${rspBody.ctxPic3}" alt="" onError="this.src='/normal//images/loadfail.jpg'" >
-			</c:if>
 
-		</p>
+			</table>
+
+		</div>
+
 	</div>
 
-	<c:if test="${rspBody.delist=='A' && rspBody.mID == sessionScope.userinfo.mID}">
-	<div class="tab-content" style="display:none;">
+</div>
+</div>
+<div class="col-sub mt10" id="tab1">
+
+	<!-- mod:tabbar -->
+	<div class="tabbar-wrap">
+		<div class="mod-tabbar up-tabbar">
+			<ul class="pa-tabbar pdeta" id="J_TabBar">
+				<li class="item tab-cell selected">
+					<a  href="javascript:void(0);" hidefocus="true">商品信息</a>				
+				</li>
+				<li class="item tab-cell">
+					<a  href="javascript:void(0);" hidefocus="true">商品描述</a>
+				</li>
+				<li class="item tab-cell">
+					<a  href="javascript:void(0);" hidefocus="true">商品图片描述</a>
+				</li>
+				<c:if test="${rspBody.delist=='A' && rspBody.mID == sessionScope.userinfo.mID}">
+				<li class="item tab-cell">
+					<a  href="javascript:void(0);" hidefocus="true">指定摘牌方</a>
+				</li>
+			</c:if>
+
+		</ul>
+	</div>
+</div>
+<!-- end of mod:tabbar -->
+
+<div class="sub-wrap">
+	<div class="tab-content">
 		<div class="attributes" id="attributes">
-			<c:if test="${fn:length(rspBody.delistMems)>0}">																											
 			<ul class="attributes-list clearfix">
-				<c:forEach items="${rspBody.delistMems}" var="dm" >
-				<li>${dm.delistMemName}</li>
+				<c:if test="${fn:length(rspBody.props)>0}">
+				<c:forEach items="${rspBody.props}" var="prop" >
+				<li>${prop.propName}：${prop.propVal}</li>
 			</c:forEach>
-		</ul>									
+		</c:if>
+	</ul>
+</div>
+</div>
+<div class="tab-content" style="display:none;">
+	<p style="color:#7E7E7E">${rspBody.detail}</p>
+</div>
+<div class="tab-content" style="display:none;">
+	<p style="margin-top:20px;text-align:center;">
+
+		<c:if test="${fn:length(rspBody.ctxPic1)>0}"> 
+		<img src="${rspBody.ctxPic1}" alt="" onError="this.src='/normal/images/loadfail.jpg'" >
 	</c:if>
+
+	<c:if test="${fn:length(rspBody.ctxPic2)>0}"> 
+	<img src="${rspBody.ctxPic2}" alt="" onError="this.src='/normal//images/loadfail.jpg'" >
+</c:if>
+
+<c:if test="${fn:length(rspBody.ctxPic3)>0}"> 
+<img src="${rspBody.ctxPic3}" alt="" onError="this.src='/normal//images/loadfail.jpg'" >
+</c:if>
+
+</p>
+</div>
+
+<c:if test="${rspBody.delist=='A' && rspBody.mID == sessionScope.userinfo.mID}">
+<div class="tab-content" style="display:none;">
+	<div class="attributes" id="attributes">
+		<c:if test="${fn:length(rspBody.delistMems)>0}">																											
+		<ul class="attributes-list clearfix">
+			<c:forEach items="${rspBody.delistMems}" var="dm" >
+			<li>${dm.delistMemName}</li>
+		</c:forEach>
+	</ul>									
+</c:if>
 </div>
 </div>
 </c:if>

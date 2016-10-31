@@ -60,19 +60,19 @@
 				<div class="col-xs-12">
 
 					<div class="input-group mart5 up-group">
-						<span class="input-group-addon">挂牌日期：</span>
+						<span class="input-group-addon">挂牌日期</span>
 						<input type="text" name="dol" id="dol" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control"  />
 						<span class="input-group-addon">至</span>
 						<input type="text" name="edol" id="edol" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control" />
 					</div>
 
 					<div class="input-group mart5 up-group">
-						<span class="input-group-addon">挂牌有效截止日：</span>
+						<span class="input-group-addon">挂牌有效截止日</span>
 						<input type="text" name="doe" id="doe" datepicker data-date-format="yyyy-mm-dd" data-auto-close="true"  class="cinp-date form-control" />
 					</div>
 
 					<div class="input-group mart5 up-group">
-						<span class="input-group-addon">状态：</span>
+						<span class="input-group-addon"><span class="marl28">状态</span></span>
 						<select class="csel form-control" name="status" id="status">
 							<option value="">全状态挂牌</option>	
 							<option value="0">待审核商品</option>

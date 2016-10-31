@@ -102,7 +102,12 @@
 		<div class="header-left"><a href="javascript:history.back(-1);"><img src="/mobile/images/back.png" alt=""></a></div>
 		<div class="logo  ">
 			<div class="logoTxt">
+			    <c:if test="${operType=='A'}">
+			    审核确认 <br /><span class="fcyellow ">[请在当日完成订单定金支付]</span>
+			    </c:if>
+			     <c:if test="${operType=='P'}">
 				资金支付 <br /><span class="fcyellow ">[全款支付后请到交收管理中准备接收货物]</span>
+				</c:if>
 			</div>
 		</div>
 	</div>

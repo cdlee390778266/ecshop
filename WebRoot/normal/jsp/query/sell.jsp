@@ -78,8 +78,8 @@
 								    <table class="ui-table">
 										<tbody>
 											<tr>
-												<td width="120px" class="ctr">商品分类:</td>
-												<td colspan="3">
+												<td width="80px" class="ctr">商品类型:</td>
+												<td >
 												<input type="hidden" name="commcode" id="commcode" />
 												<div class="selcomm" data-select></div>
 												<div class="select-box" id="product-dialog">
@@ -92,6 +92,8 @@
 												  至<input type="text" name="estrikeDate" id="estrikeDate" class="cinp-date"  datepicker data-date-format="yyyy-mm-dd" data-auto-close="true" />
 								
 												</td>
+                                                <td width="110"></td>
+												<td width="227"></td>
 											</tr>			
 										</tbody>
 									</table>
