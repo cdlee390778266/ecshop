@@ -64,9 +64,9 @@
 							
 							<div class="curmbs mart20">
 								<ul>
-									<li><a href="javascript:void(0);" class="active"  >订单生成<br /><span class="fs12">请在当日完成订单审核</span></a></li>
+									<li><a href="javascript:void(0);"  >订单生成<br /><span class="fs12">请在当日完成订单审核</span></a></li>
 									<li><a href="javascript:void(0);">审核确认<br /><span class="fs12">请在当日完成订单定金支付</span></a></li>
-									<li><a href="javascript:void(0);" >资金支付<br /><span class="fs12">全款支付后请到交收管理中准备接收货物</span></a></li>
+									<li><a href="javascript:void(0);" class="active" >资金支付<br /><span class="fs12">全款支付后请到交收管理中准备接收货物</span></a></li>
 									<li><a href="javascript:void(0);" >交收确认<br /><span class="fs12">根据交收日期进行交收确认</span></a></li>
 								</ul>
 							</div>

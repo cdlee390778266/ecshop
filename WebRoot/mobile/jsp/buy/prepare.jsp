@@ -381,14 +381,21 @@
 		<div id="J_Stock" class="padlr20">
 			<div class="col-xs-7 padlr5">
 
-				<c:if test="${buyBody.wholeFlg=='W'}">可购买数量
-				<input id="vol" name="vol"  type="text" class="p-text" value="${buyBody.rem}" readOnly maxlength="8" title="整单交易不允许修改"><span class="cnumber fn-fl ml40 cor-red">整单交易不允许修改</span> 
+				<c:if test="${buyBody.wholeFlg=='W'}">
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon padlr5 ">购买数量</span>
+					<input id="vol" name="vol"  type="text" class="p-text form-control" value="${buyBody.rem}" readOnly maxlength="8" title="整单交易不允许修改">
+		       </div>
+           <!-- <span class="cnumber fn-fl ml40 cor-red">整单交易不允许修改</span>  -->
 			</c:if>
 
 			<c:if test="${buyBody.wholeFlg=='S'}">
 
 			<c:if test="${buyBody.rem <= buyBody.moq}">
-			<input id="vol" name="vol"  type="text" class="p-text" value="${buyBody.rem}" readOnly maxlength="8" title="剩余商品一次性交易"> 
+			<div class="input-group input-group-lg">
+					<span class="input-group-addon padlr5 ">购买数量</span>
+					<input id="vol" name="vol"  type="text" class="p-text form-control" value="${buyBody.rem}" readOnly maxlength="8" title="剩余商品一次性交易"> 
+		       </div>
 		</c:if>
 
 		<c:if test="${buyBody.rem > buyBody.moq}">

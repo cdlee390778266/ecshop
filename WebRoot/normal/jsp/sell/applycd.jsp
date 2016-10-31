@@ -39,6 +39,12 @@
 	<script type="text/javascript" src="/normal/widget/laydate/laydate.js"></script>
 	<script type="text/javascript" src="/normal/widget/js/ui.dialog.js"></script>
 	<jsp:include page="../comm/datatables_index.jsp" flush="true" />
+
+    <!-- 滚动条美化 -->
+	<link rel="stylesheet" href="/normal/css/perfect-scrollbar.css" />
+	<script type="text/javascript" src="/normal/js/jquery.mousewheel.js"></script> 
+	<script type="text/javascript" src="/normal/js/perfect-scrollbar.js"></script>
+
 	<script type="text/javascript" src="/normal/js/handle.sell.applycd.js?v=${sessionScope.buildno}"></script>
 
 	<title>卖方挂牌</title>
@@ -432,7 +438,7 @@
 </div>
 
 <!-- 选择注册仓单弹出层 -->
-<div class="updialog w850" id="J_cdList" >
+<div class="updialog w850 cd-dialog" id="J_cdList" >
 	<div class="hd">
 		<span class="close ic"></span>
 		<h3>注册仓单选择</h3>

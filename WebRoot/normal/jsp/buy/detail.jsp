@@ -142,10 +142,25 @@
 								<ul>
 									<li><a href="javascript:void(0);">订单生成<br /> <span
 											class="fs12">请在当日完成订单审核</span></a></li>
-									<li><a href="javascript:void(0);">审核确认<br /> <span
-											class="fs12">请在当日完成订单定金支付</span></a></li>
-									<li><a href="javascript:void(0);" class="active">资金支付<br />
-											<span class="fs12">全款支付后请到交收管理中准备接收货物</span></a></li>
+                                    
+                                    <c:choose>
+						   			<c:when test="${operType=='A'}"> 
+						   				<li><a href="javascript:void(0);" class="active">审核确认<br><span class="fs12">请在当日完成订单定金支付</span></a></li> 
+									</c:when>
+							    	<c:otherwise> 
+							   			<li><a href="javascript:void(0);">审核确认<br><span class="fs12">请在当日完成订单定金支付</span></a></li>
+							    	</c:otherwise>
+								    </c:choose>
+
+                                    <c:choose>
+						   			<c:when test="${operType=='P'}"> 
+						   				<li><a href="javascript:void(0);" class="active">资金支付<br><span class="fs12">全款支付后请到交收管理中准备接收货物</span></a></li> 
+									</c:when>
+							    	<c:otherwise> 
+							   			<li><a href="javascript:void(0);">审核确认<br><span class="fs12">请在当日完成订单定金支付</span></a></li>
+							    	</c:otherwise>
+								    </c:choose>
+
 									<li><a href="javascript:void(0);">交收确认<br /> <span
 											class="fs12">根据交收日期进行交收确认</span></a></li>
 								</ul>

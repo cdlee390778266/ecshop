@@ -311,6 +311,9 @@ dataTablesInit1 = function(table, url,  ajaxfncallback, defaultOrder, btnfncallb
 	        "columns": columns,  
 	        "columnDefs": columndefs,
 	        "dom": 'fB<"clear">rt<"bottom"ilp><"clear">',
+	         initComplete: function () {
+	         	$('.dataTables_scrollBody').perfectScrollbar();
+	         },
 	        createdRow: function ( row, data, index ) {	        	       
 	        	if(typeof rowfncallback === 'function'){
 	        		rowfncallback(row, data, index);

@@ -2571,3 +2571,7 @@ td.highlight {
 .info-data li p span{
    color: #e5c04e;
 }
+.cd-dialog #dataset_filter{
+	position: relative;
+	z-index: 2;
+}

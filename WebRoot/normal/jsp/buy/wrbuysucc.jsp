@@ -49,11 +49,6 @@
 	<div class="wrapper service-full mt30">
 		<div class="grid-16-16 ">
 			<div class="crumb-nav">
-				<div class="backto">
-					<div class="backrt">
-						<a href="/home.htm">返回首页<i></i></a>
-					</div>
-				</div>
 				<div class="crumb">
 					<a href="/home.htm">交易大厅</a><span class="fa  fa-angle-right"></span><a href="/buy/list.htm">会员中心</a><span class="fa  fa-angle-right"></span><a href="/buy/list.htm">购买订单</a>
 				</div>
@@ -62,64 +57,26 @@
 			<!-- main -->
 			<div class="page">
 
-				<div class="main-content">
+				<div class="main-content bornone">
 					<div class="bd">
 					
 						<div class="page-module bsmenus">
 						
-							<div class="row" style="overflow:hidden;zoom:1;height:90px;margin-bottom:10px">
-								<ul class="step-list">
-									<li class="active">
-										<div class="linebox">
-											<label for="">
-												<p>订单生成</p>
-												<i class="icon-step step-active">1</i>
-												<span class="round">请在当日完成订单审核</span>
-											</label>
-										</div>
-									</li>
-									<li class="mid">
-										<div class="linebox">
-											<label for="">
-												<p>审核确认</p>
-												<i class="icon-step">2</i>
-												<span class="round">请在当日完成订单定金支付</span>
-											</label>
-										</div>
-									</li>
-									<li>
-										<div class="linebox">
-											<label for="">
-												<p>资金支付</p>
-												<i class="icon-step">3</i>
-												<span class="round">全款支付后请到交收管理中准备接收货物</span>
-											</label>
-										</div>
-									</li>
-									<li class="nobor">
-										<div class="linebox noline">
-											<label for="">
-												<p>交收确认</p>
-												<i class="icon-step"><i class="fa fa-angle-arraw">4</i></i>
-												<span class="round">根据交收日期进行交收确认</span>
-											</label>
-										</div>
-									</li>
+                            <div class="curmbs mart20">
+								<ul>
+									<li><a href="javascript:void(0);" class="active">订单生成<br><span class="fs12">请在当日完成订单审核</span></a></li>
+									<li><a href="javascript:void(0);">审核确认<br><span class="fs12">请在当日完成订单定金支付</span></a></li>
+									<li><a href="javascript:void(0);">资金支付<br><span class="fs12">全款支付后请到交收管理中准备接收货物</span></a></li>
+									<li><a href="javascript:void(0);">交收确认<br><span class="fs12">根据交收日期进行交收确认</span></a></li>
 								</ul>
 							</div>
-								
-							<div class="sline"></div>
-																			
+
+										
 							<div class="row">
-								<div class="hd">
-									<h3>处理信息</h3>
-								</div>	
+								
 								<div class="bind-bd">
-									<div class="title">摘牌单号：${rspBody.delistNo}</div>
-									<div class="title">摘牌状态：${rspBody.statusDesc}</div>
-									<div class="box">
-									
-											<table class="ui-table table-primary">
+                                    <div class="box">
+                                    	<table class="ui-table table-primary">
 														<caption>本次摘牌费用说明</caption>
 														<thead>
 																<tr>
@@ -140,15 +97,25 @@
 																</c:forEach>
 														</tbody>
 											</table>
-										
-										<c:if test="${enableAudit=='1'}">
-											<div class="pa-action clearfix mt10 ml60">
-												<div class="pa-btn-buy fn-fl">
-														<a href="/buy/handle/wr/A/${rspBody.delistNo}.htm"  class="btn-normal btn-buy">继续审核</a>
-												</div>
+                                    </div>
+
+                                    <div class="hd mart20">
+									    <h3>处理信息</h3>
+								    </div>	
+
+									<div class="title">摘牌单号：<span class="fcgreen">${rspBody.delistNo}</span></div>
+									<div class="title">摘牌状态：<span class="fcyellow">${rspBody.statusDesc}</span></div>
+									
+									<c:if test="${enableAudit=='1'}">
+									<div class="title">
+										<div class="pa-action clearfix  ml60">
+											<div class="pa-btn-buy fn-fl" style="top:40px;">
+													<a href="/buy/handle/wr/A/${rspBody.delistNo}.htm"  class="btn-normal btn-buy">继续审核</a>
 											</div>
-										</c:if>										
+										</div>
 									</div>
+									</c:if>										
+								
 								</div>
 							</div>
 						</div>
