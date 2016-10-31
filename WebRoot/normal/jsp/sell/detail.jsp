@@ -86,7 +86,7 @@
 												<tr>
 													<td class="ctr" width="130">挂牌商品：</td>
 													<td>${rspBody.className}&gt;${rspBody.commName}<span
-														class="fcyellow"> (${rspBody.title})</span></td>
+														class="fcyellow">(${rspBody.title}) </span></td>
 												</tr>
 
 												<c:if test="${fn:length(rspBody.titlePic)>0}">

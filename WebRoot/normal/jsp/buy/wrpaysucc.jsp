@@ -78,8 +78,10 @@
 									<h3>处理信息</h3>
 								</div>	
 								<div class="bind-bd">
-									<div class="title mart20 marb40">摘牌单号：<span class="fcgreen">${rspBody.dsNo}</span></div>
-									<div class="title mart20 marb40">摘牌状态：<span class="fcyellow">${rspBody.statusDesc}</span></div>
+								<!-- 
+									<div class="title none mart20 marb40">摘牌单号：<span class="fcgreen">${rspBody.dsNo}</span></div>
+									<div class="title none mart20 marb40">摘牌状态：<span class="fcyellow">${rspBody.statusDesc}</span></div>
+								 -->
 									<div class="title mart20 marb40">摘牌状态：买方已付全款，等待卖方发货</div>
 									<div class="box none">
 										<table class="ui-table table-primary">
