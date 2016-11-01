@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <link rel="stylesheet" href="/mobile/css/drawer.css" />
 <script src="/mobile/js/iscroll.js"></script>
@@ -101,6 +102,7 @@
                 </ul>
 
                 <ul class="slide-middle">
+                <!--  
                     <li><a href="/member/account.htm"><img src="/mobile/images/icon1.png" alt="" />我的账户</a></li>
                     <li><a href="/mall/list.htm" ><img src="/mobile/images/icon8.png" alt="" />我的挂牌</a></li>
                     <li><a href="/sell/list.htm" ><img src="/mobile/images/icon2.png" alt="" />我的订单</a></li>
@@ -110,6 +112,17 @@
                     <li><a href="/query/selllist.htm" ><img src="/mobile/images/icon6.png" alt="" />交收历史</a></li>
                     <li><a href="/fund/info.htm"><img src="/mobile/images/icon7.png" alt="" />我的资金</a></li>
                     <li><a href="/report/check.htm" ><img src="/mobile/images/icon9.png" alt="" />我的报表</a></li>
+                -->
+                    <c:forEach items="${sessionScope.userinfo.tradeMenus}" var="menu" varStatus="status">
+                    	 <c:choose>
+                    	 	<c:when test="${fn:contains(menu.menuURL,'/member/home.htm')}">
+                    	 		<li><a href="/member/account.htm"><img src="/mobile/images/icon1.png" alt="" />我的账户</a></li>
+                    	 	</c:when>
+                    	 	<c:otherwise>
+                    	 		<li><a href="${menu.menuURL}"><img src="/mobile/images/icon${status.index+1}.png" alt="" />${menu.menuName}</a></li>
+                    	 	</c:otherwise>
+                    	 </c:choose>	 
+					</c:forEach>
                     <li class="martb10 bornone menu_icon8"><a href="/sell/apply.htm?active=enter&type=0" class="btn btn-sm btn-success bnt-inlineblock">我要挂牌</a></li>
                     <li class="martb10 bornone menu_icon9"><a href="/member/logout.htm" class="btn btn-sm btn-warning bnt-inlineblock">退出</a></li>
                 </ul>
