@@ -113,7 +113,7 @@
                             	 		<li class="current">
                                      </c:when>
                                      <c:otherwise>
-                                        <li>${cUrl}
+                                        <li>
                                      </c:otherwise>
                              </c:choose>
                               <a href="/member/account.htm"><img src="/mobile/images/icon1.png" alt="" />我的账户</a></li>
