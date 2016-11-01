@@ -38,12 +38,9 @@
 		<!-- header End -->
 	</div>
 	
-	<div class="container-fluid lh34 audit">
+	<div class="container-fluid lh34 audit examine">
 		
 		<div class="row">
-			<div class="col-xs-12 fc777">
-				<p>挂牌状态</p>
-			</div>
 			<div class="col-xs-12 marb30">
 				<p>挂牌单号：<span class="fcgreen">${rspBody.listedNO}</span></p>
 				<p>处理状态：<span class="fcgreen">${rspBody.statusDesc}</span></p>
@@ -51,20 +48,14 @@
 
 			<c:if test="${enablePay=='1'}">
 			<div class="pa-action clearfix mt10 ml60">
-				<div class="pa-btn-sell padtb40">
-					<p>
-						<a href="/sell/handle/P/${rspBody.listedNO}.htm" class="btn-normal btn-sell btn btn-warning">继续支付</a>				
-					</p>			
+				<div class="pa-btn-sell txtcenter examine-btn examine-go">
+						<a href="/sell/handle/P/${rspBody.listedNO}.htm" >继续支付</a>							
 				</div>
 			</div>
 		</c:if>
 
 	</div>
 </div>
-
-<!-- footer -->
-<jsp:include page="../comm/footer.jsp" flush="true" />
-<!-- footer End -->
 
 </body>
 </html>

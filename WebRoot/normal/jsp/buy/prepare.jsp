@@ -425,7 +425,7 @@
 		<c:if test="${buyBody.listedType != 'W'}">
 			<input type="radio" name="top" id="top" value="S" name="cpay"/><span class="ml5 mr20">仅付定金</span>
 		</c:if>
-		<input type="radio" name="top" id="top" value="F" name="cpay" readonly="readonly" checked="checked" /><span class="ml5 mr20">付全款</span>
+		<input type="radio" name="top" id="top" value="F" name="cpay"  checked="checked" /><span class="ml5 mr20">付全款</span>
 
 
 		<span class="seletop" style="color: #e25f59; line-height: 30px; margin-left: 10px;"></span>

@@ -44,16 +44,9 @@
 	</div>
 
 	<div class="container-fluid up-datatables">
-
-		<div class="row safe-type txtcenter bgfff up-list">
-			<div class="col-xs-4"><a href="/delivery/selllist.htm" >销售交收</a>
-			</div>
-			<div class="col-xs-4"><a href="/delivery/buylist.htm" class="active">采购交收</a>
-			</div>
-			<div class="col-xs-4"><a href="/delivery/invlist.htm" >发票确认</a>
-			</div>
-		</div>
-
+            <!-- 二级菜单 -->
+			<jsp:include page="../comm/submenu.jsp" flush="true" />
+		    <!-- 二级菜单 Emd-->
 		<div class="condition">
 			<div class="row">
 

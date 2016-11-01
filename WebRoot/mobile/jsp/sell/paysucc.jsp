@@ -45,14 +45,14 @@
 
    <div class="row">
      <div class="col-xs-12 mart15  txtcenter padtb40 lh26">
-      摘牌单号：<span class="fcgreen ">${rspBody.listedNo}</span><br>
-      摘牌状态：<span class="fcyellow">${rspBody.statusDesc}</span>
+      挂牌单号：<span class="fcgreen ">${rspBody.listedNo}</span><br>
+      挂牌状态：<span class="fcyellow">${rspBody.statusDesc}</span>
     </div>
   </div>
   
   <div class="row">
    <div class="col-xs-12 lh50   txtcenter ">
-     本次摘牌费用说明
+     本次挂牌费用说明
    </div>
  </div>
 

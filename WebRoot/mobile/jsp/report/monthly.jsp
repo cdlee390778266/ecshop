@@ -175,12 +175,9 @@
 
 	<div class="container-fluid up-datatables report">
 
-		<div class="row safe-type txtcenter bgfff up-list">
-			<div class="col-xs-6"><a href="/report/check.htm" >日常对账单</a>
-			</div>
-			<div class="col-xs-6"><a href="javascript:void(0);" class="active">账户月报表</a>
-			</div>
-		</div>
+		<!-- 二级菜单 -->
+		<jsp:include page="../comm/submenu.jsp" flush="true" />
+		<!-- 二级菜单 Emd-->
 
 		<div class="condition">
 			<div class="row">

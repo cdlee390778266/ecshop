@@ -55,10 +55,12 @@
          摘牌单号：<span class="fcgreen ">${rspBody.delistNo}</span> <span class="fcyellow ">(${rspBody.statusDesc})</span>
        </div>
      </div>
-
+     
+     <c:if test="${enablePay=='1'}">  
      <div class="examine-go txtcenter examine-btn">
       <a href="/buy/handle/P/${rspBody.delistNo}.htm"  class="btn-normal btn-buy">继续支付</a>
     </div>
+    </c:if>
 
   </div>
 

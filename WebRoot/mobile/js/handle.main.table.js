@@ -110,7 +110,9 @@
                                 + '</div>'
                                 + '</div>'
                                 parent.append(html);
+                                 $('.loader').hide();
                             }
+                           
 
                         }else{
                          $('.loadMore').addClass('disabled');
@@ -128,6 +130,7 @@
                         if($(this).hasClass('disabled')) 
                             return ;
                         $('.loader').show();
+            
                         var page = $(this).data('page');
                         $(this).data('page',page+1);
                         var options = {

@@ -43,10 +43,9 @@
 
 	<div class="container-fluid up-datatables">
 
-		<div class="row safe-type txtcenter bgfff">
-			<div class="col-xs-12"><a href="#"  class="active" >我的合同</a>
-			</div>
-		</div>
+		<!-- 二级菜单 -->
+		<jsp:include page="../comm/submenu.jsp" flush="true" />
+		<!-- 二级菜单 Emd-->
 
 		<div class="condition">
 			<div class="row">

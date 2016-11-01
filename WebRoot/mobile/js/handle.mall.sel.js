@@ -68,19 +68,28 @@ $(function() {
 				},
 				{"render": function ( data, type, row ) {	                    	   
 					var html = '';   		                
-
-					var summarystr = '';	                
-					if(row.summary1 != null){	                	
-						summarystr += '<span>'+row.summary1+'</span>';		                	
+                    
+					var summarystr = '';
+					var up_summary = [];                
+					if(row.summary1 != null){              	
+						up_summary = [];
+					    up_summary = row.summary1.split(':');	                	
+						summarystr += '<li class="col-xs-12 col-sm-6">'+up_summary[0]+"："+up_summary[1]+'</li>';		                	
 					}	                
 					if(row.summary2 != null){	                	
-						summarystr += '<span>'+row.summary2+'</span>';		                	
+					    up_summary = [];
+					    up_summary = row.summary2.split(':');	                	
+						summarystr += '<li class="col-xs-12 col-sm-6">'+up_summary[0]+"："+up_summary[1]+'</li>'
 					}	                
 					if(row.summary3 != null){	                	
-						summarystr += '<span>'+row.summary3+'</span>';		                	
+						up_summary = [];
+					    up_summary = row.summary3.split(':');	                	
+						summarystr += '<li class="col-xs-12 col-sm-6">'+up_summary[0]+"："+up_summary[1]+'</li>'		                	
 					}	                
 					if(row.summary4 != null){	                	
-						summarystr += '<span>'+row.summary4+'</span>';		                	
+						up_summary = [];
+					    up_summary = row.summary4.split(':');	                	
+						summarystr += '<li class="col-xs-12 col-sm-6">'+up_summary[0]+"："+up_summary[1]+'</li>'		                	
 					}
 
 					var imgurl = '<img src="/images/loadfail.jpg" width="120px" height="120px" alt="">';
@@ -249,19 +258,28 @@ $('.sortbar').on('click', 'li', function(){
 		},
 		{"render": function ( data, type, row ) {	                    	   
 			var html = '';   
-
-			var summarystr = '';	                
-			if(row.summary1 != null){	                	
-				summarystr += '<span>'+row.summary1+'</span>';		                	
+           
+			var summarystr = '';
+			var up_summary = [];	                
+			if(row.summary1 != null){
+				up_summary = [];
+			    up_summary = row.summary1.split(':');	                	
+				summarystr += '<li class="col-xs-12 col-sm-6">'+up_summary[0]+"："+up_summary[1]+'</li>';		                	
 			}	                
 			if(row.summary2 != null){	                	
-				summarystr += '<span>'+row.summary2+'</span>';		                	
+				up_summary = [];
+			    up_summary = row.summary2.split(':');	                	
+				summarystr += '<li class="col-xs-12 col-sm-6">'+up_summary[0]+"："+up_summary[1]+'</li>';	                	
 			}	                
 			if(row.summary3 != null){	                	
-				summarystr += '<span>'+row.summary3+'</span>';		                	
+				up_summary = [];
+			    up_summary = row.summary3.split(':');	                	
+				summarystr += '<li class="col-xs-12 col-sm-6">'+up_summary[0]+"："+up_summary[1]+'</li>';		                	
 			}	                
 			if(row.summary4 != null){	                	
-				summarystr += '<span>'+row.summary4+'</span>';		                	
+				up_summary = [];
+			    up_summary = row.summary4.split(':');	                	
+				summarystr += '<li class="col-xs-12 col-sm-6">'+up_summary[0]+"："+up_summary[1]+'</li>';		                	
 			}
 
 			var imgurl = '<img src="/images/loadfail.jpg" width="120px" height="120px" alt="">';

@@ -29,7 +29,7 @@
 	<jsp:include page="../comm/datatables.jsp" flush="true" />
 	<jsp:include page="../comm/mobile.jsp" flush="true" />
 	
-	<script type="text/javascript" src="/normal/js/handle.delivery.inv.js?v=${sessionScope.buildno}"></script>
+	<script type="text/javascript" src="/mobile/js/handle.delivery.inv.js?v=${sessionScope.buildno}"></script>
 
 	<title>交收管理</title>
 
@@ -44,14 +44,9 @@
 	
 	<div class="container-fluid up-datatables">
 
-		<div class="row safe-type txtcenter bgfff up-list">
-			<div class="col-xs-4"><a href="/delivery/selllist.htm">销售交收</a>
-			</div>
-			<div class="col-xs-4"><a href="/delivery/buylist.htm" >采购交收</a>
-			</div>
-			<div class="col-xs-4"><a href="/delivery/invlist.htm" class="active">发票确认</a>
-			</div>
-		</div>
+		<!-- 二级菜单 -->
+		<jsp:include page="../comm/submenu.jsp" flush="true" />
+		<!-- 二级菜单 Emd-->
 
 		<div class="condition">
 			<div class="row">

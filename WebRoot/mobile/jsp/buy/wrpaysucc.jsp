@@ -53,14 +53,14 @@
 			<div class="row">
 				<div class="col-xs-12 bgwhite  mart5 success">
 					<p class="txtcenter"><img src="/mobile/images/success.png" alt="" width="70"></p>
-					<p class="">摘牌单号 <span class="fcgreen">${rspBody.delistNo}</span></p>
-					<p class="fcyellow">买方已付订金，待付全款</p>
+					
+					<p>摘牌状态：<span class="fcyellow">买方已付订金，待付全款</span></p>
 				</div>
 			</div>
 
 			<div class="lh40 mart5 marb60">
 
-				<div class="row">
+				<div class="row hide">
 					<div class="col-xs-12 padlr25 up-title">本次摘牌费用说明</div>
 				</div>
 

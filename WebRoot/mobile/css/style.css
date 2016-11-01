@@ -1382,6 +1382,12 @@ strong {
   left: 20px;
   line-height: 23px;
 }
+.order .radio-middle {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  line-height: 23px;
+}
 
 .yellow-btn {
   background: #e5c04e;
@@ -2546,7 +2552,7 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
     font-size: 12px;
   }
   .condition .input-group-addon, .condition .form-control {
-    padding: 6px;
+    padding: 5px;
   }
 }
 #step2 .col-sm-3 {
@@ -3378,4 +3384,14 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
   background: #fff;
   overflow: hidden;
   z-index: 3333;
+}
+
+.up-backTemplate .dialog {
+  max-height: 80%;
+  overflow: scroll;
+}
+
+.sel-search .product-data li {
+  padding-left: 0;
+  padding-right: 0;
 }

@@ -31,7 +31,7 @@
 	<title>我的挂牌</title>
 
 </head>
-<body class="drawer drawer-left backTemplate-dialog">
+<body class="drawer drawer-left backTemplate-dialog up-backTemplate">
     
 	<div class="fixed-wrapper">
 		<!-- header -->
@@ -41,9 +41,9 @@
 
 	<div class="container-fluid bordert up-datatables">
 
-		<div class="row safe-type txtcenter bgfff up-list">
-			<div class="col-xs-12"><a href="javascript:void(0);" class="active">销售清单</a></div>
-		</div>
+		<!-- 二级菜单 -->
+		<jsp:include page="../comm/submenu.jsp" flush="true" />
+		<!-- 二级菜单 Emd-->
 
 		<div class="condition">
 			<div class="row">
@@ -159,7 +159,7 @@
 		<div class="container-fluid">
 			<div class="lh40 mart5 marb60">
 				<div class="row">
-					<div class="col-xs-12 padlr25 up-title">本次摘牌费用说明</div>
+					<div class="col-xs-12 padlr25 up-title">本次费用说明</div>
 				</div>
 				{{#costPays}}
 				<div class="row bgfff up-cost">

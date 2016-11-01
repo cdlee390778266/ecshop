@@ -183,6 +183,7 @@ $(function() {
 					var rsdl = UI.Dialog({
 						type : 'tips',
 						width : '80%',
+						height : '80%',
 						title : '交易结果',
 						content : htmlText,
 						}).show();

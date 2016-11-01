@@ -45,14 +45,9 @@
 
 	<div class="container-fluid examine safe">
 
-		<div class="row safe-type txtcenter bgfff  borderb pwdman-setting">
-			<div class="col-xs-4"><a href="/warehouse/list.htm">签发仓单注册</a>
-			</div>
-			<div class="col-xs-4"><a href="/warehouse/rolloutlist.htm" >签发仓单转出</a>
-			</div>
-			<div class="col-xs-4"><a href="javascript:void(0);" class="active">会员绑定</a>
-			</div>
-		</div>
+		<!-- 二级菜单 -->
+		<jsp:include page="../comm/submenu.jsp" flush="true" />
+		<!-- 二级菜单 Emd-->
 
 		<form id="J_StaticForm" action="trigmembinding.htm" method="post">
 

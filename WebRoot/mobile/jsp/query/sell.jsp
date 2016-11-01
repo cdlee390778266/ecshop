@@ -44,12 +44,9 @@
 	
 	<div class="container-fluid up-datatables">
 
-		<div class="row safe-type txtcenter bgfff up-list">
-			<div class="col-xs-6"><a href="/query/selllist.htm" class="active">卖出查询</a>
-			</div>
-			<div class="col-xs-6"><a href="/query/buylist.htm" >买入查询</a>
-			</div>
-		</div>
+		<!-- 二级菜单 -->
+		<jsp:include page="../comm/submenu.jsp" flush="true" />
+		<!-- 二级菜单 Emd-->
 
 		<div class="condition">
 			<div class="col-xs-12">

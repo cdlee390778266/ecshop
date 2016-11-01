@@ -51,7 +51,7 @@
 			<!-- <div class="col-xs-6"><a href=""  >买方挂牌</a></div> -->
 			<div class="col-xs-12"><a href="javascript:void(0);"  class="active">卖方挂牌</a></div>
 		</div>
-
+	
 		<!-- 挂牌 Start -->
 		<form action="/sell/apply.htm" method="post" enctype="multipart/form-data" id="sellApply" class="form-horizontal">
 

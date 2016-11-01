@@ -73,6 +73,11 @@
 				<div class="form-control lh26 txtright fc999">${user.memName}</div>
 			</div>
 
+			<div class="input-group form-group-lg">
+				<span class="input-group-addon ">操作员ID</span>
+				<div class="form-control lh26 txtright fc999">${user.operID}</div>
+			</div>
+
 			<div class="input-group form-group-lg bgfff">
 				<span class="input-group-addon ">名称</span>
 				<div class="form_control up-info-name bornone">

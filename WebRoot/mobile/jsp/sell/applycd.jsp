@@ -216,7 +216,7 @@
 
 								<div class="row martb40">
 									<div class="col-xs-6 txtcenter marb60">
-										<a class="btn btn-default  btn-prev"  href="javascript:void(0);">上一步</a>
+										<a class="btn btn-default  btn-prev toStep1"  href="javascript:void(0);">上一步</a>
 									</div>
 									<div class="col-xs-6 txtcenter marb60">
 										<a class="btn btn-warning  btn-next" href="javascript:void(0);" >下一步</a>
@@ -288,7 +288,7 @@
 								</div>
 
 								<div class="col-xs-6 martb10 marb60">
-									<a class="btn btn-default  btn-prev" href="javascript:void(0);" >上一步</a>
+									<a class="btn btn-default  btn-prev toStep3" href="javascript:void(0); " >上一步</a>
 								</div>  
 
 								<div class="col-xs-6 martb10 marb60">

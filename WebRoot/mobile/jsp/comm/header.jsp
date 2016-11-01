@@ -102,17 +102,6 @@
                 </ul>
 
                 <ul class="slide-middle">
-                <!--  
-                    <li><a href="/member/account.htm"><img src="/mobile/images/icon1.png" alt="" />我的账户</a></li>
-                    <li><a href="/mall/list.htm" ><img src="/mobile/images/icon8.png" alt="" />我的挂牌</a></li>
-                    <li><a href="/sell/list.htm" ><img src="/mobile/images/icon2.png" alt="" />我的订单</a></li>
-                    <li><a href="/contract/list.htm"><img src="/mobile/images/icon3.png" alt="" />我的合同</a></li>
-                    <li><a href="/delivery/selllist.htm" ><img src="/mobile/images/icon4.png" alt="" />交收管理</a></li>
-                    <li><a href="/warehouse/list.htm" ><img src="/mobile/images/icon5.png" alt="" />我的仓单</a></li>
-                    <li><a href="/query/selllist.htm" ><img src="/mobile/images/icon6.png" alt="" />交收历史</a></li>
-                    <li><a href="/fund/info.htm"><img src="/mobile/images/icon7.png" alt="" />我的资金</a></li>
-                    <li><a href="/report/check.htm" ><img src="/mobile/images/icon9.png" alt="" />我的报表</a></li>
-                -->
                     <c:forEach items="${sessionScope.userinfo.tradeMenus}" var="menu" varStatus="status">
                     	 <c:choose>
                     	 	<c:when test="${fn:contains(menu.menuURL,'/member/home.htm')}">
@@ -122,7 +111,7 @@
                     	 		<li><a href="${menu.menuURL}"><img src="/mobile/images/icon${status.index+1}.png" alt="" />${menu.menuName}</a></li>
                     	 	</c:otherwise>
                     	 </c:choose>	 
-					</c:forEach>
+					          </c:forEach>
                     <li class="martb10 bornone menu_icon8"><a href="/sell/apply.htm?active=enter&type=0" class="btn btn-sm btn-success bnt-inlineblock">我要挂牌</a></li>
                     <li class="martb10 bornone menu_icon9"><a href="/member/logout.htm" class="btn btn-sm btn-warning bnt-inlineblock">退出</a></li>
                 </ul>

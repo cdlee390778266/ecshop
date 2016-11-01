@@ -414,12 +414,23 @@
 </div>
 
 <div class="col-xs-5 rel h46 ">
-	<label class="radio-inline  radio-top ">
-		<input type="radio" name="top" id="top" value="S" name="cpay" > 付定金
-	</label>
-	<label class="radio-inline radio-bottom ">
-		<input type="radio" name="top" id="top" value="F" name="cpay" >付全款
-	</label>
+    
+    <c:choose>
+	   <c:when test="${buyBody.listedType != 'W'}">   
+		   <label class="radio-inline  radio-top ">
+				<input type="radio" name="top" id="top" value="S" name="cpay" > 付定金
+			</label>
+			<label class="radio-inline radio-bottom ">
+				<input type="radio" name="top" id="top" value="F" name="cpay" >付全款
+			</label>
+	   </c:when>
+	   <c:otherwise>
+		    <label class="radio-inline radio-middle ">
+				<input type="radio" name="top" id="top" value="F" name="cpay" >付全款
+			</label>
+	   </c:otherwise>
+  </c:choose>
+
 </div>
 
 <div class="seletop fcyellow"></div>

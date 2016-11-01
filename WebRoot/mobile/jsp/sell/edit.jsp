@@ -351,6 +351,7 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 </div>
 </div>
 
+<c:if test="${rspBody.listedType=='M'}">
 <div class="form-group buy-group">
 	<div class="input-group rel">
 		<div class="input-group-addon">起订数量<span class="fcyellow">(必填)</span></div>
@@ -372,6 +373,7 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 		</div>
 	</div>
 </div>
+</c:if>
 
 <div class="form-group buy-group">
 	<div class="input-group rel">
@@ -465,8 +467,6 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 		<c:when test="${rspBody.delist =='O'}">
 		<span class="ml20 mr20"><input type="radio" name="delist" value="O" checked />不指定</span>
 		<span><input type="radio" name="delist" value="A" />指定</span>
-		<span id="memdelistlink"></span>
-		<span id="memdelistmsg"></span>	
 	</c:when>
 	<c:otherwise>
 	<span class="ml20 mr20"><input type="radio" name="delist" value="O" />不指定</span>
@@ -483,7 +483,7 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 </div> 
 </div>
 
-<div class="form-group buy-group memdelist-select" id="memdelistlink" >
+<div class="form-group buy-group memdelist-select" id="memdelistlink" <c:if test="${rspBody.delist =='O'}"> style="display:none;" </c:if>   >
 	<div class="input-group rel">
 		<span class="input-group-addon"><span>选择会员列表</span></span>
 		<div class="txtright">
@@ -614,7 +614,9 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 				<select name="seletlist" size="20" multiple id="selectlist" style="display:none;">
 				</select>				
 			</div>
-			<ul id="selc-ul"></ul>
+			<ul id="selc-ul">
+				
+			</ul>
 			<div class="selbtn">
 				<div class="row">
 					<div class="col-xs-6 up-sell-btn">
@@ -632,6 +634,16 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 			</div>										
 		</div>
 	</div>
+	<div class="selected hide">
+							<h3>已选择会员列表</h3>
+							<select name="mobile-seletedlist" size="20" multiple id="mobile-selectedlist">
+								<c:if test="${rspBody.delist =='A'}">
+									<c:forEach items="${rspBody.delistMems}" var="dm">
+										<option value="${dm.delistMID}">${dm.delistMemName}</option>
+									</c:forEach>
+								</c:if>
+							</select>
+						</div>
 	<div style="float:right;display:none;">
 		<button class="cbtn" id="confirmbtn">确&nbsp;&nbsp;认</button>	
 		<button class="cbtn" id="cancelbtn">取&nbsp;&nbsp;消</button>						

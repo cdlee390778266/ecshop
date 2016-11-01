@@ -40,9 +40,9 @@
 	
 
 	<div class="container-fluid bgwhite">
-		<div class="row safe-type txtcenter bgfff up-list">
-			<div class="col-xs-12"><a href="javascript:void(0);" class="active">挂牌处理</a></div>
-		</div>
+		<!-- 二级菜单 -->
+		<jsp:include page="../comm/submenu.jsp" flush="true" />
+		<!-- 二级菜单 Emd-->
 		<form action="/sell/${rspBody.listedType}/${link}.htm" method="post" id="sellform" >
 
 			<input type="hidden" name="listedNo" value="${rspBody.listedNo}" />
@@ -226,7 +226,7 @@
 		<div class="lh40">
 			<div class="row">
 				<div class="col-xs-12 lh50 txtcenter fcgreen">
-					本次摘牌费用说明
+					本次挂牌费用说明
 				</div>
 			</div>
 			<c:forEach items="${rspBody.costPays}" var="cost" >

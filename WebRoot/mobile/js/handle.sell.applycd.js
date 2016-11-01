@@ -525,8 +525,8 @@ $(document).ready(function() {
 		provurl : "/divis/findprov.htm", 
 		cityurl : "/divis/findcity.htm",
 		disturl : "/divis/finddist.htm",
-		callback : function(){
-			localcallback();
+		callback : function(index, key, value, fullkey, fullname){
+			localcallback(index, key, value, fullkey, fullname);
 			emptyFlag = false;
 		}
 	});

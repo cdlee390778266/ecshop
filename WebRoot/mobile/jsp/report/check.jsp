@@ -160,7 +160,12 @@ $('#report-type').change(function(){
 	$('.rpt-content').eq($(this).val()).show();
 })
 
+$('#rptdate').focus(function(event) {
+	$(this).blur();
 });
+
+});
+
 
 </script>
 
@@ -177,12 +182,9 @@ $('#report-type').change(function(){
 
 	<div class="container-fluid up-datatables report">
 
-		<div class="row safe-type txtcenter bgfff up-list">
-			<div class="col-xs-6"><a href="javascript:void(0);" class="active">日常对账单</a>
-			</div>
-			<div class="col-xs-6"><a href="/report/monthly.htm">账户月报表</a>
-			</div>
-		</div>
+		<!-- 二级菜单 -->
+		<jsp:include page="../comm/submenu.jsp" flush="true" />
+		<!-- 二级菜单 Emd-->
 
 		<div class="condition">
 			<div class="row">
@@ -240,7 +242,7 @@ $('#report-type').change(function(){
 			<div class="col-xs-6 padl20">交易商名称</div>	
 			<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
 			<div class="col-xs-6 padl20">报表日期</div>
-			<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
+			<div class="col-xs-6 txtright fc999 padr20">{{reportdate}}</div>
 		</div>
 		<div class="padb20 table-responsive">
 			<table class="rpt-model   table txtcenter">
@@ -412,7 +414,7 @@ $('#report-type').change(function(){
 				</thead>
 				<tbody>
 					{{#if succflag}}
-					list
+					
 					{{#each list}}
 					<tr>
 						<td>{{strikeNo}}</td>

@@ -48,14 +48,9 @@
 	
 	<div class="container-fluid  up-datatables">
 
-		<div class="row safe-type txtcenter bgfff up-list">
-			<div class="col-xs-4"><a href="javascript:void(0);" class="active">签发仓单注册</a>
-			</div>
-			<div class="col-xs-4"><a href="/warehouse/rolloutlist.htm">签发仓单转出</a>
-			</div>
-			<div class="col-xs-4"><a href="/warehouse/membinding.htm">会员绑定</a>
-			</div>
-		</div>
+		<!-- 二级菜单 -->
+		<jsp:include page="../comm/submenu.jsp" flush="true" />
+		<!-- 二级菜单 Emd-->
 
 		<div class="condition">
 			<div class="row">

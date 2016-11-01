@@ -1,12 +1,35 @@
 $(function() {
 	
 	var selectarray = [];
+	if($('#mobile-selectedlist option').length > 0){
+		$('#mobile-selectedlist option').each(function(){
+			selectarray.push($(this).val());
+		})
+	}
 	var emptyFlag = true;
 
 	$(document).ready(function() {
 		$('.fixed-wrapper').stickUp();
 	});
 	
+	function setElementReadOnly() {
+		if(listedType == 'W') {   //仓单设置以下元素只读
+			$("input[name='listedType']").attr("disabled", "disabled");   //设置挂牌方式只读
+			$("input[name='qty']").attr("readonly", "readonly");   //设置总量只读
+			$("input[name='wholeFlag']").attr("disabled", "disabled");   //设置是否整单只读
+			$("#storage").attr("disabled", "disabled");   //设置交收仓库只读
+		}
+	}
+	
+	function rmElementReadOnly() {
+		$("input[name='listedType']").removeAttr("disabled");   //设置挂牌方式可写
+		$("input[name='qty']").removeAttr("readonly");   //设置总量可写
+		$("input[name='wholeFlag']").removeAttr("disabled");   //设置是否整单可写
+		$("#storage").removeAttr("disabled");   //设置交收仓库可写
+	}
+	
+	setElementReadOnly();
+
 	// 是否整单处理
 	$('.J_WholeFlag input').on('ifChecked', function(event) {
 		if (this.id == 's_flag') {
@@ -177,7 +200,9 @@ $(function() {
 
 $('#detail').text($('.proddetail').text());
 
-$('#storage').comboSelect();
+if(listedType == 'M'){
+    $('#storage').comboSelect();
+}
 
 
 function checkUnitPrice(){
@@ -354,15 +379,17 @@ var checkSubmitFlg = false;
 				return;
 			}
 			
-			if(checkLastPD() == false){
-				event.preventDefault();
-				return;
-			}
+			if(listedType == 'M'){
+				if(checkLastPD() == false){
+					event.preventDefault();
+					return;
+				}
 
-			if(checkDeliDate() == false){
-				event.preventDefault();
-				return;
-			}
+				if(checkDeliDate() == false){
+					event.preventDefault();
+					return;
+				}
+		    }
 			
 			var $storage = $('#storage');
 			var $context = $storage.parent().parent();
@@ -475,8 +502,8 @@ var checkSubmitFlg = false;
 		provurl : "/divis/findprov.htm", 
 		cityurl : "/divis/findcity.htm",
 		disturl : "/divis/finddist.htm",
-		callback : function(){
-			localcallback();
+		callback : function(index, key, keyname, fullkey, fullname){
+			localcallback(index, key, keyname, fullkey, fullname);
 			emptyFlag = false;
 		}
 	});
@@ -516,6 +543,7 @@ var checkSubmitFlg = false;
 	}
 	
 	$('#memdelistlink').on('click', function(event){
+		
 		if($('#markcode').val() != ''){
 			localcallback($('#divisID').attr("data-idx"), $('#divisID').attr("data-key"), '', '', $('#divisID').attr("data-full"));
 			UP.Dialog('J_MemList');
@@ -558,7 +586,7 @@ var checkSubmitFlg = false;
 			dataType : 'json',
 			success : function(data) {
 				if(data.succflag == 0){									
-
+                      console.log(selectarray)
 					var nodes = data.data.memList;		
 					for(var n = 0; n < nodes.length; n++){
 						if(IsContain(selectarray, nodes[n].mID))

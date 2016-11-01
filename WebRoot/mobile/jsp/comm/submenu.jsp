@@ -2,6 +2,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
+<div class="row safe-type txtcenter bgfff up-list">
 <c:forEach items="${sessionScope.userinfo.tradeMenus}" var="menu">
 	<c:if test="${cUrl==menu.menuURL}">
 		<c:choose>
@@ -44,4 +45,5 @@
 		</c:choose>
 	</c:if>
 </c:forEach>
+</div>
 

@@ -166,6 +166,7 @@
 							// Dialog.node.hide();
 							$.Tips({'message':'密码修改成功','type':'info'});	
 						}else{
+							$('.errmsg').show();
 							$('.rsmsg').html(data.msg);
 						}
 					}    

@@ -102,8 +102,8 @@
 
   <!-- 加载更多 -->
   <div class="row rel">
-   <div class="loadMore" data-page='1' id="loadMore">加载更多</div>
-   <div class="loader" style="display: block;"><span></span><span></span><span></span><span></span>
+   <div class="loadMore" data-page='1' id="loadMore">上拉加载更多</div>
+   <div class="loader" style="display:block;"><span></span><span></span><span></span><span></span>
      <div>拼命加载中...</div> 
    </div>
  </div>

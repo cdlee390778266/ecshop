@@ -66,7 +66,7 @@
 
 		<!-- 摘牌信息 -->
 		<div class="row bgwhite  examine-data delist mart15 lh40 fc999">
-			<h2>摘牌信息 <span class="glyphicon glyphicon-menu-down"></span></h2>
+			<h2>挂牌信息 <span class="glyphicon glyphicon-menu-down"></span></h2>
 			<div class="detail-data">
 				<div class="col-xs-12 strong">
 					<span class="fcgreen ">挂牌单号： </span>${rspBody.listedNo}
@@ -248,8 +248,8 @@
 	</c:if>
 
 	<c:if test="${enableBuy=='false'}">
-	<div class="col-xs-12  martb10 txtright padb20">
-		<a href="javascript:layer.msg('您无购买权限！');" class="yellow-btn1 block btn-disbabled">立即购买</a>
+	<div class="col-xs-12  mart10 txtright">
+		<!-- <a href="javascript:layer.msg('您无购买权限！');" class="yellow-btn1 block btn-disbabled">立即购买</a> -->
 	</div>
 </c:if>
 

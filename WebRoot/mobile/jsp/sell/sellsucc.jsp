@@ -32,7 +32,7 @@
 	</script>
 
 </head>
-<body class="drawer drawer-left">
+<body class="drawer drawer-left bgfff">
 
 	<div class="fixed-wrapper"> 
 		<!-- header  Start -->
@@ -46,14 +46,14 @@
 
 		<div class="row">
 			<div class="col-xs-12 mart15  txtcenter padtb40 lh26">
-				摘牌单号：<span class="fcgreen ">${listed.listedNo}</span><br>
+				挂牌单号：<span class="fcgreen ">${listed.listedNo}</span><br>
 			</div>
 		</div>
 
 		<!-- 本次摘牌费用说明 Start -->
 		<div class="lh40 padb120">
 			<div class="col-xs-12 lh50   txtcenter ">
-				本次摘牌费用说明
+				本次挂牌费用说明
 			</div>
 			<c:forEach items="${listed.costPays}" var="cost" >
 			<div class="row">
@@ -87,8 +87,8 @@
 <div class="row padb120">
 
 	<div class="col-xs-12 mart15  txtcenter padtb40 lh26">
-		摘牌单号：<span class="fcgreen ">${listed.listedno}</span><br>
-		摘牌状态：<span class="fcyellow">${listed.statusDesc}</span>
+		挂牌单号：<span class="fcgreen ">${listed.listedno}</span><br>
+		挂牌状态：<span class="fcyellow">${listed.statusDesc}</span>
 	</div>
 
 	<div class="box">

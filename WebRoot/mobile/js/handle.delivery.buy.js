@@ -375,7 +375,7 @@ $(function() {
         d.lastPD = $('#lastPD').val();
         d.elastPD = $('#elastPD').val();
         d.status = $('#status').val();
-        d.commcode = $('#commcode').val();
+        d.code = $('#commcode').val();
 	};
 	
 	var defaultOrder = [8, "asc"];
@@ -432,6 +432,7 @@ $(function() {
 	}
 	
 	var btnfn = function(){
+
 		if($('#code').val()!=''&&$('#commcode').val() == ''){
 		    UI.Dialog({type : 'tips',width : '80%', title : '查询提示',content : '按商品查询时,必须选择具体的商品'}).show();						
 			event.stopPropagation();
@@ -445,6 +446,7 @@ $(function() {
 				return false;
 			}
 		}
+		
 		
 		return true;
 	}
