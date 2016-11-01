@@ -100,16 +100,37 @@
                     <li class="star-font marb10">${memdesc} <br />${sessionScope.userinfo.memName}</li>
 
                 </ul>
-
+                
+                <!-- <c:set var="accountStr" value="/member/account.htm /member/home.htm /member/info.htm /member/pay.htm /member/manager.htm"/> -->
                 <ul class="slide-middle">
                     <c:forEach items="${sessionScope.userinfo.tradeMenus}" var="menu" varStatus="status">
                     	 <c:choose>
+                           
                     	 	<c:when test="${fn:contains(menu.menuURL,'/member/home.htm')}">
-                    	 		<li><a href="/member/account.htm"><img src="/mobile/images/icon1.png" alt="" />我的账户</a></li>
+
+                                 <c:choose>
+                                     <c:when test="${cUrl==menu.menuURL}">
+                            	 		<li class="current">
+                                     </c:when>
+                                     <c:otherwise>
+                                        <li>${cUrl}
+                                     </c:otherwise>
+                             </c:choose>
+                              <a href="/member/account.htm"><img src="/mobile/images/icon1.png" alt="" />我的账户</a></li>
                     	 	</c:when>
+
                     	 	<c:otherwise>
-                    	 		<li><a href="${menu.menuURL}"><img src="/mobile/images/icon${status.index+1}.png" alt="" />${menu.menuName}</a></li>
+                               <c:choose>
+                                    <c:when test="${cUrl==menu.menuURL}">
+                                        <li class="current">
+                                    </c:when>
+                                    <c:when test="${cUrl!=menu.menuURL}">
+                                        <li>
+                                    </c:when>
+                                </c:choose>
+                                <a href="${menu.menuURL}"><img src="/mobile/images/icon${status.index+1}.png" alt="" />${menu.menuName}</a></li>
                     	 	</c:otherwise>
+
                     	 </c:choose>	 
 					          </c:forEach>
                     <li class="martb10 bornone menu_icon8"><a href="/sell/apply.htm?active=enter&type=0" class="btn btn-sm btn-success bnt-inlineblock">我要挂牌</a></li>
