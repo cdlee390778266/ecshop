@@ -163,7 +163,7 @@
 						</tr> -->																								
 						<tr>
 							<td class="ctr">货物数量：</td>											
-							<td><span id="qtytmp" style="margin-left: 10px"></span><span style="margin-left: 2px;">顿</span></td>
+							<td><span id="qtytmp" style="margin-left: 10px"></span><span style="margin-left: 2px;">吨</span></td>
 						</tr>   
 					</tbody>
 				</table>

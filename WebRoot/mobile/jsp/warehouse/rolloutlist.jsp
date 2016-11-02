@@ -37,7 +37,7 @@
 	<title>仓单管理</title>
 
 </head>
-<body class="drawer drawer-left">
+<body class="drawer drawer-left up_cdList">
 
 	<div class="fixed-wrapper"> 
 		<!-- header -->
@@ -98,48 +98,48 @@
 
 	</div>
 
-	<div class="updialog w850" id="J_cdList" style="height: 400px;width: 600px;">
+	<div class="updialog w850" id="J_cdList">
 		<div class="hd">
 			<span class="close ic"></span>
 			<h3>注册仓单转出</h3>
 		</div>
 		<div class="bd">
-			<div style="margin-top: 5px;">
+			<div style="margin-top: 5px;line-height:24px">
 				<table class="ui-table">
 					<tbody>
 
 						<tr>
-							<td class="ctr">仓单编号：</td>											
-							<td><span id="registnotmp" style="margin-left: 10px"></span></td>
+							<td class="ctr txtright">仓单编号：</td>											
+							<td><span id="registnotmp" ></span></td>
 						</tr> 
 						
 						<tr>
-							<td class="ctr">商品种类名称：</td>											
-							<td><span id="mdsenametmp" style="margin-left: 10px"></span></td>
+							<td class="ctr txtright">商品种类名称：</td>											
+							<td><span id="mdsenametmp" ></span></td>
 						</tr>
 						<tr>
-							<td class="ctr" width="130">仓库编号： </td>
-							<td><span id="storenotmp" style="margin-left: 10px"></span></td>
+							<td class="ctr txtright" width="130">仓库编号： </td>
+							<td><span id="storenotmp" ></span></td>
 						</tr>
 						
 						<tr>
-							<td class="ctr" width="130">仓库名称： </td>
-							<td><span id="storenametmp" style="margin-left: 10px"></span></td>
+							<td class="ctr txtright" width="130">仓库名称： </td>
+							<td><span id="storenametmp" ></span></td>
 						</tr>
 <!-- 						<tr>
-							<td class="ctr" width="130">仓位编码： </td>
-							<td><span id="positiontmp" style="margin-left: 10px"></span></td>
+							<td class="ctr txtright" width="130">仓位编码： </td>
+							<td><span id="positiontmp" ></span></td>
 						</tr> -->																								
 						<tr>
-							<td class="ctr">货物数量：</td>											
-							<td><span id="qtytmp" style="margin-left: 10px"></span><span style="margin-left: 2px;">顿</span></td>
+							<td class="ctr txtright">货物数量：</td>											
+							<td><span id="qtytmp" ></span><span style="margin-left: 2px;">吨</span></td>
 						</tr>   
 					</tbody>
 				</table>
 			</div>
 			
 			<div>
-				<div style="float: right;margin-top: 10px;">
+				<div class="txtcenter mart15 marb15">
 
 					<button class="cbtn" id="confirmbtn1">提&nbsp;&nbsp;交</button>
 					<button class="cbtn" id="cancelbtn1">取&nbsp;&nbsp;消</button>
