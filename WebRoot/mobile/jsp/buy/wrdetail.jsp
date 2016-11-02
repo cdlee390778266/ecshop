@@ -265,7 +265,7 @@
 		        	    	<input type="radio" name="auditRet" id="auditRet" value="1" checked /> 
 		        	    </div>
 	        		    <div class="radio">
-	        		        <label >不审核通过 </label>
+	        		        <label >审核不通过 </label>
 	        		        <input type="radio" name="auditRet" id="auditRet" value="0" />
 	        		    </div>	
 		        	</div>

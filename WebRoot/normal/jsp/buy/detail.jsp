@@ -292,7 +292,7 @@
 				<td width="120px"><label for="">审核结论：</label></td>
 				<td><input type="radio" name="auditRet" id="auditRet"
 					value="1" checked />审核通过 <input type="radio"
-					name="auditRet" id="auditRet" value="0" />不审核通过</td>
+					name="auditRet" id="auditRet" value="0" />审核不通过</td>
 				</tr>
 
 				<tr>

@@ -41,11 +41,9 @@
 
 	<div class="container-fluid bordert up-datatables">
 
-		<div class="row safe-type txtcenter bgfff up-list">
-			<div class="col-xs-6"><a href="/sell/list.htm">销售申请</a>
-			</div>
-			<div class="col-xs-6"><a href="/buy/list.htm" class="active" >购买申请</a></div>
-		</div>
+		<!-- 二级菜单 -->
+		<jsp:include page="../comm/submenu.jsp" flush="true" />
+		<!-- 二级菜单 Emd-->
 
 		<div class="condition">
 			<div class="row ">

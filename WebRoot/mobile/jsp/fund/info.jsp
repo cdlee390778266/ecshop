@@ -47,11 +47,9 @@
 
 	<div class="container-fluid up-datatables">
 
-		<div class="row safe-type txtcenter bgfff up-list">
-			<div class="col-xs-6"><a href="/fund/info.htm" class="active">资金账户</a>
-			</div>
-			<div class="col-xs-6"><a href="/fund/list.htm"  >账务明细</a></div>
-		</div>
+		<!-- 二级菜单 -->
+		<jsp:include page="../comm/submenu.jsp" flush="true" />
+		<!-- 二级菜单 Emd-->
 
 	</div>
 
