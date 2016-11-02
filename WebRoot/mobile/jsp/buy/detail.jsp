@@ -238,7 +238,7 @@ ${rspBody.lastPD}
 					<input type="radio" name="auditRet" id="auditRet" value="1" checked />
 				</div>
 				<div class="radio">
-					<label for="radio2">不审核通过</label>
+					<label for="radio2">审核不通过</label>
 					<input type="radio" name="auditRet" id="auditRet" value="0" />
 				</div>
 			</div>
