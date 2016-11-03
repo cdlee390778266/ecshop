@@ -3254,3 +3254,22 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
   padding-left: 0;
   padding-right: 0;
 }
+.juris{
+  dl{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-left: 15px;
+    border-bottom: 1px dashed #ddd;
+    dt{
+      padding-left: 20px;
+      color:#333;
+      font-weight: normal;
+      background :url(/mobile/images/success_mem.png) left center no-repeat;
+      line-height: 30px;
+    }
+    dd{
+      color:#666;
+      padding-left: 20px;
+    }
+  }
+}

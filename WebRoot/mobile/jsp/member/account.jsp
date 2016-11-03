@@ -114,7 +114,7 @@
 				$('.fixed-wrapper').stickUp();
 			});
 			$('.form-group-lg').click(function() {
-				location.href = $(this).find('.form-control a').attr('href');
+				location.href = $(this).find('a').attr('href');
 			})
 
 		});
