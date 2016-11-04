@@ -109,45 +109,63 @@
 		<c:if test="${fn:length(rspBody.linkinfos)>0}">
 
 		<c:if test="${! empty rspBody.linkinfos[0].ename}">
-		<div class="col-xs-12 strong"><span class="fcgreen ">挂牌单位：</span>${rspBody.linkinfos[0].ename}</div>
-	</c:if>
+			<div class="col-xs-12 strong"><span class="fcgreen ">挂牌单位：</span>${rspBody.linkinfos[0].ename}</div>
+	    </c:if>
 
-	<c:if test="${! empty rspBody.linkinfos[0].linkTel}">
-	<div class="col-xs-12 strong"><span class="fcgreen ">联系电话:</span>${rspBody.linkinfos[0].linkTel}</div>
-</c:if>
+		<c:if test="${! empty rspBody.linkinfos[0].linkTel}">
+			<div class="col-xs-12 strong"><span class="fcgreen ">联系电话:</span>${rspBody.linkinfos[0].linkTel}</div>
+	    </c:if>
 
-<c:if test="${! empty rspBody.linkinfos[0].legPer}">
-<div class="col-xs-12 strong"><span class="fcgreen ">会员法人：</span>${rspBody.linkinfos[0].legPer}</div>
-</c:if>
+		<c:if test="${! empty rspBody.linkinfos[0].legPer}">
+			<div class="col-xs-12 strong"><span class="fcgreen ">会员法人：</span>${rspBody.linkinfos[0].legPer}</div>
+		</c:if>
 
-<c:if test="${! empty rspBody.linkinfos[0].fax}">
-<div class="col-xs-12 strong"><span class="fcgreen ">传真号码：</span>${rspBody.linkinfos[0].fax}</div>
-</c:if>
+		<c:if test="${! empty rspBody.linkinfos[0].fax}">
+			<div class="col-xs-12 strong"><span class="fcgreen ">传真号码：</span>${rspBody.linkinfos[0].fax}</div>
+		</c:if>
 
-<c:if test="${! empty rspBody.linkinfos[0].email}">
-<div class="col-xs-12 strong"><span class="fcgreen ">电子邮箱：</span>${rspBody.linkinfos[0].email}</div>
-</c:if>
+		<c:if test="${! empty rspBody.linkinfos[0].email}">
+			<div class="col-xs-12 strong"><span class="fcgreen ">电子邮箱：</span>${rspBody.linkinfos[0].email}</div>
+		</c:if>
 
-<c:if test="${! empty rspBody.linkinfos[0].regAddr}">
-<div class="col-xs-12 strong"><span class="fcgreen ">注册地：</span>${rspBody.linkinfos[0].regAddr}</div>
-</c:if>
+		<c:if test="${! empty rspBody.linkinfos[0].regAddr}">
+			<div class="col-xs-12 strong"><span class="fcgreen ">注册地：</span>${rspBody.linkinfos[0].regAddr}</div>
+		</c:if>
 
-<c:if test="${! empty rspBody.linkinfos[0].regAddr}">
-<div class="col-xs-12 strong"><span class="fcgreen ">会员网址：</span>${rspBody.linkinfos[0].url}</div>
-</c:if>											
+		<c:if test="${! empty rspBody.linkinfos[0].regAddr}">
+			<div class="col-xs-12 strong"><span class="fcgreen ">会员网址：</span>${rspBody.linkinfos[0].url}</div>
+		</c:if>											
 
-</c:if>
+		</c:if>
+	</div>
 </div>
+
+<c:if test="${rspBody.delist=='A' && rspBody.mID == sessionScope.userinfo.mID}">
+<!-- 指定卖牌方 -->
+<div class="row bgwhite  examine-data delist mart15 lh40 fc999">
+	<h2>指定卖牌方 <span class="glyphicon glyphicon-menu-down"></span></h2>
+	<div class="detail-data">
+		<c:if test="${fn:length(rspBody.delistMems)>0}">
+			<c:if test="${fn:length(rspBody.delistMems)>0}">
+				<c:forEach items="${rspBody.delistMems}" var="dm">
+					<div class="col-xs-12 strong">
+						${dm.delistMemName}
+					</div>
+				</c:forEach>
+			</c:if>
+		</c:if>
+	</div>
 </div>
+</c:if>
 
 <!-- 商品信息 -->
 <div class="row bgwhite  examine-data delist mart15 lh40 fc999">
 	<h2>商品信息 <span class="glyphicon glyphicon-menu-down"></span></h2>
 	<div class="detail-data">
 		<c:forEach items="${rspBody.props}" var="prop" >
-		<div class="col-xs-12 strong"><span class="fcgreen ">${prop.propName}：</span>${prop.propVal}</div>
-	</c:forEach>
-</div>
+			<div class="col-xs-12 strong"><span class="fcgreen ">${prop.propName}：</span>${prop.propVal}</div>
+		</c:forEach>
+	</div>
 </div>
 
 <!-- 商品描述 -->
@@ -155,18 +173,18 @@
 	<h2>商品描述 <span class="glyphicon glyphicon-menu-down"></span></h2>
 	<div class="detail-data">
 		<c:if test="${fn:length(rspBody.detail)>0}">
-		<div class="col-xs-12">
-			${rspBody.detail}1
-		</div>
-	</c:if>
+			<div class="col-xs-12">
+				${rspBody.detail}1
+			</div>
+		</c:if>
 
-	<c:if test="${fn:length(rspBody.detail)<=0}">
-	<div class="col-xs-12">
-		<span class="marl10 fc999">暂无描述信息！</span>
+		<c:if test="${fn:length(rspBody.detail)<=0}">
+			<div class="col-xs-12">
+				<span class="marl10 fc999">暂无描述信息！</span>
+			</div>
+		</c:if>
+
 	</div>
-</c:if>
-
-</div>
 </div>
 
 <!-- 商品图描述 -->
@@ -175,48 +193,32 @@
 	<div class="detail-data padb10 ofhidden">
 
 		<c:if test="${fn:length(rspBody.ctxPic1)>0}"> 
-		<div class="col-xs-12">
-			<img src="${rspBody.ctxPic1}" alt="" onError="this.src='/mobile/images/loadfail.jpg'" class="img-responsive mart10" >
-		</div>
-	</c:if>
+			<div class="col-xs-12">
+				<img src="${rspBody.ctxPic1}" alt="" onError="this.src='/mobile/images/loadfail.jpg'" class="img-responsive mart10" >
+			</div>
+		</c:if>
 
-	<c:if test="${fn:length(rspBody.ctxPic2)>0}"> 
-	<div class="col-xs-12">
-		<img src="${rspBody.ctxPic2}" alt="" onError="this.src='/mobile/images/loadfail.jpg'" class="img-responsive mart10" >
+		<c:if test="${fn:length(rspBody.ctxPic2)>0}"> 
+			<div class="col-xs-12">
+				<img src="${rspBody.ctxPic2}" alt="" onError="this.src='/mobile/images/loadfail.jpg'" class="img-responsive mart10" >
+			</div>
+		</c:if>
+
+		<c:if test="${fn:length(rspBody.ctxPic3)>0}"> 
+			<div class="col-xs-12">
+				<img src="${rspBody.ctxPic3}" alt="" onError="this.src='/mobile/images/loadfail.jpg'" class="img-responsive mart10" >
+			</div>
+		</c:if>
+
+		<c:if test="${fn:length(rspBody.ctxPic1)<=0 && fn:length(rspBody.ctxPic2)<=0 && fn:length(rspBody.ctxPic3)<=0}"> 
+			<div class="col-xs-12">
+				<span class="marl10 fc999">暂无商品图</span>
+			</div>
+		</c:if>
+
 	</div>
-</c:if>
-
-<c:if test="${fn:length(rspBody.ctxPic3)>0}"> 
-<div class="col-xs-12">
-	<img src="${rspBody.ctxPic3}" alt="" onError="this.src='/mobile/images/loadfail.jpg'" class="img-responsive mart10" >
-</div>
-</c:if>
-
-<c:if test="${fn:length(rspBody.ctxPic1)<=0 && fn:length(rspBody.ctxPic2)<=0 && fn:length(rspBody.ctxPic3)<=0}"> 
-<div class="col-xs-12">
-	<span class="marl10 fc999">暂无商品图</span>
-</div>
-</c:if>
 
 </div>
-
-</div>
-
-<c:if test="${rspBody.delist=='A' && rspBody.mID == sessionScope.userinfo.mID}">
-<!-- 指定卖牌方 -->
-<div class="row bgwhite  examine-data delist mart15">
-	<h2>指定卖牌方 <span class="glyphicon glyphicon-menu-down"></span></h2>
-	<div class="detail-data">
-		<c:if test="${fn:length(rspBody.delistMems)>0}">
-		<c:forEach items="${rspBody.delistMems}" var="dm" >
-		<div class="col-xs-12">
-			${rspBody.detail}
-		</div>
-	</c:forEach>
-</c:if>
-</div>
-</div>
-</c:if>
 
 </div>
 
@@ -242,15 +244,15 @@
 		</div>
 
 		<c:if test="${enableBuy=='true'}">
-		<div class="col-xs-12  martb10 txtright">
-			<a href="/buy/prepare/${rspBody.listedNo}.htm" class="yellow-btn1 block">立即购买</a>
-		</div>
-	</c:if>
+			<div class="col-xs-12  martb10 txtright">
+				<a href="/buy/prepare/${rspBody.listedNo}.htm" class="yellow-btn1 block">立即购买</a>
+			</div>
+		</c:if>
 
-	<c:if test="${enableBuy=='false'}">
-	<div class="col-xs-12  mart10 txtright">
-		<!-- <a href="javascript:layer.msg('您无购买权限！');" class="yellow-btn1 block btn-disbabled">立即购买</a> -->
-	</div>
+		<c:if test="${enableBuy=='false'}">
+		<div class="col-xs-12  mart10 txtright">
+			<!-- <a href="javascript:layer.msg('您无购买权限！');" class="yellow-btn1 block btn-disbabled">立即购买</a> -->
+		</div>
 </c:if>
 
 </div>

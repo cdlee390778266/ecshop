@@ -99,7 +99,8 @@ window.mySwipe = Swipe(elem, {
 
 //交易与市场下拉
 $('.select-mark').click(function(){
-
+    
+    $('.select-mark-white').hide();
 	$('.select .selectUl').slideUp(100);
 	$('.stype').find('h2 span').css({
 		'transform' : 'rotate(0deg)',
@@ -110,9 +111,15 @@ $('.select-mark').click(function(){
 
 });
 
+$('.select-mark,.select-mark-white,.select').on('touchmove',function(e){
+   e.stopPropagation();
+   e.preventDefault();
+})
+
 $('body').on('click','.stype',function(event){
 
 	event.stopPropagation();
+    $('.select-mark-white').show();
 	$('.stype').parents('.select').find('.select-mark').show();
 	$('.stype').find('h2 span').css({
 		'transform' : 'rotate(0deg)',

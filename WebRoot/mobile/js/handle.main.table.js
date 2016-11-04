@@ -96,7 +96,7 @@
                                 + '<li>数量： <span class="red">'+ row.rem+'/'+row.qty + '</span> ' + row.uom + '</li>'
                                 + summarystr
                                 + '<li>交收仓库：' + row.storage + '</li>'
-                                + '<li>仓库地址：</li>'
+                               
                                 + '<li>交收类型： <span class="red radius">'+row.listedTypeName+'</span></li>'
                                 + '</ul>'
                                 + '<div class="seller row">'

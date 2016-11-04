@@ -114,7 +114,6 @@ $(function() {
 					+ '<li class="col-xs-12 col-sm-6">数量： <span class="red">'+ row.rem+'/'+row.qty + '</span> ' + row.uom + '</li>'
 					+ summarystr
 					+ '<li class="col-xs-12 col-sm-6">交收仓库：' + row.storage + '</li>'
-					+ '<li class="col-xs-12 col-sm-6">仓库地址：</li>'
 					+ '<li class="col-xs-12 col-sm-6">交收类型： <span class="red radius">'+row.listedTypeName+'</span></li>'
 					+ '</ul>'
 					+ '<div class="seller row">'
