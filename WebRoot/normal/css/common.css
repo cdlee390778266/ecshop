@@ -2394,3 +2394,6 @@ table.dataTable.hover tbody tr:hover .sum-commname, table.dataTable.display tbod
   overflow:hidden;
   text-overflow:ellipsis;
 }
+.combo-select #storage{
+  display: none;
+}

@@ -260,7 +260,7 @@
                                     <tr>
                                      <td class="ctr">交收仓库<span class="forceinput">(必选)</span>：</td>
                                      <td>
-                                      <select style="width:230px;margin-left:10px" name="storage" id="storage">
+                                      <select style="width:230px;margin-left:10px;" name="storage" id="storage">
                                         <option value="" selected>请选择</option>
 
                                       </select>
