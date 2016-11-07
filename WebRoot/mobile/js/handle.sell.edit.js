@@ -17,7 +17,7 @@ $(function() {
 			$("input[name='listedType']").attr("disabled", "disabled");   //设置挂牌方式只读
 			$("input[name='qty']").attr("readonly", "readonly");   //设置总量只读
 			$("input[name='wholeFlag']").attr("disabled", "disabled");   //设置是否整单只读
-			$("#storage").attr("disabled", "disabled");   //设置交收仓库只读
+			$("#storage").attr("disabled", "disabled").addClass('form-control');   //设置交收仓库只读
 		}
 	}
 	
@@ -452,7 +452,7 @@ var checkSubmitFlg = false;
 
 	// 总量改变事件。
 	$('#qty').on('change', function(event) {
-		var wsFlag = $('.J_WholeFlag input[name="wholeFlag"]:checked').val();
+		var wsFlag = $('.J_WholeFlag input[name="DwholeFlag"]:checked').val();
 
 		$("#moq").parent().removeClass('error');
 		$("#incrNum").parent().removeClass('error');
@@ -587,7 +587,7 @@ var checkSubmitFlg = false;
 			dataType : 'json',
 			success : function(data) {
 				if(data.succflag == 0){									
-                      console.log(selectarray)
+       
 					var nodes = data.data.memList;		
 					for(var n = 0; n < nodes.length; n++){
 						if(IsContain(selectarray, nodes[n].mID))

@@ -339,15 +339,15 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 			<div class="J_WholeFlag txtright">
 				<c:choose>
 				<c:when test="${rspBody.wholeFlg == 'W'}">
-				<span class="ml20 mr20"><input type="radio" name="wholeFlag" id="w_flag" value="W" checked />是</span>
-				<span><input type="radio" name="wholeFlag" id="s_flag" value="S" disabled="disabled" />否</span>
-			</c:when>												
-			<c:otherwise>
-			<span class="ml20 mr20"><input type="radio" name="wholeFlag" id="w_flag" value="W" />是</span>
-			<span><input type="radio" name="wholeFlag" id="s_flag" value="S" checked />否</span>
-		</c:otherwise>
-	</c:choose>
-</div>
+					<span class="ml20 mr20"><input type="radio" name="wholeFlag" id="w_flag" value="W" checked />是</span>
+					<span><input type="radio" name="wholeFlag" id="s_flag" value="S" disabled="disabled" />否</span>
+				</c:when>												
+				<c:otherwise>
+					<span class="ml20 mr20"><input type="radio" name="wholeFlag" id="w_flag" value="W" />是</span>
+					<span><input type="radio" name="wholeFlag" id="s_flag" value="S" checked />否</span>
+			</c:otherwise>
+		</c:choose>
+	</div>
 </div>
 </div>
 

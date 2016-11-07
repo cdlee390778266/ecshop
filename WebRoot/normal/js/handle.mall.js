@@ -172,7 +172,7 @@ $(function() {
 			cache : false,
 			dataType : 'json',
 			success : function(data) {
-				console.log(data.data);
+				
 				if(data.succflag == 0){
 					var source='';
 					if(data.data.listedType == 'M'){

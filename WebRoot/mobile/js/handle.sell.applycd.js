@@ -552,7 +552,8 @@ $(document).ready(function() {
 		$('#memdelists').val('');
 		var checkdelist = $('input:radio[name="delist"]:checked').val();
 		if(checkdelist == 'O'){
-			$('#memdelistlink').text('');							
+			$('#memdelistlink input-group-addon').text('');
+			$('#memdelistlink').hide();							
 		}else{
 			if(wrno == ''){
 				$('#memdelistlink .input-group-addon').html('<span>请先选择注册仓单</span>');

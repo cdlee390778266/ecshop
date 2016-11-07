@@ -88,7 +88,7 @@
 
 	<div class="col-xs-12 mart15  txtcenter padtb40 lh26">
 		挂牌单号：<span class="fcgreen ">${listed.listedno}</span><br>
-		挂牌状态：<span class="fcyellow">${listed.statusDesc}</span>
+		<!-- 挂牌状态：<span class="fcyellow">${listed.statusDesc}</span> -->
 	</div>
 
 	<div class="box">

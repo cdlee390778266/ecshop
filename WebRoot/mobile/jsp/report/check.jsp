@@ -285,7 +285,7 @@ $('#rptdate').focus(function(event) {
 			<div class="col-xs-6 padl20">交易商名称</div>	
 			<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
 			<div class="col-xs-6 padl20">报表日期</div>
-			<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
+			<div class="col-xs-6 txtright fc999 padr20">{{reportdate}}</div>
 		</div>
 		<div class="padb20 table-responsive">
 			<table class="rpt-model   table">
@@ -329,7 +329,7 @@ $('#rptdate').focus(function(event) {
 			<div class="col-xs-6 padl20">交易商名称</div>	
 			<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
 			<div class="col-xs-6 padl20">报表日期</div>
-			<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
+			<div class="col-xs-6 txtright fc999 padr20">{{reportdate}}</div>
 		</div>
 		<div class="padb20 table-responsive">
 			<table class="rpt-model   table">
@@ -387,7 +387,7 @@ $('#rptdate').focus(function(event) {
 			<div class="col-xs-6 padl20">交易商名称</div>	
 			<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
 			<div class="col-xs-6 padl20">报表日期</div>
-			<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
+			<div class="col-xs-6 txtright fc999 padr20">{{reportdate}}</div>
 		</div>
 		<div class="padb20 table-responsive">
 			<table class="rpt-model   table">
@@ -454,7 +454,7 @@ $('#rptdate').focus(function(event) {
 			<div class="col-xs-6 padl20">交易商名称</div>	
 			<div class="col-xs-6 txtright fc999 padr20">{{memname}}</div>
 			<div class="col-xs-6 padl20">报表日期</div>
-			<div class="col-xs-6 txtright fc999 padr20">2{{reportdate}}</div>
+			<div class="col-xs-6 txtright fc999 padr20">{{reportdate}}</div>
 		</div>
 		<div class="padb20 table-responsive">
 			<table class="rpt-model   table">

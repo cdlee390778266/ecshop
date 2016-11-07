@@ -511,8 +511,8 @@ strong{
      border-top: 1px solid rgba(104, 104, 104, 0.1);
      ;
    }
-   &.current{
-    background:#6db23d;
+   &.current a{
+    color:#6db23d;
    }
    a{
     display : block;
@@ -736,6 +736,7 @@ strong{
  position : relative;
  color: $fc666;
  background : #fff;
+ z-index: 9;
  .select-bar{
   position:relative;
   z-index: 89;
@@ -792,6 +793,16 @@ ul{
   background : rgba(0,0,0,0.4);
   height : 500px;
   width : 100%;
+  display:none;
+}
+.select-mark-white{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0);
+  z-index: 8;
   display:none;
 }
 
@@ -2555,7 +2566,7 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
     position: relative;
     top: -3px;
   }
-  .iradio_square-green.disabled{
+  .iradio_square-green.disabled.checked{
     background-position: -216px 0 !important; 
   }
 }
@@ -2937,6 +2948,7 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
   line-height: 40px;
   background-color: #6eb33e;
   color:#fff;
+  border-radius: 0px !important;
 }
 .datepicker-prev,.datepicker-next{
   background-color:#62a734 !important;
@@ -3253,4 +3265,23 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
 .sel-search .product-data li{
   padding-left: 0;
   padding-right: 0;
+}
+.juris{
+  dl{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-left: 15px;
+    border-bottom: 1px dashed #ddd;
+    dt{
+      padding-left: 20px;
+      color:#333;
+      font-weight: normal;
+      background :url(/mobile/images/success_mem.png) left center no-repeat;
+      line-height: 30px;
+    }
+    dd{
+      color:#666;
+      padding-left: 20px;
+    }
+  }
 }

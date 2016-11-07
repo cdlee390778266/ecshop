@@ -234,7 +234,7 @@
 					 $(this).on('click', '.up-pager a', function() {
 					 	var page = parseInt($('.up-pager input').val());
 					 	if(totalPage < page){
-					 		layer.msg('输入页面太大!');
+					 		layer.msg('输入页码过大!');
 					 		return 
 					 	}
 					 	var options = {

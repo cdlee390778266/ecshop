@@ -69,6 +69,7 @@
       <ul class="selectUl">
         <li>不限<span class="glyphicon glyphicon-ok"></span></li>
         <li>保证金<span class="glyphicon glyphicon-ok"></span></li>
+        <li>仓单<span class="glyphicon glyphicon-ok"></span></li>
       </ul> 
     </div>
 
@@ -174,6 +175,7 @@
 </div>
 </div>
 </div>
+<div class="select-mark-white"></div>
 
 <script type="text/javascript" src="/mobile/js/handle.home.js?v=${sessionScope.buildno}"></script>
 
