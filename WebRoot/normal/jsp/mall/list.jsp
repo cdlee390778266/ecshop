@@ -236,6 +236,12 @@
 	</div>
 </script>
 
+<script type="text/x-handlebars-template" id="backTemplatecd">
+		<div class="title ml20">单号：{{listedNo}}</div>							
+		<div class="title ml20">处理状态：{{statusDesc}}</div>
+	</script>
+
+
 
 <!-- footer -->
 <jsp:include page="../comm/footer.jsp" flush="true" />

@@ -95,7 +95,7 @@
                                 + '<li>仓单编号：' + row.listedNo + '</li>'
                                 + '<li>数量： <span class="red">'+ row.rem+'/'+row.qty + '</span> ' + row.uom + '</li>'
                                 + summarystr
-                                + '<li>交收仓库：' + row.storage + '</li>'
+                                + '<li class="ellipsis">交收仓库：' + row.storage + '</li>'
                                
                                 + '<li>交收类型： <span class="red radius">'+row.listedTypeName+'</span></li>'
                                 + '</ul>'
@@ -112,7 +112,6 @@
                                 parent.append(html);
                                  $('.loader').hide();
                             }
-                           
 
                         }else{
                          $('.loadMore').addClass('disabled');

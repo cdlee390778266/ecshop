@@ -54,7 +54,7 @@
 				<div class="col-xs-12 bgwhite  mart5 success">
 					<p class="txtcenter"><img src="/mobile/images/success.png" alt="" width="70"></p>
 					
-					<p>摘牌状态：<span class="fcyellow">买方已付订金，待付全款</span></p>
+					<p><span class="fcyellow">买方已付全款，等待卖方发货</span></p>
 				</div>
 			</div>
 

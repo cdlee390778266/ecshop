@@ -15,7 +15,6 @@
 	<link rel="shortcut icon" href="/mobile/images/icon/favicon.ico" />
 	<link type="text/css" rel="stylesheet" href="/mobile/css/font.css" />
 	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.datepicker.css" />
-	<link type="text/css" rel="stylesheet" href="/mobile/css/selecttags.css" >
 	<link type="text/css" rel="stylesheet" href="/mobile/widget/css/ui.dialog.css" />
 
 	<script type="text/javascript">

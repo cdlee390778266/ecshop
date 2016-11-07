@@ -621,7 +621,7 @@ strong {
 .slideBar-menu .slide-middle li:first-child {
   border-top: 1px solid rgba(104, 104, 104, 0.1);
 }
-.slideBar-menu .slide-middle li.current {
+.slideBar-menu .slide-middle li.current a {
   color: #6db23d;
 }
 .slideBar-menu .slide-middle li a {
