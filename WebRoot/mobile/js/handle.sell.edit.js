@@ -439,6 +439,7 @@ var checkSubmitFlg = false;
 			return;
 		}
 		
+		rmElementReadOnly();
 		checkSubmitFlg = true;
 	});
 

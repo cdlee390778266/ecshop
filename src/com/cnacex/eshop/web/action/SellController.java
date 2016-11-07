@@ -696,6 +696,7 @@ public class SellController extends TradeController {
 		}else{
 			ApplyCdListedRspMsg editRspMsg= sellService.editCdSell(apply);
 			ApplyCdListedRsp rspBody = editRspMsg.getBody();
+			rspBody.setStatusDesc(StatusUtil.getSellStatus(rspBody.getStatus().intValue()));
 			model.addAttribute("listed", rspBody);
 			if (editRspMsg.getHead() == null) {
 				model.addAttribute("message", editRspMsg.getFault().getRspMsg());
