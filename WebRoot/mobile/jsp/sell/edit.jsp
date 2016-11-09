@@ -617,7 +617,7 @@ data-tip="${tipsmsg}" autocomplete="off" data-valid="${valid}" data-error="${val
 			<ul id="selc-ul">
 				
 			</ul>
-			<div class="selbtn">
+			<div class="selbtn bgfff">
 				<div class="row">
 					<div class="col-xs-6 up-sell-btn">
 						<div class="pa-btn-sell btn-all-select ">

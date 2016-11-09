@@ -374,7 +374,7 @@
 						<div class="localcity-data">
 						<ul id="selc-ul"></ul>
 						</div>
-						<div class="selbtn">
+						<div class="selbtn bgfff">
 							<div class="row">
 								<div class="col-xs-6 up-sell-btn">
 									<div class="pa-btn-sell btn-all-select ">

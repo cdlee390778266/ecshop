@@ -8,7 +8,7 @@
             callback:function(){return false;}
 		};
         var opts = $.extend({}, $.fn.localCity.defaults, options);
-        var cityHeight = $(window).height() - 127;
+        var cityHeight = $(window).height() - 126;
 
         var tabs = '<div class="tabs container-fluid">'+
         			'<ul class="row txtright">'+

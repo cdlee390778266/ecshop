@@ -7,6 +7,11 @@ $(function() {
 
 	var cityHeight = $(window).height() - 120;
     $('#selc-ul').css('height',cityHeight);
+    $(window).resize(function(event) {
+		$('#selc-ul').css('height',$(window).height() - 120);
+		$('.con .list ul').css('height',$(window).height() - 126);
+	});
+	
     
     //改版部分新增代码   ---start
 
@@ -768,5 +773,6 @@ $('#selectCd').on('click', function(event){
 		$('#cancelbtn1').click();
 		$('.cd-id').html($('#wrno').val());
 	});
+
 	
 });

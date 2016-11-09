@@ -102,10 +102,7 @@ $('.select-mark').click(function(){
     
     $('.select-mark-white').hide();
 	$('.select .selectUl').slideUp(100);
-	$('.stype').find('h2 span').css({
-		'transform' : 'rotate(0deg)',
-		'color' : '#666'
-	});
+    $('.stype').removeClass('active');
 	$('.stype').parents('.select').find('.select-mark').hide();
 	$('body').css('overflow','auto');
 
@@ -121,18 +118,15 @@ $('body').on('click','.stype',function(event){
 	event.stopPropagation();
     $('.select-mark-white').show();
 	$('.stype').parents('.select').find('.select-mark').show();
-	$('.stype').find('h2 span').css({
-		'transform' : 'rotate(0deg)',
-		'color' : '#666'
-	});
-	$(this).find('h2 span').css({
-		'transform' : 'rotate(180deg)',
-		'color' : '#e5c04e'
-	});
-	$('.select .selectUl').hide();
-	$(this).find('.selectUl').slideDown(100);
-	$('body').css('overflow','hidden');
-
+    if($(this).hasClass('active')){
+        $('.select-mark').click();
+    }else{
+        $('.stype').removeClass('active');
+        $(this).addClass('active');
+        $('.select .selectUl').hide();
+        $(this).find('.selectUl').slideDown(100);
+        $('body').css('overflow','hidden');
+    }
 })
 
 $('.select').on('click','li',function(event){
@@ -179,7 +173,7 @@ var tab = $("#product").tabulation("/mall/findtradelist.htm");
 //加载更多
 $(window).scroll(function(){
 
-	if ((document.documentElement.scrollHeight) == (document.documentElement.scrollTop | document.body.scrollTop) + document.documentElement.clientHeight){
+	if ((document.documentElement.scrollHeight) <= (document.documentElement.scrollTop | document.body.scrollTop) + document.documentElement.clientHeight + 10){
 		$('.loadMore').click();
 	}
     

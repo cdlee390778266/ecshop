@@ -143,7 +143,7 @@
 <c:if test="${rspBody.delist=='A' && rspBody.mID == sessionScope.userinfo.mID}">
 <!-- 指定卖牌方 -->
 <div class="row bgwhite  examine-data delist mart15 lh40 fc999">
-	<h2>指定卖牌方 <span class="glyphicon glyphicon-menu-down"></span></h2>
+	<h2>指定摘牌方 <span class="glyphicon glyphicon-menu-down"></span></h2>
 	<div class="detail-data">
 		<c:if test="${fn:length(rspBody.delistMems)>0}">
 			<c:if test="${fn:length(rspBody.delistMems)>0}">

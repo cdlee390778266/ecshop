@@ -880,6 +880,13 @@ strong {
   position: static;
   background: #f5f5f5;
 }
+.select .stype.active h2 span {
+  color: #e5c04e;
+  transform: rotate(180deg);
+}
+.select .stype h2 span {
+  color: #666;
+}
 .select .stype ul {
   width: 100%;
 }
@@ -2741,7 +2748,6 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
 #J_MemList .manage .localcity .con {
   line-height: 40px;
   padding: 0 15px;
-  height: calc(100vh - 140px);
   overflow-y: scroll;
   display: none;
 }
@@ -2787,6 +2793,7 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
   bottom: 0;
   left: 0;
   border-top: 1px solid #eeeeee;
+  z-index: 66;
 }
 .selbtn .up-sell-btn {
   text-align: center;
@@ -2913,6 +2920,8 @@ table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.
 .up-manager .updialog {
   width: 100%;
   height: 100%;
+  -webkit-overflow-scrolling: auto;
+  overflow-scrolling: auto;
 }
 .up-manager .updialog .up-txt {
   display: inline-block;
